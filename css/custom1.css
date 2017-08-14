@@ -1,0 +1,312 @@
+/* Call the clickable logo */
+prm-logo div.product-logo {
+    display:none;
+}
+prm-logo div.product-logo-local {
+display: flex;
+}
+prm-logo .logo-image, prm-logo img {
+    max-height: 80px;
+}
+
+/* Hide Tags in Detailed Display */
+[aria-label="Tags"]{display:none;}
+#tags{display:none;}
+
+/* Hide Tags in Menu Tab */
+a.md-button[aria-label="Tags"] {display:none;}
+a.md-button[aria-label="nui.mainmenu.label.tags"] {display:none;}
+
+/*---------------------Text Styles--------------------*/
+
+/*Links*/
+a, .md-button.arrow-link-button .button-content {
+  color: #a51c30;
+}
+
+/*Advanced Text Labels */
+.prm-text, a.a-tag-as-wrapper, .md-button.arrow-link-button .a-tag-as-wrapper.button-content, a.a-tag-as-wrapper:hover, .recommendations-title:hover > span > span.a-tag-as-wrapper, .recommendations-title.hover > span > span.a-tag-as-wrapper, a.a-tag-as-wrapper:focus, .hack-a-tag-unclickable a, .hack-a-tag-unclickable .md-button.arrow-link-button .button-content, .md-button.arrow-link-button .hack-a-tag-unclickable .button-content, prm-search-bar, md-input-container.static-select.md-input-has-value label,
+md-input-container.static-select.md-input-has-value label:not(.md-no-float), .presentable-disabled-inputs md-input-container label, md-toolbar.transparent-toolbar,
+md-toolbar.md-primoExplore-theme.transparent-toolbar,
+md-toolbar.transparent-toolbar:not(.md-menu-toolbar), md-toolbar.default-toolbar,
+md-toolbar.md-primoExplore-theme.default-toolbar,
+md-toolbar.default-toolbar:not(.md-menu-toolbar) {
+  color: #a51c30; }
+
+/*--------Top Banner ---------------*/
+
+/*Top Banner Background Color */
+
+.prm-primary-bg.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar, prm-search-bar.prm-hue1 {background-color: #fff; }
+
+/*-----User Area -------*/
+
+  /*UserName Guest */
+
+prm-user-area .user-name {
+    text-transform: none;
+    font-weight: 600;
+    color: #a51c30;
+    text-align: left;
+    max-width: 80px;
+}
+
+/*Background for Guest Button And Icon */
+.prm-primary-bg.prm-hue2, prm-main-menu[menu-type=full] md-backdrop, prm-search-bookmark-filter .md-button, prm-spinner.prm-hue2.overlay-cover.light-on-dark:after, prm-user-area, prm-user-area md-fab-trigger>.md-button .md-fab-toolbar-background {
+    background-color: #fff;
+}
+
+
+  /*Hover */
+
+  /*NAV BAR REGULAR Button Hover */
+  prm-topbar .md-button:focus, prm-topbar .md-button:hover {
+      color: #fff !important;
+      background-color: #a51c30 !important;
+      box-shadow: none;
+  }
+  
+  prm-user-area .user-menu-button .user-name {
+      text-transform: none;
+      font-weight: 600;
+      color: #a51c30;
+      text-align: left;
+      max-width: 150px;
+  }
+
+/*!!!!!!!  TOPBAR - USER AREA - HOVER COLOR !!!!!!!!*/
+  md-fab-toolbar md-toolbar {
+      background-color: #fff !important;
+      pointer-events: none;
+      z-index: 23;
+  }
+/*Top Bar - User Area - Button Link Color - On Hover */
+
+/*Language Button Hover */
+
+prm-topbar .md-button {
+  color: #a51c30 !important;
+  text-transform: none;
+  height: 100%;
+  border-radius: 0;
+  margin: 0;
+}
+
+
+prm-user-area md-fab-toolbar .md-fab-action-item md-input-container md-select, prm-user-area md-fab-toolbar .md-fab-action-item md-input-container .md-input-container-dummy > .md-select-dummy, prm-user-area md-fab-toolbar ._md-fab-action-item md-input-container md-select, prm-user-area md-fab-toolbar ._md-fab-action-item md-input-container .md-input-container-dummy > .md-select-dummy {
+    color: #a51c30;
+    height: 100%;
+}
+
+/*User Area - Hover - Button Color - My Library Card */
+
+prm-user-area md-fab-toolbar .md-fab-action-item md-input-container.md-primoExplore-theme:not([disabled]) {
+    color: #a51c30;
+}
+
+prm-user-area md-fab-toolbar .md-fab-action-item .md-button.md-primoExplore-theme:not([disabled]) {
+      color: #a51c30;
+  }
+/*User Area - Hover - Button on Hover Color - My Library Card*/
+
+prm-user-area md-fab-toolbar .md-fab-action-item .md-button.md-primoExplore-theme:not([disabled]):focus, prm-user-area md-fab-toolbar .md-fab-action-item .md-button.md-primoExplore-theme:not([disabled]):hover, prm-user-area md-fab-toolbar .md-fab-action-item md-input-container.md-primoExplore-theme:not([disabled]):focus, prm-user-area md-fab-toolbar .md-fab-action-item md-input-container.md-primoExplore-theme:not([disabled]):hover {
+    background-color: #fff;
+    color: #a51c30;
+    box-shadow: none!important;
+}
+
+/*--------Search Changes Color Changes-----------*/
+
+/*Search Options Background */
+  prm-search-bar .prm-top-bar-container .search-element .search-options {background-color:#a51c30;}
+  
+/*Search Options Hover Background */
+  prm-search-bar .prm-top-bar-container .search-element .search-options:hover {
+      background-color: #fff;
+      color: #a51c30 !important;
+  }
+/*Search Bar Container */
+  md-toolbar.dark-toolbar, md-toolbar.md-primoExplore-theme.dark-toolbar, md-toolbar:not(.md-menu-toolbar).dark-toolbar {
+      background-color: #a51c30;
+      color: #fff;
+      border-top: 1px solid #a51c30;
+  }
+  
+/*Search Bar Wrapper */
+  .prm-primary-bg, prm-spinner.overlay-cover.light-on-dark:after, prm-search-bar {
+  color: #a51c30;background-color:#ac9e94; }
+
+
+  .md-button.button-confirm {
+      color: #a51c30;
+  }
+
+/*Browse, Journal Search Wrapper */
+.prm-primary-bg, prm-browse-search-bar, prm-journals-search-bar, prm-search-bar, prm-spinner.overlay-cover.light-on-dark:after, prm-tags-search-bar {
+    color: #fff;
+    background-color: #ac9e94;
+}
+  
+/*Magnify Icon */
+  .md-button:hover:not([disabled]), .md-button:focus:not([disabled]), .md-button.hove#a51c30:not([disabled]), .md-button.md-focused:not([disabled]), .md-button._md-focused:not([disabled]) {
+      color: #a51c30;
+      background-color: #fff);
+  }
+  
+/*Magnify Icon - Hover */
+  .md-button.button-confirm:hover:not([disabled]), .md-button.button-confirm:focus:not([disabled]), .md-button.button-confirm.hovered:not([disabled]), .md-button.button-confirm.md-focused:not([disabled]), .md-button.button-confirm._md-focused:not([disabled]) {
+      color: #fff;
+      background-color: #a51c30;
+  }
+/*Search Bar */
+  prm-search-bar .prm-top-bar-container .search-element .search-input-container {
+      font-size: 1.6em;
+      background-color: #fff;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex: 2 0 auto;
+      -ms-flex: 2 0 auto;
+      flex: 2 0 auto;
+      position: relative;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      height: auto;
+      color: #a51c30;
+  }
+
+  prm-search-bar .prm-top-bar-container .search-element .search-input-container md-autocomplete-wrap input+button {
+      color: #a51c30;
+  }
+
+
+/*Search Bar Color on Hover | Active */
+    prm-search-bar .prm-top-bar-container .search-element .search-input-container md-autocomplete-wrap input:hover {
+      background-color: #fff;
+      color: tomato;
+  }
+
+/*Advanced Search Bar */
+
+prm-search-bar .advanced-search-backdrop {
+    background-color: #ac9e94;
+
+}
+  prm-search-bar .advanced-search-tabs {
+      background-color: #fff;
+      box-shadow: inset 0 -1px 0 0 #f1f1f1;
+  }
+
+/*---------Advanced Search Link ------------*/
+prm-search-bar .search-switch-buttons .md-button.switch-to-advanced {
+    color: #fff;
+}
+
+prm-search-bar .search-switch-buttons .md-button.switch-to-simple {
+    color: #fff;
+}
+
+/*Advanced Text Labels */
+.prm-text, a.a-tag-as-wrapper, .md-button.arrow-link-button .a-tag-as-wrapper.button-content, a.a-tag-as-wrapper:hover, .recommendations-title:hover > span > span.a-tag-as-wrapper, .recommendations-title.hover > span > span.a-tag-as-wrapper, a.a-tag-as-wrapper:focus, .hack-a-tag-unclickable a, .hack-a-tag-unclickable .md-button.arrow-link-button .button-content, .md-button.arrow-link-button .hack-a-tag-unclickable .button-content, prm-search-bar, md-input-container.static-select.md-input-has-value label,
+md-input-container.static-select.md-input-has-value label:not(.md-no-float), .presentable-disabled-inputs md-input-container label, md-toolbar.transparent-toolbar,
+md-toolbar.md-primoExplore-theme.transparent-toolbar,
+md-toolbar.transparent-toolbar:not(.md-menu-toolbar), md-toolbar.default-toolbar,
+md-toolbar.md-primoExplore-theme.default-toolbar,
+md-toolbar.default-toolbar:not(.md-menu-toolbar) {
+  color: #2a2a2a; } 
+  
+/*----------------------Detailed Item -----------------------*/
+
+/*Detailed Items - List View - Background Color */
+
+      .prm-background.prm-hue2, html.prm-hue2, body.prm-hue2, .line-clamp-1:after, .line-clamp-2:after, .line-clamp-3:after, .line-clamp-4:after, .line-clamp-5:after, prm-search-result-list .results-title,
+      prm-search-result-list .results-footer, prm-search-result-list md-list-item, prm-search-bar .simple-search-wrapper .prm-hue2.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue2, .prm-full-view-dialog, .full-view-inner-container, .__xs prm-facet.prm-hue2,.__sm prm-facet.prm-hue2, .__sm .prm-hue2.sidebar,
+      .__xs .prm-hue2.sidebar, .__xs prm-full-view-cont .recommendations-wrapper,
+      .__sm prm-full-view-cont .recommendations-wrapper, prm-recomendation-item .media-on-hover .pin-button, prm-recomendation-item .media-on-hover .pin-button:hover, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue2.pin-button, .recommendations-title:after, prm-full-view-cont .prm-hue2.recommendations-title:after, .__xs prm-full-view-cont .recommendations-title:after,
+      .__sm prm-full-view-cont .recommendations-title:after, .recommendations-title prm-icon, prm-full-view-cont .recommendations-title prm-icon.prm-hue2, .__xs prm-full-view-cont .recommendations-title prm-icon,
+      .__sm prm-full-view-cont .recommendations-title prm-icon, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue2, md-grid-tile,
+      .tiles-grid-tile, md-grid-tile md-list prm-spinner.overlay-cover:after,
+      md-grid-tile .tile-content prm-spinner.overlay-cover:after,
+      .tiles-grid-tile md-list prm-spinner.overlay-cover:after,
+      .tiles-grid-tile .tile-content prm-spinner.overlay-cover:after, md-card.default-card, md-card .prm-hue2.card-content-block {
+        background-color: #f1f1f1; }
+
+      .full-view-container {background-color: #fff;}
+
+/*Details Tab Link and Icon Color */
+      prm-brief-result .item-title {
+          font-size: 1.18em;
+          line-height: 1.2em;
+          color: #5C92BD;
+          max-width: 75%;
+          margin: 7px 0;
+          margin: 0;
+          font-weight: 600;
+          cursor: pointer;
+      }
+
+      .prm-highlight.prm-hue1, prm-brief-result-container.item-bookmarked, prm-brief-result-container.item-bookmarked:hover {
+        background-color: #FFFC44; }
+
+
+
+/*Details Tab Link and Icon Color */
+
+.prm-primary-color, .result-item-actions .custom-button, .result-item-actions .more-options-button, .md-autocomplete-suggestions .suggestion-scope, md-tab-content .tab-content-header md-input-container md-select-value .md-text {
+    color: #a51c30; }
+
+
+.prm-primary-bg.prm-hue2, prm-spinner.prm-hue2.overlay-cover.light-on-dark:after, prm-search-bar.prm-hue2 {
+  background-color: #F3F2E9; }
+
+/*Detailed Item - Hover Color - Left Panel */
+    .prm-primary-bg.prm-hue3, prm-spinner.prm-hue3.overlay-cover.light-on-dark:after, prm-search-bar.prm-hue3, md-backdrop.md-opaque {
+      background-color: #cccccc; }
+
+/*Detailed Item - Hover Color - Left Panel - Opacity */
+    md-backdrop.md-opaque {opacity: .75;}
+
+    .prm-primary-border {border-color: #a51c30; }
+    .prm-primary-border.prm-hue1 {border-color: #a51c30; }
+    .prm-primary-border.prm-hue2 {border-color: #a51c30; }
+
+
+/*Bookmarks | My Favorites Icon Area TOP BAR */
+  .prm-secondary-color, prm-search-bookmark-filter .md-button, prm-topbar .top-nav-bar {
+    color: black; }
+
+
+/*Bookmarks | My Favorites Icon Area Detailed Item Area */
+    .prm-secondary-color.prm-hue1, .result-item-actions .custom-button.pin-button, prm-search-bookmark-filter .prm-hue1.md-button, prm-topbar .prm-hue1.top-nav-bar, prm-recomendation-item .media-on-hover .pin-button {
+      color: #888; }
+
+
+/*Border Area Between Detailed Results and Search Bar - Includes Back to Results Link */
+      .prm-background.prm-hue1, html.prm-hue1, body.prm-hue1, prm-search-bar .simple-search-wrapper .prm-hue1.search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider.prm-hue1, .full-view-inner-container + .full-view-aside:before, .__xs prm-facet.prm-hue1,
+          .__sm prm-facet.prm-hue1, .__sm .prm-hue1.sidebar,
+          .__xs .prm-hue1.sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .prm-hue1.pin-button, prm-full-view-cont .prm-hue1.recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon.prm-hue1, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider.prm-hue1, .default-tabs[md-border-bottom] > md-tabs-wrapper, md-card .prm-hue1.card-content-block, md-card .card-divider, md-toolbar.default-toolbar,md-toolbar.md-primoExplore-theme.default-toolbar,md-toolbar.default-toolbar:not(.md-menu-toolbar) {
+            background-color:#fff;
+            border-color: black; }
+
+
+/*Lower Body Background Color */
+  .prm-background, html, body, prm-search-bar .simple-search-wrapper .search-options:after, prm-search-bar .simple-search-wrapper .search-options md-divider, .__xs prm-facet,
+  .__sm prm-facet, .__sm .sidebar,
+  .__xs .sidebar, prm-full-view-cont prm-recomendation-item .media-on-hover .pin-button, prm-full-view-cont .recommendations-title:after, prm-full-view-cont .recommendations-title prm-icon, md-virtual-repeat-container#prm-simple-search .md-autocomplete-suggestions md-divider, md-card .card-content-block {background-color: #fff;border-color: #e1e1e1; }
+
+/*-------------------------Facets-----------------------------*/
+
+/*Facets Link Color */
+
+.section-title prm-icon {
+    color: #a51c30;
+}
+
+.link-alt-color, .md-button.button-as-link.link-alt-color, .section-title prm-icon {
+    color: #a51c30;
+}
+/*------------------------------------------------------------------*/
+
+/*Highlight - Alert Color */
+  .prm-highlight {
+    background-color: #FFFCC4; }
