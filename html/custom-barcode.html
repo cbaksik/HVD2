@@ -1,0 +1,22 @@
+<md-card class="barcodeResult" tabindex="0">
+    <md-content>
+        <div layout="row" flex ng-if="vm.result.bib_data">
+            <div flex="3" class="barcodeCounter">1</div>
+            <div class="result-item-text layout-fill  layout-column-flex barcodeSpacer" layout="column" layout-fill flex="90">
+                <h3 class="item-title" flex="90">
+                    <a class="md-primoExplore-theme pointer" href="/primo-explore/fulldisplay?docid={{vm.item.pnx.control.recordid[0]}}&vid={{vm.parentCtrl.vid}}" tabindex="0" target="_blank">{{vm.result.bib_data.title}}</a>
+                </h3>
+                <div class="item-detail">
+                    <span>{{vm.result.bib_data.author}}</span> <span>{{vm.result.bib_data.complete_edition}}</span>
+                </div>
+                <div class="item-detail">
+                    <span>{{vm.result.bib_data.place_of_publication}}</span> <span>{{vm.result.bib_data.publisher_const}}</span>
+                </div>
+            </div>
+        </div>
+
+        <p ng-if="vm.errorMsg" class="barcodeError">{{vm.errorMsg}}</p>
+    </md-content>
+</md-card>
+
+
