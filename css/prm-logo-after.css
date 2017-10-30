@@ -1,0 +1,19 @@
+.hollisPlus {
+    display: table-cell;
+}
+
+.boxHollis {
+    padding-top:5px;
+    margin-left:34px;
+    white-space: nowrap;
+}
+
+.betaIcon {
+    display: table-cell;
+}
+
+.betaIcon > img {
+    width:33px;
+    height:auto;
+    padding-bottom:10px;
+}

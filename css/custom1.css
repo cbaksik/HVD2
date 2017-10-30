@@ -1,3 +1,60 @@
+#textsms {
+    width:100%;
+    height: auto;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+
+.textsms-row {
+    background:#f3f3f3 ;
+    margin-bottom:10px;
+    padding-left:10px;
+    cursor: pointer;
+    font-size:110%;
+}
+
+.textsms-row:hover {
+    background: #86adcc;
+    color:#ffffff;
+}
+
+.textsms-row-visited {
+    background: #86adcc;
+    padding-left:10px;
+    color:#ffffff;
+}
+
+
+.textsms-padding {
+    padding:10px;
+}
+
+.textsms-link {
+    color:#000000;
+}
+
+.textsms-link:hover {
+    color:#ffffff;
+}
+
+.textsms-row-visited  a.textsms-link {
+    color: #ffffff;
+}
+
+
+.textsms-alert {
+    color:#ff0000;
+    padding:5px;
+}
+
+.textsms-iconColor {
+    color:#ffffff !important;
+    background:#e1e1e1 !important;
+}
+
+.textsms-info {
+    color: #5C92BD;
+}
 
 .barcode {
     background:#ffffff !important;
@@ -51,3 +108,146 @@
 }
 
 .pointer {cursor: pointer;}
+.hollisPlus {
+    display: table-cell;
+}
+
+.boxHollis {
+    padding-top:5px;
+    margin-left:34px;
+    white-space: nowrap;
+}
+
+.betaIcon {
+    display: table-cell;
+}
+
+.betaIcon > img {
+    width:33px;
+    height:auto;
+    padding-bottom:10px;
+}
+.highlite {
+    background: #FFFCC4;
+}
+.browse-button {
+    position: relative;
+    margin-top:22px;
+    color:#ffffff;
+    margin-left:0px;
+}
+
+
+.browse-button:hover {
+    color:#ffffff !important;
+}
+
+prm-browse-search-bar {
+    background-color:#383838;
+}
+
+prm-browse-search-bar > button.submit-button {
+    color:#a51c30 !important;
+}
+
+
+.search-switch-buttons {
+    padding-top:0px !important;
+}
+
+/* magnify glass search in search box */
+#magnifying-glass {
+    color:#a51c30 !important;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .browse-button {
+        margin-top:30px;
+    }
+
+}
+
+.customMap {
+    height:200px;
+    width:auto;
+}
+
+.iconHome {
+    width:16pt;
+    height:16pt;
+}
+
+.iconMapFontSize {
+    font-size:16pt;
+    font-weight: bold;
+}
+.topMenu {
+    background:#ffffff;
+    color: #000000 !important;
+    height:50px;
+}
+
+.hollisLogo {
+    margin-bottom:-5px;
+}
+
+
+.customTopMenu {
+    position: absolute;
+    top:-50px;
+    width:100%;
+    height:50px;
+    line-height:50px;
+}
+
+.customMenu {
+    text-align: right;
+}
+
+.customMenu a {
+    margin-right:15px;
+}
+
+.paddingleft15 {
+    padding-left:15px;
+}
+
+.paddingleft35 {
+    padding-left:35px;
+}
+
+
+.marginRight20 {
+    margin-right:20px;
+}
+
+prm-topbar {
+    background-color:#000000;
+}
+
+prm-topbar > div.top-nav-bar {
+    background-color:#000000;
+}
+
+prm-search-bar {
+    background-color:#383838;
+}
+
+/* magnify glass search in search box */
+div.search-actions > .md-button.button-confirm {
+    color:#a51c30;
+}
+
+div.search-actions > .md-button.button-confirm:hover {
+    color:#a51c30;
+}
+
+.hv-menu {
+    color:#000000;
+    padding:5px;
+}
+
+.hv-menu:hover {
+    color:#000000;
+}

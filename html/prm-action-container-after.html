@@ -1,0 +1,33 @@
+<md-card id="textsms" ng-if="vm.parentCtrl.actionName==='textsms'">
+    <md-card-content>
+
+        <div class="textsms-padding">
+
+            <p class="textsms-info" ng-if="vm.form.msg">{{vm.form.msg}}</p>
+
+        <md-input-container md-no-float class="underlined-input md-required md-primoExplore-theme md-input-invalid">
+            <md-icon md-svg-src="/primo-explore/custom/01HVD/img/ic_phone_black_24px.svg" aria-label="Phone number"></md-icon>
+            <input type="tel" ng-model="vm.temp.phone" maxlength="13" placeholder="Phone number" title="Phone number" ng-keypress="vm.keyChange($event)"/>
+            <span ng-if="vm.form.error" class="textsms-alert">{{vm.form.error}}</span>
+            <div>(###)###-####</div>
+        </md-input-container>
+        </div>
+
+        <div class="md-title">
+            Choose a location to send a text
+        </div>
+
+        <md-list id="smsLocation">
+            <md-list-item ng-repeat="loc in vm.locations track by $index" class="list-item-text {{loc.cssClass}}" (click)="vm.sendText($index)">
+                <div layout="row" flex>
+                    <a  class="textsms-link">
+                        <span translate="{{loc.libraryCode}}"></span>&nbsp;
+                        <span ng-if="loc.subLocation">{{loc.subLocation}}</span>
+                        &nbsp;<span>{{loc.callNumber}}</span>
+
+                    </a>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-card-content>
+</md-card>
