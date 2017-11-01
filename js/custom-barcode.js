@@ -16,7 +16,7 @@ angular.module('viewCustom')
 
         // get relative path rest end point url
         vm.getUrl=function () {
-          cs.getAjax('/primo-explore/custom/01HVD/html/config.text','','get')
+          cs.getAjax('/primo-explore/custom/01HVD/html/config.html','','get')
               .then(function (result) {
                     if(result.data) {
                         vm.almaBarcodeUrl=result.data.almaBarcodeUrl;
