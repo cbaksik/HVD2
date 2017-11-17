@@ -23,7 +23,8 @@ angular.module('viewCustom').controller('customBarcodeCtrl', ['customService', '
 
     // get relative path rest end point url
     vm.getUrl = function () {
-        cs.getAjax('/primo-explore/custom/01HVD/html/config.html', '', 'get').then(function (result) {
+        var config = cs.getEnv();
+        cs.getAjax('/primo-explore/custom/01HVD/html/' + config, '', 'get').then(function (result) {
             if (result.data) {
                 vm.almaBarcodeUrl = result.data.almaBarcodeUrl;
             }
@@ -327,8 +328,21 @@ angular.module('viewCustom').service('customMapService', [function () {
  * This is a service component and use to store data, get data, ajax call, compare any logic.
  */
 
-angular.module('viewCustom').service('customService', ['$http', '$sce', function ($http, $sce) {
+angular.module('viewCustom').service('customService', ['$http', '$sce', '$window', function ($http, $sce, $window) {
     var serviceObj = {};
+
+    // get environment to run config.html
+    serviceObj.getEnv = function () {
+        var host = $window.location.hostname;
+        var config = 'config-prod.html';
+        if (host.toLowerCase() === 'localhost') {
+            config = 'config-local.html';
+        } else if (host.toLowerCase() === 'primo-for-alma-01hvd.hosted.exlibrisgroup.com') {
+            config = 'config-dev.html';
+        }
+
+        return config;
+    };
 
     serviceObj.getAjax = function (url, param, methodType) {
         return $http({
@@ -880,6 +894,48 @@ angular.module('viewCustom').controller('prmAuthenticationAfterController', ['cu
 angular.module('viewCustom').component('prmAuthenticationAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmAuthenticationAfterController'
+});
+
+/**
+ * Created by samsan on 11/17/17.
+ */
+
+angular.module('viewCustom').controller('prmFullViewAfterCtrl', ['$element', function ($element) {
+    var vm = this;
+    vm.$onChanges = function () {
+
+        console.log('**** prm-full-view-after ***');
+        console.log(vm);
+    };
+
+    vm.onChangeTabEvent = function (e) {
+        console.log(e);
+    };
+}]);
+
+angular.module('viewCustom').component('prmFullViewAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmFullViewAfterCtrl',
+    controllerAs: 'vm',
+    templateUrl: '/primo-explore/custom/01HVD/html/prm-full-view-after.html'
+});
+/**
+ * Created by samsan on 11/1/17.
+ */
+
+angular.module('viewCustom').controller('prmFullViewServiceContainerAfterCtrl', ['$element', function ($element) {
+    var vm = this;
+    vm.$onChanges = function () {
+        console.log('**** prm-full-view-service-container-after ****');
+        console.log(vm);
+    };
+}]);
+
+angular.module('viewCustom').component('prmFullViewServiceContainerAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmFullViewServiceContainerAfterCtrl',
+    controllerAs: 'vm',
+    templateUrl: '/primo-explore/custom/01HVD/html/prm-full-view-service-container-after.html'
 });
 
 /**
@@ -1751,7 +1807,8 @@ angular.module('viewCustom').controller('prmTopbarAfterCtrl', ['$element', '$tim
 
     // get rest endpoint Url
     vm.getUrl = function () {
-        cs.getAjax('/primo-explore/custom/01HVD/html/config.html', '', 'get').then(function (res) {
+        var config = cs.getEnv();
+        cs.getAjax('/primo-explore/custom/01HVD/html/' + config, '', 'get').then(function (res) {
             vm.api = res.data;
             cs.setApi(vm.api);
         }, function (error) {

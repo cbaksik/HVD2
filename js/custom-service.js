@@ -4,8 +4,21 @@
  */
 
 angular.module('viewCustom')
-    .service('customService',['$http','$sce',function ($http, $sce) {
+    .service('customService',['$http','$sce','$window',function ($http, $sce,$window) {
         var serviceObj={};
+
+        // get environment to run config.html
+        serviceObj.getEnv=function () {
+            var host = $window.location.hostname;
+            var config='config-prod.html';
+            if(host.toLowerCase()==='localhost'){
+                config='config-local.html';
+            } else if(host.toLowerCase()==='primo-for-alma-01hvd.hosted.exlibrisgroup.com') {
+                config='config-dev.html';
+            }
+
+            return config;
+        };
 
         serviceObj.getAjax=function (url,param,methodType) {
             return $http({
