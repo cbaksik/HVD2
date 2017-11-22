@@ -190,19 +190,18 @@ angular.module('viewCustom').service('customHathiTrustService', ['$http', functi
  * Create Map it link, place icon, and display the library name
  */
 
-angular.module('viewCustom').controller('customLibraryMapCtrl', ['customService', '$window', function (customService, $window) {
+angular.module('viewCustom').controller('customLibraryMapCtrl', ['customService', '$window', '$location', '$scope', function (customService, $window, $location, $scope) {
     var vm = this;
     var sv = customService;
+    vm.params = $location.search();
     vm.api = sv.getApi();
     vm.mapLocData = {};
 
     vm.getMapIt = function () {
-        console.log('*** custom-library-map ***');
-        console.log(vm);
-
-        if (vm.loc) {
-            var url = vm.api.mapUrl + '/' + vm.loc.mainLocation;
-            url += '/' + vm.loc.subLocationCode + '?callNumber=' + encodeURI(vm.loc.callNumber);
+        vm.api = sv.getApi();
+        if (vm.api.mapUrl) {
+            var url = vm.api.mapUrl + '/' + vm.params.library;
+            url += '/' + vm.params.location + '?callNumber=' + encodeURI(vm.params.callnum);
             sv.getAjax(url, '', 'get').then(function (result) {
                 vm.mapLocData = result.data;
             }, function (error) {
@@ -212,8 +211,13 @@ angular.module('viewCustom').controller('customLibraryMapCtrl', ['customService'
     };
 
     vm.$onInit = function () {
+        $scope.$watch('vm.api', function () {
+            vm.getMapIt();
+        });
+    };
+
+    vm.$doCheck = function () {
         vm.api = sv.getApi();
-        vm.getMapIt();
     };
 
     vm.goPlace = function (loc, e) {
@@ -322,6 +326,21 @@ angular.module('viewCustom').service('customMapService', [function () {
 
     return serviceObj;
 }]);
+
+/**
+ * Created by samsan on 11/21/17.
+ */
+
+angular.module('viewCustom').config(function ($stateProvider) {
+    $stateProvider.state('exploreMain.almaMapIt', {
+        url: '/almaMapIt',
+        views: {
+            '': {
+                template: '<custom-library-map loc="$ctrl"></custom-library-map>'
+            }
+        }
+    });
+});
 
 /**
  * Created by samsan on 7/18/17.
@@ -1857,7 +1876,7 @@ angular.module('viewCustom').controller('prmTopbarAfterCtrl', ['$element', '$tim
             linkTag.setAttribute('crossorigin', '');
             linkTag.setAttribute('rel', 'stylesheet');
             bodyTag.append(linkTag);
-        }, 500);
+        }, 1000);
     };
 }]);
 

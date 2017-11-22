@@ -1,12 +1,17 @@
-<h4 ng-if="vm.loc.libraryCode">
-    <span class="md-title" translate="{{vm.loc.libraryCode}}"></span>
-    <span><md-icon md-svg-src="/primo-explore/custom/HVD2/img/place.svg" class="placeIcon" ng-click=" vm.goPlace(vm.loc,$event)"></md-icon></span>
-</h4>
-<p ng-if="vm.loc.availabilityStatus">
-    <span class="availability-status available capitalize" translate="{{vm.loc.availabilityStatus}}"></span>
-    <span translate-default translate></span>
-    <span>{{vm.loc.callNumber}}</span>
-</p>
-<div ng-repeat="m in vm.mapLocData track by $index" ng-if="m.maplink">
-    <span>Map It:</span> <a href="{{m.maplink|mapFilterUrl}}" target="_blank">{{m.floor | mapFilter}} Row {{m.range}}</a>
-</div>
+<md-card>
+    <md-card-title><h1>Books location</h1></md-card-title>
+    <md-card-content>
+    <h4 ng-if="vm.loc.libraryCode">
+        <span class="md-title" translate="{{vm.loc.libraryCode}}"></span>
+        <span><md-icon md-svg-src="/primo-explore/custom/HVD2/img/place.svg" class="placeIcon" ng-click=" vm.goPlace(vm.loc,$event)"></md-icon></span>
+    </h4>
+    <p ng-if="vm.loc.availabilityStatus">
+        <span class="availability-status available capitalize" translate="{{vm.loc.availabilityStatus}}"></span>
+        <span translate-default translate></span>
+        <span>{{vm.loc.callNumber}}</span>
+    </p>
+    <div ng-repeat="m in vm.mapLocData track by $index" ng-if="m.maplink">
+        <span>Map It:</span> <a href="{{m.maplink|mapFilterUrl}}" target="_blank">{{m.floor | mapFilter}} Row {{m.range}}</a>
+    </div>
+    </md-card-content>
+</md-card>

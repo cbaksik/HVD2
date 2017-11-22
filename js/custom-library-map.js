@@ -4,19 +4,18 @@
  */
 
 angular.module('viewCustom')
-    .controller('customLibraryMapCtrl',['customService','$window',function (customService, $window) {
+    .controller('customLibraryMapCtrl',['customService','$window','$location','$scope',function (customService, $window, $location,$scope) {
         var vm=this;
         var sv=customService;
+        vm.params=$location.search();
         vm.api=sv.getApi();
         vm.mapLocData={};
 
         vm.getMapIt=function () {
-            console.log('*** custom-library-map ***');
-            console.log(vm);
-
-            if(vm.loc) {
-                let url = vm.api.mapUrl + '/' + vm.loc.mainLocation;
-                url += '/' + vm.loc.subLocationCode + '?callNumber=' + encodeURI(vm.loc.callNumber);
+            vm.api=sv.getApi();
+            if(vm.api.mapUrl) {
+                let url = vm.api.mapUrl + '/' + vm.params.library;
+                url += '/' + vm.params.location + '?callNumber=' + encodeURI(vm.params.callnum);
                 sv.getAjax(url,'','get').then(
                     function (result) {
                         vm.mapLocData=result.data;
@@ -29,8 +28,13 @@ angular.module('viewCustom')
         };
 
         vm.$onInit=function() {
-           vm.api=sv.getApi();
-           vm.getMapIt();
+           $scope.$watch('vm.api',function () {
+               vm.getMapIt();
+           });
+        };
+
+        vm.$doCheck=function(){
+            vm.api=sv.getApi();
         };
 
         vm.goPlace=function(loc,e){

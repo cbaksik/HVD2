@@ -73,7 +73,7 @@ angular.module('viewCustom')
                 bodyTag.append(linkTag);
 
 
-            },500);
+            },1000);
 
         };
 
