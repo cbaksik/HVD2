@@ -190,7 +190,7 @@ angular.module('viewCustom').service('customHathiTrustService', ['$http', functi
  * Create Map it link, place icon, and display the library name
  */
 
-angular.module('viewCustom').controller('customLibraryMapCtrl', ['customService', '$window', '$location', '$scope', function (customService, $window, $location, $scope) {
+angular.module('viewCustom').controller('customLibraryMapCtrl', ['customService', '$window', '$location', '$scope', '$sce', function (customService, $window, $location, $scope, $sce) {
     var vm = this;
     var sv = customService;
     vm.params = $location.search();
@@ -262,7 +262,7 @@ angular.module('viewCustom').filter('mapFilter', [function () {
 }]);
 
 // remove 2 forward slash from the url
-angular.module('viewCustom').filter('mapFilterUrl', [function () {
+angular.module('viewCustom').filter('mapFilterUrl', ['$sce', function ($sce) {
     return function (str) {
         var newStr = '';
         if (str) {
@@ -275,6 +275,7 @@ angular.module('viewCustom').filter('mapFilterUrl', [function () {
         } else {
             newStr = str;
         }
+        newStr = $sce.trustAsResourceUrl(newStr);
         return newStr;
     };
 }]);

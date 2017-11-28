@@ -11,7 +11,10 @@
         <span>{{vm.loc.callNumber}}</span>
     </p>
     <div ng-repeat="m in vm.mapLocData track by $index" ng-if="m.maplink">
-        <span>Map It:</span> <a href="{{m.maplink|mapFilterUrl}}" target="_blank">{{m.floor | mapFilter}} Row {{m.range}}</a>
+        <div><span>Map It:</span> <a href="{{m.maplink|mapFilterUrl}}" target="_blank">{{m.floor | mapFilter}} Row {{m.range}}</a></div>
+        <div id="iframe">
+            <iframe src="{{m.maplink|mapFilterUrl}}" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
     </div>
     </md-card-content>
 </md-card>
