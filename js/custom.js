@@ -9,6 +9,145 @@
 angular.module('viewCustom', ['angularLoad']);
 
 /**
+ * Created by samsan on 2/8/18.
+ * This component get aeon (alma) data by passing mss_id in rest url
+ */
+
+angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$scope', function (customService, $scope) {
+    var sv = customService;
+    var vm = this;
+    vm.api = sv.getApi();
+    vm.dataList = [];
+    vm.holdingItems = [];
+    vm.$onInit = function () {
+        // get question mark parameters
+        vm.params = vm.parentCtrl.$location.$$search;
+        // watch for api variable changing
+        $scope.$watch('vm.api', function () {
+            vm.getData();
+        });
+    };
+
+    // build url to send to aeon
+    var buildUrl = function buildUrl(data, item) {
+        var url = 'https://aeon.hul.harvard.edu/aeon.php?sid=Via AEON';
+        var keyList = Object.keys(data);
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = keyList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var key = _step.value;
+
+                if (key === 'callNumber') {
+                    url += '&callnum=' + data[key];
+                }
+                if (key === 'libraryCode') {
+                    url += '&sublib=' + data[key];
+                }
+                if (key === 'locationDesc') {
+                    url += '&collection=' + data[key];
+                }
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+
+        if (item.description) {
+            url += '&description=' + item.description;
+        }
+        if (item.barCode) {
+            url += '&barcode=' + item.barCode;
+        }
+
+        keyList = Object.keys(vm.dataList);
+        var _iteratorNormalCompletion2 = true;
+        var _didIteratorError2 = false;
+        var _iteratorError2 = undefined;
+
+        try {
+            for (var _iterator2 = keyList[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                var _key = _step2.value;
+
+                if (_key === 'author' || _key === 'title' || _key === 'genre' || _key === 'publisher') {
+                    url += '&' + _key + '=' + vm.dataList[_key];
+                }
+                if (_key === 'mmsId') {
+                    url += '&hollisnum=' + vm.dataList[_key];
+                }
+            }
+        } catch (err) {
+            _didIteratorError2 = true;
+            _iteratorError2 = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                    _iterator2.return();
+                }
+            } finally {
+                if (_didIteratorError2) {
+                    throw _iteratorError2;
+                }
+            }
+        }
+
+        return url;
+    };
+
+    vm.$doCheck = function () {
+        // get config-dev.html api url from prm-topbar-after.js
+        vm.api = sv.getApi();
+    };
+
+    // get data from primo-service
+    vm.getData = function () {
+        if (vm.api.aeonApiUrl && vm.params) {
+            var url = vm.api.aeonApiUrl + '/' + vm.params['rft.local_attribute'];
+            sv.getAjax(url, '', 'get').then(function (res) {
+                var data = res.data;
+                vm.dataList = data;
+                if (data.holdingItems) {
+                    vm.holdingItems = data.holdingItems;
+                }
+            }, function (err) {
+                console.log(err);
+            });
+        }
+    };
+
+    // open a new window when a user click on the link
+    vm.goto = function (data, item) {
+        var url = buildUrl(data, item);
+        window.open(encodeURI(url), '_blank');
+    };
+
+    // when a user press enter, call this function
+    vm.pressLink = function (e, data, item) {
+        if (e.which === 13) {
+            vm.goto(data, item);
+        }
+    };
+}]);
+
+angular.module('viewCustom').component('customAeon', {
+    bindings: { parentCtrl: '<' },
+    controller: 'customAeonCtrl',
+    controllerAs: 'vm',
+    templateUrl: '/primo-explore/custom/01HVD/html/custom-aeon.html'
+});
+/**
  * Created by samsan on 8/29/17.
  */
 
@@ -338,6 +477,13 @@ angular.module('viewCustom').config(function ($stateProvider) {
         views: {
             '': {
                 template: '<custom-library-map loc="$ctrl"></custom-library-map>'
+            }
+        }
+    }).state('exploreMain.aeon', {
+        url: '/aeon',
+        views: {
+            '': {
+                template: '<custom-aeon parent-ctrl="$ctrl"></custom-aeon>'
             }
         }
     });
@@ -1824,7 +1970,6 @@ angular.module('viewCustom').controller('prmTopbarAfterCtrl', ['$element', '$tim
     var cs = customService;
     var cga = customGoogleAnalytic;
     vm.api = {};
-
     // get rest endpoint Url
     vm.getUrl = function () {
         var config = cs.getEnv();
@@ -1836,8 +1981,6 @@ angular.module('viewCustom').controller('prmTopbarAfterCtrl', ['$element', '$tim
         });
     };
 
-    vm.topRightMenus = [{ 'title': 'Research Guides', 'url': 'http://nrs.harvard.edu/urn-3:hul.ois:portal_resguides', 'label': 'Go to Research guides' }, { 'title': 'Libraries / Hours', 'url': 'http://nrs.harvard.edu/urn-3:hul.ois:bannerfindlib', 'label': 'Go to Library hours' }, { 'title': 'All My Accounts', 'url': 'http://nrs.harvard.edu/urn-3:hul.ois:banneraccounts', 'label': 'Go to all my accounts' }, { 'title': 'Feedback', 'url': 'http://nrs.harvard.edu/urn-3:HUL.ois:hollis-v2-feedback', 'label': 'Go to Feedback' }, { 'title': 'Ask Us', 'url': 'http://nrs.harvard.edu/urn-3:hul.ois:dsref', 'label': 'Go to Ask Us' }];
-
     vm.$onInit = function () {
         // initialize google analytic
         cga.init();
@@ -1846,23 +1989,6 @@ angular.module('viewCustom').controller('prmTopbarAfterCtrl', ['$element', '$tim
         vm.getUrl();
 
         $timeout(function () {
-            // create new div for the top white menu
-            var el = $element[0].parentNode.parentNode.parentNode.parentNode.parentNode;
-            var div = document.createElement('div');
-            div.setAttribute('id', 'customTopMenu');
-            div.setAttribute('class', 'topMenu');
-            // if the topMenu class does not exist, add it.
-            var topMenu = document.getElementById('customTopMenu');
-            if (topMenu === null) {
-                el.prepend(div);
-            }
-            var el2 = $element[0].parentNode.children[1].children;
-            if (el2) {
-                // remove menu
-                el2[2].remove();
-                el2[2].remove();
-            }
-
             // create script tag link leafletJS.com to use openstreetmap.org
             var bodyTag = document.getElementsByTagName('body')[0];
             var scriptTag = document.createElement('script');

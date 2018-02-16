@@ -1,0 +1,17 @@
+<div id="aeon">
+    <div class="box" ng-if="vm.holdingItems.length > 0">
+        <h2>Special collections request<br/> Choose one:</h2>
+        <div ng-repeat="data in vm.holdingItems track by $index" tabindex="-1">
+           <div class="title">{{data.libraryDesc}} {{data.locationDesc}} {{data.callNumber}}</div>
+            <a layout="row" ng-repeat="item in data.items track by $index" class="row" tabindex="0" (click)="vm.goto(data,item)" (keypress)="vm.pressLink($event,data,item)"  title="Choose one">
+                <div flex="initial" class="marginRight">
+                    <span ng-if="item.description">{{item.description}}</span>
+                    <span ng-if="!item.description">Select item</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate" value="30"></md-progress-circular>
+    </div>
+</div>

@@ -9,7 +9,6 @@ angular.module('viewCustom')
         var cs=customService;
         var cga=customGoogleAnalytic;
         vm.api={};
-
         // get rest endpoint Url
         vm.getUrl=function () {
             var config = cs.getEnv();
@@ -24,14 +23,6 @@ angular.module('viewCustom')
                 )
         };
 
-
-        vm.topRightMenus=[{'title':'Research Guides','url':'http://nrs.harvard.edu/urn-3:hul.ois:portal_resguides','label':'Go to Research guides'},
-            {'title':'Libraries / Hours','url':'http://nrs.harvard.edu/urn-3:hul.ois:bannerfindlib','label':'Go to Library hours'},
-            {'title':'All My Accounts','url':'http://nrs.harvard.edu/urn-3:hul.ois:banneraccounts','label':'Go to all my accounts'},
-            {'title':'Feedback','url':'http://nrs.harvard.edu/urn-3:HUL.ois:hollis-v2-feedback','label':'Go to Feedback'},
-            {'title':'Ask Us','url':'http://nrs.harvard.edu/urn-3:hul.ois:dsref','label':'Go to Ask Us'}
-        ];
-
         vm.$onInit=function() {
             // initialize google analytic
             cga.init();
@@ -40,23 +31,6 @@ angular.module('viewCustom')
             vm.getUrl();
 
             $timeout(function () {
-                // create new div for the top white menu
-                var el=$element[0].parentNode.parentNode.parentNode.parentNode.parentNode;
-                var div=document.createElement('div');
-                div.setAttribute('id','customTopMenu');
-                div.setAttribute('class','topMenu');
-                // if the topMenu class does not exist, add it.
-                var topMenu=document.getElementById('customTopMenu');
-                if(topMenu===null) {
-                    el.prepend(div);
-                }
-                var el2=$element[0].parentNode.children[1].children;
-                if(el2) {
-                    // remove menu
-                    el2[2].remove();
-                    el2[2].remove();
-                }
-
                 // create script tag link leafletJS.com to use openstreetmap.org
                 var bodyTag=document.getElementsByTagName('body')[0];
                 var scriptTag=document.createElement('script');
@@ -71,7 +45,6 @@ angular.module('viewCustom')
                 linkTag.setAttribute('crossorigin','');
                 linkTag.setAttribute('rel','stylesheet');
                 bodyTag.append(linkTag);
-
 
             },1000);
 

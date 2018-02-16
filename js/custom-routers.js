@@ -15,4 +15,13 @@ angular.module('viewCustom')
                 }
 
             )
+            .state('exploreMain.aeon', {
+                url: '/aeon',
+                    views:{
+                    '': {
+                        template: `<custom-aeon parent-ctrl="$ctrl"></custom-aeon>`
+                        }
+                    }
+                }
+            )
     });

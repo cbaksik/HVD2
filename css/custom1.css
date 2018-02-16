@@ -1,3 +1,43 @@
+#aeon {
+    text-align: center;
+}
+
+#aeon .box {
+    margin:20px;
+    padding:20px;
+    background:#cccccc;
+    display: inline-block;
+    text-align: left;
+}
+
+#aeon .title {
+    font-size:16pt;
+    font-weight: 600;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+
+#aeon h2 {
+    color:#ffffff;
+    font-size:16pt;
+    font-weight: 600;
+}
+
+
+#aeon .row {
+    padding:5px;
+    background:#ffffff;
+    margin-bottom:2px;
+    font-size:14pt;
+    font-weight:400;
+    cursor:pointer;
+}
+
+#aeon .row:hover {
+    background:#efefef;
+}
+
+#aeon .marginRight {margin-right:20px;}
 #iframe {
     width:100%;
     height:90vh;
