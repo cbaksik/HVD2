@@ -26,11 +26,23 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
         $scope.$watch('vm.api', function () {
             vm.getData();
         });
+
+        // hide topbar and search bar
+        setTimeout(function () {
+            var prmTopbar = document.getElementsByTagName('prm-topbar')[0];
+            if (prmTopbar) {
+                prmTopbar.style.display = 'none';
+            }
+            var prmSearchBar = document.getElementsByTagName('prm-search-bar')[0];
+            if (prmSearchBar) {
+                prmSearchBar.style.display = 'none';
+            }
+        }, 500);
     };
 
     // build url to send to aeon
     var buildUrl = function buildUrl(data, item) {
-        var url = 'https://aeon.hul.harvard.edu/aeon.php?sid=Via AEON';
+        var url = 'https://aeon.hul.harvard.edu/remoteauth/aeon.dll?action=10&form=30&sid=Via AEON';
         var keyList = Object.keys(data);
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
@@ -46,7 +58,7 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
                 if (key === 'libraryCode') {
                     url += '&sublib=' + data[key];
                 }
-                if (key === 'locationDesc') {
+                if (key === 'locationCode') {
                     url += '&collection=' + data[key];
                 }
             }

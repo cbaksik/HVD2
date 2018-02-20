@@ -17,11 +17,23 @@ angular.module('viewCustom')
             $scope.$watch('vm.api',()=>{
                 vm.getData();
             });
+
+            // hide topbar and search bar
+            setTimeout(()=>{
+               let prmTopbar=document.getElementsByTagName('prm-topbar')[0];
+               if(prmTopbar){
+                   prmTopbar.style.display='none';
+               }
+                let prmSearchBar=document.getElementsByTagName('prm-search-bar')[0];
+                if(prmSearchBar){
+                    prmSearchBar.style.display='none';
+                }
+            },500);
         };
 
         // build url to send to aeon
         var buildUrl=function (data,item) {
-            let url='https://aeon.hul.harvard.edu/aeon.php?sid=Via AEON';
+            let url='https://aeon.hul.harvard.edu/remoteauth/aeon.dll?action=10&form=30&sid=Via AEON';
             let keyList=Object.keys(data);
             for(let key of keyList) {
                 if (key==='callNumber') {
@@ -30,7 +42,7 @@ angular.module('viewCustom')
                 if (key==='libraryCode') {
                     url += '&sublib=' + data[key];
                 }
-                if (key==='locationDesc') {
+                if (key==='locationCode') {
                     url += '&collection=' + data[key];
                 }
             }
