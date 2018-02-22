@@ -10,25 +10,26 @@ angular.module('viewCustom')
         vm.api=sv.getApi();
         vm.dataList=[];
         vm.holdingItems=[];
+        vm.ajaxLoader=false;
         vm.$onInit=()=> {
+            // hide top bar and search box
+            let prmTopbar=document.getElementsByTagName('prm-topbar')[0];
+            if(prmTopbar){
+                prmTopbar.style.display='none';
+            }
+            let prmSearchBar=document.getElementsByTagName('prm-search-bar')[0];
+            if(prmSearchBar){
+                prmSearchBar.style.display='none';
+            }
+
             // get question mark parameters
             vm.params=vm.parentCtrl.$location.$$search;
             // watch for api variable changing
-            $scope.$watch('vm.api',()=>{
+            $scope.$watch('vm.api.aeonApiUrl',()=> {
                 vm.getData();
             });
 
-            // hide topbar and search bar
-            setTimeout(()=>{
-               let prmTopbar=document.getElementsByTagName('prm-topbar')[0];
-               if(prmTopbar){
-                   prmTopbar.style.display='none';
-               }
-                let prmSearchBar=document.getElementsByTagName('prm-search-bar')[0];
-                if(prmSearchBar){
-                    prmSearchBar.style.display='none';
-                }
-            },500);
+
         };
 
         // build url to send to aeon
@@ -75,17 +76,20 @@ angular.module('viewCustom')
         // get data from primo-service
         vm.getData=()=>{
             if(vm.api.aeonApiUrl && vm.params) {
+                vm.ajaxLoader=true;
                 let url = vm.api.aeonApiUrl + '/' + vm.params['rft.local_attribute'];
                 sv.getAjax(url, '', 'get')
                     .then((res) => {
                         let data=res.data;
                         vm.dataList=data;
+                        vm.ajaxLoader=false;
                         if(data.holdingItems) {
                             vm.holdingItems = data.holdingItems;
                         }
                         },
                         (err) => {
                             console.log(err);
+                            vm.ajaxLoader=false;
                         }
                     )
             }

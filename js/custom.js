@@ -19,25 +19,24 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
     vm.api = sv.getApi();
     vm.dataList = [];
     vm.holdingItems = [];
+    vm.ajaxLoader = false;
     vm.$onInit = function () {
+        // hide top bar and search box
+        var prmTopbar = document.getElementsByTagName('prm-topbar')[0];
+        if (prmTopbar) {
+            prmTopbar.style.display = 'none';
+        }
+        var prmSearchBar = document.getElementsByTagName('prm-search-bar')[0];
+        if (prmSearchBar) {
+            prmSearchBar.style.display = 'none';
+        }
+
         // get question mark parameters
         vm.params = vm.parentCtrl.$location.$$search;
         // watch for api variable changing
-        $scope.$watch('vm.api', function () {
+        $scope.$watch('vm.api.aeonApiUrl', function () {
             vm.getData();
         });
-
-        // hide topbar and search bar
-        setTimeout(function () {
-            var prmTopbar = document.getElementsByTagName('prm-topbar')[0];
-            if (prmTopbar) {
-                prmTopbar.style.display = 'none';
-            }
-            var prmSearchBar = document.getElementsByTagName('prm-search-bar')[0];
-            if (prmSearchBar) {
-                prmSearchBar.style.display = 'none';
-            }
-        }, 500);
     };
 
     // build url to send to aeon
@@ -126,15 +125,18 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
     // get data from primo-service
     vm.getData = function () {
         if (vm.api.aeonApiUrl && vm.params) {
+            vm.ajaxLoader = true;
             var url = vm.api.aeonApiUrl + '/' + vm.params['rft.local_attribute'];
             sv.getAjax(url, '', 'get').then(function (res) {
                 var data = res.data;
                 vm.dataList = data;
+                vm.ajaxLoader = false;
                 if (data.holdingItems) {
                     vm.holdingItems = data.holdingItems;
                 }
             }, function (err) {
                 console.log(err);
+                vm.ajaxLoader = false;
             });
         }
     };
@@ -526,7 +528,7 @@ angular.module('viewCustom').service('customService', ['$http', '$sce', '$window
         return $http({
             'method': methodType,
             'url': url,
-            'timeout': 5000,
+            'timeout': 500000,
             'params': param
         });
     };

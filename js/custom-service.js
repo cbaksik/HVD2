@@ -24,7 +24,7 @@ angular.module('viewCustom')
             return $http({
                 'method':methodType,
                 'url':url,
-                'timeout':5000,
+                'timeout':500000,
                 'params':param
             })
         };

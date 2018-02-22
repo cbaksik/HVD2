@@ -1,4 +1,7 @@
 <div id="aeon">
+    <div layout="row" class="loading">
+        <prm-spinner ng-if="vm.ajaxLoader" class="default-loader dark-on-light overlay-cover no-text" layout="row" layout-align="center center"></prm-spinner>
+    </div>
     <div class="box" ng-if="vm.holdingItems.length > 0">
         <h2>Special collections request<br/> Choose one:</h2>
         <div ng-repeat="data in vm.holdingItems track by $index" tabindex="-1">
@@ -10,8 +13,5 @@
                 </div>
             </a>
         </div>
-    </div>
-    <div layout="row" layout-sm="column" layout-align="space-around">
-        <md-progress-circular md-mode="indeterminate" value="30"></md-progress-circular>
     </div>
 </div>

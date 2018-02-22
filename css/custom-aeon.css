@@ -38,3 +38,7 @@
 }
 
 #aeon .marginRight {margin-right:20px;}
+
+#aeon .loading {
+    text-align: center;
+}
