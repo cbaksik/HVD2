@@ -10,7 +10,7 @@ angular.module('viewCustom')
             var el=$element[0].parentNode.children[0].children[0].children[2];
             var button=document.createElement('button');
             button.setAttribute('id','browseButton');
-            button.setAttribute('class','md-button md-primoExplore-theme browse-button');
+            button.setAttribute('class','md-button md-primoExplore-theme browse-button switch-to-advanced');
             button.setAttribute('ng-click','vm.gotoBrowse()');
             var textNode=document.createTextNode('STARTS WITH (BROWSE BY...)');
             if($mdMedia('xs') || $mdMedia('sm')) {
@@ -24,6 +24,22 @@ angular.module('viewCustom')
                 $compile(el)($scope);
             }
 
+        };
+
+        // toggle between advance search and simple search
+        vm.$doCheck=()=>{
+            var browseBtn=document.getElementById('browseButton');
+            if(vm.parentCtrl.advancedSearch) {
+                if(browseBtn) {
+                    browseBtn.classList.remove('switch-to-advanced');
+                    browseBtn.classList.add('switch-to-simple');
+                }
+            } else {
+                if(browseBtn) {
+                    browseBtn.classList.remove('switch-to-simple');
+                    browseBtn.classList.add('switch-to-advanced');
+                }
+            }
         };
 
         vm.gotoBrowse=function () {

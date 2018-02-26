@@ -768,10 +768,33 @@ angular.module('viewCustom').service('customService', ['$http', '$sce', '$window
 }]);
 
 /**
+ * Created by samsan on 2/13/18.
+ * This component is to create text sms icon by inserting it dynamic at prm-action-list-after.js
+ */
+
+angular.module('viewCustom').controller('customSmsCtrl', ['customService', function (customService) {
+    var vm = this;
+    var cs = customService;
+    // display prm-action-container-after when a user click text sms icon
+    vm.sendsms = function () {
+        vm.parentCtrl.activeAction = 'textsms';
+        vm.parentCtrl.selectedAction = 'textsms';
+        vm.parentCtrl.expandedAction = '';
+    };
+}]);
+
+angular.module('viewCustom').component('customSms', {
+    bindings: { parentCtrl: '<' },
+    controller: 'customSmsCtrl',
+    controllerAs: 'vm',
+    templateUrl: '/primo-explore/custom/01HVD/html/custom-sms.html'
+});
+
+/**
  * Created by samsan on 8/16/17.
  */
 
-angular.module('viewCustom').controller('prmActionContainerAfterCtrl', ['customService', 'prmSearchService', '$window', 'customGoogleAnalytic', function (customService, prmSearchService, $window, customGoogleAnalytic) {
+angular.module('viewCustom').controller('prmActionContainerAfterCtrl', ['customService', 'prmSearchService', '$window', 'customGoogleAnalytic', '$scope', function (customService, prmSearchService, $window, customGoogleAnalytic, $scope) {
 
     var cisv = customService;
     var cs = prmSearchService;
@@ -827,19 +850,22 @@ angular.module('viewCustom').controller('prmActionContainerAfterCtrl', ['customS
             vm.form.deviceType = cs.getBrowserType();
         }
 
-        vm.locations = vm.parentCtrl.item.delivery.holding;
-        for (var i = 0; i < vm.locations.length; i++) {
-            vm.locations[i].cssClass = 'textsms-row';
-        }
+        $scope.$watch('vm.actionName', function () {
+            if (vm.actionName === 'textsms') {
+                if (vm.parentCtrl.item.delivery) {
+                    vm.locations = vm.parentCtrl.item.delivery.holding;
+                    for (var i = 0; i < vm.locations.length; i++) {
+                        vm.locations[i].cssClass = 'textsms-row';
+                    }
+                }
+            }
+        });
     };
 
     vm.$doCheck = function () {
         // get action name when a user click on each action list
-        var actionName = cisv.getActionName();
-        if (actionName && vm.parentCtrl.actionName !== 'none') {
-            vm.parentCtrl.actionName = actionName;
-        } else if (actionName === 'textsms') {
-            vm.parentCtrl.actionName = actionName;
+        if (vm.parentCtrl.actionName) {
+            vm.actionName = vm.parentCtrl.actionName;
         }
     };
 
@@ -953,56 +979,28 @@ angular.module('viewCustom').controller('prmActionListAfterCtrl', ['$element', '
     var vm = this;
     var cisv = customService;
     vm.$onInit = function () {
-        // if holding location is existed, then insert Text call # into action list
-        if (vm.parentCtrl.item.delivery.holding.length > 0) {
-            // insert  textsms into existing action list
-            vm.parentCtrl.actionLabelNamesMap.textsms = 'Text call #';
-            vm.parentCtrl.actionListService.actionsToIndex.textsms = vm.parentCtrl.requiredActionsList.length + 1;
-            if (vm.parentCtrl.actionListService.requiredActionsList.indexOf('textsms') === -1) {
-                vm.parentCtrl.actionListService.requiredActionsList.push('textsms');
-            }
-        }
-    };
-
-    vm.$onChanges = function () {
-        $timeout(function () {
-            // if holding location is existed, then insert sms text call icon
-            if (vm.parentCtrl.item.delivery.holding.length > 0) {
-                var el = document.getElementById('textsms');
-                if (el) {
-                    //remove prm-icon
-                    var prmIcon = el.children[0].children[0].children[0].children[0];
-                    prmIcon.remove();
-                    // insert new icon
-                    var childNode = el.children[0].children[0].children[0];
-                    var mdIcon = document.createElement('md-icon');
-                    mdIcon.setAttribute('md-svg-src', '/primo-explore/custom/01HVD/img/ic_textsms_black_24px.svg');
-                    childNode.prepend(mdIcon);
-                    $compile(childNode)($scope); // refresh the dom
+        // insert custom-sms and custom-print tag when it is not in favorite section.
+        if (!vm.parentCtrl.displaymode) {
+            $timeout(function () {
+                // if holding location is existed, then insert sms text call icon
+                if (vm.parentCtrl.item.delivery) {
+                    if (vm.parentCtrl.item.delivery.holding.length > 0) {
+                        var textsmsExist = document.getElementById('textsms');
+                        // if textsms doesn't exist, insert it.
+                        if (!textsmsExist) {
+                            var prmActionList = document.getElementsByTagName('prm-action-list')[0];
+                            var ul = prmActionList.getElementsByTagName('ul')[0];
+                            var li = ul.querySelector('#scrollActionList');
+                            if (li) {
+                                var smsTag = document.createElement('custom-sms');
+                                smsTag.setAttribute('parent-ctrl', 'vm.parentCtrl');
+                                li.insertBefore(smsTag, li.childNodes[0]);
+                                $compile(li.children[0])($scope);
+                            }
+                        }
+                    }
                 }
-            } else {
-                var el = document.getElementById('textsms');
-                if (el) {
-                    el.remove();
-                }
-            }
-
-            // print
-            var printEl = document.getElementById('Print');
-            if (printEl) {
-                printEl.children[0].remove();
-                var printTag = document.createElement('custom-print');
-                printTag.setAttribute('parent-ctrl', 'vm.parentCtrl.item');
-                printEl.appendChild(printTag);
-                $compile(printEl.children[0])($scope);
-            }
-        }, 2000);
-    };
-
-    vm.$doCheck = function () {
-        // pass active action to prm-action-container-after
-        if (vm.parentCtrl.activeAction) {
-            cisv.setActionName(vm.parentCtrl.activeAction);
+            }, 2000);
         }
     };
 }]);
@@ -1074,48 +1072,6 @@ angular.module('viewCustom').controller('prmAuthenticationAfterController', ['cu
 angular.module('viewCustom').component('prmAuthenticationAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmAuthenticationAfterController'
-});
-
-/**
- * Created by samsan on 11/17/17.
- */
-
-angular.module('viewCustom').controller('prmFullViewAfterCtrl', ['$element', function ($element) {
-    var vm = this;
-    vm.$onChanges = function () {
-
-        console.log('**** prm-full-view-after ***');
-        console.log(vm);
-    };
-
-    vm.onChangeTabEvent = function (e) {
-        console.log(e);
-    };
-}]);
-
-angular.module('viewCustom').component('prmFullViewAfter', {
-    bindings: { parentCtrl: '<' },
-    controller: 'prmFullViewAfterCtrl',
-    controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/prm-full-view-after.html'
-});
-/**
- * Created by samsan on 11/1/17.
- */
-
-angular.module('viewCustom').controller('prmFullViewServiceContainerAfterCtrl', ['$element', function ($element) {
-    var vm = this;
-    vm.$onChanges = function () {
-        console.log('**** prm-full-view-service-container-after ****');
-        console.log(vm);
-    };
-}]);
-
-angular.module('viewCustom').component('prmFullViewServiceContainerAfter', {
-    bindings: { parentCtrl: '<' },
-    controller: 'prmFullViewServiceContainerAfterCtrl',
-    controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/prm-full-view-service-container-after.html'
 });
 
 /**
@@ -1205,7 +1161,7 @@ angular.module('viewCustom').controller('prmSearchBarAfterCtrl', ['$element', '$
         var el = $element[0].parentNode.children[0].children[0].children[2];
         var button = document.createElement('button');
         button.setAttribute('id', 'browseButton');
-        button.setAttribute('class', 'md-button md-primoExplore-theme browse-button');
+        button.setAttribute('class', 'md-button md-primoExplore-theme browse-button switch-to-advanced');
         button.setAttribute('ng-click', 'vm.gotoBrowse()');
         var textNode = document.createTextNode('STARTS WITH (BROWSE BY...)');
         if ($mdMedia('xs') || $mdMedia('sm')) {
@@ -1217,6 +1173,22 @@ angular.module('viewCustom').controller('prmSearchBarAfterCtrl', ['$element', '$
         if (!browseBtn) {
             el.appendChild(button);
             $compile(el)($scope);
+        }
+    };
+
+    // toggle between advance search and simple search
+    vm.$doCheck = function () {
+        var browseBtn = document.getElementById('browseButton');
+        if (vm.parentCtrl.advancedSearch) {
+            if (browseBtn) {
+                browseBtn.classList.remove('switch-to-advanced');
+                browseBtn.classList.add('switch-to-simple');
+            }
+        } else {
+            if (browseBtn) {
+                browseBtn.classList.remove('switch-to-simple');
+                browseBtn.classList.add('switch-to-advanced');
+            }
         }
     };
 

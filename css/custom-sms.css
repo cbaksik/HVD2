@@ -1,0 +1,37 @@
+#textsms {
+   padding:5px;
+   cursor: pointer;
+   z-index:10;
+   color:#666;
+   font-weight: 300;
+}
+
+
+#textsms .row {
+    text-align: center;
+    cursor: pointer;
+}
+
+#textsms .button-text {
+    font-size:10px;
+    line-height:14px;
+    font-weight:600;
+    cursor: pointer;
+}
+
+#textsms:hover {
+    background:#e1e1e1;
+    color:#666;
+}
+
+
+#textsms .row:hover {
+    background:#e1e1e1;
+    color:#666;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+

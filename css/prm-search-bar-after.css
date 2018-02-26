@@ -1,14 +1,14 @@
 .browse-button {
     position: relative;
-    margin-top:22px;
-    color:#ffffff;
+    margin-top:30px;
     margin-left:0px;
 }
 
-
-.browse-button:hover {
-    color:#ffffff !important;
+.search-switch-buttons {
+    margin-top:-10px;
+    margin-bottom:0px;
 }
+
 
 prm-browse-search-bar {
     background-color:#383838;
@@ -18,9 +18,14 @@ prm-browse-search-bar > button.submit-button {
     color:#a51c30 !important;
 }
 
+prm-browse-search-bar .simple-btn {
+    color:#ffffff;
+    margin-top: 10px;
+    margin-left: 20px;
+}
 
-.search-switch-buttons {
-    padding-top:0px !important;
+prm-browse-search-bar button.md-button.simple-btn:hover {
+    color:#efefef !important;
 }
 
 /* magnify glass search in search box */
