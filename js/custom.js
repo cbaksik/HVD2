@@ -764,6 +764,15 @@ angular.module('viewCustom').service('customService', ['$http', '$sce', '$window
         return serviceObj.api;
     };
 
+    // when user click on advanced search from browse page
+    serviceObj.advancedSearch = false;
+    serviceObj.setAdvancedSearch = function (flag) {
+        serviceObj.advancedSearch = flag;
+    };
+    serviceObj.getAdvancedSearch = function () {
+        return serviceObj.advancedSearch;
+    };
+
     return serviceObj;
 }]);
 
@@ -1075,6 +1084,41 @@ angular.module('viewCustom').component('prmAuthenticationAfter', {
 });
 
 /**
+ * Created by samsan on 2/28/18.
+ * Add basic search and advanced search button at browse page
+ */
+
+angular.module('viewCustom').component('prmBrowseSearchBarAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmBrowseSearchBarAfterCtrl',
+    controllerAs: 'vm',
+    templateUrl: '/primo-explore/custom/01HVD/html/prm-browse-search-bar-after.html'
+});
+
+angular.module('viewCustom').controller('prmBrowseSearchBarAfterCtrl', ['$location', 'customService', '$element', function ($location, customService, $element) {
+    var vm = this;
+    var cs = customService;
+
+    vm.$onChanges = function () {
+        var el = $element[0].parentNode.childNodes[0].children[2];
+        if (el) {
+            var left = el.offsetLeft;
+            var doc = document.getElementById('browseSearchBar');
+            doc.style.left = left + 20 + 'px';
+        }
+    };
+
+    vm.gotoSimpleSearch = function () {
+        cs.setAdvancedSearch(false);
+        window.location.href = '/primo-explore/search?vid=01HVD';
+    };
+
+    vm.gotoAdvancedSearch = function () {
+        cs.setAdvancedSearch(true);
+        $location.path('/search');
+    };
+}]);
+/**
  * Created by samsan on 8/9/17.
  * It remove old logo and replace it with new logo
  */
@@ -1154,8 +1198,9 @@ angular.module('viewCustom').component('prmPermalinkAfter', {
  * Created by samsan on 9/25/17.
  */
 
-angular.module('viewCustom').controller('prmSearchBarAfterCtrl', ['$element', '$location', '$compile', '$scope', '$mdMedia', function ($element, $location, $compile, $scope, $mdMedia) {
+angular.module('viewCustom').controller('prmSearchBarAfterCtrl', ['$element', '$location', '$compile', '$scope', '$mdMedia', 'customService', function ($element, $location, $compile, $scope, $mdMedia, customService) {
     var vm = this;
+    var cs = customService;
 
     vm.$onInit = function () {
         var el = $element[0].parentNode.children[0].children[0].children[2];
@@ -1189,6 +1234,11 @@ angular.module('viewCustom').controller('prmSearchBarAfterCtrl', ['$element', '$
                 browseBtn.classList.remove('switch-to-simple');
                 browseBtn.classList.add('switch-to-advanced');
             }
+        }
+
+        if (cs.getAdvancedSearch() === true) {
+            vm.parentCtrl.searchFieldsService.advancedSearch = true;
+            cs.setAdvancedSearch(false);
         }
     };
 

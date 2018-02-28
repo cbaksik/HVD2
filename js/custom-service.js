@@ -263,6 +263,15 @@ angular.module('viewCustom')
             return serviceObj.api;
         };
 
+        // when user click on advanced search from browse page
+        serviceObj.advancedSearch=false;
+        serviceObj.setAdvancedSearch=function (flag) {
+            serviceObj.advancedSearch=flag;
+        };
+        serviceObj.getAdvancedSearch=function () {
+            return serviceObj.advancedSearch;
+        };
+
 
         return serviceObj;
     }]);

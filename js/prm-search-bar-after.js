@@ -3,8 +3,9 @@
  */
 
 angular.module('viewCustom')
-    .controller('prmSearchBarAfterCtrl',['$element','$location','$compile','$scope','$mdMedia',function ($element,$location,$compile,$scope,$mdMedia) {
+    .controller('prmSearchBarAfterCtrl',['$element','$location','$compile','$scope','$mdMedia','customService',function ($element,$location,$compile,$scope,$mdMedia, customService) {
         var vm=this;
+        var cs=customService;
 
         vm.$onInit=function () {
             var el=$element[0].parentNode.children[0].children[0].children[2];
@@ -40,11 +41,17 @@ angular.module('viewCustom')
                     browseBtn.classList.add('switch-to-advanced');
                 }
             }
+
+            if(cs.getAdvancedSearch()===true) {
+                vm.parentCtrl.searchFieldsService.advancedSearch=true;
+                cs.setAdvancedSearch(false);
+            }
         };
 
         vm.gotoBrowse=function () {
             $location.path('/browse');
         };
+
 
     }]);
 
