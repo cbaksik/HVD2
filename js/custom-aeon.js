@@ -28,8 +28,7 @@ angular.module('viewCustom')
             $scope.$watch('vm.api.aeonApiUrl',()=> {
                 vm.getData();
             });
-
-
+            
         };
 
         // build url to send to aeon

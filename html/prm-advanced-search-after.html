@@ -1,6 +1,6 @@
 <md-card  class="barcode">
     <div layout="row">
-        <md-input-container md-no-float class="md-block md-input-has-placeholder" flex="50">
+        <md-input-container md-no-float class="underlined-input bold-text md-primoExplore-theme md-block md-input-has-placeholder" flex="50">
             <input placeholder="Enter barcode" maxlength="100" aria-label="Search by barcode" tabindex="0" ng-model="vm.form.barcode" (keypress)="vm.keypressSearch($event)"/>
         </md-input-container>
         <md-button tabindex="0" class="md-block" (click)="vm.searchByBarcode()">

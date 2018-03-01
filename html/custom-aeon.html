@@ -6,8 +6,16 @@
         <h2>Special collections request<br/> Choose one:</h2>
         <div ng-repeat="data in vm.holdingItems track by $index" tabindex="-1">
            <div class="title">{{data.libraryDesc}} {{data.locationDesc}} {{data.callNumber}}</div>
+            <div ng-repeat="field in data.marc21slim.dataFields track by $index">
+                <div class="space">
+                    <span class="bold-text">{{field.label}} : </span>
+                    <span ng-repeat="sub in field.subFields track by $index">
+                        {{sub.a}} {{sub.value}}
+                    </span>
+                </div>
+            </div>
             <a layout="row" ng-repeat="item in data.items track by $index" class="row" tabindex="0" (click)="vm.goto(data,item)" (keypress)="vm.pressLink($event,data,item)"  title="Choose one">
-                <div flex="initial" class="marginRight">
+                <div flex="auto" class="marginRight">
                     <span ng-if="item.description">{{item.description}}</span>
                     <span ng-if="!item.description">Select item</span>
                 </div>
