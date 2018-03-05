@@ -3,9 +3,10 @@
  */
 
 angular.module('viewCustom')
-    .controller('prmAdvancedSearchAfterCtrl',['$location','$stateParams',function ($location,$stateParams) {
+    .controller('prmAdvancedSearchAfterCtrl',['$location','$stateParams','$element','$compile','$scope',function ($location,$stateParams,$element,$compile,$scope) {
         var vm=this;
-        vm.form={'barcode':'','error':''};
+
+        vm.form={'barcode':'','error':'','flag':false};
         if($stateParams.code) {
             vm.form.barcode=$stateParams.code;
         }
@@ -25,6 +26,31 @@ angular.module('viewCustom')
                 vm.searchByBarcode();
             }
         };
+
+        vm.$onInit=()=>{
+            setTimeout(()=>{
+                let el=$element[0].parentNode.childNodes[0].children[0].children[0].children[0];
+                let checkbox=document.createElement('custom-radio');
+                checkbox.setAttribute('parent-ctrl','vm.parentCtrl');
+                el.appendChild(checkbox);
+                $compile(el.children[2])($scope);
+            },1000);
+
+        };
+
+        vm.$doCheck=()=>{
+            // get checkbox value of true or false when a user click on barcode checkbox
+            vm.form.flag=vm.parentCtrl.selectedBarcode;
+            let el=$element[0].parentNode.childNodes[0].children[0].children[1];
+            if(el) {
+                if(vm.form.flag && vm.parentCtrl.selectedSearchTab=='') {
+                    el.style.display='none';
+                } else {
+                    el.style.display='inline-flex';
+                    vm.form.flag=false;
+                }
+            }
+        }
 
     }]);
 

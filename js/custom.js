@@ -482,6 +482,37 @@ angular.module('viewCustom').service('customMapService', [function () {
 }]);
 
 /**
+ * Created by samsan on 3/2/18.
+ * It create a checkbox in advance search section
+ */
+
+angular.module('viewCustom').controller('customRadioCtrl', [function () {
+    var vm = this;
+    vm.form = { 'checked': false, 'class': 'md-off' };
+
+    vm.check = function () {
+        vm.parentCtrl.selectedSearchTab = '';
+        vm.form.checked = true;
+        vm.form.class = 'md-checked md-on';
+        vm.parentCtrl.selectedBarcode = vm.form.checked;
+    };
+
+    vm.$doCheck = function () {
+        if (vm.parentCtrl.selectedSearchTab) {
+            vm.form.checked = false;
+            vm.form.class = 'md-unchecked md-off';
+        }
+    };
+}]);
+
+angular.module('viewCustom').component('customRadio', {
+    bindings: { parentCtrl: '<' },
+    controller: 'customRadioCtrl',
+    controllerAs: 'vm',
+    templateUrl: '/primo-explore/custom/01HVD/html/custom-radio.html'
+});
+
+/**
  * Created by samsan on 11/21/17.
  */
 
@@ -1024,9 +1055,10 @@ angular.module('viewCustom').component('prmActionListAfter', {
  * Created by samsan on 8/28/17.
  */
 
-angular.module('viewCustom').controller('prmAdvancedSearchAfterCtrl', ['$location', '$stateParams', function ($location, $stateParams) {
+angular.module('viewCustom').controller('prmAdvancedSearchAfterCtrl', ['$location', '$stateParams', '$element', '$compile', '$scope', function ($location, $stateParams, $element, $compile, $scope) {
     var vm = this;
-    vm.form = { 'barcode': '', 'error': '' };
+
+    vm.form = { 'barcode': '', 'error': '', 'flag': false };
     if ($stateParams.code) {
         vm.form.barcode = $stateParams.code;
     }
@@ -1044,6 +1076,30 @@ angular.module('viewCustom').controller('prmAdvancedSearchAfterCtrl', ['$locatio
     vm.keypressSearch = function (e) {
         if (e.which === 13) {
             vm.searchByBarcode();
+        }
+    };
+
+    vm.$onInit = function () {
+        setTimeout(function () {
+            var el = $element[0].parentNode.childNodes[0].children[0].children[0].children[0];
+            var checkbox = document.createElement('custom-radio');
+            checkbox.setAttribute('parent-ctrl', 'vm.parentCtrl');
+            el.appendChild(checkbox);
+            $compile(el.children[2])($scope);
+        }, 1000);
+    };
+
+    vm.$doCheck = function () {
+        // get checkbox value of true or false when a user click on barcode checkbox
+        vm.form.flag = vm.parentCtrl.selectedBarcode;
+        var el = $element[0].parentNode.childNodes[0].children[0].children[1];
+        if (el) {
+            if (vm.form.flag && vm.parentCtrl.selectedSearchTab == '') {
+                el.style.display = 'none';
+            } else {
+                el.style.display = 'inline-flex';
+                vm.form.flag = false;
+            }
         }
     };
 }]);

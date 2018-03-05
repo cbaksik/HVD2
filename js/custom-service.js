@@ -272,6 +272,5 @@ angular.module('viewCustom')
             return serviceObj.advancedSearch;
         };
 
-
         return serviceObj;
     }]);
