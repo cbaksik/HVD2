@@ -2,7 +2,7 @@
     <div layout="row" class="loading">
         <prm-spinner ng-if="vm.ajaxLoader" class="default-loader dark-on-light overlay-cover no-text" layout="row" layout-align="center center"></prm-spinner>
     </div>
-    <div class="box" ng-if="vm.holdingItems.length > 0">
+    <div class="box" ng-if="vm.holdingItems.length > 0 && vm.dataList.recordsFound">
         <h2>Special collections request<br/> Choose one:</h2>
         <div ng-repeat="data in vm.holdingItems track by $index" tabindex="-1">
            <div class="title">{{data.libraryDesc}} {{data.locationDesc}} {{data.callNumber}}</div>
@@ -20,6 +20,18 @@
                     <span ng-if="!item.description">Select item</span>
                 </div>
             </a>
+        </div>
+    </div>
+    <div class="box" ng-if="vm.holdingItems.length===0">
+        <div class="row">
+            <h3  ng-if="vm.dataList.recordsFound===false">
+                We're sorry but these items are not eligible for Special Collections Requests.
+                Please <a href="https://ask.library.harvard.edu" target="_blank">Ask a Librarian</a> if you have any questions.
+            </h3>
+            <h3 ng-if="vm.msg.error">
+                We're sorry but these items are not eligible for Special Collections Requests.
+                Please <a href="https://ask.library.harvard.edu" target="_blank">Ask a Librarian</a> if you have any questions.
+            </h3>
         </div>
     </div>
 </div>

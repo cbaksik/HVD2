@@ -11,6 +11,7 @@ angular.module('viewCustom')
         vm.dataList=[];
         vm.holdingItems=[];
         vm.ajaxLoader=false;
+        vm.msg={'error':''};
         vm.$onInit=()=> {
             // hide top bar and search box
             let prmTopbar=document.getElementsByTagName('prm-topbar')[0];
@@ -89,6 +90,8 @@ angular.module('viewCustom')
                         (err) => {
                             console.log(err);
                             vm.ajaxLoader=false;
+                            vm.msg.error='Http Request XHR is error';
+                            console.log(vm.msg.error);
                         }
                     )
             }

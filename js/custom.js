@@ -20,6 +20,7 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
     vm.dataList = [];
     vm.holdingItems = [];
     vm.ajaxLoader = false;
+    vm.msg = { 'error': '' };
     vm.$onInit = function () {
         // hide top bar and search box
         var prmTopbar = document.getElementsByTagName('prm-topbar')[0];
@@ -137,6 +138,8 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
             }, function (err) {
                 console.log(err);
                 vm.ajaxLoader = false;
+                vm.msg.error = 'Http Request XHR is error';
+                console.log(vm.msg.error);
             });
         }
     };
