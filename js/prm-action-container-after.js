@@ -36,6 +36,7 @@ angular.module('viewCustom')
         };
 
         vm.keyChange=function (e) {
+            vm.form.msg='';
             if(e.which > 47 && e.which < 58) {
                 vm.form.error = '';
                 var phone = angular.copy(vm.temp.phone);
@@ -159,7 +160,7 @@ angular.module('viewCustom')
                                    var data = JSON.parse(result.data.msg);
                                    data = data.data.message[0];
                                    if (data.accepted) {
-                                       vm.form.msg = 'The message has been sent to ' + vm.temp.phone + '.';
+                                       vm.form.msg = 'The message sent to ' + vm.temp.phone + '.';
                                    } else {
                                        vm.form.msg = 'The message did not send. The ClickAtell did not accept sms.';
                                    }

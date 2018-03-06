@@ -2,7 +2,7 @@
    padding:5px;
    cursor: pointer;
    z-index:10;
-   color:#666;
+   color:#5F5F5F;
    font-weight: 300;
 }
 
@@ -20,18 +20,25 @@
 }
 
 #textsms:hover {
-    background:#e1e1e1;
-    color:#666;
+    color:#5F5F5F;
 }
 
 
 #textsms .row:hover {
     background:#e1e1e1;
-    color:#666;
+    color:#5F5F5F;
 }
 
 .pointer {
     cursor: pointer;
+}
+
+#textsms svg  {
+    fill:#5F5F5F;
+}
+
+#textsms .textsms-info {
+    font-weight: bold;
 }
 
 
