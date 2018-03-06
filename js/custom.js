@@ -302,7 +302,7 @@ angular.module('viewCustom').service('customHathiTrustService', ['$http', functi
     serviceObj.validateHathiTrust = function (pnxItem) {
         var item = { 'flag': false, 'isbn': '', 'oclcid': '', 'data': {} };
         if (pnxItem.pnx.control.sourceid && pnxItem.pnx.delivery.delcategory && pnxItem.pnx.addata) {
-            if (pnxItem.pnx.control.sourceid[0] === '01HVD_ALMA' && pnxItem.pnx.delivery.delcategory[0] !== 'Online Resource') {
+            if (pnxItem.pnx.control.sourceid[0] === 'HVD_ALMA' && pnxItem.pnx.delivery.delcategory[0] !== 'Online Resource') {
                 item.flag = true;
                 if (pnxItem.pnx.addata.oclcid) {
                     item.oclcid = pnxItem.pnx.addata.oclcid[0];
