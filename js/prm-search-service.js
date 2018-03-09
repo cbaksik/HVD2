@@ -77,79 +77,79 @@ angular.module('viewCustom')
       }
     };
 
-    // replace & . It cause error in firefox;
-    serviceObj.removeInvalidString=function (str) {
-        var pattern = /[\&]/g;
-        return str.replace(pattern, '&amp;');
-    };
-
-    //parse xml
-    serviceObj.parseXml=function (str) {
-        var options = {
-            mergeCDATA: true,	// extract cdata and merge with text nodes
-            grokAttr: true,		// convert truthy attributes to boolean, etc
-            grokText: false,		// convert truthy text/attr to boolean, etc
-            normalize: true,	// collapse multiple spaces to single space
-            xmlns: true, 		// include namespaces as attributes in output
-            namespaceKey: '_ns', 	// tag name for namespace objects
-            textKey: '_text', 	// tag name for text nodes
-            valueKey: '_value', 	// tag name for attribute values
-            attrKey: '_attr', 	// tag for attr groups
-            cdataKey: '_cdata',	// tag for cdata nodes (ignored if mergeCDATA is true)
-            attrsAsObject: true, 	// if false, key is used as prefix to name, set prefix to '' to merge children and attrs.
-            stripAttrPrefix: true, 	// remove namespace prefixes from attributes
-            stripElemPrefix: true, 	// for elements of same name in diff namespaces, you can enable namespaces and access the nskey property
-            childrenAsArray: true 	// force children into arrays
+        // replace & . It cause error in firefox;
+        serviceObj.removeInvalidString=function (str) {
+            var pattern = /[\&]/g;
+            return str.replace(pattern, '&amp;');
         };
 
-        str=serviceObj.removeInvalidString(str);
-        return xmlToJSON.parseString(str, options);
-    };
+        //parse xml
+        serviceObj.parseXml=function (str) {
+            var options = {
+                mergeCDATA: true,	// extract cdata and merge with text nodes
+                grokAttr: true,		// convert truthy attributes to boolean, etc
+                grokText: false,		// convert truthy text/attr to boolean, etc
+                normalize: true,	// collapse multiple spaces to single space
+                xmlns: true, 		// include namespaces as attributes in output
+                namespaceKey: '_ns', 	// tag name for namespace objects
+                textKey: '_text', 	// tag name for text nodes
+                valueKey: '_value', 	// tag name for attribute values
+                attrKey: '_attr', 	// tag for attr groups
+                cdataKey: '_cdata',	// tag for cdata nodes (ignored if mergeCDATA is true)
+                attrsAsObject: true, 	// if false, key is used as prefix to name, set prefix to '' to merge children and attrs.
+                stripAttrPrefix: true, 	// remove namespace prefixes from attributes
+                stripElemPrefix: true, 	// for elements of same name in diff namespaces, you can enable namespaces and access the nskey property
+                childrenAsArray: true 	// force children into arrays
+            };
 
-    // maninpulate data and convert xml data to json
-    serviceObj.convertData=function (data) {
-       var newData=[];
-       for(var i=0; i < data.length; i++){
-           var obj=data[i];
-           obj.restrictedImage=false;
-           if(obj.pnx.addata.mis1) {
-               if (obj.pnx.addata.mis1.length > 0) {
-                   var jsonObj=serviceObj.getXMLdata(obj.pnx.addata.mis1[0]);
-                   if(jsonObj.surrogate) {
-                       for (var k = 0; k < jsonObj.surrogate.length; k++) {
-                            if(jsonObj.surrogate[k].image) {
-                                if(jsonObj.surrogate[k].image[0]._attr) {
-                                    if (jsonObj.surrogate[k].image[0]._attr.restrictedImage._value) {
-                                        obj.restrictedImage = true;
-                                        k = jsonObj.surrogate.length;
+            str=serviceObj.removeInvalidString(str);
+            return xmlToJSON.parseString(str, options);
+        };
+
+        // maninpulate data and convert xml data to json
+        serviceObj.convertData=function (data) {
+            var newData=[];
+            for(var i=0; i < data.length; i++){
+                var obj=data[i];
+                obj.restrictedImage=false;
+                if(obj.pnx.addata.mis1) {
+                    if (obj.pnx.addata.mis1.length > 0) {
+                        var jsonObj=serviceObj.getXMLdata(obj.pnx.addata.mis1[0]);
+                        if(jsonObj.surrogate) {
+                            for (var k = 0; k < jsonObj.surrogate.length; k++) {
+                                if(jsonObj.surrogate[k].image) {
+                                    if(jsonObj.surrogate[k].image[0]._attr) {
+                                        if (jsonObj.surrogate[k].image[0]._attr.restrictedImage._value) {
+                                            obj.restrictedImage = true;
+                                            k = jsonObj.surrogate.length;
+                                        }
                                     }
                                 }
                             }
-                       }
-                   }
-                   if(jsonObj.image) {
-                       for (var k = 0; k < jsonObj.image.length; k++) {
-                           if(jsonObj.image[k]._attr.restrictedImage) {
-                               if(jsonObj.image[k]._attr.restrictedImage._value) {
-                                   obj.restrictedImage=true;
-                                   k=jsonObj.image.length;
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-           // remove the $$U infront of url
-           if(obj.pnx.links.thumbnail) {
-               var imgUrl = $filter('urlFilter')(obj.pnx.links.thumbnail);
-               obj.pnx.links.thumbnail[0]=serviceObj.getHttps(imgUrl);
-           }
-           newData[i] = obj;
+                        }
+                        if(jsonObj.image) {
+                            for (var k = 0; k < jsonObj.image.length; k++) {
+                                if(jsonObj.image[k]._attr.restrictedImage) {
+                                    if(jsonObj.image[k]._attr.restrictedImage._value) {
+                                        obj.restrictedImage=true;
+                                        k=jsonObj.image.length;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                // remove the $$U infront of url
+                if(obj.pnx.links.thumbnail) {
+                    var imgUrl = $filter('urlFilter')(obj.pnx.links.thumbnail);
+                    obj.pnx.links.thumbnail[0]=serviceObj.getHttps(imgUrl);
+                }
+                newData[i] = obj;
 
-       }
+            }
 
-       return newData;
-    };
+            return newData;
+        };
 
     // get user login ID
     serviceObj.logID=false;
@@ -227,283 +227,74 @@ angular.module('viewCustom')
         }
     };
 
-    // find image if it is jp2 or not
-    serviceObj.findJP2=function (itemData) {
-      var flag=false;
-      if(itemData.thumbnail) {
-          var thumbnailUrl = itemData.thumbnail[0]._attr.href._value;
-          var photoUrl = itemData._attr.href._value;
-          var thumbnailList = thumbnailUrl.split(':');
-          var thumbnailFlag = 0;
-          if (thumbnailList.length > 0) {
-              thumbnailFlag = thumbnailList[thumbnailList.length - 1];
-          }
-          var photoList = photoUrl.split(':');
-          var photoFlag = 1;
-          if (photoList.length > 0) {
-              photoFlag = photoList[photoList.length - 1];
-          }
-          if (photoFlag === thumbnailFlag) {
-              flag = true;
-          }
-      }
-      return flag;
-    };
-
-    // convert xml data to json data by re-group them
-    serviceObj.getXMLdata=function (str) {
-        var xmldata='';
-        var listArray=[];
-        if(str) {
-            xmldata = serviceObj.parseXml(str);
-            if(xmldata.work) {
-                listArray=[];
-                var work=xmldata.work[0];
-                if(!work.surrogate && work.image) {
-                    var data = work;
-                    if(work.image.length===1) {
-                        listArray = data;
-                    } else {
-                        listArray=[];
-                        var images=angular.copy(work.image);
-                        delete work.image;
-                        for(var i=0; i < images.length; i++){
-                            data=angular.copy(work);
-                            data.image=[];
-                            data.image[0]=images[i];
-                            listArray.push(data);
-                        }
-                    }
-
-                } else if(work.surrogate && work.image) {
-                    var data = {};
-                    listArray=[];
-                    var images = angular.copy(work.image);
-                    var surrogate = angular.copy(work.surrogate);
-                    delete work.image;
-                    delete work.surrogate;
-                    for(var i=0; i < images.length; i++){
-                        data=angular.copy(work);
-                        data.image=[];
-                        data.image[0]=images[i];
-                        listArray.push(data);
-                    }
-
-                    data={};
-                    for(var i=0; i < surrogate.length; i++){
-                        data=surrogate[i];
-                        if(surrogate[i].image) {
-                            for(var j=0; j < surrogate[i].image.length; j++) {
-                                data = angular.copy(surrogate[i]);
-                                if (surrogate[i].image[j]) {
-                                    data.image = [];
-                                    data.image[0] = surrogate[i].image[j];
-                                    data.thumbnail = surrogate[i].image[j].thumbnail;
-                                    data._attr = surrogate[i].image[j]._attr;
-                                    data.caption = surrogate[i].image[j].caption;
-                                }
-                                listArray.push(data);
-                            }
-                        } else {
-                            listArray.push(data);
-                        }
-
-
-                    }
-
+        // find image if it is jp2 or not
+        serviceObj.findJP2=function (itemData) {
+            var flag=false;
+            if(itemData.thumbnail) {
+                var thumbnailUrl = itemData.thumbnail[0]._attr.href._value;
+                var photoUrl = itemData._attr.href._value;
+                var thumbnailList = thumbnailUrl.split(':');
+                var thumbnailFlag = 0;
+                if (thumbnailList.length > 0) {
+                    thumbnailFlag = thumbnailList[thumbnailList.length - 1];
                 }
-
-                if(work.subwork && !work.surrogate) {
-                    listArray=[];
-                    for(var i=0; i < work.subwork.length; i++) {
-                        var aSubwork=work.subwork[i];
-                        if(aSubwork.surrogate) {
-                            for(var j=0; j < aSubwork.surrogate.length; j++) {
-                                var data=aSubwork.surrogate[j];
-                                listArray.push(data);
-                            }
-                        }
-                        if(aSubwork.image) {
-                            for(var k=0; k < aSubwork.image.length; k++) {
-                                var data=aSubwork;
-                                data.thumbnail=aSubwork.image[k].thumbnail;
-                                data._attr=aSubwork.image[k]._attr;
-                                data.caption=aSubwork.image[k].caption;
-                                listArray.push(data);
-                            }
-                        }
-                        if(!aSubwork.image && !aSubwork.surrogate) {
-                            listArray.push(aSubwork);
-                        }
-                    }
+                var photoList = photoUrl.split(':');
+                var photoFlag = 1;
+                if (photoList.length > 0) {
+                    photoFlag = photoList[photoList.length - 1];
                 }
-                if(work.subwork && work.surrogate) {
-                    listArray=[];
-                    for(var i=0; i < work.subwork.length; i++) {
-                        var aSubwork=work.subwork[i];
-                        if(aSubwork.surrogate) {
-                            for(var j=0; j < aSubwork.surrogate.length; j++) {
-                                var data=aSubwork.surrogate[j];
-                                listArray.push(data);
-                            }
-                        }
-                        if(aSubwork.image) {
-                            for(var k=0; k < aSubwork.image.length; k++) {
-                                var data=aSubwork;
-                                data.thumbnail=aSubwork.image[k].thumbnail;
-                                data._attr=aSubwork.image[k]._attr;
-                                data.caption=aSubwork.image[k].caption;
-                                listArray.push(data);
-                            }
-                        }
-                    }
-                    for(var w=0; w < work.surrogate.length; w++) {
-                        var aSurrogate=work.surrogate[w];
-                        if(aSurrogate.surrogate) {
-                            for(var j=0; j < aSurrogate.surrogate.length; j++) {
-                                var data=aSurrogate.surrogate[j];
-                                listArray.push(data);
-                            }
-                        }
-                        if(aSurrogate.image) {
-                            for(var k=0; k < aSurrogate.image.length; k++) {
-                                var data=aSurrogate;
-                                data.thumbnail=aSurrogate.image[k].thumbnail;
-                                data._attr=aSurrogate.image[k]._attr;
-                                data.caption=aSurrogate.image[k].caption;
-                                listArray.push(data);
-                            }
-                        }
-                    }
-                }
-                if(work.surrogate && !work.subwork) {
-                    listArray=[];
-                    for(var w=0; w < work.surrogate.length; w++) {
-                        var aSurrogate=work.surrogate[w];
-                        if(aSurrogate.surrogate) {
-                            for(var j=0; j < aSurrogate.surrogate.length; j++) {
-                                var data=aSurrogate.surrogate[j];
-                                listArray.push(data);
-                            }
-                        }
-                        if(aSurrogate.image) {
-                            for(var k=0; k < aSurrogate.image.length; k++) {
-                                var data=angular.copy(aSurrogate);
-                                data.image[0]=aSurrogate.image[k];
-                                listArray.push(data);
-                            }
-                        }
-                        if(!aSurrogate.image && !aSurrogate.surrogate) {
-                            listArray.push(aSurrogate);
-                        }
-                    }
-
-                }
-
-                xmldata=work;
-                if(listArray.length > 0) {
-                    xmldata.surrogate = listArray;
-                }
-
-                /* end work section ***/
-            } else if(xmldata.group) {
-                listArray=[];
-                xmldata=xmldata.group[0];
-                if(xmldata.subwork && xmldata.surrogate){
-                    var listArray=[];
-                    var subwork=xmldata.subwork;
-                    var surrogate=xmldata.surrogate;
-                    // get all the surrogate under subwork
-                    for(var i=0; i < subwork.length; i++) {
-                        var aSubwork = subwork[i];
-                        if(aSubwork.surrogate) {
-                            for(var k=0; k < aSubwork.surrogate.length; k++) {
-                                var data=aSubwork.surrogate[k];
-                               listArray.push(data);
-                            }
-                        }
-                        if(aSubwork.image) {
-                            for(var j=0; j < aSubwork.image.length; j++){
-                                var data=aSubwork;
-                                data.thumbnail=aSubwork.image[j].thumbnail;
-                                data._attr=aSubwork.image[j]._attr;
-                                data.caption=aSubwork.image[j].caption;
-                                listArray.push(data);
-                            }
-                        }
-                        if(!aSubwork.surrogate && !aSubwork.image) {
-                            listArray.push(aSubwork);
-                        }
-
-                    }
-                    // get all surrogate
-                    for(var i=0; i < surrogate.length; i++) {
-                        var aSurrogate=surrogate[i];
-                        if(aSurrogate.surrogate) {
-                            for(var j=0; j < aSurrogate.surrogate.length; j++) {
-                                var data=aSurrogate.surrogate[j];
-                                listArray.push(data);
-                            }
-                        }
-                        if(aSurrogate.image) {
-                            for(var j=0; j < aSurrogate.image.length; j++) {
-                                var data=aSurrogate;
-                                data.thumbnail=aSurrogate.image[j].thumbnail;
-                                data._attr=aSurrogate.image[j]._attr;
-                                data.caption=aSurrogate.image[j].caption;
-                                listArray.push(data);
-                            }
-                        }
-                        if(!aSurrogate.surrogate && !aSurrogate.image) {
-                            listArray.push(aSurrogate);
-                        }
-                    }
-                    xmldata.surrogate=listArray;
-
-                } else if(xmldata.subwork && !xmldata.surrogate) {
-                    // transfer subwork to surrogate
-                    var surrogate=[];
-                    listArray=[];
-                    var subwork=angular.copy(xmldata.subwork);
-                    delete xmldata.subwork;
-                    for(var i=0; i < subwork.length; i++) {
-                        if(subwork[i].surrogate) {
-                            surrogate=angular.copy(subwork[i].surrogate);
-                            delete subwork[i].surrogate;
-                            for(var k=0; k < surrogate.length; k++) {
-                                if(surrogate[k].image) {
-                                    var images = angular.copy(surrogate[k].image);
-                                    delete surrogate[k].image;
-                                    for (var c = 0; c < images.length; c++) {
-                                        var data = surrogate[k];
-                                        data.image = [];
-                                        data.image[0] = images[c];
-                                        listArray.push(data);
-                                    }
-                                } else {
-                                    listArray.push(surrogate[k]);
-                                }
-                            }
-                        }
-                        if(subwork[i].image) {
-                            var images = angular.copy(subwork[i].image);
-                            delete subwork[i].image;
-                            for(var j=0; j < images.length; j++) {
-                                var data=subwork[i];
-                                data.image=[];
-                                data.image[0]=images[j];
-                                listArray.push(data);
-                            }
-                        }
-                    }
-
-                    xmldata.surrogate=listArray
+                if (photoFlag === thumbnailFlag) {
+                    flag = true;
                 }
             }
+            return flag;
+        };
 
-        }
-        return xmldata;
-    };
+        // convert xml data to json data by re-group them
+        serviceObj.getXMLdata=function (str) {
+            var xmldata='';
+            var listArray=[];
+            if(str) {
+                xmldata = serviceObj.parseXml(str);
+                if(xmldata.work) {
+                    for(var k=0; k < xmldata.work.length; k++) {
+                        var subLevel=xmldata.work[k];
+                        if(subLevel.component) {
+                            listArray=subLevel.component;
+                        } else if(subLevel.image) {
+                            listArray=subLevel;
+                        } else {
+                            listArray=subLevel;
+                        }
+                    }
+
+                } else {
+                    listArray=xmldata;
+                }
+
+            }
+
+            return listArray;
+        };
+
+        // store api rest url from config.html
+        serviceObj.api={};
+        serviceObj.setApi=function (data) {
+            serviceObj.api=data;
+        };
+
+        serviceObj.getApi=function () {
+            return serviceObj.api;
+        };
+
+        // store validate client ip status
+        serviceObj.clientIp={};
+        serviceObj.setClientIp=function (data) {
+            serviceObj.clientIp = data;
+        };
+        serviceObj.getClientIp=function(){
+            return serviceObj.clientIp;
+        };
 
     return serviceObj;
 

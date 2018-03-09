@@ -1,0 +1,56 @@
+
+.scanList {list-style: none; margin-left:-45px;}
+
+.scanList > li { display: inline-block; text-align: left; cursor: pointer; display: -moz-inline-stack;
+    margin-bottom:5px; margin-right:10px; width: auto; vertical-align: top; padding:0px;}
+
+
+.scanImageBox {
+    height:375px;
+    display: table-cell;
+    padding:0px;
+    margin-left:auto;
+    margin-right: auto ;
+    z-index:0;
+    text-align: center;
+}
+
+.scanImageBox > img {
+    margin-left:auto !important;
+    margin-right: auto !important;
+    display: block !important;
+}
+
+.scan-image-card {
+    padding-top: 0px !important;
+    margin-top:0px !important;
+    margin-bottom:0px !important;
+    padding-bottom:0px !important;
+    padding-left:0px !important;
+    background: transparent !important;
+    width:auto;
+    height:430px;
+    z-index:0 !important;
+}
+
+
+
+.scanImageCaption {
+    line-height:30px;
+    font-size:100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: inherit;
+    margin-top:5px;
+    margin-bottom:10px;
+    text-align: center;
+    cursor:default;
+    text-align: center;
+}
+
+@media print {
+    .scanList {list-style: none; margin-left:-45px;}
+    .scanList > li { display: table-cell; text-align: left; cursor: pointer; display: -moz-inline-stack;
+        margin-bottom:5px; margin-right:10px; width: auto; vertical-align: top; padding:0px;}
+}
+

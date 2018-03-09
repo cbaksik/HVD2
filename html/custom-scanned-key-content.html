@@ -1,0 +1,14 @@
+<ul class="scanList spaceTop" ng-if="vm.lds41">
+    <li ng-repeat="data in vm.lds41 track by $index">
+        <md-card class="scan-image-card" tabindex="0">
+            <md-card-content class="scanImageBox"  layout-align="center center">
+                <a href="{{data.url}}" target="_blank" class="thumbnail" aria-label="{{data.title}}"  title="{{data.title}}">
+                    <img ng-if="data.url" ng-src="{{data.url}}?height=375"  class="md-card-image" alt="{{data.title}}" aria-label="{{data.title}}" tabindex="0" />
+                </a>
+            </md-card-content>
+            <md-card-footer class="nospace" ng-if="data.title">
+                <div class="scanImageCaption">{{data.title|truncatefilter}}</div>
+            </md-card-footer>
+        </md-card>
+    </li>
+</ul>

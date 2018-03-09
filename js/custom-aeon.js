@@ -29,7 +29,7 @@ angular.module('viewCustom')
             $scope.$watch('vm.api.aeonApiUrl',()=> {
                 vm.getData();
             });
-            
+
         };
 
         // build url to send to aeon
@@ -72,7 +72,6 @@ angular.module('viewCustom')
             // get config-dev.html api url from prm-topbar-after.js
             vm.api=sv.getApi();
         };
-
         // get data from primo-service
         vm.getData=()=>{
             if(vm.api.aeonApiUrl && vm.params) {

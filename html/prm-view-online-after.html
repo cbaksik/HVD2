@@ -1,0 +1,40 @@
+<div ng-if="$ctrl.singleImageFlag && !$ctrl.item.pnx.display.lds41">
+    <div layout="column" layout-align="center center" ng-if="$ctrl.zoomButtonFlag">
+        <md-button class="md-raised md-primary btn-margin-bottom" (click)="$ctrl.gotoFullPhoto($event,item,$index)" tabindex="0">
+            <md-icon md-svg-src="/primo-explore/custom/HVD2/img/file-find.svg"></md-icon> ZOOM OPTIONS AND FULL RECORD DETAILS
+        </md-button>
+    </div>
+    <div layout="row">
+        <div flex="grow">
+            <!-- single image -->
+            <single-image src="$ctrl.photo._attr.href._value" imgtitle="$ctrl.imageTitle"
+                          restricted="$ctrl.photo._attr.restrictedImage._value" jp2="$ctrl.jp2"></single-image>
+            <div layout="row" class="spaceTop" layout-sm="column" ng-if="$ctrl.photo.caption">
+                <div flex="20"></div>
+                <div flex="80"><span class="bold-text spaceRight">Caption:</span>  {{$ctrl.photo.caption[0]._text}}</div>
+            </div>
+            <!-- end single image -->
+        </div>
+    </div>
+</div>
+
+<div ng-if="$ctrl.viewAllComponetMetadataFlag && !$ctrl.item.pnx.display.lds41" class="hvfullsize">
+    <div layout="column" layout-align="center center">
+     <md-button class="md-raised md-primary btn-margin-bottom" (click)="$ctrl.viewAllComponentMetaData()" tabindex="0">
+        VIEW ALL COMPONENT METADATA
+     </md-button>
+     </div>
+
+    <!-- list thumbnail images -->
+    <md-grid-list md-row-height="210px" md-cols="{{$ctrl.gridColumn}}" ng-if="$ctrl.item.mis1Data.length > 1" tabindex="-1">
+    <md-grid-tile ng-if="$ctrl.item.mis1Data.length > 1" ng-repeat="item in $ctrl.item.mis1Data track by $index" ng-click="$ctrl.gotoFullPhoto($event,item,$index)" tabindex="0">
+        <multiple-thumbnail itemdata="item" searchdata="$ctrl.searchData"></multiple-thumbnail>
+    </md-grid-tile>
+    </md-grid-list>
+</div>
+
+<!-- show custom scanned key content -->
+<custom-scanned-key-content item="$ctrl.item"></custom-scanned-key-content>
+
+
+

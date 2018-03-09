@@ -1,0 +1,45 @@
+<md-content id="componentMetadata" layout="row">
+   <div flex="80">
+
+    <div layout="row" layout-xs="column" class="layout-block-xs layout-xs-column layout-row space" ng-repeat="key in vm.keys track by $index" ng-if="vm.items.pnx.display[key]">
+        <div flex-gt-sm="20" flex-gt-xs="25" flex class="flex-gt-xs-25 flex-gt-sm-20 flex">
+            <label class="bold-text">{{key|mapXmlFilter}}</label>
+        </div>
+        <div flex class="flex">
+               <span ng-repeat="val in vm.items.pnx.display[key] track by $index">
+                  <span ng-bind-html="vm.getValue(val,key)"></span><br/>
+               </span>
+        </div>
+    </div>
+
+   </div>
+</md-content>
+<hr/>
+<!--- display component -->
+<md-content  id="componentMetadata">
+    <div class="hv-toggle">
+        <md-button ng-click="vm.toggle()" class="md-fab md-button md-ink-ripple">
+            <md-icon md-svg-src="/primo-explore/custom/01HVD/img/{{vm.toggleData.icon}}"></md-icon>
+        </md-button>
+    </div>
+    <div  ng-repeat="data in vm.xmldata.component track by $index" ng-hide="vm.toggleData.flag" class="spaceBottom">
+        <div layout="row" layout-xs="column" layout-sm="column" class="layout-row padding10">
+            <span>{{$index + 1}}.</span>
+            <div flex-gt-sm="20" flex-sm="100" ng-click="vm.gotoFullPhoto($index,data)">
+                <custom-thumbnail itemdata="data" searchdata="vm.params"></custom-thumbnail>
+            </div>
+            <div flex-gt-sm="80" flex-sm="100">
+                <div layout="row" layout-xs="column" class="layout-block-xs layout-xs-column layout-row space" ng-repeat="key in vm.getKeys(data) track by $index" ng-if="data[key]" ng-init="val=vm.getValue(data[key],key)">
+                <div flex-gt-sm="25" flex-gt-xs="25" flex class="flex-gt-xs-25 flex-gt-sm-25 flex" ng-if="val">
+                    <label class="bold-text">{{key|mapXmlFilter}}</label>&nbsp;
+                </div>
+                <div flex flex-gt-sm="75" flex-gt-xs="75" class=" flex-gt-xs-75 flex-gt-sm-75 flex" ng-if="val">
+                    <span ng-bind-html="val"></span>
+                </div>
+                </div>
+            </div>
+
+        </div>
+        <hr/>
+    </div>
+</md-content>

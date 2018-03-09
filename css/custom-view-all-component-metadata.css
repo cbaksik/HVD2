@@ -1,0 +1,64 @@
+#componentMetadata {
+    padding:15px;
+    background: #ffffff;
+    color:#000000;
+}
+
+.metadataHeader {
+    display: inline-block;
+    font-size:120%;
+    white-space: nowrap;
+    color:#e4e4e4;
+    line-height:50px;
+    margin-left:70px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.hv-toggle {
+    text-align: right;
+}
+
+.hv-toggle > button {
+    margin-bottom:10px !important;
+    margin-top:0px !important;
+}
+
+.whiteBg {
+    background:#ffffff;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bigPadding {
+    padding:30px;
+}
+
+.iframeClass {
+    width:800px;
+    height:650px;
+    border: none;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+
+.imageNav {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.spaceTop {
+    margin-top:10px !important;
+}
+
+hr {padding:0px; margin:0px;}
+
+.spaceBottom {
+    margin-bottom:10px;
+}
+.padding10 {
+    padding-bottom:10px;
+}

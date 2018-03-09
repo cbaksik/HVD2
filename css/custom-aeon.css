@@ -1,12 +1,36 @@
 #aeon {
+    text-align: left;
+    background: #F3F3F3;
+}
+
+#aeon div.badgeIcon {
+    width:30px;
+    height:30px;
+    border-radius:15px;
+    font-size:14pt;
+    line-height:30px;
+    background:#ffffff;
+    color:#666666;
+    display:inline-block;
     text-align: center;
 }
 
+#aeon .banner {
+    background:#000000;
+    color: #ffffff;
+    height:60px;
+    padding-right:20px;
+    padding-left:20px;
+}
+
+#aeon .logo {
+    padding-left:10px;
+}
+
 #aeon .box {
-    margin:20px;
-    padding:20px;
-    background:#cccccc;
-    display: inline-block;
+    padding-left:20px;
+    padding-right:20px;
+    background:#F3F3F3;
     text-align: left;
 }
 
@@ -14,31 +38,17 @@
     font-size:16pt;
     font-weight: 600;
     padding-bottom:10px;
-    padding-top:10px;
 }
 
-#aeon h2 {
-    color:#ffffff;
-    font-size:16pt;
-    font-weight: 600;
+#aeon h1 {
+    color:#666666;
+    font-weight: bold;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:20px;
 }
 
 
-#aeon .row {
-    padding:5px;
-    background:#ffffff;
-    margin-bottom:2px;
-    font-size:14pt;
-    font-weight:400;
-    cursor:pointer;
-    width:400px;
-}
-
-#aeon .row:hover {
-    background:#efefef;
-}
-
-#aeon .marginRight {margin-right:20px;}
 
 #aeon .loading {
     text-align: center;
@@ -49,8 +59,61 @@
 }
 
 #aeon .bold-text {
-    font-weight: bold;
-    font-size:14pt;
+    font-weight: bolder;
 }
 
+#aeon .select-one {
+    font-weight: bold;
+    margin-bottom:10px;
+    margin-top:20px;
+}
+
+#aeon .divider {
+    margin-top:10px;
+    margin-bottom:10px;
+    color: #cccccc;
+}
+
+#aeon .row {
+    display: flex;
+}
+
+#aeon .col1 {
+    flex: 5%;
+    text-align: left;
+}
+
+#aeon .col2 {
+    flex: 95%;
+    text-align: left;
+}
+
+#aeon .gridBox {
+    background:#ffffff;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:25px;
+    padding-bottom:20px;
+    width:400px;
+}
+
+#aeon .gridRow {
+    background:#F3F3F3;
+    padding:10px;
+    margin-bottom:5px;
+    margin-left:15px;
+    margin-right:15px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#aeon .gridRow:hover {
+    background:#86adcc;
+    color:#ffffff;
+}
+
+#aeon .gridRow:focus {
+    background:#86adcc;
+    color:#ffffff;
+}
 

@@ -1,25 +1,49 @@
 <div id="aeon">
+    <div layout="row" layout-align="start center" class="banner">
+        <div>
+            <img src="/primo-explore/custom/01HVD/img/hlShield.png" alt="Harvard Shield"/>
+        </div>
+        <div class="logo">
+            <img src="/primo-explore/custom/01HVD/img/HOLLISLogov.png" alt="Hollis Logo"/>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
     <div layout="row" class="loading">
         <prm-spinner ng-if="vm.ajaxLoader" class="default-loader dark-on-light overlay-cover no-text" layout="row" layout-align="center center"></prm-spinner>
     </div>
+
+    <h1>Special Collections Request</h1>
+
     <div class="box" ng-if="vm.holdingItems.length > 0 && vm.dataList.recordsFound">
-        <h2>Special collections request<br/> Choose one:</h2>
+
         <div ng-repeat="data in vm.holdingItems track by $index" tabindex="-1">
-           <div class="title">{{data.libraryDesc}} {{data.locationDesc}} {{data.callNumber}}</div>
-            <div ng-repeat="field in data.marc21slim.dataFields track by $index">
-                <div class="space">
-                    <span class="bold-text">{{field.label}} : </span>
-                    <span ng-repeat="sub in field.subFields track by $index">
-                        {{sub.a}} {{sub.value}}
-                    </span>
+            <md-divider class="md-primoExplore-theme divider"></md-divider>
+            <div class="row">
+                <div class="col1" ng-if="vm.holdingItems.length > 1">
+                    <div class="badgeIcon">{{$index+1}}</div>
+                </div>
+                <div class="col2">
+                    <div class="title">{{data.libraryDesc}} {{data.locationDesc}} {{data.callNumber}}</div>
+                    <div ng-repeat="field in data.marc21slim.dataFields |orderBy:'label' track by $index">
+                        <div class="space">
+                            <label class="bold-text">{{field.label}}:</label>
+                            <span ng-repeat="sub in field.subFields track by $index">
+                                {{sub.a}} {{sub.value}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="select-one">SELECT ONE:</div>
+                    <div class="gridBox">
+                        <div class="gridRow" ng-repeat="item in data.items |orderBy:'description' track by $index" tabindex="0" autofocus=true (click)="vm.goto(data,item)" (keypress)="vm.pressLink($event,data,item)"  title="Choose one">
+                            <span ng-if="item.description">{{item.description}}</span>
+                            <span ng-if="!item.description">Place request</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <a layout="row" ng-repeat="item in data.items track by $index" class="row" tabindex="0" (click)="vm.goto(data,item)" (keypress)="vm.pressLink($event,data,item)"  title="Choose one">
-                <div flex="auto" class="marginRight">
-                    <span ng-if="item.description">{{item.description}}</span>
-                    <span ng-if="!item.description">Select item</span>
-                </div>
-            </a>
         </div>
     </div>
     <div class="box" ng-if="vm.holdingItems.length===0">
