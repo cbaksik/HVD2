@@ -47,15 +47,19 @@
         </div>
     </div>
     <div class="box" ng-if="vm.holdingItems.length===0">
-        <div class="row">
-            <h3  ng-if="vm.dataList.recordsFound===false">
-                We're sorry but these items are not eligible for Special Collections Requests.
-                Please <a href="https://ask.library.harvard.edu" target="_blank">Ask a Librarian</a> if you have any questions.
-            </h3>
-            <h3 ng-if="vm.msg.error">
-                We're sorry but these items are not eligible for Special Collections Requests.
-                Please <a href="https://ask.library.harvard.edu" target="_blank">Ask a Librarian</a> if you have any questions.
-            </h3>
+        <div class="errorBox">
+            <p  ng-if="vm.dataList.recordsFound===false" class="space20">
+                We're sorry but this particular item cannot be requested via HOLLIS. For access, please contact the library that owns the material.
+            </p>
+            <p  ng-if="vm.dataList.recordsFound===false" class="space20">
+                Please <a href="https://ask.library.harvard.edu" target="_blank" title="Ask a Librarian for assistance" tabindex="0">Ask a Librarian</a> if you would like assistance.
+            </p>
+            <p ng-if="vm.msg.error" class="space20">
+                We're sorry but this particular item cannot be requested via HOLLIS. For access, please contact the library that owns the material.
+            </p>
+            <p ng-if="vm.msg.error" class="space20">
+                Please <a href="https://ask.library.harvard.edu" target="_blank" title="Ask a Librarian for assistance" tabindex="0">Ask a Librarian</a> if you would like assistance.
+            </p>
         </div>
     </div>
 </div>
