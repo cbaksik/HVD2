@@ -19,14 +19,17 @@ angular.module('viewCustom')
                     vm.permalink=$sce.trustAsHtml(vm.parentCtrl.permalink);
                     // remove parent node
                     var pNode=$element[0].parentNode.children[0];
+
                     if(pNode) {
                        pNode.style.display='none';
                     }
                     // get link text
-                    var el=$element[0].children[0].children[0].children[0].children[0].children[0].children[0];
-                    if(el) {
-                        vm.permalinkText=el.textContent;
-                    }
+                    setTimeout(()=>{
+                        var el=$element[0].children[0].children[0].children[0].children[0].children[0].children[0];
+                        if(el) {
+                            vm.permalinkText=el.textContent;
+                        }
+                    },1000);
 
                 }
                 
