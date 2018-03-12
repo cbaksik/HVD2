@@ -22,7 +22,7 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
     vm.dataList = [];
     vm.holdingItems = [];
     vm.ajaxLoader = false;
-    vm.msg = { 'error': '' };
+    vm.msg = { 'error': '', 'class': 'body' };
     vm.$onInit = function () {
         // hide top bar and search box
         var prmTopbar = document.getElementsByTagName('prm-topbar')[0];
@@ -135,12 +135,17 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
                 vm.ajaxLoader = false;
                 if (data.holdingItems) {
                     vm.holdingItems = data.holdingItems;
+                    vm.msg.class = 'body';
+                }
+                if (vm.dataList.recordsFound === false) {
+                    vm.msg.class = 'body2';
                 }
             }, function (err) {
                 console.log(err);
                 vm.ajaxLoader = false;
                 vm.msg.error = 'Http Request XHR is error';
                 console.log(vm.msg.error);
+                vm.msg.class = 'body2';
             });
         }
     };

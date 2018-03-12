@@ -11,7 +11,7 @@ angular.module('viewCustom')
         vm.dataList=[];
         vm.holdingItems=[];
         vm.ajaxLoader=false;
-        vm.msg={'error':''};
+        vm.msg={'error':'','class':'body'};
         vm.$onInit=()=> {
             // hide top bar and search box
             let prmTopbar=document.getElementsByTagName('prm-topbar')[0];
@@ -84,6 +84,10 @@ angular.module('viewCustom')
                         vm.ajaxLoader=false;
                         if(data.holdingItems) {
                             vm.holdingItems = data.holdingItems;
+                            vm.msg.class='body';
+                        }
+                        if(vm.dataList.recordsFound===false) {
+                            vm.msg.class='body2';
                         }
                         },
                         (err) => {
@@ -91,6 +95,7 @@ angular.module('viewCustom')
                             vm.ajaxLoader=false;
                             vm.msg.error='Http Request XHR is error';
                             console.log(vm.msg.error);
+                            vm.msg.class='body2';
                         }
                     )
             }

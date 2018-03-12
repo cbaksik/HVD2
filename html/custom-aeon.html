@@ -1,4 +1,5 @@
 <div id="aeon">
+<div class="{{vm.msg.class}}">
     <div layout="row" layout-align="start center" class="banner">
         <div>
             <img src="/primo-explore/custom/01HVD/img/hlShield.png" alt="Harvard Shield"/>
@@ -46,20 +47,21 @@
             </div>
         </div>
     </div>
-    <div class="box" ng-if="vm.holdingItems.length===0">
-        <div class="errorBox">
-            <p  ng-if="vm.dataList.recordsFound===false" class="space20">
-                We're sorry but this particular item cannot be requested via HOLLIS. For access, please contact the library that owns the material.
-            </p>
-            <p  ng-if="vm.dataList.recordsFound===false" class="space20">
-                Please <a href="https://ask.library.harvard.edu" target="_blank" title="Ask a Librarian for assistance" tabindex="0">Ask a Librarian</a> if you would like assistance.
-            </p>
-            <p ng-if="vm.msg.error" class="space20">
-                We're sorry but this particular item cannot be requested via HOLLIS. For access, please contact the library that owns the material.
-            </p>
-            <p ng-if="vm.msg.error" class="space20">
-                Please <a href="https://ask.library.harvard.edu" target="_blank" title="Ask a Librarian for assistance" tabindex="0">Ask a Librarian</a> if you would like assistance.
-            </p>
-        </div>
+    <div class="errorBox" ng-if="vm.holdingItems.length===0">
+
+        <p  ng-if="vm.dataList.recordsFound===false" class="space20">
+            We're sorry but this particular item cannot be requested via HOLLIS. For access, please contact the library that owns the material.
+        </p>
+        <p  ng-if="vm.dataList.recordsFound===false" class="space20">
+            Please <a href="https://ask.library.harvard.edu" class="bold-text" target="_blank" title="Ask a Librarian for assistance" tabindex="0">Ask a Librarian</a> if you would like assistance.
+        </p>
+        <p ng-if="vm.msg.error" class="space20">
+            We're sorry but this particular item cannot be requested via HOLLIS. For access, please contact the library that owns the material.
+        </p>
+        <p ng-if="vm.msg.error" class="space20">
+            Please <a href="https://ask.library.harvard.edu" class="bold-text" target="_blank" title="Ask a Librarian for assistance" tabindex="0">Ask a Librarian</a> if you would like assistance.
+        </p>
+
     </div>
+</div>
 </div>
