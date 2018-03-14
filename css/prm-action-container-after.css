@@ -55,3 +55,7 @@
 .textsms-info {
     color: #5C92BD;
 }
+
+.textsms-danger {
+    color: #ff0000;
+}

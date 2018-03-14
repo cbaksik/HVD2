@@ -608,6 +608,10 @@ prm-view-online-after md-grid-list > md-grid-tile {
     color: #5C92BD;
 }
 
+.textsms-danger {
+    color: #ff0000;
+}
+
 .barcode {
     background:#ffffff !important;
     position: relative !important;

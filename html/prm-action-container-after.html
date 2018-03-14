@@ -9,7 +9,7 @@
                 <span ng-if="vm.form.error" class="textsms-alert">{{vm.form.error}}</span>
             </md-input-container>
         </div>
-        <p class="textsms-info" ng-if="vm.form.msg">{{vm.form.msg}}</p>
+        <p class="{{vm.css.class}}" ng-if="vm.form.msg">{{vm.form.msg}}</p>
 
         <div class="md-title">
             Choose a location to send a text

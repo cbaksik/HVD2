@@ -1903,6 +1903,7 @@ angular.module('viewCustom').controller('prmActionContainerAfterCtrl', ['customS
     vm.locations = [];
     vm.temp = { 'phone': '' };
     vm.form = { 'phone': '', 'deviceType': '', 'body': '', 'error': '', 'mobile': false, 'msg': '', 'token': '', 'ip': '', 'sessionToken': '', 'isLoggedIn': false, 'iat': '', 'inst': '', 'vid': '', 'exp': '', 'userName': '', 'iss': '', 'onCampus': false };
+    vm.css = { 'class': 'textsms-info' };
 
     vm.$onChanges = function () {
         vm.auth = cisv.getAuth();
@@ -1935,9 +1936,9 @@ angular.module('viewCustom').controller('prmActionContainerAfterCtrl', ['customS
                 vm.temp.phone = '(' + phone.substring(0, 3) + ')' + phone.substring(3, 6) + '-' + phone.substring(6, phone.length);
             }
         } else if (e.which > 96 && e.which < 123) {
-            vm.form.error = 'Enter invalid phone number';
-        } else {
-            vm.form.error = 'Enter invalid phone number';
+            vm.form.error = 'Enter valid phone number';
+        } else if (e.which === 13) {
+            vm.form.error = 'Please choose a location below';
         }
     };
 
@@ -2045,18 +2046,23 @@ angular.module('viewCustom').controller('prmActionContainerAfterCtrl', ['customS
                             data = data.data.message[0];
                             if (data.accepted) {
                                 vm.form.msg = 'The message sent to ' + vm.temp.phone + '.';
+                                vm.css.class = 'textsms-info';
                             } else {
-                                vm.form.msg = 'The message did not send. The ClickAtell did not accept sms.';
+                                vm.form.msg = 'We were unable to send this message. There was a problem with the phone number.';
+                                vm.css.class = 'textsms-danger';
                             }
                         } else {
                             vm.form.msg = result.data.msg;
+                            vm.css.class = 'textsms-danger';
                         }
                     } else {
-                        vm.form.msg = 'There is a technical issue with Text Message Server. Please try it later on.';
+                        vm.form.msg = 'We were unable to send this message. There was a problem with the phone number.';
+                        vm.css.class = 'textsms-danger';
                     }
                 }, function (error) {
                     console.log(error);
-                    vm.form.msg = 'There is a technical issue with Text Message Server. The rest endpoint server may be down.';
+                    vm.form.msg = 'We were unable to send this message. There was a problem with the phone number.';
+                    vm.css.class = 'textsms-danger';
                 });
             }
         }
