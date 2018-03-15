@@ -348,6 +348,84 @@ angular.module('viewCustom').service('customHathiTrustService', ['$http', functi
 }]);
 
 /**
+ * Created by samsan on 8/7/17.
+ * This service is used for Digital Bookplates
+ */
+
+(function () {
+    'use strict';
+
+    angular.module('viewCustom').service('customImagesService', [function () {
+        var serviceObj = {};
+
+        // validate url start with $$U and contain $$D, then return new item list
+        serviceObj.extractImageUrl = function (item, recordLinks) {
+            var itemList = [];
+            if (item.pnx.links) {
+                var lln02 = item.pnx.links.lln02;
+                var k = 0;
+                if (lln02) {
+                    for (var i = 0; i < lln02.length; i++) {
+                        var patternUrl = /^(\$\$U)/;
+                        var patternWord = /(\$\$D)/;
+                        var url = lln02[i];
+                        if (patternUrl.test(url) && patternWord.test(url)) {
+                            var newStr = url.split(' ');
+                            newStr = newStr[0];
+                            var newUrl = newStr.substring(3, newStr.length);
+
+                            for (var j = 0; j < recordLinks.length; j++) {
+                                var record = recordLinks[j];
+                                var linkURL = record.linkURL;
+                                if (linkURL) {
+                                    linkURL = linkURL.trim(' ');
+                                    newUrl = newUrl.trim(' ');
+                                    if (newUrl === linkURL) {
+                                        // replace old url with word EBKPLL with EBKPLT
+                                        linkURL = linkURL.replace(/(EBKPLL)/, 'EBKPLT');
+                                        record.linkNewURL = linkURL + '?width=155&height=205';
+                                        itemList[k] = record;
+                                        k++;
+                                        j = recordLinks.length;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return itemList;
+        };
+
+        // remove json object from json array
+        serviceObj.removeMatchItems = function (arrayList, targetList) {
+            var itemsList = [];
+            if (arrayList.length > 0 && targetList.length > 0) {
+                for (var i = 0; i < arrayList.length; i++) {
+                    var arr = arrayList[i];
+                    var flag = true;
+                    // find item that match
+                    for (var k = 0; k < targetList.length; k++) {
+                        var target = targetList[k];
+                        if (arr['@id'] === target['@id']) {
+                            flag = false;
+                            k = targetList.length;
+                        }
+                    }
+                    // push item into list if it is not match
+                    if (flag) {
+                        itemsList.push(arr);
+                    }
+                }
+            }
+            return itemsList;
+        };
+
+        return serviceObj;
+    }]);
+})();
+/**
  * Created by samsan on 10/23/17.
  * Create Map it link, place icon, and display the library name
  */
@@ -1813,6 +1891,28 @@ angular.module('viewCustom').filter('mapXmlFilter', ['customMapXmlKeys', functio
         return newKey.charAt(0).toUpperCase() + newKey.slice(1);
     };
 }]);
+(function () {
+    'use strict';
+
+    angular.module('viewCustom').controller('prmOpenJournalInFullController', [function () {
+        var vm = this;
+        vm.$onInit = function () {
+            var resourceType = vm.parentCtrl.result.pnx.display.type[0] || '';
+            if (resourceType === 'journal') {
+                vm.parentCtrl.isDirectLink = function () {
+                    return false;
+                };
+            }
+        };
+    }]);
+
+    angular.module('viewCustom').component('prmOpenJournalInFull', {
+        bindings: { parentCtrl: '<' },
+        controller: 'prmOpenJournalInFullController'
+
+    });
+})();
+
 /**
  * Created by samsan on 5/23/17.
  * If image has height that is greater than 150 px, then it will resize it. Otherwise, it just display what it is.
@@ -3015,6 +3115,46 @@ angular.module('viewCustom').service('prmSearchService', ['$http', '$window', '$
     return serviceObj;
 }]);
 
+/**
+ * Created by samsan on 8/7/17.
+ * This component is used for Digital Bookplates
+ */
+(function () {
+    'use strict';
+
+    angular.module('viewCustom').controller('prmServiceLinksAfterCtrl', ['customImagesService', '$timeout', function (customImagesService, $timeout) {
+        var vm = this;
+        var cisv = customImagesService;
+        vm.itemList = [];
+        vm.recordLinks = []; // keep track the original vm.parentCtrl.recordLinks
+
+        vm.getData = function () {
+            // make a copy to avoid data binding
+            vm.recordLinks = angular.copy(vm.parentCtrl.recordLinks);
+            // get items that have digital bookplates
+            vm.itemList = cisv.extractImageUrl(vm.parentCtrl.item, vm.recordLinks);
+            // delay data from parentCtrl
+            $timeout(function () {
+                vm.recordLinks = angular.copy(vm.parentCtrl.recordLinks);
+                vm.itemList = cisv.extractImageUrl(vm.parentCtrl.item, vm.recordLinks);
+                if (vm.recordLinks.length > 0 && vm.itemList.length > 0) {
+                    vm.parentCtrl.recordLinks = cisv.removeMatchItems(vm.recordLinks, vm.itemList);
+                }
+            }, 1500);
+        };
+
+        vm.$onInit = function () {
+            vm.getData();
+        };
+    }]);
+
+    angular.module('viewCustom').component('prmServiceLinksAfter', {
+        bindings: { parentCtrl: '<' },
+        controller: 'prmServiceLinksAfterCtrl',
+        controllerAs: 'vm',
+        templateUrl: '/primo-explore/custom/01HVD/html/prm-service-links-after.html'
+    });
+})();
 /**
  * Created by samsan on 8/9/17.
  *  This component is creating white top bar, link menu on the right, and remove some doms

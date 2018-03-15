@@ -1,0 +1,32 @@
+.serviceLinkBox {
+    padding:0px;
+    background: transparent !important;
+}
+
+.serviceLink {
+    list-style: none;
+    margin-left:-5px;
+    padding-left:0px;
+}
+
+.serviceLink > li {
+    display: inline-block;
+    width:200px;
+    height: auto;
+    margin-left:0px;
+    padding-left:0px;
+}
+
+.serviceLinkPhoto {
+    height:155px;
+    width: auto;
+}
+
+.serviceLinkSpace {
+    margin-bottom:10px;
+}
+
+.serviceLinkImage:hover {
+    border:1px solid #ff0000;
+    text-decoration: none;
+}
