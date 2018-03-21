@@ -3,7 +3,10 @@
  * This component is to insert images into online section and book covers.
  * If pnx.display.lds41 exist, it will display book covers. Then hide image view.
  */
-angular.module('viewCustom')
+
+(function () {
+
+    angular.module('viewCustom')
     .controller('prmViewOnlineAfterController', ['prmSearchService','$mdDialog','$timeout','$window','$location','$mdMedia', function (prmSearchService, $mdDialog, $timeout,$window,$location, $mdMedia) {
 
         var vm = this;
@@ -21,10 +24,6 @@ angular.module('viewCustom')
         vm.auth = sv.getAuth();
         vm.gridColumn='3'; // default print view size
 
-        vm.$doCheck=()=>{
-          //console.log('*** prm-view-online-after ***');
-          //console.log(vm.parentCtrl);
-        };
 
         vm.$onInit=function() {
             vm.isLoggedIn=sv.getLogInID();
@@ -99,60 +98,11 @@ angular.module('viewCustom')
     }]);
 
 
-angular.module('viewCustom')
-    .config(function ($stateProvider) {
-        $stateProvider
-            .state('exploreMain.viewallcomponentdata', {
-                    url: '/viewallcomponentmetadata/:context/:docid',
-                    views:{
-                        '': {
-                            template: `<custom-view-all-component-metadata parent-ctrl="$ctrl"></custom-view-all-component-metadata>`
-                        }
-                    }
-                }
-
-            )
-            .state('exploreMain.viewcomponent', {
-                    url:'/viewcomponent/:context/:docid',
-                    views:{
-                        '':{
-                           template:`<custom-view-component parent-ctrl="$ctrl" item="$ctrl.item" services="$ctrl.services" params="$ctrl.params"></custom-view-component>`
-                        }
-                    }
-                }
-
-            )
-    })
+    angular.module('viewCustom')
     .component('prmViewOnlineAfter', {
         bindings: {parentCtrl: '<'},
         controller: 'prmViewOnlineAfterController',
         'templateUrl':'/primo-explore/custom/01HVD/html/prm-view-online-after.html'
     });
 
-
-
-// truncate word to limit 60 characters
-angular.module('viewCustom').filter('truncatefilter',function () {
-    return function (str) {
-        var newstr=str;
-        var index=45;
-        if(str) {
-            if (str.length > 45) {
-                newstr = str.substring(0, 45);
-                for (var i = newstr.length; i > 20; i--) {
-                    var text = newstr.substring(i - 1, i);
-                    if (text === ' ') {
-                        index = i;
-                        i = 20;
-                    }
-                }
-                newstr = str.substring(0, index) + '...';
-
-            }
-
-        }
-
-        return newstr;
-    }
-
-});
+})();

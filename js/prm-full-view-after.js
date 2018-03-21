@@ -1,7 +1,10 @@
 /* Author: Sam san
-   This component is to capture item data from the parentCtrl. Then pass it to prm-view-online-after component
+   This capture all data from parentCtrl. Then can use with other components.
  */
-angular.module('viewCustom')
+
+(function () {
+
+    angular.module('viewCustom')
     .controller('prmFullViewAfterCtrl',['prmSearchService','$timeout','customGoogleAnalytic',function (prmSearchService,$timeout, customGoogleAnalytic) {
         var vm=this;
         var sv=prmSearchService;
@@ -45,23 +48,9 @@ angular.module('viewCustom')
         };
 
         vm.$onInit=function() {
-            console.log('*** prm-full-view-after ***');
-            console.log(vm.parentCtrl);
 
             // remove more section so the view online would show twice
             $timeout(function () {
-                if(vm.parentCtrl.item.pnx.display.lds41) {
-                    for(let i=0; i < vm.parentCtrl.services.length; i++) {
-                        // remove More section
-                        if(vm.parentCtrl.services[i].scrollId==='getit_link2') {
-                            vm.parentCtrl.services.splice(i,1);
-                        }
-                        // remove any links under view online section
-                        if(vm.parentCtrl.services[i].scrollId==='getit_link1_0') {
-                            vm.parentCtrl.services[i].linkElement={};
-                        }
-                    }
-                }
 
                 for(let i=0; i < vm.parentCtrl.services.length; i++) {
                     // remove More section
@@ -69,7 +58,6 @@ angular.module('viewCustom')
                         vm.parentCtrl.services.splice(i,1);
                     }
                 }
-
 
                 // remove tags section
                 if(vm.parentCtrl.services) {
@@ -95,9 +83,11 @@ angular.module('viewCustom')
 
     }]);
 
-angular.module('viewCustom')
+    angular.module('viewCustom')
     .component('prmFullViewAfter',{
         bindings:{parentCtrl:'<'},
         controller: 'prmFullViewAfterCtrl',
         controllerAs:'vm'
     });
+
+})();

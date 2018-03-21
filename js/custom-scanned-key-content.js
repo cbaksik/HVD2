@@ -1,8 +1,12 @@
 /**
  * Created by samsan on 9/7/17.
+ * This is for scanned content key. Some items have scan images.
+ * If any pnx/display/lds41, then it has scan images
  */
 
-angular.module('viewCustom')
+(function () {
+
+    angular.module('viewCustom')
     .controller('customScannedKeyContentCtrl',[function () {
         var vm=this;
         vm.lds41=[];
@@ -29,7 +33,7 @@ angular.module('viewCustom')
     }]);
 
 
-angular.module('viewCustom')
+    angular.module('viewCustom')
     .component('customScannedKeyContent',{
         bindings:{item:'<'},
         controllerAs:'vm',
@@ -37,3 +41,4 @@ angular.module('viewCustom')
         templateUrl: '/primo-explore/custom/01HVD/html/custom-scanned-key-content.html'
     });
 
+})();

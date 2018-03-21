@@ -251,6 +251,36 @@ angular.module('viewCustom').component('customBarcode', {
 });
 
 /**
+ * Created by samsan on 3/21/18.
+ * This custom filters are using with component to filter out data
+ */
+
+(function () {
+    // truncate word to limit 60 characters
+    angular.module('viewCustom').filter('truncatefilter', function () {
+        return function (str) {
+            var newstr = str;
+            var index = 45;
+            if (str) {
+                if (str.length > 45) {
+                    newstr = str.substring(0, 45);
+                    for (var i = newstr.length; i > 20; i--) {
+                        var text = newstr.substring(i - 1, i);
+                        if (text === ' ') {
+                            index = i;
+                            i = 20;
+                        }
+                    }
+                    newstr = str.substring(0, index) + '...';
+                }
+            }
+
+            return newstr;
+        };
+    });
+})();
+
+/**
  * Created by samsan on 9/22/17.
  */
 
@@ -1082,59 +1112,80 @@ angular.module('viewCustom').component('customRadio', {
 
 /**
  * Created by samsan on 11/21/17.
+ * Implement ui-router so it can load new pages and new component
  */
 
-angular.module('viewCustom').config(function ($stateProvider) {
-    $stateProvider.state('exploreMain.almaMapIt', {
-        url: '/almaMapIt',
-        views: {
-            '': {
-                template: '<custom-library-map loc="$ctrl"></custom-library-map>'
-            }
-        }
-    }).state('exploreMain.aeon', {
-        url: '/aeon',
-        views: {
-            '': {
-                template: '<custom-aeon parent-ctrl="$ctrl"></custom-aeon>'
-            }
-        }
-    });
-});
+(function () {
 
-/**
- * Created by samsan on 9/7/17.
- */
-
-angular.module('viewCustom').controller('customScannedKeyContentCtrl', [function () {
-    var vm = this;
-    vm.lds41 = [];
-
-    vm.$onChanges = function () {
-        // re-construct json obj if lds41 is existed
-        if (vm.item.pnx.display.lds41) {
-            var lds41 = vm.item.pnx.display.lds41;
-            for (var i = 0; i < lds41.length; i++) {
-                var str = lds41[i];
-                var arr = str.split('--');
-                if (arr.length > 0) {
-                    var obj = { 'title': '', 'url': '' };
-                    obj.title = arr[0];
-                    obj.url = arr[1];
-                    vm.lds41.push(obj);
+    angular.module('viewCustom').config(function ($stateProvider) {
+        $stateProvider.state('exploreMain.almaMapIt', {
+            url: '/almaMapIt',
+            views: {
+                '': {
+                    template: '<custom-library-map loc="$ctrl"></custom-library-map>'
                 }
             }
-        }
-    };
-}]);
+        }).state('exploreMain.aeon', {
+            url: '/aeon',
+            views: {
+                '': {
+                    template: '<custom-aeon parent-ctrl="$ctrl"></custom-aeon>'
+                }
+            }
+        }).state('exploreMain.viewallcomponentdata', {
+            url: '/viewallcomponentmetadata/:context/:docid',
+            views: {
+                '': {
+                    template: '<custom-view-all-component-metadata parent-ctrl="$ctrl"></custom-view-all-component-metadata>'
+                }
+            }
+        }).state('exploreMain.viewcomponent', {
+            url: '/viewcomponent/:context/:docid',
+            views: {
+                '': {
+                    template: '<custom-view-component parent-ctrl="$ctrl" item="$ctrl.item" services="$ctrl.services" params="$ctrl.params"></custom-view-component>'
+                }
+            }
+        });
+    });
+})();
+/**
+ * Created by samsan on 9/7/17.
+ * This is for scanned content key. Some items have scan images.
+ * If any pnx/display/lds41, then it has scan images
+ */
 
-angular.module('viewCustom').component('customScannedKeyContent', {
-    bindings: { item: '<' },
-    controllerAs: 'vm',
-    controller: 'customScannedKeyContentCtrl',
-    templateUrl: '/primo-explore/custom/01HVD/html/custom-scanned-key-content.html'
-});
+(function () {
 
+    angular.module('viewCustom').controller('customScannedKeyContentCtrl', [function () {
+        var vm = this;
+        vm.lds41 = [];
+
+        vm.$onChanges = function () {
+            // re-construct json obj if lds41 is existed
+            if (vm.item.pnx.display.lds41) {
+                var lds41 = vm.item.pnx.display.lds41;
+                for (var i = 0; i < lds41.length; i++) {
+                    var str = lds41[i];
+                    var arr = str.split('--');
+                    if (arr.length > 0) {
+                        var obj = { 'title': '', 'url': '' };
+                        obj.title = arr[0];
+                        obj.url = arr[1];
+                        vm.lds41.push(obj);
+                    }
+                }
+            }
+        };
+    }]);
+
+    angular.module('viewCustom').component('customScannedKeyContent', {
+        bindings: { item: '<' },
+        controllerAs: 'vm',
+        controller: 'customScannedKeyContentCtrl',
+        templateUrl: '/primo-explore/custom/01HVD/html/custom-scanned-key-content.html'
+    });
+})();
 /**
  * Created by samsan on 7/18/17.
  * This is a service component and use to store data, get data, ajax call, compare any logic.
@@ -2341,101 +2392,109 @@ angular.module('viewCustom').controller('prmBrowseSearchBarAfterCtrl', ['$locati
     };
 }]);
 /* Author: Sam san
-   This component is to capture item data from the parentCtrl. Then pass it to prm-view-online-after component
+   This capture all data from parentCtrl. Then can use with other components.
  */
-angular.module('viewCustom').controller('prmFullViewAfterCtrl', ['prmSearchService', '$timeout', 'customGoogleAnalytic', function (prmSearchService, $timeout, customGoogleAnalytic) {
-    var vm = this;
-    var sv = prmSearchService;
-    var cga = customGoogleAnalytic;
 
-    vm.hideBrowseShelf = function () {
-        var hidebrowseshelfFlag = false;
-        var item = vm.parentCtrl.item;
-        if (item.pnx.control) {
-            var sourceid = item.pnx.control.sourceid;
-            // find if item is HVD_VIA
-            if (sourceid.indexOf('HVD_VIA') !== -1) {
-                hidebrowseshelfFlag = true;
+(function () {
+
+    angular.module('viewCustom').controller('prmFullViewAfterCtrl', ['prmSearchService', '$timeout', 'customGoogleAnalytic', function (prmSearchService, $timeout, customGoogleAnalytic) {
+        var vm = this;
+        var sv = prmSearchService;
+        var cga = customGoogleAnalytic;
+
+        vm.hideBrowseShelf = function () {
+            var hidebrowseshelfFlag = false;
+            var item = vm.parentCtrl.item;
+            if (item.pnx.control) {
+                var sourceid = item.pnx.control.sourceid;
+                // find if item is HVD_VIA
+                if (sourceid.indexOf('HVD_VIA') !== -1) {
+                    hidebrowseshelfFlag = true;
+                }
             }
-        }
-        // hide browse shelf if the item is HVD_VIA is true
-        if (hidebrowseshelfFlag) {
-            var services = vm.parentCtrl.services;
-            if (services) {
-                for (var i = 0; i < services.length; i++) {
-                    if (services[i].serviceName === 'virtualBrowse') {
-                        services.splice(i, 1);
-                        i = services.length;
+            // hide browse shelf if the item is HVD_VIA is true
+            if (hidebrowseshelfFlag) {
+                var services = vm.parentCtrl.services;
+                if (services) {
+                    for (var i = 0; i < services.length; i++) {
+                        if (services[i].serviceName === 'virtualBrowse') {
+                            services.splice(i, 1);
+                            i = services.length;
+                        }
                     }
                 }
             }
-        }
-    };
+        };
 
-    vm.$onChanges = function () {
-        var itemData = { 'item': {}, 'searchData': {} };
-        itemData.item = angular.copy(vm.parentCtrl.item);
-        if (vm.parentCtrl.searchService) {
-            itemData.searchData = vm.parentCtrl.searchService.$stateParams;
-        }
-        // pass this data to use for online section
-        sv.setItem(itemData);
-        // hide browse shelf it is an image HVD_VIA
-        vm.hideBrowseShelf();
-    };
+        vm.$onChanges = function () {
+            var itemData = { 'item': {}, 'searchData': {} };
+            itemData.item = angular.copy(vm.parentCtrl.item);
+            if (vm.parentCtrl.searchService) {
+                itemData.searchData = vm.parentCtrl.searchService.$stateParams;
+            }
+            // pass this data to use for online section
+            sv.setItem(itemData);
+            // hide browse shelf it is an image HVD_VIA
+            vm.hideBrowseShelf();
+        };
 
-    vm.$onInit = function () {
-        console.log('*** prm-full-view-after ***');
-        console.log(vm.parentCtrl);
+        vm.$onInit = function () {
 
-        // remove more section so the view online would show twice
-        $timeout(function () {
-            if (vm.parentCtrl.item.pnx.display.lds41) {
+            // remove more section so the view online would show twice
+            $timeout(function () {
+
                 for (var i = 0; i < vm.parentCtrl.services.length; i++) {
                     // remove More section
                     if (vm.parentCtrl.services[i].scrollId === 'getit_link2') {
                         vm.parentCtrl.services.splice(i, 1);
                     }
-                    // remove any links under view online section
-                    if (vm.parentCtrl.services[i].scrollId === 'getit_link1_0') {
-                        vm.parentCtrl.services[i].linkElement = {};
+                }
+
+                // remove tags section
+                if (vm.parentCtrl.services) {
+                    for (var _i = 0; _i < vm.parentCtrl.services.length; _i++) {
+                        // remove More section
+                        if (vm.parentCtrl.services[_i].scrollId === 'tags') {
+                            vm.parentCtrl.services.splice(_i, 1);
+                        }
                     }
                 }
-            }
 
-            for (var _i = 0; _i < vm.parentCtrl.services.length; _i++) {
-                // remove More section
-                if (vm.parentCtrl.services[_i].scrollId === 'getit_link2') {
-                    vm.parentCtrl.services.splice(_i, 1);
+                // set up google analytic
+                if (vm.parentCtrl.item.pnx.display) {
+                    var title = vm.parentCtrl.item.pnx.display.title[0] + ' : ' + vm.parentCtrl.item.pnx.control.recordid[0];
+                    cga.setPage('/fulldisplay', title);
+                } else {
+                    cga.setPage('/fulldisplay', 'Full display page');
                 }
-            }
+            }, 1000);
+        };
+    }]);
 
-            // remove tags section
-            if (vm.parentCtrl.services) {
-                for (var _i2 = 0; _i2 < vm.parentCtrl.services.length; _i2++) {
-                    // remove More section
-                    if (vm.parentCtrl.services[_i2].scrollId === 'tags') {
-                        vm.parentCtrl.services.splice(_i2, 1);
-                    }
-                }
-            }
+    angular.module('viewCustom').component('prmFullViewAfter', {
+        bindings: { parentCtrl: '<' },
+        controller: 'prmFullViewAfterCtrl',
+        controllerAs: 'vm'
+    });
+})();
+/**
+ * Created by samsan on 3/21/18.
+ * This component use for scanned content key because prm-view-online-after show only when a user search for images
+ */
 
-            // set up google analytic
-            if (vm.parentCtrl.item.pnx.display) {
-                var title = vm.parentCtrl.item.pnx.display.title[0] + ' : ' + vm.parentCtrl.item.pnx.control.recordid[0];
-                cga.setPage('/fulldisplay', title);
-            } else {
-                cga.setPage('/fulldisplay', 'Full display page');
-            }
-        }, 1000);
-    };
-}]);
+(function () {
+    angular.module('viewCustom').controller('prmFullViewServiceContainerAfterCtrl', [function () {
+        var vm = this;
+        vm.$onInit = function () {};
+    }]);
 
-angular.module('viewCustom').component('prmFullViewAfter', {
-    bindings: { parentCtrl: '<' },
-    controller: 'prmFullViewAfterCtrl',
-    controllerAs: 'vm'
-});
+    angular.module('viewCustom').component('prmFullViewServiceContainerAfter', {
+        bindings: { parentCtrl: '<' },
+        controller: 'prmFullViewServiceContainerAfterCtrl',
+        controllerAs: 'vm',
+        templateUrl: '/primo-explore/custom/01HVD/html/prm-full-view-service-container-after.html'
+    });
+})();
 
 /**
  * Created by samsan on 8/9/17.
@@ -3214,140 +3273,101 @@ angular.module('viewCustom').component('prmTopbarAfter', {
  * This component is to insert images into online section and book covers.
  * If pnx.display.lds41 exist, it will display book covers. Then hide image view.
  */
-angular.module('viewCustom').controller('prmViewOnlineAfterController', ['prmSearchService', '$mdDialog', '$timeout', '$window', '$location', '$mdMedia', function (prmSearchService, $mdDialog, $timeout, $window, $location, $mdMedia) {
 
-    var vm = this;
-    var sv = prmSearchService;
-    var itemData = sv.getItem();
-    vm.item = itemData.item;
-    vm.searchData = itemData.searchData;
-    vm.params = $location.search();
-    vm.zoomButtonFlag = false;
-    vm.viewAllComponetMetadataFlag = false;
-    vm.singleImageFlag = false;
-    vm.photo = {}; // single imae
-    vm.jp2 = false;
-    vm.imageTitle = '';
-    vm.auth = sv.getAuth();
-    vm.gridColumn = '3'; // default print view size
+(function () {
 
-    vm.$doCheck = function () {
-        //console.log('*** prm-view-online-after ***');
-        //console.log(vm.parentCtrl);
-    };
+    angular.module('viewCustom').controller('prmViewOnlineAfterController', ['prmSearchService', '$mdDialog', '$timeout', '$window', '$location', '$mdMedia', function (prmSearchService, $mdDialog, $timeout, $window, $location, $mdMedia) {
 
-    vm.$onInit = function () {
-        vm.isLoggedIn = sv.getLogInID();
-        // get item data from service
-        itemData = sv.getItem();
+        var vm = this;
+        var sv = prmSearchService;
+        var itemData = sv.getItem();
         vm.item = itemData.item;
-        if (vm.item.pnx.addata.mis1) {
-            vm.item.mis1Data = sv.getXMLdata(vm.item.pnx.addata.mis1[0]);
-        }
         vm.searchData = itemData.searchData;
-        vm.searchData.sortby = vm.params.sortby;
-        vm.pageInfo = sv.getPage();
+        vm.params = $location.search();
+        vm.zoomButtonFlag = false;
+        vm.viewAllComponetMetadataFlag = false;
+        vm.singleImageFlag = false;
+        vm.photo = {}; // single imae
+        vm.jp2 = false;
+        vm.imageTitle = '';
+        vm.auth = sv.getAuth();
+        vm.gridColumn = '3'; // default print view size
 
-        if (vm.item.mis1Data) {
-            if (Array.isArray(vm.item.mis1Data) === false) {
-                vm.singleImageFlag = true;
-                if (vm.item.mis1Data.image) {
-                    vm.photo = vm.item.mis1Data.image[0];
-                    vm.jp2 = sv.findJP2(vm.photo); // check to see if the image is jp2 or not
-                }
-                if (vm.item.mis1Data.title) {
-                    vm.imageTitle = vm.item.mis1Data.title[0].textElement[0]._text;
-                }
-            } else {
-                vm.viewAllComponetMetadataFlag = true;
-                vm.singleImageFlag = false;
-                vm.zoomButtonFlag = true;
+
+        vm.$onInit = function () {
+            vm.isLoggedIn = sv.getLogInID();
+            // get item data from service
+            itemData = sv.getItem();
+            vm.item = itemData.item;
+            if (vm.item.pnx.addata.mis1) {
+                vm.item.mis1Data = sv.getXMLdata(vm.item.pnx.addata.mis1[0]);
             }
-        }
+            vm.searchData = itemData.searchData;
+            vm.searchData.sortby = vm.params.sortby;
+            vm.pageInfo = sv.getPage();
 
-        // show print view base on the screen size
-        if ($mdMedia('xs')) {
-            vm.gridColumn = '1';
-        } else if ($mdMedia('sm')) {
-            vm.gridColumn = '2';
-        }
-    };
-
-    // view all component metadata
-    vm.viewAllComponentMetaData = function () {
-        var url = '/primo-explore/viewallcomponentmetadata/' + vm.item.context + '/' + vm.item.pnx.control.recordid[0] + '?vid=' + vm.params.vid;
-        url += '&tab=' + vm.params.tab + '&search_scope=' + vm.params.search_scope;
-        url += '&adaptor=' + vm.item.adaptor;
-        $window.open(url, '_blank');
-    };
-
-    // show the pop up image
-    vm.gotoFullPhoto = function ($event, item, index) {
-        var filename = '';
-        if (item.image) {
-            var urlList = item.image[0]._attr.href._value;
-            urlList = urlList.split('/');
-            if (urlList.length >= 3) {
-                filename = urlList[3];
-            }
-        } else if (item._attr.componentID) {
-            filename = item._attr.componentID._value;
-        }
-        // go to full display page
-        var url = '/primo-explore/viewcomponent/' + vm.item.context + '/' + vm.item.pnx.control.recordid[0] + '?vid=' + vm.searchData.vid + '&imageId=' + filename;
-        if (vm.item.adaptor) {
-            url += '&adaptor=' + vm.item.adaptor;
-        } else {
-            url += '&adaptor=' + (vm.searchData.adaptor ? vm.searchData.adaptor : '');
-        }
-        $window.open(url, '_blank');
-    };
-}]);
-
-angular.module('viewCustom').config(function ($stateProvider) {
-    $stateProvider.state('exploreMain.viewallcomponentdata', {
-        url: '/viewallcomponentmetadata/:context/:docid',
-        views: {
-            '': {
-                template: '<custom-view-all-component-metadata parent-ctrl="$ctrl"></custom-view-all-component-metadata>'
-            }
-        }
-    }).state('exploreMain.viewcomponent', {
-        url: '/viewcomponent/:context/:docid',
-        views: {
-            '': {
-                template: '<custom-view-component parent-ctrl="$ctrl" item="$ctrl.item" services="$ctrl.services" params="$ctrl.params"></custom-view-component>'
-            }
-        }
-    });
-}).component('prmViewOnlineAfter', {
-    bindings: { parentCtrl: '<' },
-    controller: 'prmViewOnlineAfterController',
-    'templateUrl': '/primo-explore/custom/01HVD/html/prm-view-online-after.html'
-});
-
-// truncate word to limit 60 characters
-angular.module('viewCustom').filter('truncatefilter', function () {
-    return function (str) {
-        var newstr = str;
-        var index = 45;
-        if (str) {
-            if (str.length > 45) {
-                newstr = str.substring(0, 45);
-                for (var i = newstr.length; i > 20; i--) {
-                    var text = newstr.substring(i - 1, i);
-                    if (text === ' ') {
-                        index = i;
-                        i = 20;
+            if (vm.item.mis1Data) {
+                if (Array.isArray(vm.item.mis1Data) === false) {
+                    vm.singleImageFlag = true;
+                    if (vm.item.mis1Data.image) {
+                        vm.photo = vm.item.mis1Data.image[0];
+                        vm.jp2 = sv.findJP2(vm.photo); // check to see if the image is jp2 or not
                     }
+                    if (vm.item.mis1Data.title) {
+                        vm.imageTitle = vm.item.mis1Data.title[0].textElement[0]._text;
+                    }
+                } else {
+                    vm.viewAllComponetMetadataFlag = true;
+                    vm.singleImageFlag = false;
+                    vm.zoomButtonFlag = true;
                 }
-                newstr = str.substring(0, index) + '...';
             }
-        }
 
-        return newstr;
-    };
-});
+            // show print view base on the screen size
+            if ($mdMedia('xs')) {
+                vm.gridColumn = '1';
+            } else if ($mdMedia('sm')) {
+                vm.gridColumn = '2';
+            }
+        };
+
+        // view all component metadata
+        vm.viewAllComponentMetaData = function () {
+            var url = '/primo-explore/viewallcomponentmetadata/' + vm.item.context + '/' + vm.item.pnx.control.recordid[0] + '?vid=' + vm.params.vid;
+            url += '&tab=' + vm.params.tab + '&search_scope=' + vm.params.search_scope;
+            url += '&adaptor=' + vm.item.adaptor;
+            $window.open(url, '_blank');
+        };
+
+        // show the pop up image
+        vm.gotoFullPhoto = function ($event, item, index) {
+            var filename = '';
+            if (item.image) {
+                var urlList = item.image[0]._attr.href._value;
+                urlList = urlList.split('/');
+                if (urlList.length >= 3) {
+                    filename = urlList[3];
+                }
+            } else if (item._attr.componentID) {
+                filename = item._attr.componentID._value;
+            }
+            // go to full display page
+            var url = '/primo-explore/viewcomponent/' + vm.item.context + '/' + vm.item.pnx.control.recordid[0] + '?vid=' + vm.searchData.vid + '&imageId=' + filename;
+            if (vm.item.adaptor) {
+                url += '&adaptor=' + vm.item.adaptor;
+            } else {
+                url += '&adaptor=' + (vm.searchData.adaptor ? vm.searchData.adaptor : '');
+            }
+            $window.open(url, '_blank');
+        };
+    }]);
+
+    angular.module('viewCustom').component('prmViewOnlineAfter', {
+        bindings: { parentCtrl: '<' },
+        controller: 'prmViewOnlineAfterController',
+        'templateUrl': '/primo-explore/custom/01HVD/html/prm-view-online-after.html'
+    });
+})();
 /**
  * Created by samsan on 5/23/17.
  * If image width is greater than 600pixel, it will resize base on responsive css.

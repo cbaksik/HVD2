@@ -1,8 +1,11 @@
 /**
  * Created by samsan on 11/21/17.
+ * Implement ui-router so it can load new pages and new component
  */
 
-angular.module('viewCustom')
+(function () {
+
+    angular.module('viewCustom')
     .config(function ($stateProvider) {
         $stateProvider
             .state('exploreMain.almaMapIt', {
@@ -24,4 +27,27 @@ angular.module('viewCustom')
                     }
                 }
             )
+            .state('exploreMain.viewallcomponentdata', {
+                    url: '/viewallcomponentmetadata/:context/:docid',
+                    views:{
+                        '': {
+                            template: `<custom-view-all-component-metadata parent-ctrl="$ctrl"></custom-view-all-component-metadata>`
+                        }
+                    }
+                }
+
+            )
+            .state('exploreMain.viewcomponent', {
+                    url:'/viewcomponent/:context/:docid',
+                    views:{
+                        '':{
+                            template:`<custom-view-component parent-ctrl="$ctrl" item="$ctrl.item" services="$ctrl.services" params="$ctrl.params"></custom-view-component>`
+                        }
+                    }
+                }
+
+            )
     });
+
+
+})();
