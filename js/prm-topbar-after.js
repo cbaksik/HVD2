@@ -3,32 +3,16 @@
  *  This component is creating white top bar, link menu on the right, and remove some doms
  */
 
-angular.module('viewCustom')
-    .controller('prmTopbarAfterCtrl',['$element','$timeout','customService','customGoogleAnalytic',function ($element,$timeout,customService, customGoogleAnalytic) {
+(function () {
+
+    angular.module('viewCustom')
+    .controller('prmTopbarAfterCtrl',['$timeout','customGoogleAnalytic',function ($timeout, customGoogleAnalytic) {
         var vm=this;
-        var cs=customService;
         var cga=customGoogleAnalytic;
-        vm.api={};
-        // get rest endpoint Url
-        vm.getUrl=function () {
-            var config = cs.getEnv();
-            cs.getAjax('/primo-explore/custom/01HVD/html/' + config,'','get')
-                .then(function (res) {
-                        vm.api=res.data;
-                        cs.setApi(vm.api);
-                    },
-                    function (error) {
-                        console.log(error);
-                    }
-                )
-        };
 
         vm.$onInit=function() {
             // initialize google analytic
             cga.init();
-
-            // pre-load config.html file
-            vm.getUrl();
 
             $timeout(function () {
                 // create script tag link leafletJS.com to use openstreetmap.org
@@ -53,10 +37,12 @@ angular.module('viewCustom')
     }]);
 
 
-angular.module('viewCustom')
+    angular.module('viewCustom')
     .component('prmTopbarAfter',{
         bindings:{parentCtrl:'<'},
         controller: 'prmTopbarAfterCtrl',
         controllerAs:'vm',
         templateUrl:'/primo-explore/custom/01HVD/html/prm-topbar-after.html'
     });
+
+})();

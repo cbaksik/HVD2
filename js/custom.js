@@ -1211,7 +1211,6 @@ angular.module('viewCustom').service('customService', ['$http', '$sce', '$window
         return $http({
             'method': methodType,
             'url': url,
-            'timeout': 500000,
             'params': param
         });
     };
@@ -1222,7 +1221,6 @@ angular.module('viewCustom').service('customService', ['$http', '$sce', '$window
         return $http({
             'method': 'post',
             'url': url,
-            'timeout': 5000,
             'data': jsonObj
         });
     };
@@ -1231,7 +1229,6 @@ angular.module('viewCustom').service('customService', ['$http', '$sce', '$window
         return $http({
             'method': 'post',
             'url': url,
-            'timeout': 5000,
             'data': jsonObj
         });
     };
@@ -2341,13 +2338,61 @@ angular.module('viewCustom').config(function ($stateProvider) {
  * Created by samsan on 8/7/17.
  */
 
-angular.module('viewCustom').controller('prmAuthenticationAfterController', ['customService', function (customService) {
+angular.module('viewCustom').controller('prmAuthenticationAfterController', ['customService', 'prmSearchService', function (customService, prmSearchService) {
     var vm = this;
+    var psv = prmSearchService;
     // initialize custom service search
     var sv = customService;
+    vm.api = {};
+    // get rest endpoint Url
+    vm.getUrl = function () {
+        var config = sv.getEnv();
+        sv.getAjax('/primo-explore/custom/01HVD/html/' + config, '', 'get').then(function (res) {
+            vm.api = res.data;
+            sv.setApi(vm.api);
+            vm.getClientIP();
+        }, function (error) {
+            console.log(error);
+        });
+    };
+
+    vm.form = { 'ip': '', 'status': false, 'token': '', 'sessionToken': '', 'isLoggedIn': '' };
+    vm.validateIP = function () {
+        vm.api = sv.getApi();
+        if (vm.api.ipUrl) {
+            sv.postAjax(vm.api.ipUrl, vm.form).then(function (result) {
+                psv.setClientIp(result.data);
+            }, function (error) {
+                console.log(error);
+            });
+        }
+    };
+
+    vm.getClientIP = function () {
+        vm.auth = sv.getAuth();
+        if (vm.auth.primolyticsService.jwtUtilService) {
+            vm.form.token = vm.auth.primolyticsService.jwtUtilService.storageUtil.sessionStorage.primoExploreJwt;
+            vm.form.sessionToken = vm.auth.primolyticsService.jwtUtilService.storageUtil.localStorage.getJWTFromSessionStorage;
+            vm.form.isLoggedIn = vm.auth.isLoggedIn;
+            // decode JWT Token to see if it is a valid token
+            var obj = vm.auth.authenticationService.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
+            vm.form.ip = obj.ip;
+
+            vm.validateIP();
+        }
+    };
+
+    vm.$onInit = function () {
+        // get primo service endpoint urls
+        vm.getUrl();
+    };
+
     // check if a user login
     vm.$onChanges = function () {
+        // use for validate ip
         sv.setAuth(vm.parentCtrl);
+        // use for images
+        psv.setAuth(vm.parentCtrl);
     };
 }]);
 
@@ -3219,54 +3264,42 @@ angular.module('viewCustom').service('prmSearchService', ['$http', '$window', '$
  *  This component is creating white top bar, link menu on the right, and remove some doms
  */
 
-angular.module('viewCustom').controller('prmTopbarAfterCtrl', ['$element', '$timeout', 'customService', 'customGoogleAnalytic', function ($element, $timeout, customService, customGoogleAnalytic) {
-    var vm = this;
-    var cs = customService;
-    var cga = customGoogleAnalytic;
-    vm.api = {};
-    // get rest endpoint Url
-    vm.getUrl = function () {
-        var config = cs.getEnv();
-        cs.getAjax('/primo-explore/custom/01HVD/html/' + config, '', 'get').then(function (res) {
-            vm.api = res.data;
-            cs.setApi(vm.api);
-        }, function (error) {
-            console.log(error);
-        });
-    };
+(function () {
 
-    vm.$onInit = function () {
-        // initialize google analytic
-        cga.init();
+    angular.module('viewCustom').controller('prmTopbarAfterCtrl', ['$timeout', 'customGoogleAnalytic', function ($timeout, customGoogleAnalytic) {
+        var vm = this;
+        var cga = customGoogleAnalytic;
 
-        // pre-load config.html file
-        vm.getUrl();
+        vm.$onInit = function () {
+            // initialize google analytic
+            cga.init();
 
-        $timeout(function () {
-            // create script tag link leafletJS.com to use openstreetmap.org
-            var bodyTag = document.getElementsByTagName('body')[0];
-            var scriptTag = document.createElement('script');
-            scriptTag.setAttribute('src', 'https://unpkg.com/leaflet@1.2.0/dist/leaflet.js');
-            scriptTag.setAttribute('integrity', 'sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==');
-            scriptTag.setAttribute('crossorigin', '');
-            bodyTag.append(scriptTag);
-            // create link tag
-            var linkTag = document.createElement('link');
-            linkTag.setAttribute('href', 'https://unpkg.com/leaflet@1.2.0/dist/leaflet.css');
-            linkTag.setAttribute('integrity', 'sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==');
-            linkTag.setAttribute('crossorigin', '');
-            linkTag.setAttribute('rel', 'stylesheet');
-            bodyTag.append(linkTag);
-        }, 1000);
-    };
-}]);
+            $timeout(function () {
+                // create script tag link leafletJS.com to use openstreetmap.org
+                var bodyTag = document.getElementsByTagName('body')[0];
+                var scriptTag = document.createElement('script');
+                scriptTag.setAttribute('src', 'https://unpkg.com/leaflet@1.2.0/dist/leaflet.js');
+                scriptTag.setAttribute('integrity', 'sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==');
+                scriptTag.setAttribute('crossorigin', '');
+                bodyTag.append(scriptTag);
+                // create link tag
+                var linkTag = document.createElement('link');
+                linkTag.setAttribute('href', 'https://unpkg.com/leaflet@1.2.0/dist/leaflet.css');
+                linkTag.setAttribute('integrity', 'sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==');
+                linkTag.setAttribute('crossorigin', '');
+                linkTag.setAttribute('rel', 'stylesheet');
+                bodyTag.append(linkTag);
+            }, 1000);
+        };
+    }]);
 
-angular.module('viewCustom').component('prmTopbarAfter', {
-    bindings: { parentCtrl: '<' },
-    controller: 'prmTopbarAfterCtrl',
-    controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/prm-topbar-after.html'
-});
+    angular.module('viewCustom').component('prmTopbarAfter', {
+        bindings: { parentCtrl: '<' },
+        controller: 'prmTopbarAfterCtrl',
+        controllerAs: 'vm',
+        templateUrl: '/primo-explore/custom/01HVD/html/prm-topbar-after.html'
+    });
+})();
 
 /**
  * Created by samsan on 5/17/17.
