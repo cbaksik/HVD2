@@ -22,7 +22,7 @@ angular.module('viewCustom')
         // find if pnx has table of content
         vm.findTOC=function () {
           if(vm.itemPNX.pnx.control.sourceid[0]===vm.TOC.type && vm.itemPNX.pnx.addata.isbn) {
-              if(vm.itemPNX.pnx.addata.isbn.length > 1) {
+              if(vm.itemPNX.pnx.addata.isbn.length > 0) {
                   var listRequest=[];
                   for(var i=0; i < vm.itemPNX.pnx.addata.isbn.length; i++) {
                       var param={'isbn':'','hasData':false};
@@ -57,9 +57,6 @@ angular.module('viewCustom')
                           console.log(error);
                       }
                   )
-              } else if(vm.itemPNX.pnx.addata.isbn) {
-                  vm.TOC.display = true;
-                  vm.TOC.isbn = vm.itemPNX.pnx.addata.isbn[0];
               }
           }
         };
