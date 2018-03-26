@@ -110,34 +110,17 @@ angular.module('viewCustom')
         };
 
         vm.$onInit=function() {
-            // hide search box
-            var el=$element[0].parentNode.parentNode.children[0].children[2];
-            if(el) {
-                el.style.display = 'none';
+            vm.parentCtrl.bannerTitle='FULL COMPONENT METADATA';
+            // hide search bar
+            let searchBar = document.getElementsByTagName('prm-search-bar')[0];
+            if(searchBar) {
+                searchBar.style.display='none';
             }
-
-            // insert a header into black topbar
-            $timeout(function (e) {
-                var topbar = $element[0].parentNode.parentNode.children[0].children[0].children[1];
-                if(topbar) {
-
-                    // remove bookmark and login area
-                    if(topbar.children.length > 2) {
-                        topbar.children[2].remove();
-                        topbar.children[2].remove();
-                        topbar.children[1].remove();
-                    }
-                    // hide title in extra small screen size
-                    if(!$mdMedia('xs')) {
-                        var divNode = document.createElement('div');
-                        divNode.setAttribute('class', 'metadataHeader');
-                        var textNode = document.createTextNode('FULL COMPONENT METADATA');
-                        divNode.appendChild(textNode);
-                        topbar.appendChild(divNode);
-                    }
-
-                }
-            },1000);
+            // hide top bar
+            let topBar = document.getElementsByTagName('prm-topbar')[0];
+            if(topBar) {
+                topBar.style.display='none';
+            }
 
             vm.getData();
 

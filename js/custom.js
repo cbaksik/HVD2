@@ -378,6 +378,25 @@ angular.module('viewCustom').service('customHathiTrustService', ['$http', functi
 }]);
 
 /**
+ * Created by samsan on 3/26/18.
+ * This header will use for image component page and image detail page
+ */
+
+(function () {
+
+    angular.module('viewCustom').controller('customHeaderCtrl', [function () {
+        var vm = this;
+    }]);
+
+    angular.module('viewCustom').component('customHeader', {
+        bindings: { parentCtrl: '<' },
+        controller: 'customHeaderCtrl',
+        controllerAs: 'vm',
+        templateUrl: '/primo-explore/custom/01HVD/html/custom-header.html'
+    });
+})();
+
+/**
  * Created by samsan on 8/7/17.
  * This service is used for Digital Bookplates
  */
@@ -1657,33 +1676,17 @@ angular.module('viewCustom').controller('customViewAllComponentMetadataControlle
     };
 
     vm.$onInit = function () {
-        // hide search box
-        var el = $element[0].parentNode.parentNode.children[0].children[2];
-        if (el) {
-            el.style.display = 'none';
+        vm.parentCtrl.bannerTitle = 'FULL COMPONENT METADATA';
+        // hide search bar
+        var searchBar = document.getElementsByTagName('prm-search-bar')[0];
+        if (searchBar) {
+            searchBar.style.display = 'none';
         }
-
-        // insert a header into black topbar
-        $timeout(function (e) {
-            var topbar = $element[0].parentNode.parentNode.children[0].children[0].children[1];
-            if (topbar) {
-
-                // remove bookmark and login area
-                if (topbar.children.length > 2) {
-                    topbar.children[2].remove();
-                    topbar.children[2].remove();
-                    topbar.children[1].remove();
-                }
-                // hide title in extra small screen size
-                if (!$mdMedia('xs')) {
-                    var divNode = document.createElement('div');
-                    divNode.setAttribute('class', 'metadataHeader');
-                    var textNode = document.createTextNode('FULL COMPONENT METADATA');
-                    divNode.appendChild(textNode);
-                    topbar.appendChild(divNode);
-                }
-            }
-        }, 1000);
+        // hide top bar
+        var topBar = document.getElementsByTagName('prm-topbar')[0];
+        if (topBar) {
+            topBar.style.display = 'none';
+        }
 
         vm.getData();
     };
@@ -1877,29 +1880,18 @@ angular.module('viewCustom').controller('customViewComponentController', ['$sce'
         }
         // call ajax and display data
         vm.getData();
-        // hide search bar
-        var el = $element[0].parentNode.parentNode.children[0].children[2];
-        if (el) {
-            el.style.display = 'none';
-        }
 
-        // insert a header into black topbar
-        $timeout(function (e) {
-            var topbar = $element[0].parentNode.parentNode.children[0].children[0].children[1];
-            if (topbar) {
-                // remove pin and bookmark
-                if (topbar.children.length > 2) {
-                    topbar.children[2].remove();
-                    topbar.children[2].remove();
-                    topbar.children[1].remove();
-                }
-                var divNode = document.createElement('div');
-                divNode.setAttribute('class', 'metadataHeader');
-                var textNode = document.createTextNode('FULL IMAGE DETAIL');
-                divNode.appendChild(textNode);
-                topbar.appendChild(divNode);
-            }
-        }, 1000);
+        vm.parentCtrl.bannerTitle = 'FULL IMAGE DETAIL';
+        // hide search bar
+        var searchBar = document.getElementsByTagName('prm-search-bar')[0];
+        if (searchBar) {
+            searchBar.style.display = 'none';
+        }
+        // hide top bar
+        var topBar = document.getElementsByTagName('prm-topbar')[0];
+        if (topBar) {
+            topBar.style.display = 'none';
+        }
     };
 
     // next photo
@@ -2438,6 +2430,7 @@ angular.module('viewCustom').controller('prmBrowseSearchBarAfterCtrl', ['$locati
 }]);
 /* Author: Sam san
    This capture all data from parentCtrl. Then can use with other components.
+   Hide some of the services primo
  */
 
 (function () {
