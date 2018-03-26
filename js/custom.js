@@ -2479,29 +2479,19 @@ angular.module('viewCustom').controller('prmBrowseSearchBarAfterCtrl', ['$locati
             }
             // pass this data to use for online section
             sv.setItem(itemData);
-            // hide browse shelf it is an image HVD_VIA
-            vm.hideBrowseShelf();
         };
 
         vm.$onInit = function () {
-
             // remove more section so the view online would show twice
             $timeout(function () {
+
+                // hide browse shelf it is an image HVD_VIA
+                vm.hideBrowseShelf();
 
                 for (var i = 0; i < vm.parentCtrl.services.length; i++) {
                     // remove More section
                     if (vm.parentCtrl.services[i].scrollId === 'getit_link2') {
                         vm.parentCtrl.services.splice(i, 1);
-                    }
-                }
-
-                // remove tags section
-                if (vm.parentCtrl.services) {
-                    for (var _i = 0; _i < vm.parentCtrl.services.length; _i++) {
-                        // remove More section
-                        if (vm.parentCtrl.services[_i].scrollId === 'tags') {
-                            vm.parentCtrl.services.splice(_i, 1);
-                        }
                     }
                 }
 

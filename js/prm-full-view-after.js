@@ -1,5 +1,6 @@
 /* Author: Sam san
    This capture all data from parentCtrl. Then can use with other components.
+   Hide some of the services primo
  */
 
 (function () {
@@ -43,14 +44,16 @@
             }
             // pass this data to use for online section
             sv.setItem(itemData);
-            // hide browse shelf it is an image HVD_VIA
-            vm.hideBrowseShelf();
+
+
         };
 
         vm.$onInit=function() {
-
             // remove more section so the view online would show twice
             $timeout(function () {
+
+                // hide browse shelf it is an image HVD_VIA
+                vm.hideBrowseShelf();
 
                 for(let i=0; i < vm.parentCtrl.services.length; i++) {
                     // remove More section
@@ -58,17 +61,7 @@
                         vm.parentCtrl.services.splice(i,1);
                     }
                 }
-
-                // remove tags section
-                if(vm.parentCtrl.services) {
-                    for (let i = 0; i < vm.parentCtrl.services.length; i++) {
-                        // remove More section
-                        if (vm.parentCtrl.services[i].scrollId === 'tags') {
-                            vm.parentCtrl.services.splice(i, 1);
-                        }
-                    }
-                }
-
+                
                 // set up google analytic
                 if(vm.parentCtrl.item.pnx.display) {
                     var title=vm.parentCtrl.item.pnx.display.title[0] + ' : ' + vm.parentCtrl.item.pnx.control.recordid[0];
