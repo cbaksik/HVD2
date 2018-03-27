@@ -1,0 +1,7 @@
+#homePageAlert {
+    background: rgb(255, 0, 0); background: rgba(165,28,48,0.2);
+}
+
+#homePageAlert a {
+    color: #750000;
+}
