@@ -128,7 +128,7 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
     vm.getData = function () {
         if (vm.api.aeonApiUrl && vm.params) {
             vm.ajaxLoader = true;
-            var url = vm.api.aeonApiUrl + '/' + vm.params['rft.local_attribute'];
+            var url = vm.api.aeonApiUrl + '/' + vm.params['mmid'];
             sv.getAjax(url, '', 'get').then(function (res) {
                 var data = res.data;
                 vm.dataList = data;
@@ -2428,6 +2428,57 @@ angular.module('viewCustom').component('prmAuthenticationAfter', {
     controller: 'prmAuthenticationAfterController'
 });
 
+/**
+ * Created by samsan on 8/10/17.
+ * This component add a "Finding Aid" button and make a link
+ */
+
+(function () {
+
+    angular.module('viewCustom').controller('prmBriefResultContainerAfterCtrl', ['$location', '$scope', function ($location, $scope) {
+        var vm = this;
+        var param = $location.search();
+        vm.cssClass = 'marginLeftFindingAid';
+        vm.findingAid = { 'displayLabel': '', 'linkURL': '', 'newLinkURL': '' };
+        vm.$onInit = function () {
+            // get links data from primo parent-ctrl binding data
+            $scope.$watch('vm.parentCtrl.links', function () {
+                // find $$Elinktofa
+                if (vm.parentCtrl.links) {
+                    for (var i = 0; i < vm.parentCtrl.links.length; i++) {
+                        var linkItem = vm.parentCtrl.links[i];
+                        var seqment = '';
+                        if (linkItem.displayLabel === '$$Elinktofa') {
+                            vm.findingAid = linkItem;
+                            if (linkItem.linkURL) {
+                                var linkStr = linkItem.linkURL;
+                                linkStr = linkStr.split(':');
+                                if (linkStr.length > 0) {
+                                    seqment = linkStr[linkStr.length - 1];
+                                    seqment = seqment.trim(' ');
+                                }
+                            }
+                            vm.findingAid.newLinkURL = 'http://id.lib.harvard.edu/ead/' + seqment + '/catalog';
+                            i = vm.parentCtrl.links.length;
+                        }
+                    }
+                }
+            });
+
+            // add more padding when it is full display page
+            if (param.docid) {
+                vm.cssClass = 'marginLeftFindingAid2';
+            }
+        };
+    }]);
+
+    angular.module('viewCustom').component('prmBriefResultContainerAfter', {
+        bindings: { parentCtrl: '<' },
+        controller: 'prmBriefResultContainerAfterCtrl',
+        controllerAs: 'vm',
+        templateUrl: '/primo-explore/custom/01HVD/html/prm-brief-result-container-after.html'
+    });
+})();
 /**
  * Created by samsan on 2/28/18.
  * Add basic search and advanced search button at browse page

@@ -711,6 +711,54 @@ prm-view-online-after md-grid-list > md-grid-tile {
 }
 
 .pointer {cursor: pointer;}
+#briefResultAfter {
+    margin:0px;
+    padding:0px;
+    padding-bottom:10px;
+}
+
+#briefResultAfter > .layout-row > .flex-* {
+    padding:0px;
+    margin-top:0px;
+}
+
+#briefResultAfter > .md-button {
+    margin:0px !important;
+}
+
+#briefResultAfter:hover {
+
+}
+
+#briefResultAfter > .spaceLeft {
+    padding-left:5px;
+}
+
+#briefResultAfter > .marginLeftFindingAid {
+    padding-left:100px;
+}
+
+#briefResultAfter > .marginLeftFindingAid2 {
+    padding-left:140px;
+}
+
+
+#briefResultAfter > .spaceLeft40 {
+    padding-left:45px;
+}
+
+#briefResultAfter > .folder {
+    font-size: 36px;
+    color:#efefef;
+}
+
+.whitebg {
+    background:#ffffff;
+}
+
+prm-brief-result-container.list-item:hover {
+    background:#ffffff;
+}
 #browseSearchBar {
     position: absolute;
     top:10px;

@@ -76,7 +76,7 @@ angular.module('viewCustom')
         vm.getData=()=>{
             if(vm.api.aeonApiUrl && vm.params) {
                 vm.ajaxLoader=true;
-                let url = vm.api.aeonApiUrl + '/' + vm.params['rft.local_attribute'];
+                let url = vm.api.aeonApiUrl + '/' + vm.params['mmid'];
                 sv.getAjax(url, '', 'get')
                     .then((res) => {
                         let data=res.data;
