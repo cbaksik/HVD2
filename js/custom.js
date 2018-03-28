@@ -128,7 +128,7 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
     vm.getData = function () {
         if (vm.api.aeonApiUrl && vm.params) {
             vm.ajaxLoader = true;
-            var url = vm.api.aeonApiUrl + '/' + vm.params['mmid'];
+            var url = vm.api.aeonApiUrl + '/' + vm.params['mmsid'];
             sv.getAjax(url, '', 'get').then(function (res) {
                 var data = res.data;
                 vm.dataList = data;
