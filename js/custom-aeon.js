@@ -34,7 +34,7 @@ angular.module('viewCustom')
 
         // build url to send to aeon
         var buildUrl=function (data,item) {
-            let url='https://aeon.hul.harvard.edu/remoteauth/aeon.dll?action=10&form=30&sid=Via AEON';
+            let url='https://aeontest.hul.harvard.edu/logon?action=10&form=30&sid=Via AEON';
             let keyList=Object.keys(data);
             for(let key of keyList) {
                 if (key==='callNumber') {

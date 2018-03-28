@@ -44,7 +44,7 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
 
     // build url to send to aeon
     var buildUrl = function buildUrl(data, item) {
-        var url = 'https://aeon.hul.harvard.edu/remoteauth/aeon.dll?action=10&form=30&sid=Via AEON';
+        var url = 'https://aeontest.hul.harvard.edu/logon?action=10&form=30&sid=Via AEON';
         var keyList = Object.keys(data);
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
