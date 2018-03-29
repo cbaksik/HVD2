@@ -129,7 +129,7 @@ angular.module('viewCustom')
                     vm.centerLongitude = (vm.coordinates[0] + vm.coordinates[1]) / 2;
                     vm.centerLatitude = (vm.coordinates[2] + vm.coordinates[3]) / 2;
 
-                    var zoom=8;
+                    var zoom=3;
                     map=L.map('hglMap12',{center:[vm.centerLatitude, vm.centerLongitude],
                     zoom:zoom,keyboard:true,tap:true,zoomControl: false});
 
