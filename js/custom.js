@@ -54,14 +54,18 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
             for (var _iterator = keyList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                 var key = _step.value;
 
+                var val = data[key];
+                if (!val) {
+                    val = '';
+                }
                 if (key === 'callNumber') {
-                    url += '&callnum=' + data[key];
+                    url += '&callnum=' + val;
                 }
                 if (key === 'libraryCode') {
-                    url += '&sublib=' + data[key];
+                    url += '&sublib=' + val;
                 }
                 if (key === 'locationCode') {
-                    url += '&collection=' + data[key];
+                    url += '&collection=' + val;
                 }
             }
         } catch (err) {
@@ -95,11 +99,15 @@ angular.module('viewCustom').controller('customAeonCtrl', ['customService', '$sc
             for (var _iterator2 = keyList[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                 var _key = _step2.value;
 
+                var value = vm.dataList[_key];
+                if (!value) {
+                    value = '';
+                }
                 if (_key === 'author' || _key === 'title' || _key === 'genre' || _key === 'publisher') {
-                    url += '&' + _key + '=' + vm.dataList[_key];
+                    url += '&' + _key + '=' + value;
                 }
                 if (_key === 'mmsId') {
-                    url += '&hollisnum=' + vm.dataList[_key];
+                    url += '&hollisnum=' + value;
                 }
             }
         } catch (err) {

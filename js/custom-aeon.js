@@ -37,14 +37,18 @@ angular.module('viewCustom')
             let url='https://aeontest.hul.harvard.edu/logon?action=10&form=30&sid=Via AEON';
             let keyList=Object.keys(data);
             for(let key of keyList) {
+                let val = data[key];
+                if(!val) {
+                    val='';
+                }
                 if (key==='callNumber') {
-                    url += '&callnum=' + data[key];
+                    url += '&callnum=' + val;
                 }
                 if (key==='libraryCode') {
-                    url += '&sublib=' + data[key];
+                    url += '&sublib=' + val;
                 }
                 if (key==='locationCode') {
-                    url += '&collection=' + data[key];
+                    url += '&collection=' + val;
                 }
             }
 
@@ -57,14 +61,17 @@ angular.module('viewCustom')
 
             keyList = Object.keys(vm.dataList);
             for(let key of keyList) {
+                let value = vm.dataList[key];
+                if(!value) {
+                    value='';
+                }
                 if (key==='author' || key==='title' || key==='genre' || key==='publisher') {
-                    url += '&'+key+'=' + vm.dataList[key];
+                    url += '&'+key+'=' + value;
                 }
                 if(key==='mmsId') {
-                    url += '&hollisnum='+vm.dataList[key];
+                    url += '&hollisnum='+value;
                 }
             }
-
             return url;
         };
 
