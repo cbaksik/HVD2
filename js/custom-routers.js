@@ -47,6 +47,16 @@
                 }
 
             )
+            .state('exploreMain.printPage', {
+                    url: '/printPage/:context/:docid',
+                    views:{
+                        '': {
+                            template: `<custom-print-page parent-ctrl="$ctrl"></custom-print-page>`
+                        }
+                    }
+                }
+
+            )
     });
 
 

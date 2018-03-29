@@ -191,6 +191,11 @@
     width:100%;
     height:90vh;
 }
+@media print {
+    body {background:#ffffff;}
+   .full-view-inner-container {background: #ffffff;}
+}
+
 
 .scanList {list-style: none; margin-left:-45px;}
 
