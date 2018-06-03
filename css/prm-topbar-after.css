@@ -43,9 +43,11 @@ prm-topbar {
 }
 
 prm-topbar > div.top-nav-bar {
-    background-color:#000000;
+    background-color:#ffffff;
 }
-
+.prm-topbar .md-button .md-button.button-over-dark {
+    color:#000;
+}
 prm-search-bar {
     background-color:#383838;
 }
