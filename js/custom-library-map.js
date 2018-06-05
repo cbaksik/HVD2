@@ -51,7 +51,7 @@ angular.module('viewCustom')
         bindings:{loc:'<'},
         controller: 'customLibraryMapCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/custom-library-map.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/custom-library-map.html'
     });
 
 

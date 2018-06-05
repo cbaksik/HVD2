@@ -1,3 +1,38 @@
+.hollisPlus {
+    display: table-cell;
+}
+
+.boxHollis {
+    padding-top:5px;
+    margin-left:34px;
+    white-space: nowrap;
+}
+
+.hollisPlus prm-logo .logo-image, prm-logo img {
+    max-height: 100%;
+    height: 82px;
+    width: 110px;
+    margin-top: 10px;
+}
+
+prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark {
+    color:#000;
+}
+
+prm-topbar #more-links-button prm-icon {
+    color:#000;
+
+}
+.betaIcon {
+    display: table-cell;
+}
+
+.betaIcon > img {
+    width:33px;
+    height:auto;
+    padding-bottom:10px;
+}
+
 .topMenu {
     background:#ffffff;
     color: #000000 !important;
@@ -8,6 +43,35 @@
     margin-bottom:-5px;
 }
 
+
+prm-topbar {
+    background-color:#000000;
+}
+
+prm-topbar > div.top-nav-bar {
+    background-color:#ffffff;
+}
+.prm-topbar .md-button .md-button.button-over-dark {
+    color:#000;
+}
+
+#hollisLogoTopbar {
+    font-size:40px;
+    vertical-align: top;
+    padding-left: 10px;
+}
+a#hollisLogoTopbar {
+    color:#000;
+    font-family:"Trueno";
+}
+prm-search-bar {
+    background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
+}
+
+/* magnify glass search in search box */
+div.search-actions > .md-button.button-confirm {
+    color:#a51c30;
+}
 
 .customTopMenu {
     position: absolute;
@@ -38,24 +102,6 @@
     margin-right:20px;
 }
 
-prm-topbar {
-    background-color:#000000;
-}
-
-prm-topbar > div.top-nav-bar {
-    background-color:#ffffff;
-}
-.prm-topbar .md-button .md-button.button-over-dark {
-    color:#000;
-}
-prm-search-bar {
-    background-color:#383838;
-}
-
-/* magnify glass search in search box */
-div.search-actions > .md-button.button-confirm {
-    color:#a51c30;
-}
 
 div.search-actions > .md-button.button-confirm:hover {
     color:#a51c30;
@@ -68,4 +114,17 @@ div.search-actions > .md-button.button-confirm:hover {
 
 .hv-menu:hover {
     color:#000000;
+}
+
+.search-switch-buttons {
+    display:none;
+}
+prm-search-bookmark-filter .md-button {
+    background-color:grey;
+}
+prm-user-area .md-button.user-menu-button {
+    color:#000;
+}
+prm-user-area .user-menu-button .user-name {
+    color:#3d6e94;
 }

@@ -35,6 +35,6 @@
             bindings:{parentCtrl:'<'},
             controller: 'customAlertCtrl',
             controllerAs:'vm',
-            templateUrl:'/primo-explore/custom/01HVD/html/custom-alert.html'
+            templateUrl:'/primo-explore/custom/HVD2/html/custom-alert.html'
         });
 })();

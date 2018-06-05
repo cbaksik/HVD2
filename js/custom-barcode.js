@@ -17,7 +17,7 @@ angular.module('viewCustom')
         // get relative path rest end point url
         vm.getUrl=function () {
           var config=cs.getEnv();
-          cs.getAjax('/primo-explore/custom/01HVD/html/'+config,'','get')
+          cs.getAjax('/primo-explore/custom/HVD2/html/'+config,'','get')
               .then(function (result) {
                     if(result.data) {
                         vm.almaBarcodeUrl=result.data.almaBarcodeUrl;
@@ -32,7 +32,7 @@ angular.module('viewCustom')
         vm.searchPNX=function () {
             // search for pnx item base on isbn number so it will get pnx/control/recordid
             var url=vm.parentCtrl.searchService.cheetah.restBaseURLs.pnxBaseURL;
-            var params={'addfields':'','Inst':'01HVD','lang':'en_US','limit':10,'offset':0,'getMore':0,'mode':'advanced','pcAvailability':true,'q':'isbn,exact,0062020447,AND','vid':'01HVD','sort':'rank','rtaLinks':true,'scope':'everything','tab':'everything'}
+            var params={'addfields':'','Inst':'HVD2','lang':'en_US','limit':10,'offset':0,'getMore':0,'mode':'advanced','pcAvailability':true,'q':'isbn,exact,0062020447,AND','vid':'HVD2','sort':'rank','rtaLinks':true,'scope':'everything','tab':'everything'}
             params.vid=vm.parentCtrl.vid;
             params.Inst=vm.parentCtrl.searchService.cheetah.inst;
             params.q='any,contains,'+vm.result.bib_data.mms_id;
@@ -91,5 +91,5 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'customBarcodeCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/custom-barcode.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/custom-barcode.html'
     });

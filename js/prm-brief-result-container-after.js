@@ -49,7 +49,7 @@
         bindings:{parentCtrl:'<'},
         controller: 'prmBriefResultContainerAfterCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/prm-brief-result-container-after.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/prm-brief-result-container-after.html'
     });
 
 })();

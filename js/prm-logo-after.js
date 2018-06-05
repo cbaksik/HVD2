@@ -27,5 +27,5 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'prmLogoAfterCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/prm-logo-after.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/prm-logo-after.html'
     });

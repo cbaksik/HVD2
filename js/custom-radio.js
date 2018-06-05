@@ -30,6 +30,6 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'customRadioCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/custom-radio.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/custom-radio.html'
     });
 

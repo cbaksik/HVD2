@@ -128,5 +128,5 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'customAeonCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/custom-aeon.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/custom-aeon.html'
     });

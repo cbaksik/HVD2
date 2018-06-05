@@ -52,5 +52,5 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'prmPermalinkAfterCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/prm-permalink-after.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/prm-permalink-after.html'
     });

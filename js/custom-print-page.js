@@ -80,7 +80,7 @@
         bindings:{parentCtrl:'<'},
         controller: 'customPrintPageCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/custom-print-page.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/custom-print-page.html'
     });
 
 })();

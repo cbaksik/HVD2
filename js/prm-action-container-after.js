@@ -194,5 +194,5 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'prmActionContainerAfterCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/prm-action-container-after.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/prm-action-container-after.html'
     });

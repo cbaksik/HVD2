@@ -8,7 +8,7 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'prmBrowseSearchBarAfterCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD/html/prm-browse-search-bar-after.html'
+        templateUrl:'/primo-explore/custom/HVD2/html/prm-browse-search-bar-after.html'
     });
 
 
@@ -28,7 +28,7 @@ angular.module('viewCustom')
 
         vm.gotoSimpleSearch=()=>{
             cs.setAdvancedSearch(false);
-            window.location.href='/primo-explore/search?vid=01HVD'
+            window.location.href='/primo-explore/search?vid=HVD2'
         };
 
        vm.gotoAdvancedSearch=()=>{

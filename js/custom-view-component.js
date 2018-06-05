@@ -237,7 +237,7 @@ angular.module('viewCustom')
         bindings: {item: '<',services:'<',params:'<',parentCtrl:'<'},
         controller: 'customViewComponentController',
         controllerAs:'vm',
-        'templateUrl':'/primo-explore/custom/01HVD/html/custom-view-component.html'
+        'templateUrl':'/primo-explore/custom/HVD2/html/custom-view-component.html'
     });
 
 // truncate word to limit 60 characters

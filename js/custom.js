@@ -176,7 +176,7 @@ angular.module('viewCustom').component('customAeon', {
     bindings: { parentCtrl: '<' },
     controller: 'customAeonCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/custom-aeon.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/custom-aeon.html'
 });
 /**
  * Created by samsan on 3/19/18.
@@ -209,7 +209,7 @@ angular.module('viewCustom').component('customAeon', {
         bindings: { parentCtrl: '<' },
         controller: 'customAlertCtrl',
         controllerAs: 'vm',
-        templateUrl: '/primo-explore/custom/01HVD/html/custom-alert.html'
+        templateUrl: '/primo-explore/custom/HVD2/html/custom-alert.html'
     });
 })();
 
@@ -229,7 +229,7 @@ angular.module('viewCustom').controller('customBarcodeCtrl', ['customService', '
     // get relative path rest end point url
     vm.getUrl = function () {
         var config = cs.getEnv();
-        cs.getAjax('/primo-explore/custom/01HVD/html/' + config, '', 'get').then(function (result) {
+        cs.getAjax('/primo-explore/custom/HVD2/html/' + config, '', 'get').then(function (result) {
             if (result.data) {
                 vm.almaBarcodeUrl = result.data.almaBarcodeUrl;
             }
@@ -241,7 +241,7 @@ angular.module('viewCustom').controller('customBarcodeCtrl', ['customService', '
     vm.searchPNX = function () {
         // search for pnx item base on isbn number so it will get pnx/control/recordid
         var url = vm.parentCtrl.searchService.cheetah.restBaseURLs.pnxBaseURL;
-        var params = { 'addfields': '', 'Inst': '01HVD', 'lang': 'en_US', 'limit': 10, 'offset': 0, 'getMore': 0, 'mode': 'advanced', 'pcAvailability': true, 'q': 'isbn,exact,0062020447,AND', 'vid': '01HVD', 'sort': 'rank', 'rtaLinks': true, 'scope': 'everything', 'tab': 'everything' };
+        var params = { 'addfields': '', 'Inst': 'HVD2', 'lang': 'en_US', 'limit': 10, 'offset': 0, 'getMore': 0, 'mode': 'advanced', 'pcAvailability': true, 'q': 'isbn,exact,0062020447,AND', 'vid': 'HVD2', 'sort': 'rank', 'rtaLinks': true, 'scope': 'everything', 'tab': 'everything' };
         params.vid = vm.parentCtrl.vid;
         params.Inst = vm.parentCtrl.searchService.cheetah.inst;
         params.q = 'any,contains,' + vm.result.bib_data.mms_id;
@@ -290,7 +290,7 @@ angular.module('viewCustom').component('customBarcode', {
     bindings: { parentCtrl: '<' },
     controller: 'customBarcodeCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/custom-barcode.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/custom-barcode.html'
 });
 
 /**
@@ -435,7 +435,7 @@ angular.module('viewCustom').service('customHathiTrustService', ['$http', functi
         bindings: { parentCtrl: '<' },
         controller: 'customHeaderCtrl',
         controllerAs: 'vm',
-        templateUrl: '/primo-explore/custom/01HVD/html/custom-header.html'
+        templateUrl: '/primo-explore/custom/HVD2/html/custom-header.html'
     });
 })();
 
@@ -564,7 +564,7 @@ angular.module('viewCustom').component('customLibraryMap', {
     bindings: { loc: '<' },
     controller: 'customLibraryMapCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/custom-library-map.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/custom-library-map.html'
 });
 
 // map letter to specific word in floor
@@ -1212,7 +1212,7 @@ angular.module('viewCustom').service('customMapXmlValues', [function () {
         bindings: { parentCtrl: '<' },
         controller: 'customPrintPageCtrl',
         controllerAs: 'vm',
-        templateUrl: '/primo-explore/custom/01HVD/html/custom-print-page.html'
+        templateUrl: '/primo-explore/custom/HVD2/html/custom-print-page.html'
     });
 })();
 /**
@@ -1236,7 +1236,7 @@ angular.module('viewCustom').service('customMapXmlValues', [function () {
         bindings: { parentCtrl: '<' },
         controller: 'customPrintCtrl',
         controllerAs: 'vm',
-        templateUrl: '/primo-explore/custom/01HVD/html/custom-print.html'
+        templateUrl: '/primo-explore/custom/HVD2/html/custom-print.html'
     });
 })();
 /**
@@ -1267,7 +1267,7 @@ angular.module('viewCustom').component('customRadio', {
     bindings: { parentCtrl: '<' },
     controller: 'customRadioCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/custom-radio.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/custom-radio.html'
 });
 
 /**
@@ -1350,7 +1350,7 @@ angular.module('viewCustom').component('customRadio', {
         bindings: { item: '<' },
         controllerAs: 'vm',
         controller: 'customScannedKeyContentCtrl',
-        templateUrl: '/primo-explore/custom/01HVD/html/custom-scanned-key-content.html'
+        templateUrl: '/primo-explore/custom/HVD2/html/custom-scanned-key-content.html'
     });
 })();
 /**
@@ -1643,7 +1643,7 @@ angular.module('viewCustom').component('customSms', {
     bindings: { parentCtrl: '<' },
     controller: 'customSmsCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/custom-sms.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/custom-sms.html'
 });
 
 /**
@@ -1652,7 +1652,7 @@ angular.module('viewCustom').component('customSms', {
  */
 
 angular.module('viewCustom').component('customThumbnail', {
-    templateUrl: '/primo-explore/custom/01HVD/html/custom-thumbnail.html',
+    templateUrl: '/primo-explore/custom/HVD2/html/custom-thumbnail.html',
     bindings: {
         itemdata: '<',
         searchdata: '<'
@@ -1662,7 +1662,7 @@ angular.module('viewCustom').component('customThumbnail', {
         var vm = this;
         var sv = prmSearchService;
         vm.localScope = { 'imgclass': '', 'hideLockIcon': false, 'hideTooltip': false };
-        vm.imageUrl = '/primo-explore/custom/01HVD/img/icon_image.png';
+        vm.imageUrl = '/primo-explore/custom/HVD2/img/icon_image.png';
         vm.src = '';
         vm.imageCaption = '';
         vm.restricted = false;
@@ -1689,7 +1689,7 @@ angular.module('viewCustom').component('customThumbnail', {
                     // use default image if it is a broken link image
                     var pattern = /^(onLoad\?)/; // the broken image start with onLoad
                     if (pattern.test(vm.src)) {
-                        img.src = '/primo-explore/custom/01HVD/img/icon_image.png';
+                        img.src = '/primo-explore/custom/HVD2/img/icon_image.png';
                     }
                     img.onload = vm.callback;
                     if (img.clientWidth > 50) {
@@ -1844,7 +1844,7 @@ angular.module('viewCustom').component('customViewAllComponentMetadata', {
     bindings: { parentCtrl: '<' },
     controller: 'customViewAllComponentMetadataController',
     controllerAs: 'vm',
-    'templateUrl': '/primo-explore/custom/01HVD/html/custom-view-all-component-metadata.html'
+    'templateUrl': '/primo-explore/custom/HVD2/html/custom-view-all-component-metadata.html'
 });
 
 /**
@@ -2068,7 +2068,7 @@ angular.module('viewCustom').component('customViewComponent', {
     bindings: { item: '<', services: '<', params: '<', parentCtrl: '<' },
     controller: 'customViewComponentController',
     controllerAs: 'vm',
-    'templateUrl': '/primo-explore/custom/01HVD/html/custom-view-component.html'
+    'templateUrl': '/primo-explore/custom/HVD2/html/custom-view-component.html'
 });
 
 // truncate word to limit 60 characters
@@ -2107,7 +2107,7 @@ angular.module('viewCustom').filter('mapXmlFilter', ['customMapXmlKeys', functio
  */
 
 angular.module('viewCustom').component('multipleThumbnail', {
-    templateUrl: '/primo-explore/custom/01HVD/html/multipleThumbnail.html',
+    templateUrl: '/primo-explore/custom/HVD2/html/multipleThumbnail.html',
     bindings: {
         itemdata: '<',
         searchdata: '<'
@@ -2117,7 +2117,7 @@ angular.module('viewCustom').component('multipleThumbnail', {
         var vm = this;
         var sv = prmSearchService;
         vm.localScope = { 'imgclass': '', 'hideLockIcon': false, 'hideTooltip': false };
-        vm.imageUrl = '/primo-explore/custom/01HVD/img/icon_image.png';
+        vm.imageUrl = '/primo-explore/custom/HVD2/img/icon_image.png';
         vm.src = '';
         vm.imageTitle = '';
         vm.restricted = false;
@@ -2149,7 +2149,7 @@ angular.module('viewCustom').component('multipleThumbnail', {
                     // use default image if it is a broken link image
                     var pattern = /^(onLoad\?)/; // the broken image start with onLoad
                     if (pattern.test(vm.src)) {
-                        img.src = '/primo-explore/custom/01HVD/img/icon_image.png';
+                        img.src = '/primo-explore/custom/HVD2/img/icon_image.png';
                     }
                     img.onload = vm.callback;
                     if (img.clientWidth > 50) {
@@ -2361,7 +2361,7 @@ angular.module('viewCustom').component('prmActionContainerAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmActionContainerAfterCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/prm-action-container-after.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/prm-action-container-after.html'
 });
 
 /**
@@ -2482,7 +2482,7 @@ angular.module('viewCustom').config(function ($stateProvider) {
     bindings: { parentCtrl: '<' },
     controller: 'prmAdvancedSearchAfterCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/prm-advanced-search-after.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/prm-advanced-search-after.html'
 });
 
 /**
@@ -2498,7 +2498,7 @@ angular.module('viewCustom').controller('prmAuthenticationAfterController', ['cu
     // get rest endpoint Url
     vm.getUrl = function () {
         var config = sv.getEnv();
-        sv.getAjax('/primo-explore/custom/01HVD/html/' + config, '', 'get').then(function (res) {
+        sv.getAjax('/primo-explore/custom/HVD2/html/' + config, '', 'get').then(function (res) {
             vm.api = res.data;
             sv.setApi(vm.api);
             vm.getClientIP();
@@ -2600,7 +2600,7 @@ angular.module('viewCustom').component('prmAuthenticationAfter', {
         bindings: { parentCtrl: '<' },
         controller: 'prmBriefResultContainerAfterCtrl',
         controllerAs: 'vm',
-        templateUrl: '/primo-explore/custom/01HVD/html/prm-brief-result-container-after.html'
+        templateUrl: '/primo-explore/custom/HVD2/html/prm-brief-result-container-after.html'
     });
 })();
 /**
@@ -2612,7 +2612,7 @@ angular.module('viewCustom').component('prmBrowseSearchBarAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmBrowseSearchBarAfterCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/prm-browse-search-bar-after.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/prm-browse-search-bar-after.html'
 });
 
 angular.module('viewCustom').controller('prmBrowseSearchBarAfterCtrl', ['$location', 'customService', '$element', function ($location, customService, $element) {
@@ -2630,7 +2630,7 @@ angular.module('viewCustom').controller('prmBrowseSearchBarAfterCtrl', ['$locati
 
     vm.gotoSimpleSearch = function () {
         cs.setAdvancedSearch(false);
-        window.location.href = '/primo-explore/search?vid=01HVD';
+        window.location.href = '/primo-explore/search?vid=HVD2';
     };
 
     vm.gotoAdvancedSearch = function () {
@@ -2730,7 +2730,7 @@ angular.module('viewCustom').controller('prmBrowseSearchBarAfterCtrl', ['$locati
         bindings: { parentCtrl: '<' },
         controller: 'prmFullViewServiceContainerAfterCtrl',
         controllerAs: 'vm',
-        templateUrl: '/primo-explore/custom/01HVD/html/prm-full-view-service-container-after.html'
+        templateUrl: '/primo-explore/custom/HVD2/html/prm-full-view-service-container-after.html'
     });
 })();
 
@@ -2760,7 +2760,7 @@ angular.module('viewCustom').component('prmLogoAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmLogoAfterCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/prm-logo-after.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/prm-logo-after.html'
 });
 
 /**
@@ -2810,7 +2810,7 @@ angular.module('viewCustom').component('prmPermalinkAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmPermalinkAfterCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/prm-permalink-after.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/prm-permalink-after.html'
 });
 
 /**
@@ -3010,7 +3010,7 @@ angular.module('viewCustom').controller('prmSearchResultAvailabilityLineAfterCtr
                         zoomInTitle: 'Zoom in',
                         zoomOutText: '<i class="iconMapFontSize">-</i>',
                         zoomOutTitle: 'Zoom out',
-                        zoomHomeText: '<img class="iconHome" src="/primo-explore/custom/01HVD/img/ic_home_black_18px.svg"/>',
+                        zoomHomeText: '<img class="iconHome" src="/primo-explore/custom/HVD2/img/ic_home_black_18px.svg"/>',
                         zoomHomeTitle: 'Zoom home'
                     },
 
@@ -3109,7 +3109,7 @@ angular.module('viewCustom').component('prmSearchResultAvailabilityLineAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmSearchResultAvailabilityLineAfterCtrl',
     controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/01HVD/html/prm-search-result-availability-line-after.html'
+    templateUrl: '/primo-explore/custom/HVD2/html/prm-search-result-availability-line-after.html'
 });
 
 /**
@@ -3446,7 +3446,7 @@ angular.module('viewCustom').service('prmSearchService', ['$http', '$window', '$
         bindings: { parentCtrl: '<' },
         controller: 'prmServiceLinksAfterCtrl',
         controllerAs: 'vm',
-        templateUrl: '/primo-explore/custom/01HVD/html/prm-service-links-after.html'
+        templateUrl: '/primo-explore/custom/HVD2/html/prm-service-links-after.html'
     });
 })();
 /**
@@ -3487,7 +3487,7 @@ angular.module('viewCustom').service('prmSearchService', ['$http', '$window', '$
         bindings: { parentCtrl: '<' },
         controller: 'prmTopbarAfterCtrl',
         controllerAs: 'vm',
-        templateUrl: '/primo-explore/custom/01HVD/html/prm-topbar-after.html'
+        templateUrl: '/primo-explore/custom/HVD2/html/prm-topbar-after.html'
     });
 })();
 
@@ -3588,7 +3588,7 @@ angular.module('viewCustom').service('prmSearchService', ['$http', '$window', '$
     angular.module('viewCustom').component('prmViewOnlineAfter', {
         bindings: { parentCtrl: '<' },
         controller: 'prmViewOnlineAfterController',
-        'templateUrl': '/primo-explore/custom/01HVD/html/prm-view-online-after.html'
+        'templateUrl': '/primo-explore/custom/HVD2/html/prm-view-online-after.html'
     });
 })();
 /**
@@ -3598,7 +3598,7 @@ angular.module('viewCustom').service('prmSearchService', ['$http', '$window', '$
  */
 
 angular.module('viewCustom').component('responsiveImage', {
-    templateUrl: '/primo-explore/custom/01HVD/html/responsiveImage.html',
+    templateUrl: '/primo-explore/custom/HVD2/html/responsiveImage.html',
     bindings: {
         src: '<',
         imgtitle: '<',
@@ -3628,7 +3628,7 @@ angular.module('viewCustom').component('responsiveImage', {
                     // use default image if it is a broken link image
                     var pattern = /^(onLoad\?)/; // the broken image start with onLoad
                     if (pattern.test(vm.src)) {
-                        img.src = '/primo-explore/custom/01HVD/img/icon_image.png';
+                        img.src = '/primo-explore/custom/HVD2/img/icon_image.png';
                     }
                     img.onload = vm.callback;
                     if (img.width > 50) {
@@ -3676,7 +3676,7 @@ angular.module('viewCustom').component('responsiveImage', {
  */
 
 angular.module('viewCustom').component('singleImage', {
-    templateUrl: '/primo-explore/custom/01HVD/html/singleImage.html',
+    templateUrl: '/primo-explore/custom/HVD2/html/singleImage.html',
     bindings: {
         src: '<',
         imgtitle: '<',
@@ -3715,7 +3715,7 @@ angular.module('viewCustom').component('singleImage', {
                         // use default image if it is a broken link image
                         var pattern = /^(onLoad\?)/; // the broken image start with onLoad
                         if (pattern.test(vm.src)) {
-                            img.src = '/primo-explore/custom/01HVD/img/icon_image.png';
+                            img.src = '/primo-explore/custom/HVD2/img/icon_image.png';
                         }
                         img.onload = vm.callback;
                         if (img.width > 600) {

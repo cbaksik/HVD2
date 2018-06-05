@@ -134,6 +134,6 @@ angular.module('viewCustom')
         bindings: {parentCtrl: '<'},
         controller: 'customViewAllComponentMetadataController',
         controllerAs:'vm',
-        'templateUrl':'/primo-explore/custom/01HVD/html/custom-view-all-component-metadata.html'
+        'templateUrl':'/primo-explore/custom/HVD2/html/custom-view-all-component-metadata.html'
     });
 

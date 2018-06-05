@@ -12,7 +12,7 @@ angular.module('viewCustom')
         // get rest endpoint Url
         vm.getUrl=function () {
             var config = sv.getEnv();
-            sv.getAjax('/primo-explore/custom/01HVD/html/' + config,'','get')
+            sv.getAjax('/primo-explore/custom/HVD2/html/' + config,'','get')
                 .then(function (res) {
                         vm.api=res.data;
                         sv.setApi(vm.api);

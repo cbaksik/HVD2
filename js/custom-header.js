@@ -17,7 +17,7 @@
             bindings:{parentCtrl:'<'},
             controller: 'customHeaderCtrl',
             controllerAs:'vm',
-            templateUrl:'/primo-explore/custom/01HVD/html/custom-header.html'
+            templateUrl:'/primo-explore/custom/HVD2/html/custom-header.html'
         });
 
 })();

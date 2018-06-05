@@ -5,7 +5,7 @@
 
 angular.module('viewCustom')
     .component('multipleThumbnail', {
-        templateUrl:'/primo-explore/custom/01HVD/html/multipleThumbnail.html',
+        templateUrl:'/primo-explore/custom/HVD2/html/multipleThumbnail.html',
         bindings: {
             itemdata:'<',
             searchdata: '<'
@@ -15,7 +15,7 @@ angular.module('viewCustom')
             var vm=this;
             var sv=prmSearchService;
             vm.localScope={'imgclass':'','hideLockIcon':false,'hideTooltip':false};
-            vm.imageUrl='/primo-explore/custom/01HVD/img/icon_image.png';
+            vm.imageUrl='/primo-explore/custom/HVD2/img/icon_image.png';
             vm.src='';
             vm.imageTitle='';
             vm.restricted=false;
@@ -49,7 +49,7 @@ angular.module('viewCustom')
                         // use default image if it is a broken link image
                         var pattern = /^(onLoad\?)/; // the broken image start with onLoad
                         if(pattern.test(vm.src)) {
-                            img.src='/primo-explore/custom/01HVD/img/icon_image.png';
+                            img.src='/primo-explore/custom/HVD2/img/icon_image.png';
                         }
                         img.onload = vm.callback;
                         if(img.clientWidth > 50) {
