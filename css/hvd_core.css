@@ -1,0 +1,17 @@
+body {
+    background-color:#fff;
+}
+
+.full-view-inner-container {
+    background-color:#fff;
+}
+
+prm-brief-result-container {
+    background-color:#fff;
+}
+prm-brief-result-container:hover {
+    background-color:#f3f3f3;
+}
+prm-brief-result-container.list-item:hover {
+    background-color: grey;
+}

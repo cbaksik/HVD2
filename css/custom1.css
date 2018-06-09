@@ -362,6 +362,24 @@ hr {padding:0px; margin:0px;}
 .padding10 {
     padding-bottom:10px;
 }
+body {
+    background-color:#fff;
+}
+
+.full-view-inner-container {
+    background-color:#fff;
+}
+
+prm-brief-result-container {
+    background-color:#fff;
+}
+prm-brief-result-container:hover {
+    background-color:#f3f3f3;
+}
+prm-brief-result-container.list-item:hover {
+    background-color: grey;
+}
+
 
 .hvfullsize {
     width:100%;
@@ -910,6 +928,12 @@ prm-topbar #more-links-button prm-icon {
     color:#000;
 
 }
+prm-main-menu .buttons-group .md-button {
+    box-shadow:none;
+}
+prm-main-menu.buttons-group .md-button:first-child {
+    box-shadow:none;
+}
 .betaIcon {
     display: table-cell;
 }
@@ -1015,6 +1039,7 @@ prm-user-area .md-button.user-menu-button {
 prm-user-area .user-menu-button .user-name {
     color:#3d6e94;
 }
+
 .imageLabel {
     width:185px;
     height:30px;

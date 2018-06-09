@@ -23,6 +23,12 @@ prm-topbar #more-links-button prm-icon {
     color:#000;
 
 }
+prm-main-menu .buttons-group .md-button {
+    box-shadow:none;
+}
+prm-main-menu.buttons-group .md-button:first-child {
+    box-shadow:none;
+}
 .betaIcon {
     display: table-cell;
 }
