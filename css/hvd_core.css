@@ -1,17 +1,39 @@
-body {
-    background-color:#fff;
+/* Application background (from LG @ BC)*/
+
+body,
+prm-brief-result-container .list-item-primary-content,
+.full-view-inner-container,
+md-content,
+md-content.md-primoExplore-theme {
+    background-color: #FFFFFF;
 }
 
-.full-view-inner-container {
-    background-color:#fff;
+prm-brief-result-container .list-item-primary-content:before {
+    background-color: #F3F3F3;
 }
+md-backdrop.md-opaque {
+    background: rgba(56,56,61);
+}
+md-backdrop.md-opaque {
+    opacity: .7;
+}
+/* Accessibility changes from Amy D */
 
-prm-brief-result-container {
-    background-color:#fff;
+/* for background of overlay menu from top nav ... */
+/*md-content.md-primoExplore-theme md-dialog.light-on-dark-dialog {
+    background-color: rgba(56,56,61,.5);
+ }*/
+ md-content.overlay-menu-content {
+    background-color: rgba(56,56,61,.7);
 }
-prm-brief-result-container:hover {
-    background-color:#f3f3f3;
+/* my favorites global action icons disabled */
+prm-favorites-tool-bar .disabledFavTool {
+    color: #695F5F;
 }
-prm-brief-result-container.list-item:hover {
-    background-color: grey;
+prm-favorites-edit-labels-menu .disabledFavTool {
+    color: #695F5F;
+}
+/* facet counts in parens */
+.section-content .md-chips .md-chip .md-chip-content {
+	color:#6E6868;
 }

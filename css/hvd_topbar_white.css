@@ -26,7 +26,10 @@ prm-topbar #more-links-button prm-icon {
 prm-main-menu .buttons-group .md-button {
     box-shadow:none;
 }
-prm-main-menu.buttons-group .md-button:first-child {
+prm-main-menu .buttons-group .md-button:first-child {
+    box-shadow:none;
+}
+.buttons-group .md-button:first-child {
     box-shadow:none;
 }
 .betaIcon {
@@ -70,14 +73,7 @@ a#hollisLogoTopbar {
     color:#000;
     font-family:"Trueno";
 }
-prm-search-bar {
-    background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
-}
 
-/* magnify glass search in search box */
-div.search-actions > .md-button.button-confirm {
-    color:#a51c30;
-}
 
 .customTopMenu {
     position: absolute;
@@ -121,16 +117,23 @@ div.search-actions > .md-button.button-confirm:hover {
 .hv-menu:hover {
     color:#000000;
 }
-
-.search-switch-buttons {
+/* hide switch to adv search from basic, b/c in top bar now */
+.search-switch-buttons .switch-to-advanced {
     display:none;
 }
 prm-search-bookmark-filter .md-button {
-    background-color:grey;
+    background-color:rgb(88, 85, 82);
 }
 prm-user-area .md-button.user-menu-button {
     color:#000;
 }
 prm-user-area .user-menu-button .user-name {
     color:#3d6e94;
+}
+.md-button:hover:not([disabled]), .md-button.button-over-dark:hover:not([disabled]) {
+    /*background-color:#3d6e94;*/
+    color:#3d6e94;
+}
+prm-search-bookmark-filter .fixed-to-top #favorites-button {
+    color:#fff;
 }
