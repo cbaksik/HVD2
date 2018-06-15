@@ -1,3 +1,14 @@
 prm-search-bar {
     background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
 }
+prm-browse-search-bar {
+    background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
+}
+prm-browse-search-bar .classic-input .search-scope {
+    background-color: #f3f3f3;
+}
+prm-browse-search-bar md-select ._md-select-icon {
+    color:#026DB9;
+    font-size:150%;
+    size:10px;
+}

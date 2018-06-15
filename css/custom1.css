@@ -1047,7 +1047,8 @@ md-backdrop.md-opaque {
 md-backdrop.md-opaque {
     opacity: .7;
 }
-/* Accessibility changes from Amy D */
+/* end app background */
+
 
 /* for background of overlay menu from top nav ... */
 /*md-content.md-primoExplore-theme md-dialog.light-on-dark-dialog {
@@ -1063,13 +1064,130 @@ prm-favorites-tool-bar .disabledFavTool {
 prm-favorites-edit-labels-menu .disabledFavTool {
     color: #695F5F;
 }
+
+/* alert bar e.g. sign in prompt above results */
+.bar.alert-bar {
+    letter-spacing: 1px;
+    background-color: #f1f1f1;
+    border-color: #bbb8b8;
+}
+.bar prm-authentication .md-button {
+    color: #3d6e94;
+    font-weight:bold;
+    padding-bottom: 1px;
+}
+.bar.alert-bar span.bar-text {
+    background-color: #d9d7f5;
+    border: 1px solid #6558d2;
+    padding: 7px 15px;
+}
+
+prm-personalize-results-button md-switch ._md-thumb:before {
+    border: 1px solid #187474;
+}
+prm-search-result-list prm-personalize-results-button .md-button md-switch ._md-bar {
+    background-color: #187474;
+}
+/* search results */
+/* ava line */
+[class*="available"] > span, [class*="unavailable"] > span , [class*="check_"] > span {
+    color:#44707b;
+}
+/* for: check holdings */
+[class*="check_"] {
+    color:#716F6F;
+}
+/* for "how to get it */
+[class*="no_"] {
+    color:#44707b;
+}
+
+prm-search-result-availability-line span {
+    white-space: normal;
+    display: inline;
+    color: #44707b;
+}
+/* page nav search results */
+prm-page-nav-menu .counter-main md-fab-trigger .md-button {
+    box-shadow:5px 0 5px -3px rgba(0,0,0,.5), -5px 0 5px -3px rgba(0,0,0,.5);
+    color:#026DB9;
+}
+/* page nav browse search */
+prm-page-nav-menu .page-nav-inner:after {
+    box-shadow:0 1px 3px -1px rgba(0,0,0,.7), 0 0 20px 0 rgba(0,0,0,.7);
+}
+/* facets */
+/* active filters */
+prm-facet prm-breadcrumbs .md-chips .md-chip {
+    background-color:#f3f3f3;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2);
+}
+prm-search-result-sort-by {
+    margin-bottom:5px;
+}
 /* facet counts in parens */
 .section-content .md-chips .md-chip .md-chip-content {
 	color:#6E6868;
 }
+/* date facet */
+prm-facet-range {
+    font-size:130%;
+}
+prm-facet-range md-input-container {
+    margin-right:10px;
+}
+input[aria-label="From date"] ,input[aria-label="To date"] {
+    border:1px solid #b8babb;
+    padding:5px;
+}
+input[aria-label="From date"]::-webkit-inner-spin-button,input[aria-label="From date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+/* full display page */
+/* ava line at top */
+prm-full-view div.full-view-container prm-full-view-service-container prm-search-result-availability-line {
+    display:none;
+}
+/* browse result */
+prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item .item-title, md-list.prm-list.prm-linkable-list-items md-list-item .item-title {
+    color:#2f4d54;
+}
+prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item ._md-list-item-inner {
+    background-color:#fff;
+    border-bottom:1px solid #b8babb;
+    padding: 0em 0.2em;
+    color:#44707b;
+}
+prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a {
+    color:#026DB9;
+}
+prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a:hover {
+    color:#026DB9;
+    background-color:#f3f3f3;
+    opacity:.5;
+}
+prm-browse-search md-list.prm-list.prm-linkable-list-items.prm-dense-list md-list-item .item-title prm-highlight > span:hover {
+    color:#026DB9;
+}
 
 prm-search-bar {
     background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
+}
+prm-browse-search-bar {
+    background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
+}
+prm-browse-search-bar .classic-input .search-scope {
+    background-color: #f3f3f3;
+}
+prm-browse-search-bar md-select ._md-select-icon {
+    color:#026DB9;
+    font-size:150%;
+    size:10px;
 }
 .hollisPlus {
     display: table-cell;
@@ -1195,7 +1313,7 @@ div.search-actions > .md-button.button-confirm:hover {
     display:none;
 }
 prm-search-bookmark-filter .md-button {
-    background-color:rgb(88, 85, 82);
+    background-color:#307986;
 }
 prm-user-area .md-button.user-menu-button {
     color:#000;
