@@ -18,7 +18,15 @@ md-backdrop.md-opaque {
     opacity: .7;
 }
 /* end app background */
-
+/* home page */
+.md-headline {
+    font-weight:400;
+}
+md-card.default-card {
+    box-shadow;1px 1px 0px 1px rgba(0,0,0,.03), 0px 5px 5px -3px rgba(0,0,0,.07)
+    padding-bottom: 10px;
+}
+/*** note - this is the blue of the search result title #44707b */
 
 /* for background of overlay menu from top nav ... */
 /*md-content.md-primoExplore-theme md-dialog.light-on-dark-dialog {
@@ -26,6 +34,12 @@ md-backdrop.md-opaque {
  }*/
  md-content.overlay-menu-content {
     background-color: rgba(56,56,61,.7);
+}
+md-content.overlay-menu-content span.md-headline {
+    text-transform:none;
+}
+md-content.overlay-menu-content span.md-subhead {
+    display:none;
 }
 /* my favorites global action icons disabled */
 prm-favorites-tool-bar .disabledFavTool {
@@ -39,7 +53,7 @@ prm-favorites-edit-labels-menu .disabledFavTool {
 .bar.alert-bar {
     letter-spacing: 1px;
     background-color: #f1f1f1;
-    border-color: #bbb8b8;
+    border-color:#ebe9e9;
 }
 .bar prm-authentication .md-button {
     color: #3d6e94;
@@ -107,8 +121,14 @@ prm-facet-range md-input-container {
     margin-right:10px;
 }
 input[aria-label="From date"] ,input[aria-label="To date"] {
-    border:1px solid #b8babb;
     padding:5px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    background-color: white;
+
 }
 input[aria-label="From date"]::-webkit-inner-spin-button,input[aria-label="From date"]::-webkit-outer-spin-button {
     -webkit-appearance: none; 

@@ -3,20 +3,22 @@
 }
 
 .boxHollis {
-    padding-top:5px;
+    padding-top:8px;
     margin-left:34px;
     white-space: nowrap;
 }
 
 .hollisPlus prm-logo .logo-image, prm-logo img {
     max-height: 100%;
-    height: 82px;
+    height: 75px;
     width: 110px;
     margin-top: 10px;
 }
 
 prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark {
     color:#000;
+    padding-right: 25px;
+    padding-left: 25px;
 }
 
 prm-topbar #more-links-button prm-icon {
@@ -122,18 +124,29 @@ div.search-actions > .md-button.button-confirm:hover {
     display:none;
 }
 prm-search-bookmark-filter .md-button {
-    background-color:#307986;
+    background-color:#44707b;
 }
 prm-user-area .md-button.user-menu-button {
     color:#000;
 }
 prm-user-area .user-menu-button .user-name {
-    color:#3d6e94;
+    color:#44707b;
 }
 .md-button:hover:not([disabled]), .md-button.button-over-dark:hover:not([disabled]) {
     /*background-color:#3d6e94;*/
-    color:#3d6e94;
+    color:#44707b;
 }
 prm-search-bookmark-filter .fixed-to-top #favorites-button {
     color:#fff;
+}
+/* bar that takes over when you click sign in */
+prm-user-area md-fab-toolbar.md-is-open md-fab-trigger .md-fab-toolbar-background, prm-user-area md-fab-toolbar.md-is-open md-fab-trigger ._md-fab-toolbar-background {
+    background-color:#fff !important;
+}
+prm-user-area .md-fab-action-item {
+    background-color:#466176;
+}
+prm-user-area md-fab-toolbar .md-fab-action-item .md-button,  prm-user-area md-fab-toolbar .md-fab-action-item md-input-container, prm-user-area md-fab-toolbar .md-fab-action-item md-input-container md-select {
+    /*color:#44707b;*/
+    font-weight:600;
 }
