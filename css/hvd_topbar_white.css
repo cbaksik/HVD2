@@ -130,11 +130,11 @@ prm-user-area .md-button.user-menu-button {
     color:#000;
 }
 prm-user-area .user-menu-button .user-name {
-    color:#44707b;
+    color:#026DB9;
 }
 .md-button:hover:not([disabled]), .md-button.button-over-dark:hover:not([disabled]) {
     /*background-color:#3d6e94;*/
-    color:#44707b;
+    color:#0579b8;
 }
 prm-search-bookmark-filter .fixed-to-top #favorites-button {
     color:#fff;
@@ -144,7 +144,7 @@ prm-user-area md-fab-toolbar.md-is-open md-fab-trigger .md-fab-toolbar-backgroun
     background-color:#fff !important;
 }
 prm-user-area .md-fab-action-item {
-    background-color:#466176;
+    background-color:#0579b8;
 }
 prm-user-area md-fab-toolbar .md-fab-action-item .md-button,  prm-user-area md-fab-toolbar .md-fab-action-item md-input-container, prm-user-area md-fab-toolbar .md-fab-action-item md-input-container md-select {
     /*color:#44707b;*/
