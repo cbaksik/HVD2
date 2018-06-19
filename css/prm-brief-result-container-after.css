@@ -1,48 +1,47 @@
-#briefResultAfter {
+#briefResultAfterFindingAid {
     margin:0px;
     padding:0px;
     padding-bottom:10px;
+    background-color: #fff;
+    vertical-align: middle;
 }
-
-#briefResultAfter > .layout-row > .flex-* {
+prm-brief-result-container-after {
+    background-color: #f3f3f3;
+}
+#briefResultAfterFindingAid:hover {
+    background-color: #f3f3f3;
+}
+#briefResultAfterFindingAid a {
+    color:#44707b;
+}
+#briefResultAfterFindingAid > .layout-row > .flex-* {
     padding:0px;
     margin-top:0px;
 }
-
-#briefResultAfter > .md-button {
+#briefResultAfterFindingAid > .md-button {
     margin:0px !important;
 }
-
-#briefResultAfter:hover {
-
-}
-
-#briefResultAfter > .spaceLeft {
+#briefResultAfterFindingAid > .spaceLeft {
     padding-left:5px;
 }
-
-#briefResultAfter > .marginLeftFindingAid {
+#briefResultAfterFindingAid > .marginLeftFindingAid {
     padding-left:100px;
 }
-
-#briefResultAfter > .marginLeftFindingAid2 {
+#briefResultAfterFindingAid > .marginLeftFindingAid2 {
     padding-left:140px;
 }
-
-
-#briefResultAfter > .spaceLeft40 {
+#briefResultAfterFindingAid > .spaceLeft40 {
     padding-left:45px;
 }
-
-#briefResultAfter > .folder {
+#briefResultAfterFindingAid > .folder {
     font-size: 36px;
     color: #7b8995;
 }
 
-.whitebg {
+/* .whitebg {
     background:#ffffff;
-}
+} */
 
-prm-brief-result-container.list-item:hover {
+/* prm-brief-result-container.list-item:hover {
     background:#ffffff;
-}
+} */

@@ -2,7 +2,8 @@
  * Created by samsan on 9/25/17.
  */
 
-angular.module('viewCustom')
+ /* CB commenting this out, no longer need this */
+/* angular.module('viewCustom')
     .controller('prmSearchBarAfterCtrl',['$element','$location','$compile','$scope','$mdMedia','customService',function ($element,$location,$compile,$scope,$mdMedia, customService) {
         var vm=this;
         var cs=customService;
@@ -18,17 +19,17 @@ angular.module('viewCustom')
                 textNode=document.createTextNode('BROWSE');
             }
             button.appendChild(textNode);
-            var browseBtn=document.getElementById('browseButton');
+            var browseBtn=document.getElementById('browseButton'); */
             // if browse button doesn't exist, add new one
-            if(!browseBtn) {
+/*             if(!browseBtn) {
                 el.appendChild(button);
                 $compile(el)($scope);
             }
 
-        };
+        }; */
 
         // toggle between advance search and simple search
-        vm.$doCheck=()=>{
+/*         vm.$doCheck=()=>{
             var browseBtn=document.getElementById('browseButton');
             if(vm.parentCtrl.advancedSearch) {
                 if(browseBtn) {
@@ -61,4 +62,4 @@ angular.module('viewCustom')
         controller: 'prmSearchBarAfterCtrl',
         controllerAs:'vm'
     });
-
+ */

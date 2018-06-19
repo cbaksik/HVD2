@@ -2405,7 +2405,9 @@ angular.module('viewCustom').controller('prmActionListAfterCtrl', ['$element', '
                     printEl.appendChild(printTag);
                     $compile(printEl.children[1])($scope);
                 }
-            }, 2000);
+
+                // }, 2000);
+            }, 0); // changing this to zero per basecamp discussion with Lynn and Jim from ExL  
         }
     };
 }]);
@@ -2608,36 +2610,42 @@ angular.module('viewCustom').component('prmAuthenticationAfter', {
  * Add basic search and advanced search button at browse page
  */
 
-angular.module('viewCustom').component('prmBrowseSearchBarAfter', {
-    bindings: { parentCtrl: '<' },
-    controller: 'prmBrowseSearchBarAfterCtrl',
-    controllerAs: 'vm',
-    templateUrl: '/primo-explore/custom/HVD2/html/prm-browse-search-bar-after.html'
-});
+/*CB commented out - no longer need */
+/* angular.module('viewCustom')
+    .component('prmBrowseSearchBarAfter',{
+        bindings:{parentCtrl:'<'},
+        controller: 'prmBrowseSearchBarAfterCtrl',
+        controllerAs:'vm',
+        templateUrl:'/primo-explore/custom/HVD2/html/prm-browse-search-bar-after.html'
+    });
 
-angular.module('viewCustom').controller('prmBrowseSearchBarAfterCtrl', ['$location', 'customService', '$element', function ($location, customService, $element) {
-    var vm = this;
-    var cs = customService;
 
-    vm.$onChanges = function () {
-        var el = $element[0].parentNode.childNodes[0].children[2];
-        if (el) {
-            var left = el.offsetLeft;
-            var doc = document.getElementById('browseSearchBar');
-            doc.style.left = left + 20 + 'px';
-        }
-    };
+angular.module('viewCustom')
+    .controller('prmBrowseSearchBarAfterCtrl',['$location','customService','$element',function ($location,customService,$element) {
+        var vm=this;
+        var cs=customService;
 
-    vm.gotoSimpleSearch = function () {
-        cs.setAdvancedSearch(false);
-        window.location.href = '/primo-explore/search?vid=HVD2';
-    };
+        vm.$onChanges=()=>{
+            var el=$element[0].parentNode.childNodes[0].children[2];
+            if(el) {
+                var left=el.offsetLeft;
+                var doc=document.getElementById('browseSearchBar');
+                doc.style.left=(left + 20) + 'px';
+            }
+        };
 
-    vm.gotoAdvancedSearch = function () {
-        cs.setAdvancedSearch(true);
-        $location.path('/search');
-    };
-}]);
+        vm.gotoSimpleSearch=()=>{
+            cs.setAdvancedSearch(false);
+            window.location.href='/primo-explore/search?vid=HVD2'
+        };
+
+       vm.gotoAdvancedSearch=()=>{
+           cs.setAdvancedSearch(true);
+           $location.path('/search');
+       }
+
+
+    }]); */
 /* Author: Sam san
    This capture all data from parentCtrl. Then can use with other components.
    Hide some of the services primo
@@ -2817,60 +2825,67 @@ angular.module('viewCustom').component('prmPermalinkAfter', {
  * Created by samsan on 9/25/17.
  */
 
-angular.module('viewCustom').controller('prmSearchBarAfterCtrl', ['$element', '$location', '$compile', '$scope', '$mdMedia', 'customService', function ($element, $location, $compile, $scope, $mdMedia, customService) {
-    var vm = this;
-    var cs = customService;
+/* CB commenting this out, no longer need this */
+/* angular.module('viewCustom')
+    .controller('prmSearchBarAfterCtrl',['$element','$location','$compile','$scope','$mdMedia','customService',function ($element,$location,$compile,$scope,$mdMedia, customService) {
+        var vm=this;
+        var cs=customService;
 
-    vm.$onInit = function () {
-        var el = $element[0].parentNode.children[0].children[0].children[2];
-        var button = document.createElement('button');
-        button.setAttribute('id', 'browseButton');
-        button.setAttribute('class', 'md-button md-primoExplore-theme browse-button switch-to-advanced');
-        button.setAttribute('ng-click', 'vm.gotoBrowse()');
-        var textNode = document.createTextNode('STARTS WITH (BROWSE BY...)');
-        if ($mdMedia('xs') || $mdMedia('sm')) {
-            textNode = document.createTextNode('BROWSE');
-        }
-        button.appendChild(textNode);
-        var browseBtn = document.getElementById('browseButton');
-        // if browse button doesn't exist, add new one
-        if (!browseBtn) {
-            el.appendChild(button);
-            $compile(el)($scope);
-        }
-    };
-
-    // toggle between advance search and simple search
-    vm.$doCheck = function () {
-        var browseBtn = document.getElementById('browseButton');
-        if (vm.parentCtrl.advancedSearch) {
-            if (browseBtn) {
-                browseBtn.classList.remove('switch-to-advanced');
-                browseBtn.classList.add('switch-to-simple');
+        vm.$onInit=function () {
+            var el=$element[0].parentNode.children[0].children[0].children[2];
+            var button=document.createElement('button');
+            button.setAttribute('id','browseButton');
+            button.setAttribute('class','md-button md-primoExplore-theme browse-button switch-to-advanced');
+            button.setAttribute('ng-click','vm.gotoBrowse()');
+            var textNode=document.createTextNode('STARTS WITH (BROWSE BY...)');
+            if($mdMedia('xs') || $mdMedia('sm')) {
+                textNode=document.createTextNode('BROWSE');
             }
-        } else {
-            if (browseBtn) {
-                browseBtn.classList.remove('switch-to-simple');
-                browseBtn.classList.add('switch-to-advanced');
+            button.appendChild(textNode);
+            var browseBtn=document.getElementById('browseButton'); */
+// if browse button doesn't exist, add new one
+/*             if(!browseBtn) {
+                el.appendChild(button);
+                $compile(el)($scope);
             }
-        }
 
-        if (cs.getAdvancedSearch() === true) {
-            vm.parentCtrl.searchFieldsService.advancedSearch = true;
-            cs.setAdvancedSearch(false);
-        }
-    };
+        }; */
 
-    vm.gotoBrowse = function () {
-        $location.path('/browse');
-    };
-}]);
+// toggle between advance search and simple search
+/*         vm.$doCheck=()=>{
+            var browseBtn=document.getElementById('browseButton');
+            if(vm.parentCtrl.advancedSearch) {
+                if(browseBtn) {
+                    browseBtn.classList.remove('switch-to-advanced');
+                    browseBtn.classList.add('switch-to-simple');
+                }
+            } else {
+                if(browseBtn) {
+                    browseBtn.classList.remove('switch-to-simple');
+                    browseBtn.classList.add('switch-to-advanced');
+                }
+            }
 
-angular.module('viewCustom').component('prmSearchBarAfter', {
-    bindings: { parentCtrl: '<' },
-    controller: 'prmSearchBarAfterCtrl',
-    controllerAs: 'vm'
-});
+            if(cs.getAdvancedSearch()===true) {
+                vm.parentCtrl.searchFieldsService.advancedSearch=true;
+                cs.setAdvancedSearch(false);
+            }
+        };
+
+        vm.gotoBrowse=function () {
+            $location.path('/browse');
+        };
+
+
+    }]);
+
+angular.module('viewCustom')
+    .component('prmSearchBarAfter',{
+        bindings:{parentCtrl:'<'},
+        controller: 'prmSearchBarAfterCtrl',
+        controllerAs:'vm'
+    });
+ */
 
 /**
  * Created by samsan on 9/13/17.

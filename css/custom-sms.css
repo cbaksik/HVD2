@@ -1,11 +1,12 @@
-#textsms {
+/*#textsms {
    padding:5px;
    cursor: pointer;
    z-index:10;
-   color:#666;
    font-weight: 300;
 }
-
+#textsms _md-nav-button-text md-icon svg  {
+   color:rgba(58,58,58,.8)
+}
 
 #textsms .row {
     text-align: center;
@@ -21,17 +22,17 @@
 
 #textsms:hover {
     background:#e1e1e1;
-    color:#666;
+    color:rgba(58,58,58,.8)
 }
 
 
 #textsms .row:hover {
     background:#e1e1e1;
-    color:#666;
+    color:rgba(58,58,58,.8)
 }
 
 .pointer {
     cursor: pointer;
 }
 
-
+*/

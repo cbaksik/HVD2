@@ -3,7 +3,8 @@
  * Add basic search and advanced search button at browse page
  */
 
-angular.module('viewCustom')
+ /*CB commented out - no longer need */
+/* angular.module('viewCustom')
     .component('prmBrowseSearchBarAfter',{
         bindings:{parentCtrl:'<'},
         controller: 'prmBrowseSearchBarAfterCtrl',
@@ -37,4 +38,4 @@ angular.module('viewCustom')
        }
 
 
-    }]);
+    }]); */
