@@ -44,7 +44,8 @@ angular.module('viewCustom')
                     }
 
 
-                }, 2000);
+                // }, 2000);
+                }, 0);  // changing this to zero per basecamp discussion with Lynn and Jim from ExL  
             }
         };
 
