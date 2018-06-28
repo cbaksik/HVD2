@@ -17,9 +17,10 @@
     </div>
 
     <h1>Special Collections Request</h1>
-    <h2>Please note that at this time we can only display up to 100 items per holding.</h2>
+    
 
     <div class="box" ng-if="vm.holdingItems.length > 0 && vm.dataList.recordsFound">
+        <h2>Please note that at this time we can only display up to 100 items per holding.</h2>
 
         <div ng-repeat="data in vm.holdingItems track by $index" tabindex="-1">
             <md-divider class="md-primoExplore-theme divider"></md-divider>
