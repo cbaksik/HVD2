@@ -13,7 +13,7 @@ angular.module('viewCustom')
             var config='config-prod.html';
             if(host.toLowerCase()==='localhost'){
                 config='config-local.html';
-            } else if(host.toLowerCase()==='primo-for-alma-01hvd.hosted.exlibrisgroup.com') {
+            } else if(host.toLowerCase()==='harvard-primoalma-stage.hosted.exlibrisgroup.com') {
                 config='config-dev.html';
             }
 
