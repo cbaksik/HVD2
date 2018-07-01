@@ -167,6 +167,18 @@ input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date
     -webkit-appearance: none; 
     margin: 0; 
 }
+/* brief results */
+prm-search-result-thumbnail-container .fan-img:first-of-type {
+    background-color:#FFF;
+    transform: translate3d(-12px,12px,0) scale3d(.8,.8,1);
+}
+prm-search-result-thumbnail-container .fan-img:nth-of-type(2) {
+    background-color:#FFF;
+    transform: translate3d(-2px,6px,0) scale3d(.8,.8,1);
+}
+prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
+    background-color:#FFF;
+}
 /* full display page */
 /* ava line at top */
 prm-full-view div.full-view-container prm-full-view-service-container prm-search-result-availability-line {
