@@ -61,6 +61,13 @@ md-content.overlay-menu-content span.md-headline {
 md-content.overlay-menu-content span.md-subhead {
     display:none;
 }
+
+md-card-title-text .alumhat {
+    width: 30px;
+    opacity: 0.5;
+    display: inline;
+    vertical-align: bottom;    
+}
 /* my favorites global action icons disabled */
 prm-favorites-tool-bar .disabledFavTool {
     color: #695F5F;
@@ -68,7 +75,16 @@ prm-favorites-tool-bar .disabledFavTool {
 prm-favorites-edit-labels-menu .disabledFavTool {
     color: #695F5F;
 }
-
+prm-favorites-tool-bar .toolbar-item {
+    margin-left:20px;
+    margin-right:10px;
+}
+prm-favorites-tool-bar #prm_unpin {
+    color:red;
+}
+/* prm-favorites-tool-bar button.unpin-button::after { 
+    content: "!";
+} */
 /* alert bar e.g. sign in prompt above results */
 .bar.alert-bar {
     letter-spacing: 1px;
@@ -184,6 +200,56 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
 prm-full-view div.full-view-container prm-full-view-service-container prm-search-result-availability-line {
     display:none;
 }
+/* action list */
+button#textsms {
+    font-size: 10px;
+    line-height: 14px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: rgba(58,58,58,.8);
+}
+button#textsms:hover {
+    color: #0579b8;
+}
+md-card#textsms {
+    background-color:#f8f8f8;
+}
+md-card#textsms md-input-container {
+    margin-left:30px;
+    font-size:18px;
+    padding-bottom:10px
+}
+md-card#textsms md-list#smsLocation {
+    margin-left:20px;
+}
+p.textsms-danger {
+    color:red;
+    padding-bottom:10px;
+}
+/*md-card#textsms md-list#smsLocation md-list-item {
+    background-color:#fff;
+    padding:10px;
+    line-height:14px;
+}
+
+
+#textsms .button-text {
+    font-size:10px;
+    line-height:14px;
+    font-weight:600;
+    cursor: pointer;
+}
+
+#textsms:hover {
+    background:#e1e1e1;
+    color:rgba(58,58,58,.8)
+}
+
+
+#textsms .row:hover {
+    background:#e1e1e1;
+    color:rgba(58,58,58,.8)
+}*/
 /* browse result */
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item .item-title, md-list.prm-list.prm-linkable-list-items md-list-item .item-title {
     /* color:#0579b8; */
