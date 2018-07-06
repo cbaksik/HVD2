@@ -2,7 +2,7 @@
     <md-card-content>
 
         <div class="textsms-padding">
-            <div class="md-title">Enter Your Phone Number</div>
+            <div class="md-title">1) Enter your phone number</div>
             <md-input-container md-no-float class="underlined-input md-required md-primoExplore-theme md-input-invalid">
                 <md-icon md-svg-src="/primo-explore/custom/HVD2/img/ic_phone_black_24px.svg" aria-label="Phone number"></md-icon>
                 <input type="tel" ng-model="vm.temp.phone" maxlength="13" placeholder="Phone number" title="Phone number" ng-keypress="vm.keyChange($event)"/>
@@ -12,7 +12,7 @@
         <p class="{{vm.css.class}}" ng-if="vm.form.msg">{{vm.form.msg}}</p>
 
         <div class="md-title">
-            Choose a location to send a text
+            2) Choose a library and call number
         </div>
 
         <md-list id="smsLocation">
