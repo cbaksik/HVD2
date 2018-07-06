@@ -1,6 +1,8 @@
 /**
  * Created by samsan on 2/8/18.
  * This component get aeon (alma) data by passing mss_id in rest url
+ * 
+ * aeon test url = https://aeontest.hul.harvard.edu/logon?action=10&form=30&sid=Via AEON
  */
 
 angular.module('viewCustom')
@@ -34,7 +36,7 @@ angular.module('viewCustom')
 
         // build url to send to aeon
         var buildUrl=function (data,item) {
-            let url='https://aeontest.hul.harvard.edu/logon?action=10&form=30&sid=Via AEON';
+            let url='https://aeon.hul.harvard.edu/logon?action=10&form=30&sid=Via AEON';
             let keyList=Object.keys(data);
             for(let key of keyList) {
                 let val = data[key];
