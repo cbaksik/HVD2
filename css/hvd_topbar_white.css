@@ -56,6 +56,7 @@ prm-main-menu .buttons-group .md-button:first-child {
 
 
 prm-topbar {
+    height: 68px;
     background-color:#000000;
 }
 
@@ -67,7 +68,7 @@ prm-topbar > div.top-nav-bar {
 }
 
 #hollisLogoTopbar {
-    font-size:40px;
+    font-size:42px;
     vertical-align: top;
     padding-left: 10px;
 }
