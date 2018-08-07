@@ -7,18 +7,18 @@
     font-size:120%;
     white-space: nowrap;
     color:#e4e4e4;
-    padding-top:5px;
+    padding-top:15px;
     line-height:50px;
     margin-left:10px;
-    font-weight: normal;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
 
 #header .banner {
-    background:#000000;
+    background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
     color: #ffffff;
-    height:60px;
+    height:65px;
     padding-right:20px;
     padding-left:20px;
 }
@@ -26,6 +26,15 @@
 #header .logo {
     padding-left:10px;
 }
+
+#header .logo h1 {
+    font-family: "Trueno";
+    font-size: 42px;
+    vertical-align: top;
+    padding-left: 10px;
+    padding-top:20px;
+}
+
 
 
 

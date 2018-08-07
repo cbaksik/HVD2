@@ -110,7 +110,7 @@ angular.module('viewCustom')
         };
 
         vm.$onInit=function() {
-            vm.parentCtrl.bannerTitle='FULL COMPONENT METADATA';
+            vm.parentCtrl.bannerTitle='FULL IMAGE COMPONENT METADATA';
             // hide search bar
             let searchBar = document.getElementsByTagName('prm-search-bar')[0];
             if(searchBar) {
