@@ -21,6 +21,7 @@
 
     <div class="box" ng-if="vm.holdingItems.length > 0 && vm.dataList.recordsFound">
         <h2>Please note that at this time we can only display up to 100 items per holding.</h2>
+        <p>If the item you're looking for does not appear on this list please <a href="https://aeon.hul.harvard.edu/logon?Action=10&amp;Form=21">fill out the form</a> manually.  </p>
 
         <div ng-repeat="data in vm.holdingItems track by $index" tabindex="-1">
             <md-divider class="md-primoExplore-theme divider"></md-divider>
@@ -59,6 +60,8 @@
         </p>
         <p ng-if="vm.msg.error" class="space20">
             We're sorry but this particular item cannot be requested via HOLLIS. For access, please contact the library that owns the material.
+            <br/> <br/>
+            <strong>Known problem with Firefox: </strong> If you are using Firefox and received this error, please leave this tab open, return to the HOLLIS tab, and click the link again. This should resolve the error. You may also <a href="https://aeon.hul.harvard.edu/logon?Action=10&amp;Form=21">fill out the form</a> manually.  
         </p>
         <p ng-if="vm.msg.error" class="space20">
             Please <a href="https://ask.library.harvard.edu" class="bold-text" target="_blank" title="Ask a Librarian for assistance" tabindex="0">Ask a Librarian</a> if you would like assistance.
