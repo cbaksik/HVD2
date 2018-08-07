@@ -1,3 +1,8 @@
+/* body font-family tweak b/c Firefox not rendering diacritics properly with OTB Google Font Source Sans Pro -- CB 20180807, eg Urdu title 990093740090203941 */
+body {
+    font-family:Source Sans Pro,Arial,sans-serif;
+   }
+
 /* Application background (from LG @ BC)*/
 
 body,
