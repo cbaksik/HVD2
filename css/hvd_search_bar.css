@@ -12,3 +12,16 @@ prm-browse-search-bar md-select ._md-select-icon {
     font-size:150%;
     size:10px;
 }
+
+@media (max-width: 599px) {
+    prm-search-bar #searchBar {
+        border: 2px solid grey;
+    }
+    .lcs_slide_out { display: none;}
+    #hlLogoHeader {display: none;}
+    #hollisLogoTopbar {padding-left: 0px;margin-left: -25px;}
+}
+
+@media (max-width: 768px) {
+    .lcs_slide_out { display: none;}
+}
