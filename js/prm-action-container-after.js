@@ -161,7 +161,7 @@ angular.module('viewCustom')
                                    var data = JSON.parse(result.data.msg);
                                    data = data.data.message[0];
                                    if (data.accepted) {
-                                       vm.form.msg = 'The message sent to ' + vm.temp.phone + '.';
+                                       vm.form.msg = 'The message was sent to ' + vm.temp.phone + '.';
                                        vm.css.class='textsms-info';
                                    } else {
                                        vm.form.msg = 'We were unable to send this message. There was a problem with the phone number.';
