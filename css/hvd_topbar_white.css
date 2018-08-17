@@ -140,7 +140,22 @@ prm-user-area .user-menu-button .user-name {
 prm-search-bookmark-filter .fixed-to-top #favorites-button {
     color:#fff;
 }
-/* bar that takes over when you click sign in */
+/* new for August release */
+prm-user-area-expandable {
+    background-color: rgba(58,58,58,.12);
+}
+prm-user-area-expandable .md-button {
+    color:#026DB9;
+    font-weight:600;
+    font-size: 1em;
+    border-left: white solid 1px;
+}
+.md-button.button-with-menu-arrow .menu-arrow:after {
+    top:-20px;
+    display:inline-block;
+    position: inherit;
+}
+/* bar that takes over when you click sign in (might not be relevant after Aug '18 release */
 prm-user-area md-fab-toolbar.md-is-open md-fab-trigger .md-fab-toolbar-background, prm-user-area md-fab-toolbar.md-is-open md-fab-trigger ._md-fab-toolbar-background {
     background-color:#fff !important;
 }
@@ -151,3 +166,4 @@ prm-user-area md-fab-toolbar .md-fab-action-item .md-button,  prm-user-area md-f
     /*color:#44707b;*/
     font-weight:600;
 }
+/* bar that takes over when you click sign in */
