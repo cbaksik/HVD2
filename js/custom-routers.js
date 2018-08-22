@@ -19,7 +19,7 @@
 
             )
             .state('exploreMain.aeon', {
-                url: '/aeon',
+                url: '/aeon/:mmsid',
                     views:{
                     '': {
                         template: `<custom-aeon parent-ctrl="$ctrl"></custom-aeon>`
