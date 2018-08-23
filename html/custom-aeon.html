@@ -60,8 +60,10 @@
         </p>
         <p ng-if="vm.msg.error" class="space20">
             We're sorry but this particular item cannot be requested via HOLLIS. For access, please contact the library that owns the material.
+            
+            <!-- <br/> <br/><strong>Known problem with Firefox: </strong> If you are using Firefox and received this error, please leave this tab open, return to the HOLLIS tab, and click the link again. This should resolve the error. --> 
             <br/> <br/>
-            <strong>Known problem with Firefox: </strong> If you are using Firefox and received this error, please leave this tab open, return to the HOLLIS tab, and click the link again. This should resolve the error. You may also <a href="https://aeon.hul.harvard.edu/logon?Action=10&amp;Form=21">fill out the form</a> manually.  
+            If you believe this is an error, you may also <a href="https://aeon.hul.harvard.edu/logon?Action=10&amp;Form=21">fill out the form</a> manually.  
         </p>
         <p ng-if="vm.msg.error" class="space20">
             Please <a href="https://ask.library.harvard.edu" class="bold-text" target="_blank" title="Ask a Librarian for assistance" tabindex="0">Ask a Librarian</a> if you would like assistance.
