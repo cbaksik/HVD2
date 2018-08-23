@@ -6,7 +6,7 @@
  */
 
 angular.module('viewCustom')
-    .controller('customAeonCtrl',['customService','$scope',function (customService, $scope) {
+    .controller('customAeonCtrl',['customService','$scope','$stateParams',function (customService, $scope, $stateParams) {
         var sv=customService;
         var vm=this;
         vm.api=sv.getApi();
@@ -26,7 +26,8 @@ angular.module('viewCustom')
             }
 
             // get question mark parameters
-            vm.params=vm.parentCtrl.$location.$$search;
+            vm.mmsid=$stateParams.mmsid;
+            
             // watch for api variable changing
             $scope.$watch('vm.api.aeonApiUrl',()=> {
                 vm.getData();
@@ -83,9 +84,9 @@ angular.module('viewCustom')
         };
         // get data from primo-service
         vm.getData=()=>{
-            if(vm.api.aeonApiUrl && vm.params) {
+            if(vm.api.aeonApiUrl && vm.mmsid) {
                 vm.ajaxLoader=true;
-                let url = vm.api.aeonApiUrl + '/' + vm.params['mmsid'];
+                let url = vm.api.aeonApiUrl + '/' + vm.mmsid;
                 sv.getAjax(url, '', 'get')
                     .then((res) => {
                         let data=res.data;
