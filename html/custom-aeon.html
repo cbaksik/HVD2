@@ -53,8 +53,7 @@
     <div class="errorBox" ng-if="vm.holdingItems.length===0">
 
         <p  ng-if="vm.dataList.recordsFound===false" class="space20">
-            We're sorry but this particular item cannot be requested via HOLLIS. For access, please contact the library that owns the material.
-        </p>
+            We're sorry but this particular item cannot be requested via HOLLIS, but you may <a href="https://aeon.hul.harvard.edu/logon?Action=10&amp;Form=21">fill out the form</a> manually.         </p>
         <p  ng-if="vm.dataList.recordsFound===false" class="space20">
             Please <a href="https://ask.library.harvard.edu" class="bold-text" target="_blank" title="Ask a Librarian for assistance" tabindex="0">Ask a Librarian</a> if you would like assistance.
         </p>
