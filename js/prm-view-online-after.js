@@ -23,7 +23,8 @@
         vm.imageTitle = '';
         vm.auth = sv.getAuth();
         vm.gridColumn='3'; // default print view size
-
+        vm.pnxControlSourceId='HVD_VIA'; // display only pnx control sourceid of HVD_VIA
+        vm.pnxControlSourceIdFlag=false;
 
         vm.$onInit=function() {
             vm.isLoggedIn=sv.getLogInID();
@@ -32,6 +33,11 @@
            vm.item=itemData.item;
            if(vm.item.pnx.addata.mis1) {
                vm.item.mis1Data=sv.getXMLdata(vm.item.pnx.addata.mis1[0]);
+           }
+           if(vm.item.pnx.control.sourceid) {
+               if(vm.item.pnx.control.sourceid.indexOf(vm.pnxControlSourceId) !== -1) {
+                   vm.pnxControlSourceIdFlag = true;
+               }
            }
            vm.searchData=itemData.searchData;
            vm.searchData.sortby=vm.params.sortby;
