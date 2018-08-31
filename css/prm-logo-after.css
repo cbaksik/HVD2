@@ -1,0 +1,6 @@
+@media only screen and (max-width: 1280px) and (min-width: 599px)  {
+    #hlLogoHeader {
+        display: none;
+    }
+}
+
