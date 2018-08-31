@@ -47,8 +47,17 @@ angular.module('viewCustom')
                 // decode JWT Token to see if it is a valid token
                 let obj=vm.auth.authenticationService.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
                 vm.form.ip=obj.ip;
+                if(vm.auth.isLoggedIn) {
+                    // user is login
+                    vm.form.status=true;
+                    let status={'ip':'0.0.0.0','status':true};
+                    psv.setClientIp(status);
+                    psv.setLogInID(vm.auth.isLoggedIn);
+                } else {
+                    // user is not login
+                    vm.validateIP();
+                }
 
-                vm.validateIP();
             }
         };
 

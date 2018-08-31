@@ -1,11 +1,12 @@
+/*
 @media print {
     body {background:#ffffff;}
    .full-view-inner-container {background: #ffffff;}
    prm-logo, prm-main-menu, prm-search-bookmark-filter, prm-user-area, prm-search-bar, div.services-index-under, #virtualBrowse, #action_list, #links {
        display:none;
    }
-   md-toolbar.default-toolbar { display:none } /*back to result toolbar */
-   #lcs_slide_out-10171 {display:none;} /* chat widget */
+   md-toolbar.default-toolbar { display:none }
+   #lcs_slide_out-10171 {display:none;}
    div.full-view-inner-container  {
        flex:none;
        display:block;
@@ -27,7 +28,8 @@
     padding-left: 0.5em;
     }
     div.result-item-text {margin-left: -50px;}
-   /* other elements of full view */
+
    prm-full-view prm-brief-result-container .result-item-image {display:none;}
    }
 }
+*/
