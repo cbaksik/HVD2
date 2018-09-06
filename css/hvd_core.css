@@ -23,10 +23,10 @@ md-backdrop.md-opaque {
     opacity: .7;
 }
 /* changing size of flexes to increase width for facets */
-prm-facet .primo-scrollbar {
-    width:auto;
-}
-@media (max-width: 1919px) and (min-width: 1280px) {}
+@media (max-width: 1919px) and (min-width: 1280px) {
+    prm-facet .primo-scrollbar {
+        width:auto;
+    }
     prm-search .flex-lg-5, prm-search .layout-row>.flex-lg-5 {
         flex: 1 1 0%;
         max-width: 0%;
