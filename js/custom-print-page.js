@@ -5,7 +5,7 @@
 
 (function () {
     angular.module('viewCustom')
-    .controller('customPrintPageCtrl',['$element','$stateParams','customService','$timeout','$window',function ($element,$stateParams,customService,$timeout,$window) {
+    .controller('customPrintPageCtrl',['$stateParams','customService','$timeout','$window','$state','customConfig',function ($stateParams,customService,$timeout,$window, $state, customConfig) {
         var vm=this;
         vm.item={};
         var cs=customService;
@@ -16,6 +16,8 @@
           cs.getAjax(url,'','get').then(
               function (result) {
               vm.item=result.data;
+              vm.goto();
+
             },
             function (error) {
                 console.log(error);
@@ -24,46 +26,34 @@
 
         };
 
+        vm.goto=function() {
+            var obj={docid:vm.item.pnx.control.recordid[0],vid:'HVD2',lang:'en_US'};
+            $state.go('fulldisplay',obj,{location:false, reload:true,notify:true});
+
+        };
+
+
 
         vm.$onInit=function () {
             // capture the parameter from UI-Router
             vm.docid=$stateParams.docid;
             vm.context=$stateParams.context;
-            vm.vid=$stateParams.vid;
+            vm.vid=customConfig.getParam().vid;
             vm.getItem();
 
             $timeout(function () {
                 // remove top menu and search bar
-                var el=$element[0].parentNode.parentNode;
+                var el=document.getElementsByTagName('body')[0];
 
                 if(el) {
-                    el.children[0].style.display='none';
+                    el.setAttribute('id','printView');
                 }
 
-                var topMenu=document.getElementById('customTopMenu');
-                if(topMenu) {
-                    topMenu.style.display='none';
-                }
+            },50);
 
-                // hide action list
-                var actionList=document.getElementById('action_list');
-                if(actionList) {
-                    actionList.style.display='none';
-                }
-
-                // hide right column of the page
-                var el2=$element[0].children[1].children[0].children[1];
-                if(el2) {
-                    el2.style.display='none';
-                }
-
-                var browse = document.getElementById('virtualBrowse');
-                if(browse) {
-                    browse.style.display = 'none';
-                }
-
-
-            },1000)
+            $window.onafterprint=()=>{
+                $window.close();
+            }
         };
 
         vm.$postLink=function () {

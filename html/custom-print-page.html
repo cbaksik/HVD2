@@ -1,3 +1,11 @@
 
 <h2>Printable version</h2>
-<prm-full-view ng-if="vm.item.pnx"  [item]="vm.item" flex class="flex"></prm-full-view>
+
+<prm-full-view flex="100"
+               [is-overlay-full-view]="false"
+               [isfavorites]="false"
+               [item]="vm.item"
+               id="fullView" tabindex="-1"
+               role="contentinfo">
+
+</prm-full-view>
