@@ -4,20 +4,10 @@
  */
 
 angular.module('viewCustom')
-    .controller('prmLogoAfterCtrl',['$element',function ($element) {
+    .controller('prmLogoAfterCtrl',[function () {
         var vm=this;
-        vm.$onChanges=function () {
-            // remove image logo
-            var el=$element[0].parentNode.children[0];
-            if(el) {
-                el.remove();
-            }
+        vm.$onInit=function () {
 
-            // remove skip link
-            var el2 = $element[0].parentNode.parentNode.children[0];
-            if(el2) {
-                el2.remove();
-            }
         };
 
     }]);
