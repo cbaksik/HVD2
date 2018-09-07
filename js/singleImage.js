@@ -35,26 +35,22 @@ angular.module('viewCustom')
                 }
                 vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
                 if(vm.src && vm.showImage) {
-                    if(vm.jp2===true) {
                         var url = sv.getHttps(vm.src) + '?buttons=Y';
                         vm.imageUrl = $sce.trustAsResourceUrl(url);
-                    } else {
-                        vm.imageUrl=vm.src;
-                        $timeout(function () {
-                            var img=$element.find('img')[0];
-                            // use default image if it is a broken link image
-                            var pattern = /^(onLoad\?)/; // the broken image start with onLoad
-                            if(pattern.test(vm.src)) {
-                                img.src='/primo-explore/custom/HVD2/img/icon_image.png';
-                            }
-                            img.onload=vm.callback;
-                            if(img.width > 600) {
-                                vm.callback();
-                            }
-                        },300);
-                    }
-                } else {
+                } else  if(vm.showImage) {
                     vm.imageUrl='';
+                    $timeout(function () {
+                        var img=$element.find('img')[0];
+                        // use default image if it is a broken link image
+                        var pattern = /^(onLoad\?)/; // the broken image start with onLoad
+                        if(pattern.test(vm.src)) {
+                            img.src='/primo-explore/custom/HVD2/img/icon_image.png';
+                        }
+                        img.onload=vm.callback;
+                        if(img.width > 600) {
+                            vm.callback();
+                        }
+                    },300);
                 }
 
                 vm.localScope.loading=false;
