@@ -18,7 +18,6 @@ prm-browse-search-bar md-select ._md-select-icon {
         border: 2px solid grey;
     }
     .lcs_slide_out { display: none;}
-    #hlLogoHeader {display: none;}
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,19 @@
+.iframeClass {
+    width:700px;
+    height:650px;
+    border: none;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+
+@media only print {
+    .iframeClass {
+        width:600px;
+        height:500px;
+        margin:0px;
+        padding:0px;
+        border:none;
+        overflow: hidden;
+    }
+}

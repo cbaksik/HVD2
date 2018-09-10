@@ -1,5 +1,5 @@
 prm-search-bar > div:first-child > div:first-child > div:first-child {
-    display: none;
+    display: block;
 }
 
 prm-skip-to {
@@ -10,7 +10,7 @@ div.product-logo {
     display: none;
 }
 
-@media only screen and (max-width: 1280px) and (min-width: 599px)  {
+@media only screen and (max-width: 1280px) {
     #hlLogoHeader {
         display: none;
     }
