@@ -10,7 +10,24 @@
 
 #hlLogoHeader {
     cursor: pointer;
+    display: block;
 }
+
+#hlLogoHeader:hover {
+   text-decoration: none;
+   background: transparent;
+}
+
+.objectTag {
+    cursor: pointer;
+    pointer-events: none;
+    z-index: -1;
+    max-height:100%;
+    width:110px;
+    height: 75px;
+    margin-top:10px;
+}
+
 
 /*
 .hollisPlus prm-logo .logo-image, prm-logo img {
@@ -75,23 +92,15 @@ prm-topbar > div.top-nav-bar {
 
 #hollisLogoTopbar {
     display: table-cell;
-    color:#000;
-    font-family:"Trueno";
-    font-size:42px;
     vertical-align: top;
     padding-left: 10px;
 }
 
-#hollisLogoTopbar > a:active {
-    text-decoration: none;
-    background: none;
+#hollisLogoTopbar a {
+    color:#000;
+    font-family:"Trueno";
+    font-size:42px;
 }
-
-#hollisLogoTopbar > a:hover {
-    text-decoration: none;
-    background: none;
-}
-
 
 .customTopMenu {
     position: absolute;

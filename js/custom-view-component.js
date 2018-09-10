@@ -163,13 +163,13 @@ angular.module('viewCustom')
                     if (vm.componentData.image) {
                         vm.photo = vm.componentData.image[0];
                         // find out if the image is jp2 or not
-                        vm.jp2 = sv.findJP2(vm.photo);
+                        //vm.jp2 = sv.findJP2(vm.photo);
                     }
                 }
 
             } else if(vm.xmldata.image) {
                 vm.photo=vm.xmldata.image[0];
-                vm.jp2=sv.findJP2(vm.photo);
+                //vm.jp2=sv.findJP2(vm.photo);
                 vm.componentData=vm.xmldata.image[0];
             }
 
