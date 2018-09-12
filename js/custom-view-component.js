@@ -154,6 +154,7 @@ angular.module('viewCustom')
         vm.displayPhoto=function () {
             vm.isLoggedIn=sv.getLogInID();
             vm.clientIp=sv.getClientIp();
+            vm.photo={};
             if (vm.xmldata.component && !vm.xmldata.image) {
                 if(!vm.index && vm.index !== 0) {
                     vm.index = vm.findFilenameIndex(vm.xmldata.component, vm.filename);
@@ -179,6 +180,17 @@ angular.module('viewCustom')
                 }
             }
 
+            if(vm.photo) {
+                if(vm.photo._attr) {
+                    var urlList=vm.photo._attr.href._value;
+                    urlList = urlList.split('/');
+                    if(urlList.length >=3) {
+                        vm.filename=urlList[3];
+                    }
+                } else if(vm.componentData._attr.componentID) {
+                    vm.filename = vm.componentData._attr.componentID._value;
+                }
+            }
         };
 
         vm.$onInit=function() {

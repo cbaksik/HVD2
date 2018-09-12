@@ -17,8 +17,10 @@
            </md-button>
        </section>
 
-       <single-image ng-if="vm.item.pnx.addata" src="vm.photo._attr.href._value" imgtitle="vm.imageTitle"
-                     restricted="vm.photo._attr.restrictedImage._value" jp2="vm.jp2"></single-image>
+       <single-image src="vm.photo._attr.href._value" imgtitle="vm.imageTitle"
+                     restricted="vm.photo._attr.restrictedImage._value" jp2="vm.jp2">
+       </single-image>
+
        <div layout="row" class="spaceTop" layout-sm="column" ng-if="vm.photo.caption">
            <div flex="20"></div>
            <div flex="80"><span class="bold-text spaceRight">Caption:</span>  {{vm.photo.caption[0]._text}}</div>
