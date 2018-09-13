@@ -203,7 +203,7 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
 /* full display page */
 /* ava line at top */
 prm-full-view div.full-view-container prm-full-view-service-container prm-search-result-availability-line {
-    display:none;
+    display:block;
 }
 /* action list */
 button#textsms {
