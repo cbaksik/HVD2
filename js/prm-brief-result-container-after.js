@@ -23,13 +23,15 @@
                             vm.findingAid=linkItem;
                             if(linkItem.linkURL){
                                 var linkStr=linkItem.linkURL;
-                                linkStr=linkStr.split(':');
+                                linkStr=linkStr.split(' ');
                                 if(linkStr.length > 0) {
-                                    seqment=linkStr[linkStr.length - 1];
+                                    seqment=linkStr[linkStr.length - 2];
+                                    console.log(linkStr);
                                     seqment=seqment.trim(' ');
                                 }
                             }
-                            vm.findingAid.newLinkURL='http://id.lib.harvard.edu/ead/'+seqment+'/catalog';
+                            //vm.findingAid.newLinkURL='http://id.lib.harvard.edu/ead/'+seqment+'/catalog';
+                            vm.findingAid.newLinkURL=seqment;
                             i=vm.parentCtrl.links.length;
                         }
                     }
