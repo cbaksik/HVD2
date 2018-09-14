@@ -52,12 +52,14 @@
             },50);
 
             $window.onafterprint=()=>{
+                // if needed for debugging, comment out line below to prevent closure of printable page
                 $window.close();
             }
         };
 
         vm.$postLink=function () {
             $timeout(function () {
+                // comment out line below when troubleshooting so that print dialog does't open
                 $window.print();
             },3000)
         }
