@@ -71,6 +71,9 @@ angular.module('viewCustom')
                 if (key==='author' || key==='title' || key==='genre' || key==='publisher') {
                     url += '&'+key+'=' + value;
                 }
+                if (key==='dateOfPublication') {
+                    url += '&date=' + value;
+                }
                 if(key==='mmsId') {
                     url += '&hollisnum='+value;
                 }
