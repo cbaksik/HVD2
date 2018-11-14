@@ -76,8 +76,23 @@
         background:#ffffff;
         padding:0px;
         margin:0px;    
+        display:block;
+        overflow:visible;
     }
-
+/* to resolve FF printing problems */
+    .layout-row, .layout-gt-sm, .layout-gt-sm-column, .layout-gt-sm-row, .layout-column {
+        display:block;
+        overflow:visible;
+    } 
+    md-content {
+        display:block;
+        overflow:visible;
+    }    
+    .full-view-container {
+        display:block;
+        overflow:visible;        
+    }
+/* end to resolve FF printing problems */
     #closebtn {
         display: none;
     }
