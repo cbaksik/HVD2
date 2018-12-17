@@ -1,5 +1,5 @@
-
-prm-facet prm-breadcrumbs div.md-chip-content strong {
+prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong
+{    
     padding-left: 30px;
 }
 
