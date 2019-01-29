@@ -302,3 +302,54 @@ prm-account-overview md-input-container md-select {
 prm-personal-info md-card#personalDetails md-checkbox {
     display:none;
 }
+/* frbr groupid clustering */
+div > prm-search-result-frbr-line {
+    margin-top:5px;
+    margin-bottom:5px;
+    display:inline-block;
+    font-size:115%;
+}
+prm-search-result-thumbnail-container img.fan-img-2[src="custom/HVD2/img/icon_versions.png"] {
+    display:none;
+}
+prm-search-result-thumbnail-container img.fan-img-3[src="custom/HVD2/img/icon_versions.png"] {
+    display:none;
+}
+ div.md-chip > div > strong[translate="facets.facet.facet_frbrgroupid"] {
+    //background-color:red;
+    //font-size:150%;
+    //color:#026DB9;
+    //margin:10px 10px;    
+} 
+prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong[translate="facets.facet.facet_frbrgroupid"] {
+    padding-left:10px;
+} 
+/* hide x after groupid remove facet label; DON'T DO THIS. The X is the only part that's actionalbe; need it to be able to execute return */
+/* button[aria-label*="Return to search results"] prm-icon md-icon.md-primoExplore-theme svg {
+    display:none;    
+}  */
+button[aria-label*="Versions"] prm-icon md-icon.md-primoExplore-theme, button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme {
+    //border:solid 5px #026DB9;
+    background-color:rgb(181, 96, 1);
+    padding:2px;
+    width:30px;
+    height:30px;
+    //box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2);
+    border-radius: 1.2em;
+    overflow: hidden;
+} 
+button[aria-label*="Versions"] prm-icon md-icon.md-primoExplore-theme svg, button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme svg {
+    //height:10px;
+    //width:10px;
+   color:white;
+   //font-size:150%;
+}  
+/* this handles the weird white hover that seems to happen for no reason */
+prm-breadcrumbs .md-chips .md-chip-content:focus:before, prm-breadcrumbs .md-chips .md-chip-content:hover:before {
+    opacity:0;
+} 
+/* icon in front of remove groupid list */
+/* prm-breadcrumbs .md-chips .md-chip-content:before {
+ content:"<---";
+ color:red;
+} */
