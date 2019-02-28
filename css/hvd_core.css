@@ -353,3 +353,7 @@ prm-breadcrumbs .md-chips .md-chip-content:focus:before, prm-breadcrumbs .md-chi
  content:"<---";
  color:red;
 } */
+/* citation trails in search results - hide them so they are only in the Details page */
+prm-citation-trails-indication-container {
+    display:none;
+}
