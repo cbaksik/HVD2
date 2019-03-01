@@ -309,6 +309,9 @@ div > prm-search-result-frbr-line {
     display:inline-block;
     font-size:115%;
 }
+div > prm-search-result-frbr-line span {
+    color:#B56001;
+}
 prm-search-result-thumbnail-container img.fan-img-2[src="custom/HVD2/img/icon_versions.png"] {
     display:none;
 }
