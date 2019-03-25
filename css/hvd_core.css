@@ -360,3 +360,7 @@ prm-breadcrumbs .md-chips .md-chip-content:focus:before, prm-breadcrumbs .md-chi
 prm-citation-trails-indication-container {
     display:none;
 }
+
+div.item-details-element div[ng-show="!value.isLinkable"] {
+    padding-bottom:.2em;
+}
