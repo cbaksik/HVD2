@@ -1,0 +1,18 @@
+/* div[data-recordid*="TN_hathi_trust"] prm-search-result-availability-line span.fulltext_linktorsrc {
+    text-decoration-line: line-through;
+}
+ div[data-recordid*="TN_hathi_trust"] prm-search-result-availability-line span.fulltext_linktorsrc:after {
+    content: " - This title is Limited-Search only through HathiTrust";
+}*/
+/* div[data-recordid*="TN_hathi_trust"] prm-search-result-availability-line button span.button-content prm-icon {
+    color:darkslategrey;
+} */
+div[data-recordid*="TN_hathi_trust"] prm-search-result-availability-line button prm-icon {
+    margin-right:15px;
+}
+div[data-recordid*="TN_hathi_trust"] prm-search-result-availability-line button:after {
+    content: "          *** Due to an error, this title may be Limited-Search only through HathiTrust";
+}
+/* div[data-recordid*="TN_hathi_trust"] prm-search-result-availability-line button span.button-content prm-icon:after {
+    content: "     *** Due to an error, this title may be Limited-Search only through HathiTrust";
+} */
