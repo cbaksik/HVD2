@@ -6,7 +6,7 @@
 
 angular.module('viewCustom')
     .component('singleImage', {
-        templateUrl:'/primo-explore/custom/HVD2/html/singleImage.html',
+        templateUrl:'/primo-explore/custom/HVD_IMAGES/html/singleImage.html',
         bindings: {
           src:'<',
           imgtitle: '<',
@@ -14,7 +14,7 @@ angular.module('viewCustom')
           jp2:'<'
         },
         controllerAs:'vm',
-        controller:['$element','$window','$location','prmSearchService','$timeout','$sce',function ($element,$window,$location,prmSearchService, $timeout,$sce) {
+        controller:['$element','$window','$location','prmSearchService','$timeout','$sce','$scope',function ($element,$window,$location,prmSearchService, $timeout,$sce,$scope) {
             var vm=this;
             var sv=prmSearchService;
             // set up local scope variables
@@ -32,15 +32,30 @@ angular.module('viewCustom')
 
                 if(vm.restricted && !vm.isLoggedIn && !vm.clientIp.status) {
                     vm.showImage=false;
+                    console.log('Restrict image: A user is not login or client IP address is not in  the list');
                 }
+                
                 vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
                 if(vm.src && vm.showImage) {
-                    var url = sv.getHttps(vm.src) + '?buttons=Y';
+                    const url = sv.getHttps(vm.src) + '?buttons=Y';
                     vm.imageUrl = $sce.trustAsResourceUrl(url);
                 }
-
                 vm.localScope.loading=false;
 
+            };
+
+            vm.callback=function () {
+                var image=$element.find('img')[0];
+                // resize the image if it is larger than 600 pixel
+                if(image.width > 600){
+                    vm.localScope.imgClass='responsiveImage';
+                    image.className='md-card-image '+vm.localScope.imgClass;
+                }
+
+                // force to show lock icon
+                if(vm.restricted) {
+                    vm.localScope.hideLockIcon=true;
+                }
             };
 
             // login

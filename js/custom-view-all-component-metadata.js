@@ -2,7 +2,9 @@
  * Created by samsan on 7/17/17.
  */
 
-angular.module('viewCustom')
+(function () {
+
+    angular.module('viewCustom')
     .controller('customViewAllComponentMetadataController', [ '$sce','$element','$location','prmSearchService','$window','$stateParams','$timeout','customMapXmlKeys','$mdMedia','customMapXmlValues', function ($sce, $element,$location, prmSearchService, $window, $stateParams, $timeout, customMapXmlKeys, $mdMedia, customMapXmlValues) {
 
         var vm = this;
@@ -31,7 +33,14 @@ angular.module('viewCustom')
 
         // ajax call to get data
         vm.getData=function () {
-          var restUrl=vm.parentCtrl.searchService.cheetah.restUrl+'/'+vm.context+'/'+vm.docid;
+          let api = sv.getApi();
+          let restUrl = '';
+          if(api.pnxbaseurl) {
+             restUrl = api.pnxbaseurl;
+          } else {
+              restUrl = vm.parentCtrl.searchService.restBaseURLs.pnxBaseURL;
+          }
+          restUrl = restUrl + '/' + vm.context + '/' + vm.docid;
           var params={'vid':'HVD_IMAGES','lang':'en_US','search_scope':'default_scope','adaptor':'Local Search Engine'}
           params.vid=vm.params.vid;
           params.lang=vm.params.lang;
@@ -110,30 +119,37 @@ angular.module('viewCustom')
         };
 
         vm.$onInit=function() {
-            vm.parentCtrl.bannerTitle='FULL IMAGE COMPONENT METADATA';
-            // hide search bar
-            let searchBar = document.getElementsByTagName('prm-search-bar')[0];
-            if(searchBar) {
-                searchBar.style.display='none';
-            }
-            // hide top bar
-            let topBar = document.getElementsByTagName('prm-topbar')[0];
-            if(topBar) {
-                topBar.style.display='none';
-            }
+
+            // initialize banner title so it would display next to logo
+            vm.parentCtrl.bannerTitle='FULL COMPONENT METADATA';
+
+            setTimeout(()=>{
+                // hide search bar
+                let searchBar=document.getElementsByTagName('prm-search-bar')[0];
+                if(searchBar) {
+                    searchBar.style.display = 'none';
+                }
+
+                // hide top black bar
+                let topBar = document.getElementsByTagName('prm-topbar')[0];
+                if(topBar) {
+                    topBar.style.display='none';
+                }
+
+            },5);
 
             vm.getData();
-
         };
 
     }]);
 
 
-angular.module('viewCustom')
+    angular.module('viewCustom')
     .component('customViewAllComponentMetadata', {
         bindings: {parentCtrl: '<'},
         controller: 'customViewAllComponentMetadataController',
         controllerAs:'vm',
-        'templateUrl':'/primo-explore/custom/HVD2/html/custom-view-all-component-metadata.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/custom-view-all-component-metadata.html'
     });
 
+})();

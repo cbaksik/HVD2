@@ -3,7 +3,9 @@
  * This component is for a single image full display when a user click on thumbnail from a full display page
  */
 
-angular.module('viewCustom')
+(function () {
+
+    angular.module('viewCustom')
     .controller('customViewComponentController', [ '$sce','$mdMedia','prmSearchService','$location','$stateParams', '$element','$timeout','customMapXmlKeys','$window','customMapXmlValues', function ($sce,$mdMedia,prmSearchService,$location,$stateParams, $element, $timeout, customMapXmlKeys,$window, customMapXmlValues) {
 
         let vm = this;
@@ -131,6 +133,7 @@ angular.module('viewCustom')
                     keys.splice(index, 1);
                 }
             }
+
             return cMap.getOrderList(keys);
         };
 
@@ -155,6 +158,7 @@ angular.module('viewCustom')
             vm.isLoggedIn=sv.getLogInID();
             vm.clientIp=sv.getClientIp();
             vm.photo={};
+
             if (vm.xmldata.component && !vm.xmldata.image) {
                 if(!vm.index && vm.index !== 0) {
                     vm.index = vm.findFilenameIndex(vm.xmldata.component, vm.filename);
@@ -174,11 +178,6 @@ angular.module('viewCustom')
                 vm.componentData=vm.xmldata.image[0];
             }
 
-            if(vm.photo._attr && vm.photo._attr.restrictedImage) {
-                if(vm.photo._attr.restrictedImage._value && vm.isLoggedIn===false && !vm.clientIp.status) {
-                    vm.imageNav=false;
-                }
-            }
 
             if(vm.photo) {
                 if(vm.photo._attr) {
@@ -191,6 +190,7 @@ angular.module('viewCustom')
                     vm.filename = vm.componentData._attr.componentID._value;
                 }
             }
+
         };
 
         vm.$onInit=function() {
@@ -204,17 +204,22 @@ angular.module('viewCustom')
             // call ajax and display data
             vm.getData();
 
+            // initialize label for image component page
             vm.parentCtrl.bannerTitle='FULL IMAGE DETAIL';
-            // hide search bar
-            let searchBar = document.getElementsByTagName('prm-search-bar')[0];
-            if(searchBar) {
-                searchBar.style.display='none';
-            }
-            // hide top bar
-            let topBar = document.getElementsByTagName('prm-topbar')[0];
-            if(topBar) {
-                topBar.style.display='none';
-            }
+            setTimeout(()=>{
+                // hide search bar
+                let searchBar=document.getElementsByTagName('prm-search-bar')[0];
+                if(searchBar) {
+                    searchBar.style.display = 'none';
+                }
+
+                // hide top black bar
+                let topBar = document.getElementsByTagName('prm-topbar')[0];
+                if(topBar) {
+                    topBar.style.display='none';
+                }
+
+            },5);
 
 
         };
@@ -244,20 +249,14 @@ angular.module('viewCustom')
 
     }]);
 
-angular.module('viewCustom')
+    angular.module('viewCustom')
     .component('customViewComponent', {
         bindings: {item: '<',services:'<',params:'<',parentCtrl:'<'},
         controller: 'customViewComponentController',
         controllerAs:'vm',
-        'templateUrl':'/primo-explore/custom/HVD2/html/custom-view-component.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/custom-view-component.html'
     });
 
-// truncate word to limit 60 characters
-angular.module('viewCustom').filter('mapXmlFilter',['customMapXmlKeys',function (customMapXmlKeys) {
-    var cMap=customMapXmlKeys;
-    return function (key) {
-        var newKey=cMap.mapKey(key);
-        return newKey.charAt(0).toUpperCase() + newKey.slice(1);
-    }
 
-}]);
+
+})();
