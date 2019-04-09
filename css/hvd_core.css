@@ -205,6 +205,10 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
 prm-full-view div.full-view-container prm-full-view-service-container prm-search-result-availability-line {
     display:block;
 }
+/* hide left nav */
+div#services-index {
+    display:none;
+}
 /* action list */
 button#textsms {
     font-size: 10px;
