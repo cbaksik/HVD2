@@ -114,6 +114,11 @@ prm-search-result-list prm-personalize-results-button .md-button md-switch ._md-
     background-color: #44707b;
 }
 /* search results */
+prm-search-result-list div.result-item-primary-content:focus {
+    border:2px solid #000;
+}
+
+
 /* title link */
 /* this seemed way to bright; prm-brief-result .item-title span {
     color: #0579b8;
@@ -368,3 +373,17 @@ prm-citation-trails-indication-container {
 div.item-details-element div[ng-show="!value.isLinkable"] {
     padding-bottom:.2em;
 }
+/* main menu - after ellipsis expansion */
+prm-main-menu[menu-type=full] .custom-links-container .main-menu-button .transparent-card:focus {
+    border:2px solid white; 
+}
+prm-main-menu[menu-type=full] .md-button:focus {
+    border:2px solid white; 
+}
+prm-main-menu[menu-type=full] .md-button:focus {
+    border:2px solid white; 
+}
+prm-main-menu[menu-type=full] .overlay-menu-item:focus {
+    border:2px solid white; 
+}
+/* end */
