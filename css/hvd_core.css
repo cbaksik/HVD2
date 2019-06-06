@@ -115,7 +115,7 @@ prm-search-result-list prm-personalize-results-button .md-button md-switch ._md-
 }
 /* search results */
 prm-search-result-list div.result-item-primary-content:focus {
-    border:2px solid #000;
+    border:2px solid #C0C0C0;
 }
 
 
