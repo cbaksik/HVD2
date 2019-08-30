@@ -66,7 +66,12 @@ md-content.overlay-menu-content span.md-headline {
 md-content.overlay-menu-content span.md-subhead {
     display:none;
 }
-
+md-content.overlay-menu-content prm-change-lang {
+    display:none;
+}
+md-content.overlay-menu-content prm-icon[icon-definition*="earth"] {
+    display:none;
+}
 md-card-title-text .alumhat {
     width: 30px;
     opacity: 0.5;
@@ -149,9 +154,28 @@ prm-page-nav-menu .counter-main md-fab-trigger .md-button {
 prm-page-nav-menu .counter-nav prm-icon md-icon svg {
     color:#0579b8;
 }
+/* snippet quotation mark */
+prm-snippet {
+    margin-left: 15px;
+    margin-top: 5px;
+}
+prm-snippet prm-icon.open-quote md-icon  {
+    scale(.5) rotate(180deg) translate(6px,4px);
+    opacity: 0.7;
+}
+prm-snippet prm-icon.close-quote md-icon {
+    transform: scale(.5) translate(-4px,2px);
+    opacity: 0.7;
+}
 /* page navigation browse search */
 prm-page-nav-menu .page-nav-inner:after {
     box-shadow:0 1px 3px -1px rgba(0,0,0,.7), 0 0 20px 0 rgba(0,0,0,.7);
+}
+md-toolbar.default-toolbar .md-button, md-toolbar.md-primoExplore-theme.default-toolbar .md-button, md-toolbar:not(.md-menu-toolbar).default-toolbar .md-button {
+    opacity: 1;
+}
+md-toolbar.default-toolbar .md-button:hover, md-toolbar.md-primoExplore-theme.default-toolbar .md-button:hover, md-toolbar:not(.md-menu-toolbar).default-toolbar .md-button:hover {
+    color:#080606;
 }
 /* facets */
 /* active filters */
@@ -193,6 +217,10 @@ input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date
     -webkit-appearance: none; 
     margin: 0; 
 }
+/* checked facet background color */
+md-checkbox.md-checked ._md-icon {
+    background-color: #44707b;
+}
 /* brief results */
 prm-search-result-thumbnail-container .fan-img:first-of-type {
     background-color:#FFF;
@@ -206,6 +234,13 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
     background-color:#FFF;
 }
 /* full display page */
+prm-full-view-service-container .arrow-link [link-arrow] md-icon {
+    opacity:1;
+    min-width: 18px;
+    min-height: 18px;
+    width: 18px;
+    height: 18px;
+}
 /* ava line at top */
 prm-full-view div.full-view-container prm-full-view-service-container prm-search-result-availability-line {
     display:block;
@@ -221,9 +256,15 @@ button#textsms {
     font-weight: 600;
     letter-spacing: 0.03em;
     color: rgba(58,58,58,.8);
+    border-radius: 0;
+    padding-bottom: .75em;
+    padding-top: .75em;
+    margin: 0;
+    white-space: normal;
 }
-button#textsms:hover {
+button#textsms:hover, button#textsms:focus {
     color: #0579b8;
+    border:1px solid #0579b8;
 }
 md-card#textsms {
     background-color:#f8f8f8;
@@ -245,25 +286,56 @@ p.textsms-danger {
     padding:10px;
     line-height:14px;
 }
-
-
 #textsms .button-text {
     font-size:10px;
     line-height:14px;
     font-weight:600;
     cursor: pointer;
 }
-
 #textsms:hover {
     background:#e1e1e1;
     color:rgba(58,58,58,.8)
 }
-
-
 #textsms .row:hover {
     background:#e1e1e1;
     color:rgba(58,58,58,.8)
 }*/
+/* custom-print button.md-button.md-primary:hover:not([disabled]) {
+    background-color:#3a3a3a1a;
+    color:#0579b8;
+} */
+prm-action-list .md-button:hover:not([disabled]), prm-action-list .md-button:focus:not([disabled]) {
+    background-color:#3a3a3a1a;
+    color:#0579b8;    
+    border:1px solid #0579b8;
+}
+.md-button.md-primary:hover:not([disabled]) {
+    background-color:#3a3a3a1a;
+    color:#0579b8;    
+    border:1px solid #0579b8;
+}
+.md-button:focus:not([disabled]),.md-button.md-primary:focus:not([disabled]) {
+    background-color:#3a3a3a1a;
+    color:#0579b8;     
+    border:1px solid #0579b8;
+}
+.result-item-actions .md-icon-button:focus:not([disabled]):focus {
+    background-color: #3a3a3a1a;
+    border: 2px solid #44707b;
+}
+/* advanced search */
+prm-advanced-search button:focus {
+    border:1px solid #1e1e1e;
+}
+div.search-switch-buttons .md-button {
+    background-color:rgba(58, 58, 58, 0.1);
+}
+div.search-switch-buttons .md-button:hover:not([disabled]) {
+    border:1px solid #1e1e1e;
+}
+div.search-switch-buttons .md-button:focus:not([disabled]) {
+    border:1px solid #1e1e1e;
+}
 /* browse result */
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item .item-title, md-list.prm-list.prm-linkable-list-items md-list-item .item-title {
     /* color:#0579b8; */
@@ -288,8 +360,14 @@ prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-butt
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a:hover {
     color:#0579b8;
     text-decoration: underline;
-    /* background-color:#f3f3f3; */
+    /* background-color:#f3f3f3;*/
     opacity:.5;
+    border-bottom:2px solid #0579b8;
+}
+prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a:focus {
+    color:#0579b8;
+    text-decoration: underline;
+    /* background-color:#f3f3f3;*/
     border-bottom:2px solid #0579b8;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items.prm-dense-list md-list-item .item-title prm-highlight > span:hover {
@@ -310,6 +388,22 @@ prm-account-overview md-input-container md-select {
 /* my personal details after login, hide checkboxes since we don't allow changes */
 prm-personal-info md-card#personalDetails md-checkbox {
     display:none;
+}
+/* item numbers in loan list */
+md-list-item .md-list-item-with-checkbox .item-index {
+    opacity:1;
+}
+prm-loans p[style="color: tomato;"] {
+    color:#EB001B!important;
+}
+prm-loans p.normal-text prm-icon {
+    margin-right:5px;
+}
+.prm-warn {
+    color:#EB001B;
+}
+prm-account-overview md-tabs-canvas prm-icon {
+    padding-left:5px;
 }
 /* frbr groupid clustering */
 div > prm-search-result-frbr-line {
@@ -387,3 +481,33 @@ prm-main-menu[menu-type=full] .overlay-menu-item:focus {
     border:2px solid white; 
 }
 /* end */
+/* toc */
+prm-search-result-availability-line-after a md-icon {
+    color:#44707B;
+}
+/* browzine */
+prm-search-result-availability-line span.browzine-web-link-text {
+    color:green;
+}
+prm-search-result-availability-line a.browzine-direct-to-pdf-link md-icon {
+    color:rgba(58,58,58,.7);
+}
+prm-search-result-availability-line div.browzine a.browzine-web-link md-icon {
+    color:rgba(58,58,58,.7);
+}
+/* END browzine */
+/* bx */
+prm-recomendation-item div > a:focus {
+    border:2px solid #C0C0C0;
+ }
+/* save pin */
+prm-save-to-favorites-button button:focus, prm-save-to-favorites-button button:hover {
+    border: 1px solid #1e1e1e;
+    border-radius: 100px;
+}
+prm-alma-mashup iframe {
+    background-image: url("../img/diamonds.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
