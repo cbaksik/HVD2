@@ -17,6 +17,8 @@
    </div>
 </md-content>
 <hr/>
+
+
 <!--- display component -->
 <md-content  id="componentMetadata">
     <div class="hv-toggle">
@@ -24,8 +26,8 @@
             <md-icon md-svg-src="/primo-explore/custom/HVD2/img/{{vm.toggleData.icon}}"></md-icon>
         </md-button>
     </div>
-    <div  ng-repeat="data in vm.xmldata.component track by $index" ng-hide="vm.toggleData.flag" class="spaceBottom">
-        <div layout="row" layout-xs="column" layout-sm="column" class="layout-row padding10">
+    <div  ng-repeat="data in vm.xmldata.component track by $index" ng-hide="vm.toggleData.flag">
+        <div layout="row" layout-xs="column" layout-sm="column" class="layout-row" >
             <span>{{$index + 1}}.</span>
             <div flex-gt-sm="20" flex-sm="100" ng-click="vm.gotoFullPhoto($index,data)">
                 <custom-thumbnail itemdata="data" searchdata="vm.params"></custom-thumbnail>
