@@ -3,9 +3,7 @@
  * If image has height that is greater than 150 px, then it will resize it. Otherwise, it just display what it is.
  */
 
-(function () {
-
-    angular.module('viewCustom')
+angular.module('viewCustom')
     .component('multipleThumbnail', {
         templateUrl:'/primo-explore/custom/HVD2/html/multipleThumbnail.html',
         bindings: {
@@ -84,4 +82,3 @@
 
         }]
     });
-})();
