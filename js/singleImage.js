@@ -6,7 +6,7 @@
 
 angular.module('viewCustom')
     .component('singleImage', {
-        templateUrl:'/primo-explore/custom/HVD2/html/singleImage.html',
+        templateUrl:'/primo-explore/custom/HVD_IMAGES/html/singleImage.html',
         bindings: {
           src:'<',
           imgtitle: '<',
