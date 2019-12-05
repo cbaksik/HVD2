@@ -1,11 +1,8 @@
 /**
  * Created by samsan on 9/28/17.
- * This service find out the xml key, sort them, display them in order
  */
 
-(function () {
-
-    angular.module('viewCustom')
+angular.module('viewCustom')
     .service('customMapXmlKeys',[function () {
         var serviceObj={};
 
@@ -151,5 +148,3 @@
 
         return serviceObj;
     }]);
-
-})();

@@ -1,11 +1,7 @@
 /**
  * Created by samsan on 10/13/17.
- * Find out xml value base on xml key. It loop through tree structure
  */
-
-(function () {
-
-    angular.module('viewCustom')
+angular.module('viewCustom')
     .service('customMapXmlValues',[function () {
         var serviceObj = {};
 
@@ -31,7 +27,7 @@
                             if(href) {
                                 var nodeKeys2 = Object.keys(href);
                                 var index3 = nodeKeys2.indexOf('href');
-                                if (index3 !== -1) {
+                                if(index3 !== -1) {
                                     url = values['_attr']['href']['_value'];
                                 }
                             }
@@ -45,7 +41,6 @@
             if(str) {
                 str=str.replace(/<br\/>$/,'');
             }
-
             return str;
 
         };
@@ -400,5 +395,3 @@
 
         return serviceObj;
     }]);
-
-})();
