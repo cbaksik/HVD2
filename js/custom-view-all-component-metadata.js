@@ -41,7 +41,7 @@
               restUrl = vm.parentCtrl.searchService.restBaseURLs.pnxBaseURL;
           }
           restUrl = restUrl + '/' + vm.context + '/' + vm.docid;
-          var params={'vid':'HVD2','lang':'en_US','search_scope':'default_scope','adaptor':'Local Search Engine'}
+          var params={'vid':'HVD_IMAGES','lang':'en_US','search_scope':'default_scope','adaptor':'Local Search Engine'}
           params.vid=vm.params.vid;
           params.lang=vm.params.lang;
           params.search_scope=vm.params.search_scope;
@@ -149,7 +149,7 @@
         bindings: {parentCtrl: '<'},
         controller: 'customViewAllComponentMetadataController',
         controllerAs:'vm',
-        'templateUrl':'/primo-explore/custom/HVD2/html/custom-view-all-component-metadata.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/custom-view-all-component-metadata.html'
     });
 
 })();
