@@ -4,7 +4,9 @@
  * It use to show a single image on the page. If the image does not exist, it use icon_image.png
  */
 
-angular.module('viewCustom')
+(function () {
+
+    angular.module('viewCustom')
     .component('responsiveImage', {
         templateUrl:'/primo-explore/custom/HVD2/html/responsiveImage.html',
         bindings: {
@@ -79,3 +81,5 @@ angular.module('viewCustom')
 
         }]
     });
+
+})();
