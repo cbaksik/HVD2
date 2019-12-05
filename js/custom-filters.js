@@ -3,8 +3,24 @@
  * This custom filters are using with component to filter out data
  */
 
-
 (function () {
+
+
+
+    // extract [6 images] from pnx.display.lds28 field
+    angular.module('viewCustom').filter('countFilter',function () {
+        return function (qty) {
+            var nums='';
+            var pattern=/[\[\]]+/g;
+            if(qty){
+                nums=qty.replace(pattern,'');
+            }
+
+            return nums;
+        }
+
+    });
+
     // truncate word to limit 60 characters
     angular.module('viewCustom').filter('truncatefilter',function () {
         return function (str) {
@@ -28,7 +44,19 @@
 
             return newstr;
         }
+
     });
+
+
+    // truncate word to limit 60 characters
+    angular.module('viewCustom').filter('mapXmlFilter',['customMapXmlKeys',function (customMapXmlKeys) {
+        var cMap=customMapXmlKeys;
+        return function (key) {
+            var newKey=cMap.mapKey(key);
+            return newKey.charAt(0).toUpperCase() + newKey.slice(1);
+        }
+
+    }]);
 
 
 })();
