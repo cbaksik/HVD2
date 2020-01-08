@@ -505,9 +505,9 @@ prm-save-to-favorites-button button:focus, prm-save-to-favorites-button button:h
     border: 1px solid #1e1e1e;
     border-radius: 100px;
 }
-prm-alma-mashup iframe {
+/* prm-alma-mashup iframe {
     background-image: url("../img/giphy.gif");
     background-repeat: no-repeat;
     background-position: center;
-  }
+  } */
   
