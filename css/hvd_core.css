@@ -510,4 +510,32 @@ prm-save-to-favorites-button button:focus, prm-save-to-favorites-button button:h
     background-repeat: no-repeat;
     background-position: center;
   } */
-  
+/* next line is because bottom of tool-bar is too close to first result */
+prm-search-result-list .search-results-container {
+    margin-top: 3.9em;
+}
+prm-search-result-list prm-search-result-tool-bar {
+      border-top:10px solid white;
+}
+prm-search-result-tool-bar .md-toolbar-tools {
+    /* height:55px; */
+    box-shadow:0 1px 0 0 rgba(0,0,0,.03),0 5px 5px -3px rgba(0,0,0,.07);
+}
+prm-search-result-tool-bar .disableActionTool, prm-search-result-tool-bar .disabledFavTool {
+    color:#858585;
+}
+prm-search-result-tool-bar md-checkbox ._md-icon {
+    opacity:.7;
+}
+prm-search-result-tool-bar .md-button.button-link {
+  opacity:1;
+}
+prm-brief-result-container .list-item-primary-content .list-item-count {
+    opacity:1;
+}
+prm-brief-result-container .list-item-primary-content md-checkbox ._md-icon {
+    opacity:.7;
+}
+prm-search-result-tool-bar md-toolbar .main-checkbox {
+    margin-left: 7px;
+}
