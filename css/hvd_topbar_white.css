@@ -2,10 +2,16 @@
     display: table-cell;
 }
 
+
 .boxHollis {
     padding-top:8px;
-    margin-left:34px;
+    margin-left:64px;
     white-space: nowrap;
+}
+@media only screen and (max-width: 1280px) {
+    .boxHollis {
+        margin-left:10px;
+    }
 }
 
 #hlLogoHeader {
@@ -16,6 +22,12 @@
 #hlLogoHeader:hover {
    text-decoration: none;
    background: transparent;
+}
+
+@media only screen and (max-width: 1280px) {
+    #hlLogoHeader {
+        display: none;
+    }
 }
 
 .objectTag {

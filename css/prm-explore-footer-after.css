@@ -1,0 +1,29 @@
+prm-static[section="homepage"] {
+    min-height:900px;
+}
+
+footer {
+    text-align:center;
+    background-color:#FFF;
+    padding:100px 0px 20px 0px;    
+    //position:relative; 
+    position:absolute;
+    bottom:0;   
+    width: 100%;
+    display:block;
+}
+footer ul {
+    padding-inline-start: 0px;
+}
+.hl__linked-list__item:first-child:after {
+    content:" | ";
+    margin-left:5px;
+    margin-right:5px;
+}
+.hl__linked-list__item {
+    display: inline-block;
+}
+.hl__linked-list--no-bullets li {
+    list-style: none;
+    display:inline;
+}

@@ -10,9 +10,4 @@ div.product-logo {
     display: none;
 }
 
-@media only screen and (max-width: 1280px) {
-    #hlLogoHeader {
-        display: none;
-    }
-}
 
