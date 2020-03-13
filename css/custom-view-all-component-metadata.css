@@ -1,5 +1,5 @@
 #componentMetadata {
-    padding:15px;
+    padding:1% 10%;
     background: #ffffff;
     color:#000000;
 }
@@ -48,6 +48,9 @@
 
 hr {padding:0px; margin:0px;}
 
+.space {
+    margin-bottom: 5px;
+}
 .spaceBottom {
     margin-bottom:10px;
 }

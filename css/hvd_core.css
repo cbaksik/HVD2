@@ -279,12 +279,41 @@ div#services-index {
     prm-action-list md-icon {
         width:auto;
     }
+    prm-search-result-tool-bar .action-list-content prm-action-list {
+        background-color:#f3f3f3;
+    }
+    prm-search-result-tool-bar div.md-nav-bar {
+        margin-bottom:40px;
+    }
     prm-action-list.visible .md-nav-item {
         height:85px;
     }
     prm-action-list nav {
         padding-top:.5em;
     }
+    prm-search-result-list div.mobile-actions .button-as-link-mobile {
+        margin-right:20px;
+    }
+    prm-add-query-to-saved-searches .button-as-link-mobile {
+        margin-left:25px;
+    }
+    md-toolbar .md-button:only-child, md-toolbar.md-primoExplore-theme .md-button:only-child, md-toolbar:not(.md-menu-toolbar) .md-button:only-child {
+        margin-left:15px;
+        margin-right:20px;
+    }
+}
+.__xs prm-search-result-tool-bar .action-list-content>md-content {
+    height:100vh;
+    background-color:#f3f3f3;
+    position:relative;
+    padding-top: 30px;
+}
+button[arial-label="Close actions options"] {
+    padding-top:30px;
+}
+span[translate="nui.aria.fulldisplay.closeButton.short"] {
+    margin: 10px;
+    display: block;
 }
 button#textsms {
     font-size: 10px;

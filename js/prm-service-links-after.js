@@ -1,6 +1,8 @@
 /**
  * Created by samsan on 8/7/17.
  * This component is used for Digital Bookplates
+ * 
+ * CB adding tech loan as well March 2020
  */
 (function(){
     'use strict';
