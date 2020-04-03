@@ -18,7 +18,8 @@ https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/ra
     <a href="{{vm.hathiTrustItem.itemURL}}" target="_blank">
         <prm-icon availability-type icon-type="svg" svg-icon-set="primo-ui" icon-definition="link"></prm-icon>
         <span ng-if="vm.hathiTrustItem.fullview">View online in HathiTrust</span>
-        <span ng-if="!vm.hathiTrustItem.fullview">Limited search in HathiTrust</span>
+        <!-- <span ng-if="!vm.hathiTrustItem.fullview">Limited search in HathiTrust</span> -->
+        <span ng-if="!vm.hathiTrustItem.fullview">May be AVAILABLE ONLINE for Check Out via HathiTrust (Log in as Harvard)</span>
         <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>
         <prm-icon link-arrow icon-type="svg" svg-icon-set="primo-ui" icon-definition="chevron-right"></prm-icon>
     </a>
