@@ -26,7 +26,7 @@ function isBrowzineLoaded() {
 
         journalCoverImagesEnabled: true,
 
-        journalBrowZineWebLinkTextEnabled: true,
+        journalBrowZineWebLinkTextEnabled: false,
         journalBrowZineWebLinkText: "LATEST ISSUES",
     
         articleBrowZineWebLinkTextEnabled: false,

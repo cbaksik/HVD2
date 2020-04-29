@@ -6,6 +6,8 @@
     </div>
     <div layout="row">
         <div flex="grow">
+            <!-- CB added this line 20200428 so users have another option during restricted image issue -->
+            <div style="margin-bottom:10px;"><a target="_blank" href="{{$ctrl.photo._attr.href._value}}?buttons=Y">Open image in new tab</a></div>
             <!-- single image -->
             <single-image src="$ctrl.photo._attr.href._value" imgtitle="$ctrl.imageTitle"
                           restricted="$ctrl.photo._attr.restrictedImage._value" jp2="$ctrl.jp2"></single-image>

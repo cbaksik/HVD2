@@ -1,4 +1,5 @@
-(function(){
+// CB 20200417 turned this off, using flag in Alma config now for contrlling whethere direct linking happens for journals 
+/* (function(){
 'use strict';
 
     angular.module('viewCustom').controller('prmOpenJournalInFullController', [function () {
@@ -19,3 +20,4 @@
 
     });
 })();
+ */
