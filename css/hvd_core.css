@@ -616,3 +616,10 @@ prm-brief-result-container .list-item-primary-content md-checkbox ._md-icon {
 prm-search-result-tool-bar md-toolbar .main-checkbox {
     margin-left: 7px;
 }
+/* via images */
+.hvdImgComponentView {
+    margin-left:25px;
+}
+.hvdImgComponentViewMD {
+    width:90%;
+}
