@@ -199,6 +199,9 @@ prm-facet prm-breadcrumbs .md-chips .md-chip {
     background-color:#f3f3f3;
     box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2);
 }
+prm-facet  prm-breadcrumbs .md-chips .md-chip.persistent-facet {
+    background-color: #fffcc4;
+}
 prm-search-result-sort-by {
     margin-bottom:5px;
 }
