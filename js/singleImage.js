@@ -6,7 +6,7 @@
 
 angular.module('viewCustom')
     .component('singleImage', {
-        templateUrl:'/primo-explore/custom/HVD2/html/singleImage.html',
+        templateUrl:'/primo-explore/custom/HVD_IMAGES/html/singleImage.html',
         bindings: {
           src:'<',
           imgtitle: '<',
@@ -30,9 +30,11 @@ angular.module('viewCustom')
                 vm.clientIp=sv.getClientIp();
                 vm.isLoggedIn=sv.getLogInID();
 
+                // CB 20200601 made showImage true b/c login test is failing so it never shows image
                 if(vm.restricted && !vm.isLoggedIn && !vm.clientIp.status) {
-                    vm.showImage=false;
-                    console.log('Restrict image: A user is not login or client IP address is not in  the list');
+                    //vm.showImage=false;
+                    vm.showImage=true;
+                    //console.log('Restrict image: A user is not login or client IP address is not in  the list');
                 }
                 
                 vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
