@@ -145,11 +145,12 @@
         // display each component value key
         // 20200824 component display was only picking up only first note b/c it has different data structure than other elements; adding another loop for it
         // multiple titles weren't not getting rendered either
+        // note: the view all components page uses a different js so changes need to be made there too
         vm.getComponentValue=function(key){
            var text='';
            var texttype='';
            if(vm.componentData && key) {
-                if (key === 'notes' || key === 'workType' || key === 'description') {
+                /* if (key === 'notes' || key === 'workType' || key === 'description') {
                     //console.log(vm.componentData[key]);
                     for (let noteNum= 0; noteNum<vm.componentData[key].length; noteNum+=1) {
                         text = text+vm.componentData[key][noteNum]._text+"<br />";
@@ -164,10 +165,10 @@
                     }
                     text = texttype;
                 } 
-                else {
+                else { */
                     var data=vm.componentData[key];
                     text = cMapValue.getValue(data,key);
-                }
+                //}
            }
            return text;
         };

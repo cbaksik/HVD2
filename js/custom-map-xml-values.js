@@ -115,7 +115,7 @@ angular.module('viewCustom')
             return str;
         };
 
-        // get relatedWork
+        // get topic
         serviceObj.getTopic=function (nodeValue) {
             var str='';
             var keys = Object.keys(nodeValue);
@@ -160,7 +160,42 @@ angular.module('viewCustom')
             return str;
         };
 
-        // get relatedWork
+        // get notes and any other elements that don't have subelements, only values
+        serviceObj.getNotesEtc=function (elementArray) {
+            var str='';
+            var elementInstance = Object.keys(elementArray);
+            if(elementInstance.length > 0) {
+                for(var i=0; i < elementInstance.length; i++) {
+                    var nodeInstance=elementInstance[i];
+                    var nodeObject=elementArray[nodeInstance];
+                    for (let j=0; j<nodeInstance.length; j+=1) {
+                            str = str+nodeObject._text+"<br />";
+                    }                        
+                }
+            }
+            return str;
+        };
+
+        // title and multiple values including display of title type if present
+            serviceObj.getTitle=function (elementArray) {
+            var str='';
+            var elementInstance = Object.keys(elementArray);
+            if(elementInstance.length > 0) {
+                for(var i=0; i < elementInstance.length; i++) {
+                    var nodeInstance=elementInstance[i];
+                    var nodeObject=elementArray[nodeInstance];
+                    for (let j=0; j<nodeInstance.length; j+=1) {
+                        if( nodeObject.type !== undefined) {
+                            str += nodeObject.type[0]._text + ": ";
+                        }
+                        str = str+nodeObject.textElement[0]._text+"<br />";
+                    }                        
+                }
+            }
+            return str;
+        };
+
+         // get relatedWork
         serviceObj.getRelatedWork=function (nodeValue) {
             var str='';
             var keys = Object.keys(nodeValue);
@@ -221,6 +256,9 @@ angular.module('viewCustom')
             var text='';
             if(typeof(values)==='object'){
                 switch(key) {
+                    case 'title':    
+                        text = serviceObj.getTitle(values);
+                        break;
                     case 'hvd_relatedInformation':
                     case 'relatedInformation':
                         text = serviceObj.getRelatedInformation(values);
@@ -234,14 +272,19 @@ angular.module('viewCustom')
                         break;
                     case 'hvd_relatedWork':
                     case 'relatedWork':
-                            text = serviceObj.getRelatedWork(values);
+                        text = serviceObj.getRelatedWork(values);
                         break;
                     case 'hvd_topic':
                     case 'topic':
-                            text = serviceObj.getTopic(values);
+                        text = serviceObj.getTopic(values);
+                        break;
+                    case 'notes':
+                    case 'workType':    
+                    case 'description':    
+                        text = serviceObj.getNotesEtc(values);
                         break;
                     default:
-                            text = serviceObj.getOtherValue(values,key);
+                        text = serviceObj.getOtherValue(values,key);
                         break;
                 }
 
