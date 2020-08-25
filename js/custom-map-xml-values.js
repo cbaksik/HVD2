@@ -6,44 +6,26 @@ angular.module('viewCustom')
         var serviceObj = {};
 
         // get relatedInformation value
-        serviceObj.getRelatedInformation=function (nodeValue) {
+        serviceObj.getRelatedInformation=function (elementArray) {
             var str='';
-            var keys = Object.keys(nodeValue);
-            if(keys.length > 0) {
-                for(var i=0; i < keys.length; i++) {
-                    var key=keys[i];
-                    var values=nodeValue[key];
-                    if(values) {
-                        var nodeKeys=Object.keys(values);
-                        var text = '';
-                        var url = '';
-                        var index = nodeKeys.indexOf('_text');
-                        if (index !== -1) {
-                            text = values['_text'];
-                        }
-                        var index2 = nodeKeys.indexOf('_attr');
-                        if (index2 !== -1) {
-                            var href=values['_attr'];
-                            if(href) {
-                                var nodeKeys2 = Object.keys(href);
-                                var index3 = nodeKeys2.indexOf('href');
-                                if(index3 !== -1) {
-                                    url = values['_attr']['href']['_value'];
-                                }
-                            }
-                        }
-                        if (url && text) {
-                            str = '<a href="' + url + '" target="_blank">' + text + '</a><br/>';
-                        }
-                    }
+            var elementInstance = Object.keys(elementArray);
+            if(elementInstance.length > 0) {
+                for(var i=0; i < elementInstance.length; i++) {
+                    var nodeInstance=elementInstance[i];
+                    var nodeObject=elementArray[nodeInstance];
+                    for (let j=0; j<nodeInstance.length; j+=1) {
+                        if( nodeObject.link !== undefined) {
+                            str += "<a href='" + nodeObject.link[0]._text + "' target='_blank' />";
+                            str += str + nodeObject.text[0]._text + "</a>";
+                        } else {
+                            str = str+nodeObject.text[0]._text+"<br />";
+                        }       
+                    }                        
                 }
             }
-            if(str) {
-                str=str.replace(/<br\/>$/,'');
-            }
             return str;
-
         };
+
 
         // get associatedName value
         serviceObj.getAssociatedName=function (nodeValue) {
@@ -263,6 +245,7 @@ angular.module('viewCustom')
                     case 'relatedInformation':
                         text = serviceObj.getRelatedInformation(values);
                         break;
+                    case 'creator':
                     case 'hvd_associatedName':
                     case 'associatedName':
                         text = serviceObj.getAssociatedName(values);
