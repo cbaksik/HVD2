@@ -638,6 +638,16 @@ prm-brief-result-container .list-item-primary-content md-checkbox ._md-icon {
 prm-search-result-tool-bar md-toolbar .main-checkbox {
     margin-left: 7px;
 }
+/* resource recommender */
+prm-resource-recommender-card-content a {
+    color:#44707b;
+    font-weight:bold;
+}
+#resource-recommender img.shield {
+    vertical-align: middle;
+    margin-right:10px;
+    height: 20px;
+}
 /* via images */
 .hvdImgComponentView {
     margin-left:25px;
