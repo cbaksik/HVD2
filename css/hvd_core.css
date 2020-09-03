@@ -231,6 +231,16 @@ prm-search-result-sort-by {
 prm-breadcrumbs .md-chip.facet-excluded {
     color:#C93621
 }
+/* our height of 68px for top-bar makes some of contact: after lines disappear; so making those 0 wide and using proper strikethrough instead */
+prm-breadcrumbs .md-chip.facet-excluded {
+    color:#C93621;
+    text-decoration-line: line-through;
+    text-decoration-style:solid;
+    text-decoration-color: #524241;
+}
+prm-breadcrumbs .md-chip.facet-excluded .md-chip-content:after {
+    width:0;
+}
 /* facet counts in parens */
 .section-content .md-chips .md-chip .md-chip-content {
 	color:#6E6868;
