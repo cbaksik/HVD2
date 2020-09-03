@@ -162,6 +162,10 @@ prm-search-result-availability-line span {
     display: inline;
     color: #44707b;
 }
+/* contextual links, hide chapters per d2d */
+prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapters-results-line button[aria-label*="Other chapters"] {
+    display:none;
+} 
 /* page navigation search results */
 prm-page-nav-menu .counter-main md-fab-trigger .md-button {
     box-shadow:5px 0 5px -3px rgba(0,0,0,.5), -5px 0 5px -3px rgba(0,0,0,.5);
@@ -199,9 +203,6 @@ prm-facet prm-breadcrumbs .md-chips .md-chip {
     background-color:#f3f3f3;
     box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2);
 }
-/* prm-facet  prm-breadcrumbs .md-chips .md-chip.persistent-facet {
-    background-color: #fffcc4;
-} */
 prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong
 {    
     padding-left: 30px;
@@ -226,6 +227,9 @@ prm-breadcrumbs .md-chips .md-chip-content .persistence-button prm-icon.show-on-
 }
 prm-search-result-sort-by {
     margin-bottom:5px;
+}
+prm-breadcrumbs .md-chip.facet-excluded {
+    color:#C93621
 }
 /* facet counts in parens */
 .section-content .md-chips .md-chip .md-chip-content {
@@ -261,6 +265,12 @@ input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date
 /* checked facet background color */
 md-checkbox.md-checked ._md-icon {
     background-color: #44707b;
+}
+/* copied from separate css for prm-facet-range-after.css not sure where it came from */
+md-input-container.md-input-focused label:not(.md-no-float), md-input-container.md-input-has-placeholder label:not(.md-no-float), md-input-container.md-input-has-value label:not(.md-no-float) {
+    opacity: 1.0;
+    color: #000000;
+    transform: translate3d(0,6px,0) scale(.85);
 }
 /* brief results */
 prm-search-result-thumbnail-container .fan-img:first-of-type {
@@ -412,6 +422,10 @@ prm-action-list .md-button:hover:not([disabled]), prm-action-list .md-button:foc
 .result-item-actions .md-icon-button:focus:not([disabled]):focus {
     background-color: #3a3a3a1a;
     border: 2px solid #44707b;
+}
+/* from prm-permalink-after.css, from contractor work */
+.highlite {
+    background: #FFFCC4;
 }
 /* advanced search */
 @media (max-width: 599px) {
@@ -648,10 +662,35 @@ prm-resource-recommender-card-content a {
     margin-right:10px;
     height: 20px;
 }
+/* hide topic overivew b/c of bug that it's not proxied */
+prm-reference-entry-item {
+    display:none;
+} 
 /* via images */
 .hvdImgComponentView {
     margin-left:25px;
 }
 .hvdImgComponentViewMD {
     width:90%;
+}
+/* copied from prm-location-after.css; i think this was part of local stack map that contractor looked at  */
+.placeIcon {
+    position: absolute;
+    cursor: pointer;
+}
+/* copied from prm-location-item-after.css; from contractor work  */
+.requestLinkSpace {
+    padding-top:20px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.margin-left-15 {
+    margin-left: 15px;
+}
+
+.locItemSpace {
+    margin-top:15px;
 }
