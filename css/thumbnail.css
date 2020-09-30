@@ -1,3 +1,25 @@
+
+.hvfullsize {
+    width:100%;
+    height: auto;
+}
+
+.hv-md-card {
+    padding-top: 0px !important;
+    margin-top:0px !important;
+    margin-bottom:0px !important;
+    padding-bottom:0px !important;
+    padding-left:0px !important;
+    background: transparent !important;
+}
+
+
+.hvInline {list-style: none; margin-left:-45px; margin-top: -20px;}
+
+.hvInline > li { display: inline-block; text-align: left; cursor: pointer;
+    margin-bottom:5px; margin-right:10px; width: auto; vertical-align: top; padding:0px;}
+
+
 .imageLabel {
     width:185px;
     height:30px;
@@ -77,7 +99,6 @@
     z-index:0 !important;
 }
 
-
 .hv-image-card2 {
     padding-top: 0px !important;
     margin-top:0px !important;
@@ -155,6 +176,11 @@ a.thumbnail > img:focus {
     width: 180px;
 }
 
+.responsiveImage {
+    width:600px;
+    height: auto;
+}
+
 
 .nophoto {
     width:148px;
@@ -167,14 +193,58 @@ a.thumbnail > img:focus {
     margin-left: auto;
 }
 
-.nophoto:hover {
+/* .nophoto:hover {
     border:1px solid #ff0000;
 }
 
 .nophoto:focus {
     border:1px solid #ff0000;
-}
+} */
 
 .noCursor {
     cursor: default;
+}
+
+.spaceTop {
+    margin-top:10px !important;
+}
+
+
+prm-view-online-after md-grid-list {
+    padding:0px;
+    margin:0px;
+}
+
+prm-view-online-after md-grid-list > md-grid-tile {
+    box-shadow: none !important;
+    background-color: inherit;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .hvPanel {
+        padding-bottom:70px;
+        padding-left:15px;
+        text-align: left;
+    }
+
+    .hvInline {list-style: none; margin-left:-45px; margin-top: -20px; word-break:break-all;}
+
+    .hvInline > li { display: inline-table; text-align: left; cursor: pointer; display: -moz-inline-stack;
+        margin-bottom:1px; margin-right:1px; width: auto; height:240px; vertical-align: top; padding:0px;}
+
+}
+
+
+@media print {
+
+    .hvfullsize {
+        width: 100%;
+        height: auto;
+    }
+
+    .hvInline {list-style: none; margin-left:-45px; margin-top: -20px;word-break:break-all;}
+
+    .hvInline > li {display:inline-block; word-break:break-all; text-align: left; cursor: pointer;
+        margin-bottom:5px; margin-right:10px; width: auto; vertical-align: top; padding:0px;}
 }

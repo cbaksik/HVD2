@@ -25,6 +25,7 @@
         vm.gridColumn='3'; // default print view size
         vm.pnxControlSourceId='HVD_VIA'; // display only pnx control sourceid of HVD_VIA
         vm.pnxControlSourceIdFlag=false;
+        console.log("prm-view-online-after.js");
 
         vm.$onInit=function() {
             vm.isLoggedIn=sv.getLogInID();

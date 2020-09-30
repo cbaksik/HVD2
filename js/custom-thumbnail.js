@@ -20,6 +20,7 @@ angular.module('viewCustom')
             vm.imageCaption='';
             vm.restricted=false;
             vm.imageFlag=false;
+            console.log("custom-thumbnail.js");
 
 
             // check if image is not empty and it has width and height and greater than 150, then add css class

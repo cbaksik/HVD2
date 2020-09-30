@@ -21,6 +21,7 @@ angular.module('viewCustom')
             vm.params=$location.search();
             vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
             vm.isLoggedIn=sv.getLogInID();
+            console.log("responsiveImage.js");
 
             // check if image is not empty and it has width and height and greater than 150, then add css class
             vm.$onChanges=function () {

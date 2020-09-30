@@ -1,3 +1,4 @@
+<!-- prm-view-online-after.html -->
 <div ng-if="$ctrl.singleImageFlag && !$ctrl.item.pnx.display.lds41 && $ctrl.pnxControlSourceIdFlag">
     <div layout="column" layout-align="center center" ng-if="$ctrl.zoomButtonFlag">
         <md-button class="md-raised md-primary btn-margin-bottom" (click)="$ctrl.gotoFullPhoto($event,item,$index)" tabindex="0">
@@ -7,7 +8,9 @@
     <div layout="row">
         <div flex="grow">
             <!-- CB added this line 20200428 so users have another option during restricted image issue -->
-            <div style="margin-bottom:10px;"><a target="_blank" href="{{$ctrl.photo._attr.href._value}}?buttons=Y">Open image in new tab</a></div>
+            <div ng-if="$ctrl.photo._attr.href._value">
+                <div style="margin-bottom:10px;"><a target="_blank" href="{{$ctrl.photo._attr.href._value}}?buttons=Y">Open image in new tab</a></div>
+            </div>
             <!-- single image -->
             <single-image src="$ctrl.photo._attr.href._value" imgtitle="$ctrl.imageTitle"
                           restricted="$ctrl.photo._attr.restrictedImage._value" jp2="$ctrl.jp2"></single-image>
@@ -34,7 +37,7 @@
     </md-grid-tile>
     </md-grid-list>
 </div>
-
+<!-- end prm-view-online-after.html -->
 
 
 
