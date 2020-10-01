@@ -193,6 +193,10 @@ a.thumbnail > img:focus {
     margin-left: auto;
 }
 
+.hideNoPhoto {
+    display:none;
+}
+
 /* .nophoto:hover {
     border:1px solid #ff0000;
 }
@@ -209,10 +213,15 @@ a.thumbnail > img:focus {
     margin-top:10px !important;
 }
 
+prm-view-online-after .md-button.md-raised:not([disabled]) {
+    box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.96); 
+}
+
 
 prm-view-online-after md-grid-list {
     padding:0px;
     margin:0px;
+    margin-top:20px;
 }
 
 prm-view-online-after md-grid-list > md-grid-tile {

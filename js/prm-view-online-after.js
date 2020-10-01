@@ -18,7 +18,7 @@
         vm.zoomButtonFlag=false;
         vm.viewAllComponetMetadataFlag=false;
         vm.singleImageFlag=false;
-        vm.photo = {}; // single imae
+        vm.photo = {}; // single image
         vm.jp2 = false;
         vm.imageTitle = '';
         vm.auth = sv.getAuth();

@@ -10,15 +10,18 @@
             <!-- CB added this line 20200428 so users have another option during restricted image issue -->
             <div ng-if="$ctrl.photo._attr.href._value">
                 <div style="margin-bottom:10px;"><a target="_blank" href="{{$ctrl.photo._attr.href._value}}?buttons=Y">Open image in new tab</a></div>
+                    <!-- single image -->
+                    <single-image src="$ctrl.photo._attr.href._value" imgtitle="$ctrl.imageTitle" restricted="$ctrl.photo._attr.restrictedImage._value" jp2="$ctrl.jp2"></single-image>
+                    <div layout="row" class="spaceTop" layout-sm="column" ng-if="$ctrl.photo.caption">
+                        <div flex="20"></div>
+                        <div flex="80"><span class="bold-text spaceRight">Caption:</span>  {{$ctrl.photo.caption[0]._text}}</div>
+                    </div>
+                    <!-- end single image -->
             </div>
-            <!-- single image -->
-            <single-image src="$ctrl.photo._attr.href._value" imgtitle="$ctrl.imageTitle"
-                          restricted="$ctrl.photo._attr.restrictedImage._value" jp2="$ctrl.jp2"></single-image>
-            <div layout="row" class="spaceTop" layout-sm="column" ng-if="$ctrl.photo.caption">
-                <div flex="20"></div>
-                <div flex="80"><span class="bold-text spaceRight">Caption:</span>  {{$ctrl.photo.caption[0]._text}}</div>
+            <div ng-if="!$ctrl.photo._attr.href._value">
+                <div class="nophoto" aria-label="{{vm.imgtitle}}" title="{{vm.imgtitle}}">Image not digitized</div>
             </div>
-            <!-- end single image -->
+
         </div>
     </div>
 </div>

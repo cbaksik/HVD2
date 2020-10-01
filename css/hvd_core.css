@@ -9,7 +9,7 @@ body,
 prm-brief-result-container .list-item-primary-content,
 .full-view-inner-container,
 md-content,
-md-content.md-primoExplore-theme {
+md-content.md-primoExplore-theme div.ui-view {
     background-color: #FFFFFF;
 }
 
@@ -678,7 +678,7 @@ prm-reference-entry-item {
 } 
 /* via images */
 .hvdImgComponentView {
-    margin-left:25px;
+    margin-left:10%;
 }
 .hvdImgComponentViewMD {
     width:90%;

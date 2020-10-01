@@ -1,7 +1,7 @@
 .iframeClass {
     width:700px;
     height:650px;
-    border: none;
+    border: 1px solid lightgrey;
     margin:0;
     padding:0;
     overflow: hidden;
