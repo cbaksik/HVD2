@@ -1,5 +1,6 @@
 /**
  * Created by samsan on 8/16/17.
+ * for custom text call number feature
  */
 
 
@@ -16,8 +17,11 @@ angular.module('viewCustom')
         vm.form={'phone':'','deviceType':'','body':'','error':'','mobile':false,'msg':'','token':'','ip':'','sessionToken':'','isLoggedIn':false,'iat':'','inst':'','vid':'','exp':'','userName':'','iss':'','onCampus':false};
         vm.css = {'class':'textsms-info'};
 
+        // not sure why this is here, does it belong in prm-auth...after.js where login stauts is tested? -- CB
         vm.$onChanges=function(){
             vm.auth=cisv.getAuth();
+            //console.log("prm-action-container-after.js");
+            //console.log(vm.auth);
             if(vm.auth.primolyticsService.jwtUtilService) {
                 vm.form.token=vm.auth.primolyticsService.jwtUtilService.storageUtil.sessionStorage.primoExploreJwt;
                 vm.form.sessionToken=vm.auth.primolyticsService.jwtUtilService.storageUtil.localStorage.getJWTFromSessionStorage;

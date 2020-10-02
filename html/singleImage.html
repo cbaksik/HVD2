@@ -1,6 +1,11 @@
 <!-- singleImage.html -->
 <!-- show iframe in the center -->
+
+<img ng-if="vm.restricted" src="custom/HVD2/img/icon_lock25.png" class="hvdSingleImgLock" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" />
+
 <div  layout="column" layout-align="center center">
+
+
 
     <iframe id="iframe" ng-show="vm.showImage" src="{{vm.imageUrl}}" class="iframeClass" allowfullscreen="true"></iframe>
 

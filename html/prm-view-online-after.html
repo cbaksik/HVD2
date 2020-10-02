@@ -9,7 +9,11 @@
         <div flex="grow">
             <!-- CB added this line 20200428 so users have another option during restricted image issue -->
             <div ng-if="$ctrl.photo._attr.href._value">
-                <div style="margin-bottom:10px;"><a target="_blank" href="{{$ctrl.photo._attr.href._value}}?buttons=Y">Open image in new tab</a></div>
+                <div style="margin-bottom:10px;">
+                    <a target="_blank" href="{{$ctrl.photo._attr.href._value}}?buttons=Y">Open image in new tab</a>
+                     <!-- <span class="hvdSingleImgRestrictedNote">(Restricted to HarvardKey)</span> -->
+                    <!-- <img ng-if="$ctrl.photo._attr.restrictedImage._value" src="custom/HVD2/img/icon_lock25.png" class="hvdSingleImgLock" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" />                     -->
+                </div>
                     <!-- single image -->
                     <single-image src="$ctrl.photo._attr.href._value" imgtitle="$ctrl.imageTitle" restricted="$ctrl.photo._attr.restrictedImage._value" jp2="$ctrl.jp2"></single-image>
                     <div layout="row" class="spaceTop" layout-sm="column" ng-if="$ctrl.photo.caption">

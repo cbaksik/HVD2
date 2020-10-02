@@ -20,7 +20,7 @@ angular.module('viewCustom')
             vm.imageTitle='';
             vm.restricted=false;
             vm.imageFlag=false;
-            console.log("mutipleThumbnail.js");
+            //console.log("mutipleThumbnail.js");
 
             // check if image is not empty and it has width and height and greater than 150, then add css class
             vm.$onChanges=function () {
