@@ -51,8 +51,11 @@
             for(var i=0; i < arrList.length; i++){
                 var img=arrList[i];
                 if(img.image) {
-                    var url=img.image[0]._attr.href._value;
-                    if(url.match(vm.filename)) {
+                    var url=img.image[0]._attr.href._value.toLowerCase();
+                    //console.log(url);
+                    //console.log(vm.filename.toLowerCase());
+                    //console.log(vm.filename);
+                    if(url.match(vm.filename.toLowerCase())) {
                         k = i;
                         i = arrList.length;
                     }
