@@ -13,7 +13,7 @@ angular.module('viewCustom')
             if(!vm.parentCtrl.displaymode) {
                 $timeout(function () {
                     // if holding location is existed, then insert sms text call icon
-                    if (vm.parentCtrl.item.delivery) {
+                    if (vm.parentCtrl.item.delivery) {                    
                         if(vm.parentCtrl.item.delivery.holding.length > 0) {
                             let textsmsExist = document.getElementById('textsms');
                             // if textsms doesn't exist, insert it.
@@ -29,9 +29,7 @@ angular.module('viewCustom')
                                 }
                             }
                         }
-
                     }
-
                     // if print icon exist, then add custom-print tag
                     var printEl = document.getElementById('Print');
                     if (printEl) {
@@ -42,6 +40,22 @@ angular.module('viewCustom')
                         printEl.appendChild(printTag);
                         $compile(printEl.children[1])($scope);
                     }
+                    // add check hathi link
+/*                     console.log("prmActionListAfter");
+                    let prmActionList = document.getElementsByTagName('prm-action-list')[0];
+                    let ul = prmActionList.getElementsByTagName('ul')[0];
+                    let li = ul.querySelector('#scrollActionList');
+                    var checkHathiLink = 'https://catalog.hathitrust.org/Search/Home?lookfor=' + vm.parentCtrl.item.pnx.addata.btitle + '%26urlappend=%3Bsignon=swle:https://fed.huit.harvard.edu/idp/shibboleth';
+                    console.log("test hathi link " + checkHathiLink);
+                    var citationEl = document.getElementById('Citation');
+                    if (citationEl) {
+                        var checkHathiTag = document.createElement('custom-hathiActionLink');
+                        
+                        checkHathiTag.setAttribute('parent-ctrl', 'vm.parentCtrl.item');
+                        citationEl.appendChild(checkHathiTag);
+                        li.insertBefore(checkHathiTag, li.childNodes[0]);
+                        $compile(citationEl.children[1])($scope);
+                    } */
 
 
                 // }, 2000);

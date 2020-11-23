@@ -528,6 +528,39 @@ prm-loans p.normal-text prm-icon {
 prm-account-overview md-tabs-canvas prm-icon {
     padding-left:5px;
 }
+/* adjustment for temporary Do I have to Renew link during COVID */
+div#hvdDoIHaveToRenew {
+    margin-top:5px;
+}
+div#hvdDoIHaveToRenew a {
+    font-weight:bold;
+    font-size:large;
+}
+prm-account-overview md-pagination-wrapper div#hvdDoIHaveToRenew {
+    display:none;
+}
+prm-account-overview md-select#loans-focus {
+    margin-left:50px;
+    margin-top: 16px;
+}
+prm-loans-overview h2 {
+/*     flex-direction:column;
+    flex-basis: 100%;
+    flex:1; */
+    flex-direction:column;
+}
+prm-loans-overview button[aria-label="Renew all"] {
+    padding-top:4px;
+    flex-direction:column;
+    flex:1;
+}
+prm-loans-overview span[translate="nui.loans.renewall"] {
+    padding-right:10px;
+}
+prm-loans md-input-container:after {
+    /* display:none; */
+}
+/* END COVID RENEW QUESTION */
 /* frbr groupid clustering */
 div > prm-search-result-frbr-line {
     margin-top:5px;
