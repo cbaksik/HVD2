@@ -672,7 +672,7 @@ prm-resource-recommender-card-content a {
     margin-right:10px;
     height: 20px;
 }
-/* hide topic overivew b/c of bug that it's not proxied */
+/* hide topic overivew */
 prm-reference-entry-item {
     display:none;
 } 

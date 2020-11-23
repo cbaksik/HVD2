@@ -103,15 +103,20 @@ angular.module('viewCustom')
         };
 
         vm.getHathiTrustData=function () {
-            if(vm.api.hathiTrustUrl) {
+            console.log('sending data to hvd primoapi service: ');
+            console.log(vm.hathiTrust);
+            if(vm.api.hathiTrustUrl) {  
                 chts.doPost(vm.api.hathiTrustUrl, vm.hathiTrust)
-                    .then(function (data) {
+                    .then(function (data) {                   
                             if (data.data.items) {
                                 vm.hathiTrustItem = chts.validateHarvard(data.data.items);
+                                console.log('data returned form hvd primoapi service: ');
+                                console.log(vm.hathiTrustItem);                          
                             }
                         },
                         function (error) {
                             console.log(error);
+                            console.log("error from hvd primoapi service");
                         }
                     )
             }
