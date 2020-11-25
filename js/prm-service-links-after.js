@@ -12,15 +12,18 @@
         let cisv=customImagesService;
         vm.itemList=[];
         vm.recordLinks=[]; // keep track the original vm.parentCtrl.recordLinks
-
         vm.getData=()=> {
             // make a copy to avoid data binding
-            vm.recordLinks = angular.copy(vm.parentCtrl.recordLinks);
+            vm.recordLinks = angular.copy(vm.parentCtrl.recordLinks);            
+            var searchHathiBase = 'https://catalog.hathitrust.org/Search/Home?lookfor=';
+            var searchHathiLinkAppend = '%26urlappend=%3Bsignon=swle:https://fed.huit.harvard.edu/idp/shibboleth';
+            vm.searchHathiLink= searchHathiBase + vm.parentCtrl.item.pnx.addata.btitle[0] + '%26type=title' + searchHathiLinkAppend;
+            //vm.btitle = vm.addata.btitle[0];       
             // get items that have digital bookplates
             vm.itemList=cisv.extractImageUrl(vm.parentCtrl.item, vm.recordLinks);
             // delay data from parentCtrl
             $timeout(()=> {
-                vm.recordLinks = angular.copy(vm.parentCtrl.recordLinks);
+                vm.recordLinks = angular.copy(vm.parentCtrl.recordLinks);                
                 vm.itemList=cisv.extractImageUrl(vm.parentCtrl.item, vm.recordLinks);
                 if(vm.recordLinks.length > 0 && vm.itemList.length > 0) {
                     vm.parentCtrl.recordLinks = cisv.removeMatchItems(vm.recordLinks, vm.itemList);
