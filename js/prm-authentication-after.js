@@ -1,9 +1,10 @@
 /**
  * Created by samsan on 8/7/17.
  */
+/* 20201125 at some point in the last year one of the releases changed such that prm-authentication-after doesn't exist when you open HOLLIS home page, it's only created after an initial search; therefore none of the code below was being called yet when initially loading the home page, which meant that the alert wasn't appearing. CB changed component and controller to something that does exist when you load home page, and that we're not using yet. I left this file name the same though */
 
 angular.module('viewCustom')
-    .controller('prmAuthenticationAfterController', ['customService','prmSearchService', function (customService, prmSearchService) {
+    .controller('prmTopNavBarLinksAfterController', ['customService','prmSearchService', function (customService, prmSearchService) {
         let vm=this;
         let psv = prmSearchService;
         // initialize custom service search
@@ -13,8 +14,8 @@ angular.module('viewCustom')
         vm.getUrl=function () {
             var config = sv.getEnv();
             sv.getAjax('/primo-explore/custom/HVD2/html/' + config,'','get')
-                .then(function (res) {
-                        vm.api=res.data;
+                .then(function (res) {    
+                    vm.api=res.data;
                         sv.setApi(vm.api);
                         vm.getClientIP();
                     },
@@ -77,10 +78,8 @@ angular.module('viewCustom')
 
     }]);
 
-
-
 angular.module('viewCustom')
-    .component('prmAuthenticationAfter', {
+    .component('prmTopNavBarLinksAfter', {
         bindings: {parentCtrl: '<'},
-        controller: 'prmAuthenticationAfterController'
-    });
+        controller: 'prmTopNavBarLinksAfterController'
+    });    
