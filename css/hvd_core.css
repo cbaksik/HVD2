@@ -12,6 +12,66 @@ md-content,
 md-content.md-primoExplore-theme {
     background-color: #FFFFFF;
 }
+/* START search bar area */
+
+/* magnify glass search in search box */
+svg[id^=magnifying-glass] {
+    color:#a51c30 !important;;
+}
+md-autocomplete-parent-scope md-icon {
+    opacity:0.4;
+}
+md-autocomplete-parent-scope svg[id^=magnifying-glass] {
+    color:#212121 !important;;
+}
+/* li md-autocomplete-parent-scope div:hover {
+    background-color:grey;
+} */
+.md-autocomplete-suggestions .highlight:hover {
+    color:#000;
+}
+.md-autocomplete-suggestions .suggestion-scope:hover {
+    color:#000;
+}
+ul.md-autocomplete-suggestions li.selected {
+    text-decoration:underline;
+}
+.browse-button {
+    position: relative;
+    margin-top:22px;
+    margin-left:0px;
+}
+prm-browse-search-bar {
+    background-color:#383838;
+}
+prm-browse-search-bar > button.submit-button {
+    color:#a51c30 !important;
+}
+prm-browse-search-bar .simple-btn {
+    color:#ffffff;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+prm-browse-search-bar button.md-button.simple-btn:hover {
+    color:#efefef !important;
+}
+@media only screen and (max-width: 900px) {
+    .browse-button {
+        margin-top:30px;
+    }
+
+}
+prm-tabs-and-scopes-selector:hover {
+    background-color:#F3F3F3;
+}
+md-select-menu.md-primoExplore-theme md-content md-option:not([disabled]):hover {
+    text-decoration: underline;
+    background-color:#fff;
+}
+md-select-menu.md-primoExplore-theme md-content md-option[selected="selcted"]:hover {
+        background-color:#F3F3F3;
+}
+/* END search bar area (there may be additional css in file */
 
 prm-brief-result-container .list-item-primary-content:before {
     background-color: #F3F3F3;
@@ -198,7 +258,29 @@ md-toolbar.default-toolbar .md-button:hover, md-toolbar.md-primoExplore-theme.de
     color:#080606;
 }
 /* facets */
+prm-facet prm-search-result-sort-by md-select {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    background-color: white;
+}
+prm-facet md-input-container:after {
+    height:0px;
+}
+prm-facet prm-search-result-sort-by md-select:hover {
+    background-color: #f3f3f3;
+}
+prm-facet prm-facet-group .section-title:hover {
+    border:1px solid #187474;
+}
+/* prm-facet prm-facet-exact .section-title:hover {
+    border:none;
+} */
 /* active filters */
+
 prm-facet prm-breadcrumbs .md-chips .md-chip {
     background-color:#f3f3f3;
     box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2);
@@ -207,23 +289,27 @@ prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong
 {    
     padding-left: 30px;
 }
-
+prm-breadcrumbs .md-chip-remove-container:hover {    
+    border:1px solid rgb(145, 141, 141);
+    border-radius:30px;
+}
 prm-breadcrumbs .md-chips .md-chip-content .persistence-button {
     opacity: 1; transform: none; padding-left: -2px;
 }
-
 prm-breadcrumbs .md-chip.persistent-facet strong {
     padding-left: 0;
 }
-
 prm-breadcrumbs .md-chip.persistent-facet .md-chip-content .persistence-button {
-    left: -2px;
+    left: 1px;
 }
-
 prm-breadcrumbs .md-chips .md-chip-content .persistence-button prm-icon.show-on-hover {
     position: absolute;
-    top: 5px;
-    left: 9px;
+    top: 3px;
+    left: 5px;
+}
+prm-breadcrumbs .md-chips .md-chip-content .md-button.md-primary:hover:not([disabled]) {
+    border-radius:30px;
+    top:1px;
 }
 prm-search-result-sort-by {
     margin-bottom:5px;
@@ -294,7 +380,15 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(2) {
 prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
     background-color:#FFF;
 }
+.md-button.arrow-link-button .button-content:hover {
+    /* box-shadow: inset 0 -1px 0 0 #53738c; */
+    /* box-shadow:inset 0 -1px 0 0 rgba(21,58,86,.5) */
+}
 /* full display page */
+/* during overlay of search results, left and right pane */
+.md-dialog-container.fixed-container {
+    background-color:rgba(128, 125, 125, 0.1);
+}
 prm-full-view-service-container .arrow-link [link-arrow] md-icon {
     opacity:1;
     min-width: 18px;
@@ -414,6 +508,21 @@ p.textsms-danger {
     background-color:#3a3a3a1a;
     color:#0579b8;
 } */
+prm-search-result-list md-checkbox:focus {
+    /* border:2px solid red; */
+    /* box-shadow: 1px 0px grey,-7px 10px 4px -4px grey;  */
+}
+md-checkbox.md-checked .md-container .md-icon {
+    background-color:#44707b;
+}
+div#slideTopMaxAlert .md-button.button-link:hover:not([disabled]) {
+    background-color:#44707b;;
+    color:#fff;
+}
+md-menu-content.menu-with-footer .menu-footer form div:hover {
+    background-color:#f3f3f3;
+    border: 1px solid #0579b8;
+}
 prm-action-list .md-button:hover:not([disabled]), prm-action-list .md-button:focus:not([disabled]) {
     background-color:#3a3a3a1a;
     color:#0579b8;    
@@ -447,6 +556,12 @@ prm-action-list .md-button:hover:not([disabled]), prm-action-list .md-button:foc
         display:none;
     }
 }
+md-radio-group.layout-row md-radio-button:hover {
+    border-bottom:1px solid #44707b;
+}
+/* prm-advanced-search .advanced-search-output input {
+    margin-top:-7px;
+} */
 prm-advanced-search button:focus {
     border:1px solid #1e1e1e;
 }
@@ -624,6 +739,9 @@ div.item-details-element div[ng-show="!value.isLinkable"] {
     padding-bottom:.2em;
 }
 /* main menu - after ellipsis expansion */
+md-dialog.md-transition-in {
+    background-color: rgba(0,0,0,.2);
+}
 prm-main-menu[menu-type=full] .custom-links-container .main-menu-button .transparent-card:focus {
     border:2px solid white; 
 }
