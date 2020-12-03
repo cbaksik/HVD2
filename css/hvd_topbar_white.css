@@ -182,7 +182,7 @@ prm-user-area .user-menu-button .user-name {
 }
 prm-user-area-expandable .md-button.user-button, prm-user-area-expandable .md-button.button-with-menu-arrow {
     color:#1E1E1E;
-    /* text-decoration:underline; */
+    text-decoration:underline; 
     text-transform:uppercase;
 }
 prm-user-area-expandable .md-button.user-button .menu-arrow {
@@ -209,7 +209,7 @@ prm-user-area-expandable .button-with-menu-arrow:hover .menu-arrow {
 }
 prm-search-bookmark-filter .fixed-to-top #favorites-button {
     color:#fff;
-}
+}  
 /* new for August release */
 prm-user-area-expandable {
     background-color: rgba(58,58,58,.12);
@@ -219,17 +219,18 @@ prm-user-area-expandable .md-button {
     font-weight:600;
     font-size: 1em;
     border-left: white solid 1px;
-}
+} 
+
 
 /* bar that takes over when you click sign in (might not be relevant after Aug '18 release */
-prm-user-area md-fab-toolbar.md-is-open md-fab-trigger .md-fab-toolbar-background, prm-user-area md-fab-toolbar.md-is-open md-fab-trigger ._md-fab-toolbar-background {
+/* prm-user-area md-fab-toolbar.md-is-open md-fab-trigger .md-fab-toolbar-background, prm-user-area md-fab-toolbar.md-is-open md-fab-trigger ._md-fab-toolbar-background {
     background-color:#fff !important;
 }
 prm-user-area .md-fab-action-item {
     background-color:#0579b8;
 }
 prm-user-area md-fab-toolbar .md-fab-action-item .md-button,  prm-user-area md-fab-toolbar .md-fab-action-item md-input-container, prm-user-area md-fab-toolbar .md-fab-action-item md-input-container md-select {
-    /*color:#44707b;*/
+    
     font-weight:600;
-}
+} */
 /* bar that takes over when you click sign in */

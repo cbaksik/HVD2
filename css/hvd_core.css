@@ -12,17 +12,31 @@ md-content,
 md-content.md-primoExplore-theme {
     background-color: #FFFFFF;
 }
+a {
+    color:#026DB9;
+}
+.md-button.button-link {
+    color:#026DB9;
+}
 /* START search bar area */
 
 /* magnify glass search in search box */
 svg[id^=magnifying-glass] {
     color:#a51c30 !important;;
 }
+prm-search-bar .search-actions .md-button.button-confirm:hover:not([disabled]) {
+    color:#fff;
+    background-color:#e9e9e9;
+}
+prm-search-bar .search-actions .md-button.button-confirm:focus:not([disabled]) {
+    color:#fff;
+    background-color:#e9e9e9;
+}
 md-autocomplete-parent-scope md-icon {
     opacity:0.4;
 }
 md-autocomplete-parent-scope svg[id^=magnifying-glass] {
-    color:#212121 !important;;
+    color:#212121 !important;
 }
 /* li md-autocomplete-parent-scope div:hover {
     background-color:grey;
@@ -35,25 +49,6 @@ md-autocomplete-parent-scope svg[id^=magnifying-glass] {
 }
 ul.md-autocomplete-suggestions li.selected {
     text-decoration:underline;
-}
-.browse-button {
-    position: relative;
-    margin-top:22px;
-    margin-left:0px;
-}
-prm-browse-search-bar {
-    background-color:#383838;
-}
-prm-browse-search-bar > button.submit-button {
-    color:#a51c30 !important;
-}
-prm-browse-search-bar .simple-btn {
-    color:#ffffff;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-prm-browse-search-bar button.md-button.simple-btn:hover {
-    color:#efefef !important;
 }
 @media only screen and (max-width: 900px) {
     .browse-button {
@@ -148,7 +143,35 @@ md-card-title-text .alumhat {
     display: inline;
     vertical-align: bottom;    
 }
+prm-back-to-search-results-button md-toolbar.md-primoExplore-theme.default-toolbar .md-toolbar-tools button.md-button:hover {
+    color:#fff;
+}
+/* MY FAVORITES */
 /* my favorites global action icons disabled */
+
+prm-search-bookmark-filter svg[id^=magnifying-glass]:hover {
+    color:#000!important;
+}
+prm-favorites md-tab-item.md-tab:hover {
+    background-color:#e7e7e7;
+    font-weight: 600;
+    color:#000;
+}
+prm-favorites md-select {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    background-color: white;
+}
+prm-favorites md-checkbox .md-container:hover {
+    border:1px solid #0579b8;
+}
+prm-favorites md-select:hover {
+    border:2px solid #0579b8;
+}
+rm-favorites md-checkbox .md-container:hover {
+    border:1px solid #0579b8;
+}
 prm-favorites-tool-bar .disabledFavTool {
     color: #695F5F;
 }
@@ -159,12 +182,34 @@ prm-favorites-tool-bar .toolbar-item {
     margin-left:20px;
     margin-right:10px;
 }
-prm-favorites-tool-bar #prm_unpin {
+prm-favorites-tool-bar prm-icon md-icon svg[id^=prm_unpin] {
     color:red;
+}
+prm-favorites-tool-bar md-toolbar.md-primoExplore-theme.default-toolbar .md-button:hover {
+    color:#fff;
+}
+prm-favorites-record-labels .md-button {
+    font-size: 15px;
+    color:#6E6868;
+    opacity:1;
+    border:1px solid #acabab;
+    border-radius:30px;
+}
+prm-favorites-record-labels .media-labels.md-chips .label-item.md-chip {
+    font-size: 15px;
+}
+
+prm-favorites-edit-labels-menu .labels-menu-button.md-button.button-with-icon {
+    font-size:15px;
+    margin-bottom:5px;
+}
+prm-saved-queries-list a:hover, prm-saved-queries-list a:focus {
+    text-decoration: underline;
 }
 /* prm-favorites-tool-bar button.unpin-button::after { 
     content: "!";
 } */
+/* END MY FAVORITES */
 /* mobile search bar area */
 @media (max-width: 599px) {
     prm-tabs-and-scopes-selector {
@@ -187,7 +232,9 @@ prm-favorites-tool-bar #prm_unpin {
     border: 1px solid #6558d2;
     padding: 7px 15px;
 }
-
+prm-search-result-list prm-personalize-results-button .md-button {
+    top:-6px;
+}
 prm-personalize-results-button md-switch ._md-thumb:before {
     border: 1px solid #44707b;
 }
@@ -227,13 +274,13 @@ prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapt
     display:none;
 } 
 /* page navigation search results */
-prm-page-nav-menu .counter-main md-fab-trigger .md-button {
+/* prm-page-nav-menu .counter-main md-fab-trigger .md-button {
     box-shadow:5px 0 5px -3px rgba(0,0,0,.5), -5px 0 5px -3px rgba(0,0,0,.5);
     color:#0579b8;
 }
 prm-page-nav-menu .counter-nav prm-icon md-icon svg {
     color:#0579b8;
-}
+} */
 /* snippet quotation mark */
 prm-snippet {
     margin-left: 15px;
@@ -247,10 +294,7 @@ prm-snippet prm-icon.close-quote md-icon {
     transform: scale(.5) translate(-4px,2px);
     opacity: 0.7;
 }
-/* page navigation browse search */
-prm-page-nav-menu .page-nav-inner:after {
-    box-shadow:0 1px 3px -1px rgba(0,0,0,.7), 0 0 20px 0 rgba(0,0,0,.7);
-}
+
 md-toolbar.default-toolbar .md-button, md-toolbar.md-primoExplore-theme.default-toolbar .md-button, md-toolbar:not(.md-menu-toolbar).default-toolbar .md-button {
     opacity: 1;
 }
@@ -273,8 +317,12 @@ prm-facet md-input-container:after {
 prm-facet prm-search-result-sort-by md-select:hover {
     background-color: #f3f3f3;
 }
-prm-facet prm-facet-group .section-title:hover {
-    border:1px solid #187474;
+prm-facet-exact .section-title:hover, prm-facet-range .section-title:hover{
+    /* border:1px solid #187474; */
+    background-color:#ebebeb!important;
+}
+prm-facet-exact .section-title:hover span, prm-facet-range .section-title:hover span {   
+    color:#3a3a3a;
 }
 /* prm-facet prm-facet-exact .section-title:hover {
     border:none;
@@ -538,8 +586,7 @@ prm-action-list .md-button:hover:not([disabled]), prm-action-list .md-button:foc
     color:#0579b8;     
     border:1px solid #0579b8;
 }
-.result-item-actions .md-icon-button:focus:not([disabled]):focus {
-    background-color: #3a3a3a1a;
+.result-item-actions .md-icon-button:focus:not([disabled]), .result-item-actions .md-icon-button:hover:not([disabled]){
     border: 2px solid #44707b;
 }
 /* from prm-permalink-after.css, from contractor work */
@@ -574,22 +621,63 @@ div.search-switch-buttons .md-button:hover:not([disabled]) {
 div.search-switch-buttons .md-button:focus:not([disabled]) {
     border:1px solid #1e1e1e;
 }
-/* browse result */
-prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item .item-title, md-list.prm-list.prm-linkable-list-items md-list-item .item-title {
-    /* color:#0579b8; */
+prm-advanced-search legend {
+    transform:scale(1.0);
+}
+prm-advanced-search md-select:hover, prm-advanced-search md-select:focus {
+    background:#ebebeb;
+}
+prm-advanced-search md-input-container:after {
+    height: 0px;
+}
+prm-advanced-search .search-string input {
+    border: 1px solid #6f6e6e;
+    padding:5px;
+}
+prm-search-bar .advanced-search-wrapper .search-string .string-field.tiny-bold.uppercase{
+    font-size: 15px;
+}
+prm-advanced-search md-input-container.string-field md-select:focus {
+    background-color: #fffcc4;
+}
+prm-advanced-search .search-string md-select span {
+    text-decoration:underline;
+    color:#026DB9;
+}
+
+/* browse  */
+prm-browse-search-bar .md-button.button-confirm:hover:not([disabled]) {
+    color:#fff;
+    background-color:#e9e9e9;
+}
+prm-browse-search-bar label {
+    margin-right:5px;
+}
+prm-browse-search-bar md-select:hover {
+    background-color:#f3f3f3;
 }
 prm-browse-search-bar md-input-container {
     line-height:1.2;
 }
-prm-browse-search-bar md-input-container>md-select {
-    color:#026DB9;
-    font-weight:bold;
+prm-browse-search-bar md-select {
+    color:#026db9;
+    font-weight:600;
+    margin-top:1px;
 }
-prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item ._md-list-item-inner {
+prm-browse-search-bar md-select span.md-select-icon {
+    padding-top:6px;
+}
+prm-browse-search-bar md-select:hover, prm-browse-search-bar md-select:focus {
+    text-decoration:underline;
+}
+prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item .md-list-item-inner {
     background-color:#fff;
     border-bottom:1px solid #b8babb;
     padding: 0em 0.2em;
     /* color:#0579b8; */
+}
+prm-browse-result md-list-item .md-button {
+    line-height:20px;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a {
     /* color:#0579b8; */
@@ -598,7 +686,7 @@ prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-butt
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a:hover {
     color:#0579b8;
     text-decoration: underline;
-    /* background-color:#f3f3f3;*/
+    background-color: rgba(128, 128, 128, 0.2);
     opacity:.5;
     border-bottom:2px solid #0579b8;
 }
@@ -611,9 +699,6 @@ prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-butt
 prm-browse-search md-list.prm-list.prm-linkable-list-items.prm-dense-list md-list-item .item-title prm-highlight > span:hover {
     color:#0579b8;
 }
-/* prm-browse-result md-list-item prm-highlight:hover {
-    text-decoration:underline;
-} */
 /* my account */
 prm-account-overview md-input-container md-select {
     padding:5px;
@@ -642,6 +727,20 @@ prm-loans p.normal-text prm-icon {
 }
 prm-account-overview md-tabs-canvas prm-icon {
     padding-left:5px;
+}
+prm-account-overview md-tab-item.md-tab:hover {
+    background-color:#e7e7e7;
+    font-weight: 600;
+    color:#000;
+}
+prm-account-overview md-input-container:after {
+    height:0px;
+}
+prm-account-overview md-select:hover {
+    border:2px solid #0579b8;
+}
+prm-account-overview md-checkbox .md-container:hover {
+    border:1px solid #0579b8;
 }
 /* adjustment for temporary Do I have to Renew link during COVID */
 div#hvdDoIHaveToRenew {
@@ -676,6 +775,8 @@ prm-loans md-input-container:after {
     /* display:none; */
 }
 /* END COVID RENEW QUESTION */
+/* END of may account section */
+
 /* frbr groupid clustering */
 div > prm-search-result-frbr-line {
     margin-top:5px;
@@ -692,12 +793,12 @@ prm-search-result-thumbnail-container img.fan-img-2[src="custom/HVD2/img/icon_ve
 prm-search-result-thumbnail-container img.fan-img-3[src="custom/HVD2/img/icon_versions.png"] {
     display:none;
 }
- div.md-chip > div > strong[translate="facets.facet.facet_frbrgroupid"] {
-    //background-color:red;
-    //font-size:150%;
-    //color:#026DB9;
-    //margin:10px 10px;    
-} 
+/*  div.md-chip > div > strong[translate="facets.facet.facet_frbrgroupid"] {
+    background-color:red;
+    font-size:150%;
+    color:#026DB9;
+    margin:10px 10px;    
+}  */
 prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong[translate="facets.facet.facet_frbrgroupid"] {
     padding-left:10px;
 } 
@@ -711,7 +812,7 @@ button[aria-label*="Versions"] prm-icon md-icon.md-primoExplore-theme, button[ar
     padding:2px;
     width:30px;
     height:30px;
-    //box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2);
+    /* //box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2); */
     border-radius: 1.2em;
     overflow: hidden;
 } 
@@ -791,6 +892,9 @@ prm-search-result-list .search-results-container {
 prm-search-result-list prm-search-result-tool-bar {
       border-top:10px solid white;
 }
+prm-search-result-tool-bar .md-toolbar-tools .md-button {
+    opacity:1;
+}
 prm-search-result-tool-bar .md-toolbar-tools {
     /* height:55px; */
     box-shadow:0 1px 0 0 rgba(0,0,0,.03),0 5px 5px -3px rgba(0,0,0,.07);
@@ -855,3 +959,40 @@ prm-reference-entry-item {
 .locItemSpace {
     margin-top:15px;
 }
+/* tag feature */
+prm-tags-list input {
+    font-size:15px;
+    color:#333;
+}
+prm-tags-list input::placeholder {
+    color:#333;
+}
+/* digital bookplates */
+.serviceLinkBox {
+    padding:0px;
+    background: transparent !important;
+}
+
+.serviceLink {
+    list-style: none;
+    margin-left:-5px;
+    padding-left:0px;
+}
+
+.serviceLink > li {
+    display: inline-block;
+    width:200px;
+    height: auto;
+    margin-left:0px;
+    padding-left:0px;
+}
+
+.serviceLinkPhoto {
+    height:155px;
+    width: auto;
+}
+
+.serviceLinkSpace {
+    margin-bottom:10px;
+}
+/* end digital bookplates */
