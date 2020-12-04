@@ -1,11 +1,15 @@
 <!-- search hathitrust link for books -->
-<!-- <ul class="serviceLink" ng-show="vm.searchHathiLink">
-    <li>{{vm.addata}}</li>
-    <li>{{vm.addata.btitle[0]}}</li>
-    <li>{{vm.searchHathiLink}}</li>
-    <li><a href="">Search by title, author, and date in HathiTrust</a></li>
-</ul> -->
-<!-- This html file is used for Digital Bookplates component -->
+<div ng-if="vm.showHathiLink" class="spaced-rows">
+    <div ng-show="vm.searchHathiLink">           
+                <a class="arrow-link md-primoExplore-theme" href="{{vm.searchHathiLink}}" target="_blank">
+                    <span>Search HahtiTrust (via Harvard membership)</span>
+                    <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>
+                    <prm-icon link-arrow icon-type="svg" svg-icon-set="primo-ui" icon-definition="chevron-right"></prm-icon>
+                </a>
+
+    </div>
+</div> 
+<!-- The html below is used for Digital Bookplates component -->
 <ul class="serviceLink">
     <!-- items have image and matching with $$U and $$d -->
     <li ng-repeat="rec in vm.itemList track by $index">
