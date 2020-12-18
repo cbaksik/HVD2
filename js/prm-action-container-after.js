@@ -27,7 +27,9 @@ angular.module('viewCustom')
                 vm.form.sessionToken=vm.auth.primolyticsService.jwtUtilService.storageUtil.localStorage.getJWTFromSessionStorage;
                 vm.form.isLoggedIn=vm.auth.isLoggedIn;
                 // decode JWT Token to see if it is a valid token
-                let obj=vm.auth.authenticationService.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
+                // CB  commenting out line below per CV, troubleshooting token issue with texting service
+                //let obj=vm.auth.authenticationService.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
+                let obj=vm.auth.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
                 vm.form.ip=obj.ip;
                 vm.form.iss=obj.iss;
                 vm.form.userName=obj.userName;
