@@ -68,7 +68,8 @@ angular.module('viewCustom')
                 params.vid=vm.params.vid;
                 params.targetURL=$window.location.href;
                 var url='/primo-explore/login?from-new-ui=1&authenticationProfile='+auth.authenticationMethods[0].profileName+'&search_scope=default_scope&tab=default_tab';
-                url+='&Institute='+auth.authenticationService.userSessionManagerService.userInstitution+'&vid='+params.vid;
+                //url+='&Institute='+auth.authenticationService.userSessionManagerService.userInstitution+'&vid='+params.vid;
+                url+='&Institute='+auth.userSessionManagerService.userInstitution+'&vid='+params.vid;
                 if(vm.params.offset) {
                     url+='&offset='+vm.params.offset;
                 }
