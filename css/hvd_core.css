@@ -276,6 +276,21 @@ prm-search-result-availability-line span {
     display: inline;
     color: #44707b;
 }
+prm-search-result-availability-line a.hvdHathiViewOnline span {
+    color: #0f7d00;
+}
+prm-search-result-availability-line .hvdHathiViewOnline_div {
+    margin: 3px 0;
+}
+prm-search-result-availability-line .hvdHathiViewOnline_div prm-icon {
+    margin-right:.15em;
+}
+prm-chapters-results-line span.button-content {
+    color:#44707b;
+}
+prm-chapters-results-line .md-button.arrow-link-button .button-content {
+    color:#44707b;
+}
 /* contextual links, hide chapters per d2d */
 prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapters-results-line button[aria-label*="Other chapters"] {
     display:none;
