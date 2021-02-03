@@ -3,8 +3,12 @@
 <div layout="row" class="whiteBg hvdImgComponentView" ng-if="vm.index !== -1">
    <div flex="{{vm.flexsize}}" class="full-view-inner-container whiteBg">
 
-       <!-- iframe component -->
+    <div class="parentImageLinkWrapper" ng-if="vm.componentData">
+    <a href="http://id.lib.harvard.edu/via/{{vm.recordid}}/catalog" class="parentImageLink">Go to main record</a>   
+   </div>
+    <!-- iframe component -->
 
+       
        <section layout="row" layout-align="center center" class="imageNav" layout-wrap ng-if="vm.total > 1">
            <md-button class="md-fab md-raised md-primary" (click)="vm.prevPhoto()" tabindex="0" aria-label="Previous photo button">
                <md-icon md-svg-icon="primo-ui:chevron-left" aria-label="chevron-left-icon"></md-icon>
@@ -33,7 +37,7 @@
        <br/>
 
        <div class="hvdImgComponentViewMD">
-           <h3>Group information</h3>
+           <h3>Main information</h3>
             <div layout="row" layout-xs="column" class="layout-block-xs layout-xs-column layout-row space" ng-repeat="key in vm.keys track by $index" ng-if="vm.item.pnx.display[key]">
                 <div flex-gt-sm="20" flex-gt-xs="25" flex class="flex-gt-xs-25 flex-gt-sm-20 flex">
                     <label class="bold-text">{{key|mapXmlFilter}}</label>
@@ -67,8 +71,8 @@
                         </div>
                         <div flex flex-gt-sm="80" flex-gt-xs="75" class=" flex-gt-xs-75 flex-gt-sm-80 flex">
                             <span ng-if="vm.filename">
-                            <a href="http://id.lib.harvard.edu/images/{{vm.recordid}}/{{vm.filename}}/catalog" target="_blank">
-                                http://id.lib.harvard.edu/images/{{vm.recordid}}/{{vm.filename}}/catalog
+                            <a href="http://id.lib.harvard.edu/via/{{vm.recordid}}/{{vm.filename}}/catalog" target="_blank">
+                                http://id.lib.harvard.edu/via/{{vm.recordid}}/{{vm.filename}}/catalog
                             </a>
                             </span>
                         </div>

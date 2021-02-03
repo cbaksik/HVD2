@@ -973,6 +973,9 @@ prm-reference-entry-item {
     display:none;
 } 
 /* via images */
+div.parentImageLinkWrapper {
+    margin-left:-10%;
+}
 .hvdImgComponentView .full-view-inner-container  {
     margin-left:10%;
 }
