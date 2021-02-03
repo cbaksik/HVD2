@@ -103,24 +103,18 @@ angular.module('viewCustom')
         };
 
         vm.getHathiTrustData=function () {
-            console.log('sending data to hvd primoapi service: ');
-            console.log(vm.hathiTrust);
-            if(vm.api.hathiTrustUrl) {  
-                chts.doPost(vm.api.hathiTrustUrl, vm.hathiTrust)
-                    .then(function (data) {                   
-                            if (data.data.items) {
-                                vm.hathiTrustItem = chts.validateHarvard(data.data.items);
-                                console.log('data returned form hvd primoapi service: ');
-                                console.log(vm.hathiTrustItem);                          
-                            }
-                        },
-                        function (error) {
-                            console.log(error);
-                            console.log("error from hvd primoapi service");
+            chts.doGet(vm.hathiTrust.isbn, vm.hathiTrust.oclcid)
+                .then(function (data) {
+                    if (data.data.items) {
+                        vm.hathiTrustItem = chts.validateHarvard(data.data.items);
                         }
-                    )
-            }
+                    },
+                    function (error) {
+                        console.log(error);
+                    }
+                );
         };
+       
 
         vm.$onInit=function() {
             // get rest endpoint url from config.html where it preload prm-tobar-after.js
