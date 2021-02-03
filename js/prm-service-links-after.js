@@ -19,7 +19,7 @@
             var searchHathiBase = 'https://catalog.hathitrust.org/Search/Home?adv=1&lookfor%5B%5D=';
             var searchHathiLinkAppend = '&urlappend=%3Bsignon=swle:https://fed.huit.harvard.edu/idp/shibboleth';
             //console.log(vm.parentCtrl.item.pnx.addata);
-            console.log(vm.parentCtrl.item.pnx.display.type[0]);
+            //console.log(vm.parentCtrl.item.pnx.display.type[0]);
             // only present hathi link for book, music, journal
             var format = vm.parentCtrl.item.pnx.display.type[0];  
             var title = vm.parentCtrl.item.pnx.display.title[0]; 
