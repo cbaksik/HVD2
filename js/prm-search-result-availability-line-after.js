@@ -28,6 +28,7 @@ angular.module('viewCustom')
                       var param={'isbn':'','hasData':false};
                       param.isbn = vm.itemPNX.pnx.addata.isbn[i];
                       var post = custService.postData(vm.api.tocUrl,param);
+                      console.log(post);
                       listRequest.push(post);
                   }
                   // put everything into a list of queue call
