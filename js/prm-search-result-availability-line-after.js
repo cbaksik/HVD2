@@ -27,7 +27,7 @@ angular.module('viewCustom')
                   for(var i=0; i < vm.itemPNX.pnx.addata.isbn.length; i++) {
                       var param={'isbn':'','hasData':false};
                       param.isbn = vm.itemPNX.pnx.addata.isbn[i];
-                      var post = custService.postData(vm.api.tocUrl,param);
+                      var post = custService.postData(param);
                       console.log(post);
                       listRequest.push(post);
                   }
