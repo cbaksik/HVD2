@@ -18,47 +18,41 @@ angular.module('viewCustom')
         vm.itemPNX={};
         vm.hathiTrust={};
         var map;
+        var tocUrl = 'http://www.syndetics.com/index.aspx?isbn=';
+        //var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=9780674055360/xml.xml&client=harvard&type=xw10';
+        // for testing : var tocUrlBad = 'https://secure.syndetics.com/index.aspx?isbn=2939848394/xml.xml&client=harvard&type=xw10';
+
 
         // find if pnx has table of content
         vm.findTOC=function () {
-          if(vm.itemPNX.pnx.control.sourceid[0]===vm.TOC.type && vm.itemPNX.pnx.addata.isbn) {
-              if(vm.itemPNX.pnx.addata.isbn.length > 0) {
-                  var listRequest=[];
-                  for(var i=0; i < vm.itemPNX.pnx.addata.isbn.length; i++) {
-                      var param={'isbn':'','hasData':false};
-                      param.isbn = vm.itemPNX.pnx.addata.isbn[i];
-                      var post = custService.postData(param);
-                      console.log(post);
-                      listRequest.push(post);
-                  }
-                  // put everything into a list of queue call
-                  var ajax = $q.all(listRequest);
-                  ajax.then(
-                      function (response) {
-                          for(var k=0; k < response.length; k++) {
-                              var data = response[k].data;
-                              var xmldata = prmsv.parseXml(data.result);
-                              if(xmldata.ssi) {
-                                // it has table of content
-                                if(xmldata.ssi[0].TOC[0]) {
-                                    data.hasData = true;
-                                    vm.TOC.display = data.hasData;
-                                    vm.TOC.isbn = data.isbn;
-                                    k = response.length;
-                                }
-                              } else {
-                                  // it doesn't have table of content
-                                  data.hasData = false;
-                                  vm.TOC.display = data.hasData;
-                              }
-
+            if (vm.itemPNX.pnx.control.sourceid[0] === vm.TOC.type && vm.itemPNX.pnx.addata.isbn) {
+                var param={'isbn':'','hasData':false};
+                //console.log("test for toc");
+                param.isbn = vm.itemPNX.pnx.addata.isbn[0];
+                 /* fetch chained response to get data (first response is not actual data yet) */
+                    fetch(tocUrl+param.isbn+'/xml.xml&client=harvard&type=xw10', {                        
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'text/xml; charset=UTF-8',
+                            // 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',                           
+                            'Access-Control-Allow-Origin': '*/*' ,     
+                            'Access-Control-Request-Headers': '*/*'
                           }
-                      },
-                      function (error) {
-                          console.log(error);
-                      }
-                  )
-              }
+                      })
+                        .then(function (response) {
+                            //console.log(response);
+                            //console.log(response.headers); 
+                            return response.text();
+                        })
+                        .then(function (data) {                                                      
+                            if (data.substr(0,5) == '<?xml') {                                
+                                vm.TOC.display = true;
+                                vm.TOC.isbn = param.isbn;
+                            }
+                        })
+                        .catch(function (err) {
+                            console.log("Syndetics call did not work", err);
+                        });
           }
         };
 

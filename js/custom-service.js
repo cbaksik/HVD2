@@ -38,14 +38,6 @@ angular.module('viewCustom')
             })
         };
 
-        serviceObj.postData=function (url,jsonObj) {
-            return $http({
-                'method':'post',
-                'url':url,
-                'data':jsonObj
-            })
-        };
-
         // setter and getter for text msg data
         serviceObj.textData={};
         serviceObj.setTextData=function (data) {

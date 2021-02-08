@@ -5,15 +5,6 @@ https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/ra
 
 <!-- end browzine code from vendor --> 
 
-<div ng-if="vm.TOC.display">
-    <md-icon  icon-type="svg" md-svg-src="/primo-explore/custom/HVD2/img/ic_list_black_24px.svg"></md-icon>
-    <a href="https://secure.syndetics.com/index.aspx?isbn={{vm.TOC.isbn}}/TOC.HTML&client=harvard&type=rn12" target="_blank">
-        <span>Table of Contents</span>
-        <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>
-    </a>
-    <prm-icon link-arrow icon-type="svg" svg-icon-set="primo-ui" icon-definition="chevron-right"></prm-icon>
-</div>
-
 <div ng-if="vm.hathiTrustItem.orig" class="hvdHathiViewOnline_div">
     <prm-icon availability-type icon-type="svg" svg-icon-set="primo-ui" icon-definition="link"></prm-icon>
     <a ng-if="vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvdHathiViewOnline">
@@ -26,6 +17,17 @@ https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/ra
     </a>
     <prm-icon link-arrow icon-type="svg" svg-icon-set="primo-ui" icon-definition="chevron-right"></prm-icon>
 </div>
+
+<div ng-if="vm.TOC.display">
+    <md-icon  icon-type="svg" md-svg-src="/primo-explore/custom/HVD2/img/ic_list_black_24px.svg"></md-icon>
+    <a href="https://secure.syndetics.com/index.aspx?isbn={{vm.TOC.isbn}}/TOC.HTML&client=harvard&type=rn12" target="_blank">
+        <span>Table of Contents</span>
+        <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>
+    </a>
+    <prm-icon link-arrow icon-type="svg" svg-icon-set="primo-ui" icon-definition="chevron-right"></prm-icon>
+</div>
+
+
 
 <div ng-if="vm.parentCtrl.isFullView && vm.itemPNX.pnx.display.lds40">
     <div class="bold-text">Geographic coverage</div>
