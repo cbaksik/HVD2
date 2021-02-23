@@ -18,7 +18,7 @@ angular.module('viewCustom')
         vm.itemPNX={};
         vm.hathiTrust={};
         var map;
-        var tocUrl = 'http://www.syndetics.com/index.aspx?isbn=';
+        var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=';
         //var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=9780674055360/xml.xml&client=harvard&type=xw10';
         // for testing : var tocUrlBad = 'https://secure.syndetics.com/index.aspx?isbn=2939848394/xml.xml&client=harvard&type=xw10';
 
@@ -33,6 +33,7 @@ angular.module('viewCustom')
                     fetch(tocUrl+param.isbn+'/xml.xml&client=harvard&type=xw10', {                        
                         method: 'GET',
                         headers: {
+                            'Accept': '*/*'
                             //'Content-Type': 'text/xml; charset=UTF-8',
                             // 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',                           
                             //'Access-Control-Allow-Origin': '*/*' ,     
