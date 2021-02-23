@@ -213,6 +213,32 @@ prm-favorites-edit-labels-menu .labels-menu-button.md-button.button-with-icon {
 prm-saved-queries-list a:hover, prm-saved-queries-list a:focus {
     text-decoration: underline;
 }
+/* new "are you sure" prompt before deleting something from favorites */
+prm-favorites md-dialog.in-element-dialog form {
+    background-color: white;
+    width: 50%;
+    /* height: 50%; */
+    /* min-height: 50%; */
+    /* align-content: end; */
+    /* align-items: end; */
+    margin-left: 50%;
+    /* padding-top: 2%; */
+    /* margin-top:45px; */
+    border:5px solid #cccbcb;
+}
+prm-favorites md-dialog.in-element-dialog form div.md-dialog-content {
+    margin-left:25px;
+}
+prm-favorites md-dialog.in-element-dialog form div.md-actions button {
+    border:1px solid #acabab;
+    margin-right:20px;
+}
+prm-favorites md-dialog.in-element-dialog span[translate='nui.favorites.removeSingleItem'] {
+    display:block;
+    background-color:white;
+    padding:15px;
+}
+
 /* prm-favorites-tool-bar button.unpin-button::after { 
     content: "!";
 } */
@@ -279,8 +305,8 @@ prm-search-result-availability-line span {
 prm-search-result-availability-line a.hvdHathiViewOnline span {
     color: #0f7d00;
 }
-prm-search-result-availability-line .hvdHathiViewOnline_div {
-    margin: 3px 0;
+prm-search-result-availability-line .hvdHathiViewOnline_div,.hvd_TOC_link {
+    margin: 5px 0;
 }
 prm-search-result-availability-line .hvdHathiViewOnline_div prm-icon {
     margin-right:.15em;
@@ -290,6 +316,11 @@ prm-chapters-results-line span.button-content {
 }
 prm-chapters-results-line .md-button.arrow-link-button .button-content {
     color:#44707b;
+}
+/* syndetics toc link */
+prm-search-result-availability-line div.hvd_TOC_link [external-link] [icon-definition="chapters"] md-icon {
+    height: 25px;
+    width: 20px;
 }
 /* contextual links, hide chapters per d2d */
 prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapters-results-line button[aria-label*="Other chapters"] {
