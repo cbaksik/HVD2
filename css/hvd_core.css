@@ -953,7 +953,11 @@ prm-search-result-availability-line div.browzine a.browzine-web-link md-icon {
 /* bx */
 prm-recomendation-item div > a:focus {
     border:2px solid #C0C0C0;
- }
+}
+/* next line added b/c Feb release changed background of bx section to be unreadable */
+.full-view-aside.flex-xl-20.flex-md-25.flex-lg-25.flex {
+    background-color:#FEFFFE;
+}
 /* save pin */
 prm-save-to-favorites-button button:focus, prm-save-to-favorites-button button:hover {
     border: 1px solid #1e1e1e;
