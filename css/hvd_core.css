@@ -327,13 +327,14 @@ prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapt
     display:none;
 } 
 /* page navigation search results */
-/* prm-page-nav-menu .counter-main md-fab-trigger .md-button {
-    box-shadow:5px 0 5px -3px rgba(0,0,0,.5), -5px 0 5px -3px rgba(0,0,0,.5);
-    color:#0579b8;
+prm-page-nav-menu .current-bulk, prm-page-nav-menu .current-page {
+    background-color:#44707b;
+    color:#FFF;
+    box-shadow:0 0 0 2px #44707b;
 }
-prm-page-nav-menu .counter-nav prm-icon md-icon svg {
-    color:#0579b8;
-} */
+prm-page-nav-menu #resultsPerPage div.results-per-page {
+    margin-top:10px;
+}
 /* snippet quotation mark */
 prm-snippet {
     margin-left: 15px;
