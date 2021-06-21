@@ -326,14 +326,59 @@ prm-search-result-availability-line div.hvd_TOC_link [external-link] [icon-defin
 prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapters-results-line button[aria-label*="Other chapters"] {
     display:none;
 } 
-/* page navigation search results */
-prm-page-nav-menu .current-bulk, prm-page-nav-menu .current-page {
-    background-color:#44707b;
+/* page navigation search results, new pagination may 2021 */
+prm-page-nav-menu #resultsPerPage .counter-main a {
+    color:#026DB9;
+    font-weight:bold;
+}
+prm-page-nav-menu #resultsPerPage .counter-main a:hover {
     color:#FFF;
-    box-shadow:0 0 0 2px #44707b;
+}
+prm-page-nav-menu #resultsPerPage .counter-main .current-page {
+    color:#3a3a3a;
+    box-shadow:0 0 0 0px;
+}
+prm-page-nav-menu #resultsPerPage .counter-main a.current-page:hover {
+    color:#3a3a3a;
+    background-color:#FFF;
+    box-shadow:0 0 0 0px;
+}
+prm-page-nav-menu #resultsPerPage .counter-next a,
+prm-page-nav-menu #resultsPerPage .counter-prev a {
+    color:#026DB9;
+    font-weight:bold;
+}
+prm-page-nav-menu #resultsPerPage .counter-next a:hover,
+prm-page-nav-menu #resultsPerPage .counter-prev a:hover {
+    color:#FFF;
 }
 prm-page-nav-menu #resultsPerPage div.results-per-page {
     margin-top:10px;
+}
+prm-page-nav-menu #resultsPerPage div.results-per-page button {
+    color:#026DB9;
+    font-weight:bold;
+}
+prm-page-nav-menu #resultsPerPage div.results-per-page button:hover {
+    color:#FFF;
+}
+prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk {
+    color:#3a3a3a;
+    box-shadow:0 0 0 0px;
+}
+prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk:hover {
+    color:#3a3a3a;
+    background-color:#FFF;
+    box-shadow:0 0 0 0px;
+}
+prm-page-nav-menu #resultsPerPage .counter-main a:focus,
+prm-page-nav-menu #resultsPerPage .counter-next a:focus,
+prm-page-nav-menu #resultsPerPage div.results-per-page button:focus {
+    color:#FFF;
+}
+prm-page-nav-menu a:focus,
+prm-page-nav-menu button:focus {
+    color:#FFF;
 }
 /* snippet quotation mark */
 prm-snippet {
