@@ -71,7 +71,47 @@ md-select-menu.md-primoExplore-theme md-content md-option[selected="selcted"]:ho
         background-color:#F3F3F3;
 }
 /* END search bar area (there may be additional css later in file */
-
+/* BEGIN finding aid link */
+#briefResultAfterFindingAid {
+    margin:0px;
+    padding:0px;
+    padding-bottom:10px;
+    background-color: #fff;
+    vertical-align: middle;
+}
+/* prm-brief-result-container-after {
+    background-color: #f3f3f3;
+} */
+#briefResultAfterFindingAid:hover {
+    background-color: #f3f3f3;
+}
+#briefResultAfterFindingAid a {
+    color:#44707b;
+}
+#briefResultAfterFindingAid > .layout-row > .flex-* {
+    padding:0px;
+    margin-top:0px;
+}
+#briefResultAfterFindingAid > .md-button {
+    margin:0px !important;
+}
+#briefResultAfterFindingAid > .spaceLeft {
+    padding-left:5px;
+}
+#briefResultAfterFindingAid > .marginLeftFindingAid {
+    padding-left:100px;
+}
+#briefResultAfterFindingAid > .marginLeftFindingAid2 {
+    padding-left:140px;
+}
+#briefResultAfterFindingAid > .spaceLeft40 {
+    padding-left:45px;
+}
+#briefResultAfterFindingAid > .folder {
+    font-size: 36px;
+    color: #7b8995;
+}
+/* END finding aid link */
 prm-brief-result-container .list-item-primary-content:before {
     background-color: #F3F3F3;
 }
@@ -694,6 +734,9 @@ md-menu-content.menu-with-footer .menu-footer form div:hover {
 /* from prm-permalink-after.css, from contractor work */
 .highlite {
     background: #FFFCC4;
+}
+prm-permalink div.form-focus{
+    text-align:center;
 }
 /* advanced search */
 @media (max-width: 599px) {
