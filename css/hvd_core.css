@@ -253,6 +253,9 @@ prm-favorites-edit-labels-menu .labels-menu-button.md-button.button-with-icon {
 prm-saved-queries-list a:hover, prm-saved-queries-list a:focus {
     text-decoration: underline;
 }
+prm-edit-notification-settings form {
+    background-color:#fff;
+}
 /* new "are you sure" prompt before deleting something from favorites */
 prm-favorites md-dialog.in-element-dialog form {
     background-color: white;
@@ -1180,8 +1183,9 @@ prm-tags-list input::placeholder {
 }
 
 .serviceLinkPhoto {
-    height:155px;
-    width: auto;
+    /* height:155px; */
+    max-height: 205px;
+    max-width: 155px;
 }
 
 .serviceLinkSpace {
