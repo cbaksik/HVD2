@@ -286,6 +286,10 @@ prm-favorites md-dialog.in-element-dialog span[translate='nui.favorites.removeSi
     content: "!";
 } */
 /* END MY FAVORITES */
+/* mobile misc */
+button.mobile-menu-button prm-icon {
+    color:#3a3a3a;
+}
 /* mobile search bar area */
 @media (max-width: 599px) {
     prm-tabs-and-scopes-selector {
@@ -344,6 +348,9 @@ prm-search-result-availability-line span {
     white-space: normal;
     display: inline;
     color: #44707b;
+}
+prm-search-result-availability-line button[title^="ONLINE"] prm-icon[icon-definition="chevron-right"] md-icon svg {
+    display:none;
 }
 prm-search-result-availability-line a.hvdHathiViewOnline span {
     color: #0f7d00;
@@ -585,6 +592,12 @@ prm-full-view-service-container .arrow-link [link-arrow] md-icon {
     min-height: 18px;
     width: 18px;
     height: 18px;
+}
+prm-full-view-service-container prm-view-online div {
+    padding-bottom:10px;
+}
+prm-full-view-service-container prm-service-header h4 {
+    padding-bottom:10px;
 }
 /* ava line at top */
 prm-full-view div.full-view-container prm-full-view-service-container prm-search-result-availability-line {
@@ -953,6 +966,21 @@ div > prm-search-result-frbr-line {
 div > prm-search-result-frbr-line span {
     color:#B56001;
 }
+/* shenanigans to prevent period from displaying */
+prm-search-result-frbr-line .button-content span.prm-notice {
+    color:white;
+}
+prm-search-result-frbr-line .button-content span.prm-notice span[translate='nui.frbrversion.found'] {
+    color:#B56001;
+}
+/* hide OTB blue chevron */
+prm-search-result-frbr-line button > prm-icon > md-icon {
+    display:none;
+}
+/* this line controls cluster icon in search results, note lower case versions */
+/* prm-search-result-frbr-line button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme {   
+    display:none;
+ }   */
 prm-search-result-thumbnail-container img.fan-img-2[src="custom/HVD2/img/icon_versions.png"] {
     display:none;
 }
@@ -965,16 +993,12 @@ prm-search-result-thumbnail-container img.fan-img-3[src="custom/HVD2/img/icon_ve
     color:#026DB9;
     margin:10px 10px;    
 }  */
-prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong[translate="facets.facet.facet_frbrgroupid"] {
-    padding-left:10px;
-} 
-/* hide x after groupid remove facet label; DON'T DO THIS. The X is the only part that's actionalbe; need it to be able to execute return */
 /* button[aria-label*="Return to search results"] prm-icon md-icon.md-primoExplore-theme svg {
     display:none;    
 }  */
 /* this line has upper case -Versions-, which controls opened cluster list*/
 /* same selectors apply to search result but aria-label is proper case Versions */
-button[aria-label*="Versions"] prm-icon md-icon.md-primoExplore-theme {
+prm-breadcrumbs button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme {
     /* border:solid 5px #026DB9; */
     background-color:rgb(181, 96, 1);
     padding:2px;
@@ -984,24 +1008,32 @@ button[aria-label*="Versions"] prm-icon md-icon.md-primoExplore-theme {
     border-radius: 1.2em;
     overflow: hidden;
 } 
+/* this is the icon in the search results right before the text starts for Multiple versions avail */
+prm-search-result-frbr-line button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme {
+    display:none;
+}
+/* prm-search-result-frbr-line button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme svg {
+    color:rgb(181, 96, 1);
+    font-size:150%;
+}  */
+prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong[translate="facets.facet.facet_frbrgroupid"] {
+    padding-left:10px;
+} 
+/* hide x after groupid remove facet label; DON'T DO THIS. The X is the only part that's actionalbe; need it to be able to execute return */
+
 /* this line controls X to close "list of versions" facet in open cluster,  note proper case Versions */
-button[aria-label*="Versions"] prm-icon md-icon.md-primoExplore-theme svg {
+prm-breadcrumbs button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme svg {
     color:white;
     font-size:150%;
 } 
-/* this line controls cluster icon in search results, note lower case versions */
-button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme svg {   
-   font-size:150%;
-}  
 /* this handles the weird white hover that seems to happen for no reason */
 prm-breadcrumbs .md-chips .md-chip-content:focus:before, prm-breadcrumbs .md-chips .md-chip-content:hover:before {
     opacity:0;
 } 
-/* icon in front of remove groupid list */
-/* prm-breadcrumbs .md-chips .md-chip-content:before {
- content:"<---";
- color:red;
-} */
+/* space in front of remove groupid list. not needed b/c no padlock in this scenario */
+prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content[aria-label*="List"] strong {
+    padding-left: 5px;
+}
 /* citation trails in search results - hide them so they are only in the Details page */
 prm-citation-trails-indication-container {
     display:none;
@@ -1010,7 +1042,7 @@ prm-citation-trails-indication-container {
 div.item-details-element div[ng-show="!value.isLinkable"] {
     padding-bottom:.2em;
 }
-/* main menu - after ellipsis expansion */
+/* main menu - after ellipsis expansion, etc.  */
 md-dialog.md-transition-in {
     background-color: rgba(0,0,0,.2);
 }
@@ -1025,6 +1057,10 @@ prm-main-menu[menu-type=full] .md-button:focus {
 }
 prm-main-menu[menu-type=full] .overlay-menu-item:focus {
     border:2px solid white; 
+}
+/* learned in Oct '21 that refworks started appearing in mobile for some reason */
+prm-main-menu .my-refworks-ctm {
+    display:none;
 }
 /* end */
 /* toc */
@@ -1192,3 +1228,36 @@ prm-tags-list input::placeholder {
     margin-bottom:10px;
 }
 /* end digital bookplates */
+@media print {
+
+    body {                  
+        margin:5%;    
+        font-size:70%;
+    }
+    /* prm-brief-result-container {
+        display:none;
+    } */
+    prm-snippet {
+        display:none;
+    }
+    prm-search-result-thumbnail-container {
+        display:inline;
+    }
+    prm-full-view-service-container .section-head {
+        display:none;
+    }
+    .layout-row {
+        display:flex;
+    } 
+    prm-login-alma-mashup {
+        display:none;
+    }
+    #fullView .layout-row {
+        margin-bottom: 0px;
+    }
+    iframe.mashup-iframe {
+        margin-top:-25px;
+    }
+      
+}
+  
