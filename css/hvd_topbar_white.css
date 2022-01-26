@@ -80,7 +80,7 @@ prm-main-menu .buttons-group .md-button:first-child {
 .buttons-group .md-button:first-child {
     box-shadow:none;
 }
-.betaIcon {
+/* .betaIcon {
     display: table-cell;
 }
 
@@ -88,7 +88,7 @@ prm-main-menu .buttons-group .md-button:first-child {
     width:33px;
     height:auto;
     padding-bottom:10px;
-}
+} */
 
 .topMenu {
     background:#ffffff;
