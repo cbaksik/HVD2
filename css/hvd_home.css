@@ -1,0 +1,95 @@
+a {
+  border-bottom: 3px solid transparent;
+  color: #0579b8;
+  font-family: "Trueno", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  transition: border 0.28s cubic-bezier(0.28, 1.08, 1, 0.96);
+}
+
+a:hover {
+  border-bottom-color: rgba(5, 121, 184, 0.3);
+  color: #0579b8;
+  box-shadow: none;
+}
+
+.hl__right-arrow {
+  text-align: right;
+}
+
+.hl__right-arrow a {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	/* margin-top: 30px; */
+	/* clear: both; */
+  /* float: right; */
+}
+
+.hl__right-arrow a::after {
+	border-bottom: 0.425em solid transparent;
+	border-left: 0.5em solid currentColor;
+	border-top: 0.425em solid transparent;
+	content: "";
+	display: inline-block;
+	height: 0;
+	width: 0;
+	margin-left: 0.3em;
+	opacity: 0.6;
+	background-image: none;
+	padding-right: 0;
+}
+
+h2 {
+  font-family: "Trueno", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  /* color: $c-theme-ink; */
+}
+
+h3 {
+  font-family: "Trueno", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  /* color: $c-theme-ink; */
+}
+
+
+/* search tool cards */
+.hl__search-tools {
+  background: #fafafa;
+}
+
+.hl__search-tools a {
+  border-bottom: none;
+}
+
+.hl__search-tools a:hover {
+  background-image: linear-gradient(-45deg, #0579b8 0%, #2a5280 100%);
+}
+
+.hl__search-tools .md-headline {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.hl__search-tools .md-subhead {
+  font: "Lora";
+  color: #1e1e1e;
+  font-size: 15px;
+}
+
+.hl__search-tools a:hover .md-headline, .hl__search-tools a:hover .md-subhead {
+  color: white;
+}

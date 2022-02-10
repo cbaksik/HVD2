@@ -1,104 +1,58 @@
-<md-content layout-xs="column" layout="row">
-    <div flex="60" layout="column">    
-        <md-card class="default-card">
-            <md-card-title>
-                <md-card-title-text>                    
-                    <!-- <span class="md-headline"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="21" viewBox="0 0 18 21"><g><g transform="translate(-37 47)"><path style="fill:#8A8888" id="qy38a" d="M52.88-32.18V-38a6.87 6.87 0 0 0-5.29-6.69v-.72a1.59 1.59 0 1 0-3.18 0v.72A6.87 6.87 0 0 0 39.12-38v5.82L37-30.06V-29h18v-1.06l-2.12-2.12zM44-28a2 2 0 1 0 4 0h-4z"></path></g></g></svg> &nbsp; &nbsp;Coronavirus update</span> -->
-                    <span class="md-headline"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="21" viewBox="0 0 18 21"><g><g transform="translate(-37 47)"><path style="fill:#8A8888" id="qy38a" d="M52.88-32.18V-38a6.87 6.87 0 0 0-5.29-6.69v-.72a1.59 1.59 0 1 0-3.18 0v.72A6.87 6.87 0 0 0 39.12-38v5.82L37-30.06V-29h18v-1.06l-2.12-2.12zM44-28a2 2 0 1 0 4 0h-4z"></path></g></g></svg> &nbsp; &nbsp;Coronavirus update</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <!-- <p><strong><a href="https://library.harvard.edu/how-to/borrow-materials-and-use-our-services-during-covid-19">How to borrow materials during COVID-19</a></strong></p> -->                
-                <p>For information regarding library policies during COVID-19, please visit <a href="https://library.harvard.edu">library.harvard.edu</a>.</p>
-                <p><strong>HathiTrust</strong> <a href="https://library.harvard.edu/services-tools/hathitrust">emergency access</a> ended as of August 30th.</p>
-                <p><p><strong><a href="https://library.harvard.edu/services-tools/research-consultations">Research consultations</a></strong> are available.</p>                
-                <p><strong>Online resources</strong> are available. Use your HarvardKey to access Harvard-only resources. (VPN is not required.)</p>                
-                <!-- <p><strong>Library physical access</strong> is not available.</p> -->
-                
-                    <strong>Faculty</strong> &mdash; learn about <a href="https://library.harvard.edu/how-to/use-library-resources-remote-teaching">Teaching in Virtual Classrooms with Harvard Library</a>
-                </p>              
-                <p><strong>Questions</strong>? <a href="http://nrs.harvard.edu/urn-3:hul.ois:dsref">Ask a Librarian</a>
-                <!-- <p><a href="https://library.harvard.edu/coronavirus">Coronavirus updates at library.harvard.edu</a>
-                </p>  --> 
-                </p>
-            </md-card-content>
-        </md-card>
-        <md-card class="default-card">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">About HOLLIS</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p>HOLLIS is the Harvard Library’s catalog. Search HOLLIS for books, articles, media and more.
-                </p>
-                <p>
-                    <a href="http://nrs.harvard.edu/urn-3:hul.ois:dsref">Ask a Librarian</a>
-                </p>
-                <p>
-                    <a href="https://guides.library.harvard.edu/hollishelp">HOLLIS user guide</a>
-                </p>
-                <p>
-                    <a href="http://nrs.harvard.edu/urn-3:HUL.ois:hollis-v2-feedback">Feedback</a>
-                </p>
-            </md-card-content>
-        </md-card>
-        <md-card class="default-card">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Not available at Harvard?</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p>Try <a href="http://nrs.harvard.edu/urn-3:hul.eother:BD">Borrow Direct</a> for books and other media from Ivy+ institutions</p>
-                <p>Use <a href="http://nrs.harvard.edu/urn-3:hul.eresource:illhulha">Interlibrary Loan</a> for items from libraries around the world</p>
-                <p><a href="http://library.harvard.edu/purchase-request-form">Request a purchase</a>
-                </p>
-            </md-card-content>
-        </md-card>      
+<md-content>
+    <!-- add custom alert -->
+    <custom-alert parent-ctrl="$ctrl"></custom-alert>
+    <!-- end custom alert -->
+    
+    <md-card class="default-card">
+        <md-card-title>
+            <md-card-title-text>
+                <h2 class="md-headline">What am I searching?</h2>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <p>HOLLIS is the library's main search. It searches the library catalog plus billions of citations, or you can choose to search the library catalog only from the drop-down. <a href="#">Learn more about which search box option to choose.</a></p>
+            <p class="hl__right-arrow"><a href="#">How hollis works</a></p>
+        </md-card-content>
+    </md-card>   
+  </md-content>
+  <md-content>
+    <h3>Related services & tools</h3>
+    <div layout="row">
+        
+            <md-card class="hl__search-tools">
+                <a href="">
+                    <md-card-title>
+                        <md-card-title-text>
+                        <span class="md-headline">Interlibrary Loan</span>
+                        <span class="md-subhead">Can't find the materials you need at Harvard? Submit an interlibrary loan request and we'll search other libraries.</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                </a>
+            </md-card>
+            <md-card class="hl__search-tools">
+                <a>
+                    <md-card-title>
+                        <md-card-title-text>
+                        <span class="md-headline">Alumni Access</span>
+                        <span class="md-subhead">Are you an alum? Most books in HOLLIS won't work with your access - you can use the links available on the alumni access page.</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                </a>
+            </md-card>
+            <md-card class="hl__search-tools">
+                <a>
+                    <md-card-title>
+                        <md-card-title-text>
+                        <span class="md-headline">HOLLIS User Guide</span>
+                        <span class="md-subhead">Go beyond the default HOLLS options - read about signing in, how to use advanced search, and search operators.</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                </a>
+            </md-card>
     </div>
-    <div flex-xs flex="40" layout="column">
-        <!-- add custom alert -->
-        <custom-alert parent-ctrl="$ctrl"></custom-alert>
-        <!-- end custom alert -->
-        <md-card class="default-card">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Other Harvard catalogs</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-
-                <p><a href="https://images.hollis.harvard.edu/">HOLLIS Images</a></p>
-                <p><a href="https://hollisarchives.lib.harvard.edu/">HOLLIS for Archival Discovery</a></p>
-                <p><a href="http://hgl.harvard.edu/">Harvard Geospatial Library</a></p>     
-                <p><a href="https://dash.harvard.edu/">DASH (Institutional Repository)</a></p>  
-                
-            </md-card-content>
-        </md-card>
-        <md-card class="default-card">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Alumni <img class="alumhat" src="/primo-explore/custom/HVD2/img/alum.svg" /></span> 
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p><a href="http://library.harvard.edu/alumni-resources">Find resources for accessing articles</a>
-                </p>
-            </md-card-content>
-        </md-card>
-        <md-card class="default-card">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Accessibility &amp; Privacy</span> 
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p><a href="https://accessibility.huit.harvard.edu/digital-accessibility-policy">Digital accessibility policy</a>
-                </p>
-                <p><a href="https://library.harvard.edu/hollis-privacy-statement">HOLLIS privacy statement</a>
-                </p>
-            </md-card-content>
-        </md-card>       
-    </div>
-</md-content>
+    
+    <h2>Other library search tools</h2>
+    <p class="hl__right-arrow"><a href="https://library.harvard.edu/services-tools">See all services & tools</a></p>
+  </md-content>
+  
+    
