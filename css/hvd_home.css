@@ -43,7 +43,8 @@ a:hover {
 	padding-right: 0;
 }
 
-h2 {
+/* headings and spacing */
+h2, h2.md-headline {
   font-family: "Trueno", sans-serif;
   font-weight: 700;
   font-size: 32px;
@@ -65,14 +66,21 @@ h3 {
   /* color: $c-theme-ink; */
 }
 
+prm-static[section="homepage"] md-content > * {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
 
 /* search tool cards */
+/* transition: all 0.5s ease; */
 .hl__search-tools {
   background: #fafafa;
 }
 
 .hl__search-tools a {
   border-bottom: none;
+  height: 100%;
 }
 
 .hl__search-tools a:hover {
