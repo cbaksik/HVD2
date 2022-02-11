@@ -5,6 +5,7 @@
   padding: 24px;
   display: grid;
 	grid-template-columns: auto 135px;
+	margin-bottom: 10px;
 }
 .hl__site-alert-banner__container {
 	margin-left: auto;
