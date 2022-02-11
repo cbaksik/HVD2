@@ -67,15 +67,20 @@ h3 {
 }
 
 prm-static[section="homepage"] md-content > * {
-  margin-top: 30px;
-  margin-bottom: 10px;
+  /* margin-top: 30px; */
+  /* margin-bottom: 10px; */
+}
+.hlHollisIntro, .hlHollisIntro > * {
+  margin-top: 60px;
+}
+.hl__search-tools-grid, .hl__overlay-promo-grid {
+  margin: 70px 8px 85px;
 }
 
 
 /* search tool cards */
-/* transition: all 0.5s ease; */
 .hl__search-tools {
-  background: #fafafa;
+  background: #f3f3f3;
 }
 
 .hl__search-tools a {
@@ -93,11 +98,169 @@ prm-static[section="homepage"] md-content > * {
 }
 
 .hl__search-tools .md-subhead {
-  font: "Lora";
+  font-family:Lora,Georgia,serif;
   color: #1e1e1e;
   font-size: 15px;
 }
 
 .hl__search-tools a:hover .md-headline, .hl__search-tools a:hover .md-subhead {
   color: white;
+}
+
+/* image overlay cards */
+.hl__overlay-promo {
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  display:block;
+  font-size:0;
+  overflow:hidden;
+  position:relative;
+  text-decoration:none;
+  -webkit-transition:background 0.5s ease;
+  transition:background 0.5s ease;
+  width:100%;
+ }
+ .hl__overlay-promo:before {
+  content:"";
+  display:inline-block;
+  height:1px;
+  margin-left:-1px;
+  padding-top:63%;
+  vertical-align:bottom;
+  width:1px;
+ }
+ .hl__overlay-promo:after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  top:0;
+  -webkit-transition:background 0.7s ease;
+  transition:background 0.7s ease;
+ }
+ .hl__overlay-promo:hover,
+ .hl__overlay-promo:focus {
+  -webkit-box-shadow:none;
+  box-shadow:none;
+  padding:0;
+  margin:0;
+  z-index:90;
+ }
+ .hl__overlay-promo:hover:after,
+ .hl__overlay-promo:focus:after {
+  background-color:rgba(82,117,126,0.7);
+ }
+ .hl__overlay-promo__details,
+ .hl__overlay-promo__details-spacer {
+  padding:37px 20px 10px;
+  width:calc(100% - 1px);
+ }
+ @media (min-width:781px) {
+  .hl__overlay-promo__details,
+  .hl__overlay-promo__details-spacer {
+   padding:47px 30px 20px;
+  }
+ }
+ .hl__overlay-promo__details-spacer {
+  display:inline-block;
+  vertical-align:top;
+  visibility:hidden;
+ }
+ .hl__overlay-promo__details {
+  background-image:-webkit-gradient(linear,left bottom,left top,color-stop(50%,rgba(0,0,0,0.7)),to(rgba(0,0,0,0.3)));
+  background-image:linear-gradient(0deg,rgba(0,0,0,0.7) 50%,rgba(0,0,0,0.3) 100%);
+  color:white;
+  position:absolute;
+  bottom:0;
+  -webkit-transition:padding 0.5s ease;
+  transition:padding 0.5s ease;
+  z-index:1;
+ }
+ .hl__overlay-promo__details:before {
+  background-image:-webkit-gradient(linear,left bottom,left top,from(rgba(0,0,0,0.3)),to(transparent));
+  background-image:linear-gradient(0deg,rgba(0,0,0,0.3),transparent);
+  content:"";
+  height:100%;
+  position:absolute;
+  bottom:100%;
+  left:0;
+  width:100%;
+  z-index:1;
+ }
+ .hl__overlay-promo__title {
+  color:#1e1e1e;
+  font-family:"Trueno",sans-serif;
+  /* font-size:28px; */
+  font-size: 19px;
+  font-weight:700;
+  letter-spacing:1.8px;
+  line-height:1.35714;
+  margin-bottom:0.4em;
+  color:white;
+  font-size:24px;
+  letter-spacing:0;
+  position:relative;
+  text-transform: none;
+ }
+ @media (min-width:621px) {
+  .hl__overlay-promo__title {
+   /* font-size:32px; */
+   line-height:1.3125;
+  }
+ }
+ @media (hover:hover) {
+  .hl__overlay-promo__title {
+   /* font-size:26px; */
+  }
+ }
+ .hl__overlay-promo__subtitle {
+  font-family:Lora,Georgia,serif;
+  /* font-size:18px; */
+  font-size: 15px;
+  font-style:italic;
+  font-weight: normal;
+  margin-bottom:10px;
+  margin-top:-7px;
+ }
+
+ /* overlay promo grid layout */
+ .hl__overlay-promo-grid__grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 621px) {
+  .hl__overlay-promo-grid__grid {
+    margin-left: -20px;
+  }
+}
+
+@media (min-width: 1171px) {
+  .hl__overlay-promo-grid__grid {
+    margin-left: -30px;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+.hl__overlay-promo-grid .hl__overlay-promo {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+@media (min-width: 621px) {
+  .hl__overlay-promo-grid .hl__overlay-promo {
+    margin-left: 20px;
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 1171px) {
+  .hl__overlay-promo-grid .hl__overlay-promo {
+    margin-bottom: 30px;
+    margin-left: 30px;
+    width: calc(33.333% - 30px);
+  }
 }
