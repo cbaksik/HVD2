@@ -53,6 +53,7 @@
 }
 .hl__site-alert-banner a {
 	text-decoration: underline;
+	box-shadow: none;
 }
 .hl__site-alert-banner__dismiss {
 	display: flex;

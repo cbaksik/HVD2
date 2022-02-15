@@ -30,6 +30,9 @@
 
 
 /* hollis logo topbar */
+prm-logo {
+    align-self: center;
+}
 #hollisLogoTopbar {
     margin-left: 40px;
     white-space: nowrap;
@@ -46,13 +49,46 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 42px;
-    /* margin-bottom: 20px; */
     text-transform: uppercase;
     letter-spacing: 2.4px;
     color: #1e1e1e;
 }
 
+/* 'show more' modal window */
+/* maybe? */
+prm-main-menu[menu-type=full] .md-button {
+    font-weight: 600;
+}
+/* end maybe? */
+md-content.overlay-menu-content {
+    background: white;
+}
+/* top buttons */
+.light-on-dark-dialog prm-main-menu[menu-type="full"] .md-button {
+    color: #1e1e1e;
+}
+prm-main-menu[menu-type="full"] md-divider {
+    color: #C0C0C0;
+}
+/* links */
+prm-main-menu[menu-type="full"] .custom-links-container .main-menu-button .transparent-card {
+    padding: 0;
+    margin: 15px;
+    border: none !important;
+}
+prm-main-menu[menu-type="full"] .md-button .md-headline {
+    color: #0579B8;
+    border-bottom: 3px solid transparent;
+    transition: border 0.28s cubic-bezier(0.28, 1.08, 1, 0.96);
+}
+prm-main-menu[menu-type="full"] .md-button:hover .md-headline,
+prm-main-menu[menu-type="full"] .md-button:focus .md-headline {
+    color: #0579B8 !important;
+    border-bottom-color: rgba(5, 121, 184, 0.3);
+}
 
+
+/* Maura hasn't touched most of the stuff below here...should go back and clean it all up and reorganize though */
 
 
 prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark {
@@ -67,6 +103,8 @@ prm-main-menu[menu-type=menu] div#mainMenu div a:hover, prm-main-menu[menu-type=
 prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark:focus {
     text-decoration:underline; 
 }
+
+
 /* more menu options button */
 prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:hover, prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:focus {
     background-color: #E5E5E5;
