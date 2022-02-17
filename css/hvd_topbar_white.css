@@ -1,44 +1,109 @@
+/* hl logo header container */
+.hl__header__container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-shadow: 0 5px 5px rgba(30,30,30,0.1);
+    height: 53px;
+    display: flex;
+}
+@media only screen and (max-width: 1280px) {
+    .hl__header__container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+.hl__header__logo {
+    height: 54px;
+    width: 73px;
+    margin-bottom: -12px;
+    align-self: flex-end;
+}
+.hl__header__logo a:hover {
+    box-shadow: none;
+}
+.hl__image {
+    height: auto;
+    max-width: 100%;
+}
+
+
+/* navbar */
+prm-topbar > div.top-nav-bar > * {
+	align-self: center;
+}
+div.top-nav-bar.layout-row > prm-main-menu.flex-50, prm-user-area-expandable {
+    height: 47px;
+}
+
+/* hollis logo topbar */
 #hollisLogoTopbar {
-    /* padding-top:8px; */
-    /* margin-left:64px; */
     margin-left: 40px;
     white-space: nowrap;
-}
-
-.hlLogoHeader {
-    border-bottom: 2px solid purple;
-    max-height: 55px;
-}
-
-#hlLogo {
-    margin-left: 49px;
-    display: block;
-    width: 110px;
-}
-
-#hlLogo:hover {
-   text-decoration: none;
-   background: transparent;
-}
-
-.objectTag {
-    cursor: pointer;
-    pointer-events: none;
-    z-index: -1;
-    max-height:100%;
-    width:110px;
-    height: 75px;
-    margin-top:10px;
 }
 
 @media only screen and (max-width: 1280px) {
     #hollisLogoTopbar {
         margin-left:20px;
     }
-    #hlLogo {
-        margin-left: 15px;
-    }
 }
+
+#hollisLogoTopbar a {
+    font-family: "Trueno", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 42px;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    color: #1e1e1e;
+}
+
+
+/* menu items */
+prm-topbar > div.top-nav-bar > div {
+	display: none;
+}
+div.top-nav-bar.layout-row > prm-main-menu.flex-50 {
+    max-width: 100%;
+}
+
+/* 'show more' modal window */
+/* maybe? */
+prm-main-menu[menu-type=full] .md-button {
+    font-weight: 600;
+}
+/* end maybe? */
+md-content.overlay-menu-content {
+    background: white;
+}
+/* top buttons */
+.light-on-dark-dialog prm-main-menu[menu-type="full"] .md-button {
+    color: #1e1e1e;
+}
+prm-main-menu[menu-type="full"] md-divider {
+    color: #C0C0C0;
+}
+/* links */
+prm-main-menu[menu-type="full"] .custom-links-container .main-menu-button .transparent-card {
+    padding: 0;
+    margin: 15px;
+    border: none !important;
+}
+prm-main-menu[menu-type="full"] .md-button .md-headline {
+    color: #0579B8;
+    border-bottom: 3px solid transparent;
+    transition: border 0.28s cubic-bezier(0.28, 1.08, 1, 0.96);
+}
+prm-main-menu[menu-type="full"] .md-button:hover .md-headline,
+prm-main-menu[menu-type="full"] .md-button:focus .md-headline {
+    color: #0579B8 !important;
+    border-bottom-color: rgba(5, 121, 184, 0.3);
+}
+
+
+/* Maura hasn't touched most of the stuff below here...should go back and clean it all up and reorganize though */
+
 
 prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark {
     color:#000;
@@ -52,6 +117,8 @@ prm-main-menu[menu-type=menu] div#mainMenu div a:hover, prm-main-menu[menu-type=
 prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark:focus {
     text-decoration:underline; 
 }
+
+
 /* more menu options button */
 prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:hover, prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:focus {
     background-color: #E5E5E5;
@@ -79,21 +146,15 @@ prm-main-menu .buttons-group .md-button:first-child {
 
 prm-topbar {
     height: inherit;
-    /* background-color:#000000; */
 }
 
 prm-topbar > div.top-nav-bar {
     background-color:#ffffff;
-    padding: 20px 0;
+    padding: 10px 0 20px;
+    margin-top: 10px;
 }
 .prm-topbar .md-button .md-button.button-over-dark {
     color:#000;
-}
-
-#hollisLogoTopbar a {
-    color:#000;
-    font-family:"Trueno";
-    font-size:42px;
 }
 
 .customTopMenu {
