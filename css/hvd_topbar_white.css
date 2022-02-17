@@ -29,10 +29,15 @@
 }
 
 
-/* hollis logo topbar */
-prm-logo {
-    align-self: center;
+/* navbar */
+prm-topbar > div.top-nav-bar > * {
+	align-self: center;
 }
+div.top-nav-bar.layout-row > prm-main-menu.flex-50, prm-user-area-expandable {
+    height: 47px;
+}
+
+/* hollis logo topbar */
 #hollisLogoTopbar {
     margin-left: 40px;
     white-space: nowrap;
@@ -52,6 +57,15 @@ prm-logo {
     text-transform: uppercase;
     letter-spacing: 2.4px;
     color: #1e1e1e;
+}
+
+
+/* menu items */
+prm-topbar > div.top-nav-bar > div {
+	display: none;
+}
+div.top-nav-bar.layout-row > prm-main-menu.flex-50 {
+    max-width: 100%;
 }
 
 /* 'show more' modal window */

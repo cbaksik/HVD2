@@ -1,7 +1,12 @@
+.lcs_slide_out-r {
+    top: 260px !important;
+}
+
 .lcs_slide_out header a {
     font-weight: bold;
-    font-size:16px;    
+    font-size:16px;
 }
+
 .lcs_slide_out header a:focus, .lcs_slide_out header a:hover {
     font-weight:800;
     padding:10px;
