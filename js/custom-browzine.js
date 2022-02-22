@@ -34,7 +34,13 @@ function isBrowzineLoaded() {
     
         articlePDFDownloadLinkEnabled: true,
         articlePDFDownloadLinkText: "VIEW PDF",
-    
+
+        articleLinkEnabled: false,
+        articleLinkText: "Read Article",
+
+        articleRetractionWatchEnabled: true,
+        articleRetractionWatchText: "Retracted Article",   
+        
         printRecordsIntegrationEnabled: true,
       };
   
