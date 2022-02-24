@@ -473,11 +473,22 @@ prm-facet-exact .section-title:hover, prm-facet-range .section-title:hover{
 prm-facet-exact .section-title:hover span, prm-facet-range .section-title:hover span {   
     color:#3a3a3a;
 }
-/* prm-facet prm-facet-exact .section-title:hover {
-    border:none;
-} */
-/* active filters */
-
+/* feb 2022 release change for tablets and mobile cause exclude facets to appear on 200% screns; hide them except for hover;focus */
+@media (min-width:960px) {
+    .section-content .md-chips .md-chip .md-chip-remove-container .md-button {
+      opacity: 0 !important;
+    }
+    .section-content .md-chips .md-chip .md-chip-remove-container .md-button:hover {
+        opacity: 1 !important;
+      }
+    .available-facets .section-content .md-chips .md-chip:hover {
+        opacity:1;
+    }
+    .available-facets .section-content .md-chips .md-chip:hover .md-button {
+        opacity:1 !important;
+    }
+ }
+/* ACTIVE FILTER BREADCRUMBS */
 prm-facet prm-breadcrumbs .md-chips .md-chip {
     background-color:#f3f3f3;
     box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2);
@@ -512,7 +523,7 @@ prm-search-result-sort-by {
     margin-bottom:5px;
 }
 prm-breadcrumbs .md-chip.facet-excluded {
-    color:#C93621
+    color:#C93621;
 }
 /* our height of 68px for top-bar makes some of contact: after lines disappear; so making those 0 wide and using proper strikethrough instead */
 prm-breadcrumbs .md-chip.facet-excluded {
@@ -559,13 +570,7 @@ input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date
 md-checkbox.md-checked ._md-icon {
     background-color: #44707b;
 }
-/* copied from separate css for prm-facet-range-after.css not sure where it came from */
-/* md-input-container.md-input-focused label:not(.md-no-float), md-input-container.md-input-has-placeholder label:not(.md-no-float), md-input-container.md-input-has-value label:not(.md-no-float) {
-    opacity: 1.0;
-    color: #000000;
-    transform: translate3d(0,6px,0) scale(.85);
-} */
-/* brief results */
+/* BRIEF RESULTS */
 prm-search-result-thumbnail-container .fan-img:first-of-type {
     background-color:#FFF;
     transform: translate3d(-12px,12px,0) scale3d(.8,.8,1);
@@ -577,10 +582,6 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(2) {
 prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
     background-color:#FFF;
 }
-/* .md-button.arrow-link-button .button-content:hover {
-    /box-shadow: inset 0 -1px 0 0 #53738c; 
-    /box-shadow:inset 0 -1px 0 0 rgba(21,58,86,.5) 
-} */
 /* full display page */
 /* during overlay of search results, left and right pane */
 .md-dialog-container.fixed-container {
