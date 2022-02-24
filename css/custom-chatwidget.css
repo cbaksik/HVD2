@@ -7,7 +7,8 @@
     font-size:16px;
 }
 
-.lcs_slide_out header a:focus, .lcs_slide_out header a:hover {
+.lcs_slide_out header a:focus, .lcs_slide_out header a:hover,
+.lcs_slide_out header a:focus, .lcs_slide_out header a:focus {
     font-weight:800;
     padding:10px;
     outline: 6px solid #4E84C4;
