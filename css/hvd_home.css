@@ -308,29 +308,6 @@ prm-static[section="homepage"] md-card.default-card md-card-title:not(#featuredR
   }
 }
 
-
-
-
-/* search bar work */
-prm-search-bar > div:first-child > div:first-child > div:first-child,
-prm-search-bar .search-switch-buttons,
-prm-search-bar .search-wrapper > div:last-child {
-  display: none !important;
-  /* max-width: 0; */
-}
-prm-search-bar .layout-fill {
-  max-width: 1402px;
-  margin-left: auto;
-  margin-right: auto;
- }
- prm-search-bar div.search-wrapper div.search-elements-wrapper {
-	max-width: 930px;
-}
-
-
-
-
-
 /* fancy link list styles */
 .hl__fancy-link-list__grid {
   display: flex;
