@@ -147,10 +147,10 @@ md-backdrop.md-opaque {
         max-width:100%;
     }
 }
-md-card.default-card {
-    box-shadow;1px 1px 0px 1px rgba(0,0,0,.03), 0px 5px 5px -3px rgba(0,0,0,.07)
+/* md-card.default-card {
+    box-shadow;1px 1px 0px 1px rgba(0,0,0,.03), 0px 5px 5px -3px rgba(0,0,0,.07);
     padding-bottom: 10px;
-}
+} */
 /*** note - 
 this is the OTB blue of the search result title #44707b
 this is the blue of the home page link AA compliant over light grey: #026DB9
