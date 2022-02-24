@@ -48,12 +48,17 @@ md-card .hl__right-arrow {
 prm-static h2, prm-static h2.md-headline {
   font-family: "Trueno", sans-serif;
   font-weight: 700;
-  font-size: 32px;
-  line-height: 42px;
+  font-size: 24px;
+  line-height: 1.3;
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2.4px;
   /* color: $c-theme-ink; */
+}
+@media(min-width:621px){
+  prm-static h2, prm-static h2.md-headline {
+    font-size: 32px;
+  }
 }
 
 prm-static h3 {
@@ -70,7 +75,10 @@ prm-static h3 {
 /* section padding */
 .hl__search-tools-grid, 
 .hl__overlay-promo-grid {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+}
+.hl__overlay-promo-grid {
+  margin-top: 65px;
 }
 .hl__search-tools-grid, .hl__overlay-promo-grid {
   margin-left: 8px;
