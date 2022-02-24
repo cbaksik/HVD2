@@ -20,7 +20,8 @@
     margin-bottom: -12px;
     align-self: flex-end;
 }
-.hl__header__logo a:hover {
+.hl__header__logo a:hover,
+.hl__header__logo a:focus {
     box-shadow: none;
 }
 .hl__image {
@@ -110,7 +111,8 @@ prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark {
     padding-right: 25px;
     padding-left: 25px;
 }
-prm-main-menu[menu-type=menu] div#mainMenu div a:hover, prm-main-menu[menu-type=menu] div#mainMenu div a:focus {
+prm-main-menu[menu-type=menu] div#mainMenu div a:hover, 
+prm-main-menu[menu-type=menu] div#mainMenu div a:focus {
     background-color: #E5E5E5;
     color:#000;
 }
@@ -120,7 +122,8 @@ prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark:foc
 
 
 /* more menu options button */
-prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:hover, prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:focus {
+prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:hover, 
+prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:focus {
     background-color: #E5E5E5;
     color:#000;
 }
