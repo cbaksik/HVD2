@@ -23,3 +23,44 @@ prm-browse-search-bar md-select ._md-select-icon {
 @media (max-width: 768px) {
     .lcs_slide_out { display: none;}
 }
+
+
+/* search bar padding */
+prm-search-bar > div:first-child > div:first-child > div:first-child,
+prm-search-bar .search-switch-buttons,
+prm-search-bar .search-wrapper > div:last-child {
+  display: none !important;
+}
+prm-search-bar .layout-fill {
+  max-width: 1402px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+ prm-search-bar div.search-wrapper div.search-elements-wrapper {
+	max-width: 930px;
+}
+
+/* helper text below search bar */
+.hl__helper-text {
+    max-width: 1402px;
+    width: 100%;
+    color: white;
+    font-family: Trueno;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* padding with chat widget is on screen */
+@media (min-width: 769px) {
+    prm-search-bar .layout-fill,
+    .hl__helper-text {
+        padding-right: 40px;
+    }
+}
+
+/* keeping padding on small screens */
+.__xs prm-search-bar {
+	padding: 1em;
+}
