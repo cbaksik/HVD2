@@ -54,6 +54,7 @@
 .hl__site-alert-banner a {
 	text-decoration: underline;
 	box-shadow: none;
+	border-bottom: none;
 }
 .hl__site-alert-banner__dismiss {
 	display: flex;
@@ -84,7 +85,8 @@
 	background: #f8c21c !important;
 	color: #1e1e1e !important;
 }
-.hl__site-alert-banner__dismiss--button .hl__button:hover svg g g g g, .hl__site-alert-banner__dismiss--button .hl__button:focus svg g g g g {
+.hl__site-alert-banner__dismiss--button .hl__button:hover svg g g g g, 
+.hl__site-alert-banner__dismiss--button .hl__button:focus svg g g g g {
 	fill:#6c6c6c;
 }
 
