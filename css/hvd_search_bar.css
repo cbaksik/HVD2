@@ -56,11 +56,17 @@ prm-search-bar .layout-fill {
 @media (min-width: 769px) {
     prm-search-bar .layout-fill,
     .hl__helper-text {
-        padding-right: 40px;
+        padding-right: 40px !important;
     }
 }
 
 /* keeping padding on small screens */
 .__xs prm-search-bar {
 	padding: 1em;
+}
+
+
+/* prevent scope selector tab from taking over 40% of searchbox on smaller screens */
+.search-options.flex-sm-40.visible {
+	flex: initial;
 }
