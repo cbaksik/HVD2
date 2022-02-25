@@ -1,4 +1,4 @@
-a {
+prm-static a {
   border-bottom: 3px solid transparent;
   color: #0579b8;
   font-family: "Trueno", sans-serif;
@@ -9,7 +9,7 @@ a {
   transition: border 0.28s cubic-bezier(0.28, 1.08, 1, 0.96);
 }
 
-a:hover, a:focus {
+prm-static a:hover, prm-static a:focus {
   border-bottom-color: rgba(5, 121, 184, 0.3);
   color: #0579b8;
   box-shadow: none;
