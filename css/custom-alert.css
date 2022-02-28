@@ -11,6 +11,11 @@
     color: #1e1e1e;
 }
 
+#homePageAlert a:hover,
+#homePageAlert a:focus {
+    border-bottom-color: rgba(30, 30, 30, 0.5);
+}
+
 #homePageAlert h2 {
     line-height: 1em;
     color: #1e1e1e;
