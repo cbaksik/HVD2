@@ -1,16 +1,23 @@
 /**
- * Created by samsan on 3/19/18.
- * This custom alert component is used for home page on the right side splash
+ * Created by mferrarini on 2/19/22.
+ * This custom alert banner component is used to display general alerts for the library (i.e. snow closings)
  * If you need to turn off or on, just set status in json file to on or off
  */
 
 (function () {
     angular.module('viewCustom')
-        .controller('customAlertBannerCtrl',['customService','$scope',function (customService, $scope) {
+        .controller('customAlertBannerCtrl',['customService','$scope', '$document', function (customService, $scope, $document) {
             let vm=this;
             let cs=customService;
             vm.apiUrl={};
             vm.alertBannerMsg={};
+
+            $scope.class = "showAlert"
+
+            $scope.dismissAlert = function(id) {
+                var alertBanner = angular.element($document[0].querySelector('#hl__site-alert-banner'));
+                alertBanner.remove();;
+            };
 
             vm.$onInit=()=> {
                 vm.apiUrl=cs.getApi();

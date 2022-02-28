@@ -1,4 +1,5 @@
-<div id="hl__site-alert-banner" class="hl__site-alert-banner js-site-alert-banner js-site-alert-01132022" ng-if="vm.alertBannerMsg.status=='on'">
+<div id="hl__site-alert-banner" class="hl__site-alert-banner" 
+	ng-if="vm.alertBannerMsg.status=='on'">
 	<div class="hl__site-alert-banner__container">
 		<div class="hl__site-alert-banner__icon">
 			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="21" viewBox="0 0 18 21"><g><g transform="translate(-37 47)"><path id="qy38a" d="M52.88-32.18V-38a6.87 6.87 0 0 0-5.29-6.69v-.72a1.59 1.59 0 1 0-3.18 0v.72A6.87 6.87 0 0 0 39.12-38v5.82L37-30.06V-29h18v-1.06l-2.12-2.12zM44-28a2 2 0 1 0 4 0h-4z"></path></g></g></svg>
@@ -12,7 +13,7 @@
 	</div>
 	<div class="hl__site-alert-banner__dismiss">  
     <div class="hl__site-alert-banner__dismiss--button">
-      <button type="button" class="hl__button hl__button--small" aria-label="dismiss alert">
+      <button type="button" class="hl__button hl__button--small" aria-label="dismiss alert" ng-click="dismissAlert()">
         <div class="hl__site-alert-banner__dismiss--text">Dismiss</div>
         <span class="hl__button__icon">
 					<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
