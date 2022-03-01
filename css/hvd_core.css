@@ -110,16 +110,9 @@ md-backdrop.md-opaque {
         max-width:100%;
     }
 }
-md-card.default-card {
-    box-shadow;1px 1px 0px 1px rgba(0,0,0,.03), 0px 5px 5px -3px rgba(0,0,0,.07)
+md-card.default-card {    
     padding-bottom: 10px;
 }
-/*** note - 
-this is the OTB blue of the search result title #44707b
-this is the blue of the home page link AA compliant over light grey: #026DB9
-portal basic link: #0579b8 
- */
-
 /* for background of overlay menu from top nav ... */
 /*md-content.md-primoExplore-theme md-dialog.light-on-dark-dialog {
     background-color: rgba(56,56,61,.5);
@@ -260,33 +253,58 @@ button.mobile-menu-button prm-icon {
     }
 }
 /* alert bar e.g. sign in prompt above results */
-.bar.alert-bar {
-    letter-spacing: 1px;
-    background-color: #f1f1f1;
-    border-color:#ebe9e9;
+prm-alert-bar .bar.alert-bar {
+    background-color:#fff;
+    border-bottom:2px solid #EAEBEA;
+    box-shadow: inset 0 -1px 0 0 #ACADAC;
 }
-.bar prm-authentication .md-button {
+prm-alert-bar .bar prm-authentication .md-button {
     color: #026DB9;
     font-weight:bold;
-    padding-bottom: 1px;
 }
-.bar.alert-bar span.bar-text {
-    background-color: #d9d7f5;
-    border: 1px solid #6558d2;
+prm-alert-bar .bar prm-authentication .md-button:hover:not([disabled]),
+prm-alert-bar .bar prm-authentication .md-button:focus:not([disabled]) {
+    /* background-color:transparent;
+    color:#0579B8;
+    border-bottom:3px solid rgba(5, 121, 184, 0.3); */
+    /* box-shadow: inset 0 -1px 0 0 #ACADAC; */
+    background-color:#2a5280;
+    padding: 11px;
+}
+prm-alert-bar .bar.alert-bar span.bar-text {    
     padding: 7px 15px;
 }
-prm-search-result-list prm-personalize-results-button .md-button {
-    top:-6px;
+prm-alert-bar prm-authentication .md-button.button-with-icon>prm-icon {
+    display:none;
 }
-prm-personalize-results-button md-switch ._md-thumb:before {
-    border: 1px solid #44707b;
+prm-alert-bar prm-authentication .md-button.button-with-icon>prm-icon+span {
+    text-decoration:none;
+    font-weight:600;
+    text-transform:uppercase;
+    font-size:15px;
 }
-prm-search-result-list prm-personalize-results-button .md-button md-switch ._md-bar {
-    background-color: #44707b;
+prm-alert-bar md-divider {
+    display:none;
+}
+prm-alert-bar .dismiss-alert-button {
+    font-weight:600;
+    text-transform:none;
+}
+prm-alert-bar .dismiss-alert-button.md-button.button-with-icon>prm-icon {
+    display:none;
+}
+prm-alert-bar .dismiss-alert-button.md-button.button-with-icon>prm-icon+span[translate*="nui.message.dismiss"] {
+    text-decoration:underline;
 }
 /* ************** */
 /* SEARCH RESULTS SECTION */
 /* ************** */
+/* title hover handling */
+prm-brief-result.result-item-details h3.item-title a:hover {
+    /* box-shadow: inset 0 -3px 0 0 #72b4ce; */
+    box-shadow: inset 0 -3px 0 0 rgba(173, 197, 207, 0.8);
+    border-bottom:0px;
+}
 prm-search-result-list div.result-item-primary-content:focus {
     border:2px solid #C0C0C0;
 }
@@ -314,7 +332,8 @@ prm-search-result-availability-line .md-button.arrow-link-button .button-content
     font-weight:600;
 }
 /* this line is needed to prevent tiny right underline from appearing on button hover for online access*/
-prm-search-result-availability-line .md-button.arrow-link-button .button-content:hover {
+prm-search-result-availability-line .md-button.arrow-link-button .button-content:hover,
+prm-search-result-availability-line .md-button.arrow-link-button:hover .button-content {
     box-shadow:inset 0 0 0 #FFF;
 }
 /* class*=no_ applies to Check Access Options, i.e. no FT or alma holdings */
@@ -359,30 +378,40 @@ prm-search-result-availability-line .md-button.neutralized-button [class*=unavai
 /* color of button and text when online, for alma content, separate lines below for content from CDI */
 prm-search-result-availability-line button.md-button.neutralized-button span[translate*="delivery.code.not_restricted"] {
     color:white;
-    background-color:#0579B8;
-    padding: 3px 10px;
+    padding: 3px 10px 3px 25px;
     border-radius: 4px;
     font-weight: 600;
     margin-top:5px;margin-top: 10px;
     display: inline-block;
+    background-color:#0579B8;
+    background-image: url('../img/link-icon.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 4px left 6px;
+}
+prm-search-result-availability-line button.md-button.neutralized-button svg {
+    color:white;
 }
 prm-search-result-availability-line button.md-button.neutralized-button span[translate*="delivery.code.not_restricted"]:hover {
     background-color:#2a5280;
-    padding: 3px 10px;
+    padding: 3px 10px 3px 25px;
     border-radius: 4px;
     border-bottom:0px solid transparent;
+=
 }
 /* color of button and text when online, for FT from CDI, doesn't apply to FT from alma records */
 prm-search-result-availability-line button span.button-content .fulltext{
     color:white;
     background-color:#0579B8;
-    padding: 3px 10px;
+    padding: 3px 10px 3px 25px;
     border-radius: 4px;
     font-weight:600;
+    background-image: url('../img/link-icon.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 4px left 6px;
 }
 prm-search-result-availability-line button span.button-content .fulltext:hover{
     background-color:#2a5280;
-    padding: 3px 10px;
+    padding: 3px 10px 3px 25px;
     border-radius: 4px;
     border-bottom:0px solid transparent;
 }
@@ -395,6 +424,7 @@ prm-search-result-availability-line button prm-icon[icon-definition*="chevron-ri
 /* ...-after element applies to hathi link, syndetics TOC */
 prm-search-result-availability-line-after div {
     margin: 10px 0;
+    padding-bottom: 0em;
 }
 prm-search-result-availability-line-after a {
     text-transform: uppercase;
@@ -415,7 +445,8 @@ prm-search-result-availability-line-after a:hover {
     padding: 6px 10px 5px 6px;
     border-radius: 4px;
 }
-.hvd_EAD_link a:hover {
+.hvd_EAD_link a:hover,
+.hvd_EAD_link a:focus {
     background-color:#2a5280;
     border-bottom:0px; 
     box-shadow:inset 0 0 0 #FFF;
@@ -423,8 +454,7 @@ prm-search-result-availability-line-after a:hover {
 .hvd_EAD_link img {
     min-height:20px;
     height:20px;
-    width:26px;
-    margin-bottom:-4px;
+    margin-bottom:-5px;
 }
 /* map it - NEED TO CONTACT VENDOR, LOCAL CSS DOESN'T SEEM TO GET APPLIED */
 prm-search-result-availability-line-after p.SMsearchbtn-container .SMsearchbtn {
@@ -443,13 +473,23 @@ prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapt
 prm-search-result-availability-line a.browzine-direct-to-pdf-link {
     color:white;
     background-color: #0579B8;
-    padding: 3px 10px;
     border-radius: 4px;
     font-weight: 600;
+    background-image: url('../img/browzine-pdf-download-icon.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 5px left 6px;
+    padding:3px 30px 3px 35px;
+}
+prm-search-result-availability-line a.browzine-direct-to-pdf-link svg {
+    color:white;
+}
+prm-search-result-availability-line a.browzine-direct-to-pdf-link img {
+    display:none;
 }
 prm-search-result-availability-line a.browzine-direct-to-pdf-link:hover {
     background-color: #2a5280;
     box-shadow:0 0 0 0px;
+    border-bottom: 0px;
 }
 prm-search-result-availability-line a.browzine-direct-to-pdf-link md-icon {
     display:none;
@@ -527,7 +567,9 @@ prm-snippet prm-icon.close-quote md-icon {
     transform: scale(.4) translate(0px,-10px);
     opacity: 0.7;
 }
-/* FACETS */
+/*        FACETS          */
+/*        FACETS          */
+/*        FACETS          */
 prm-facet prm-search-result-sort-by md-select {
     padding: 5px;
     border-radius: 3px;
@@ -540,19 +582,68 @@ prm-facet prm-search-result-sort-by md-select {
 prm-facet md-input-container:after {
     height:0px;
 }
-prm-facet prm-search-result-sort-by md-select:hover {
+prm-facet prm-search-result-sort-by md-select:hover,
+prm-facet prm-search-result-sort-by md-select:focus {
     background-color: #f3f3f3;
 }
-prm-facet-exact .section-title:hover, prm-facet-range .section-title:hover{
+/* date facet */
+prm-facet-exact .section-title:hover, prm-facet-range .section-title:hover {
     /* border:1px solid #187474; */
     background-color:#ebebeb!important;
 }
 prm-facet-exact .section-title:hover span, prm-facet-range .section-title:hover span {   
     color:#3a3a3a;
 }
-/* prm-facet prm-facet-exact .section-title:hover {
-    border:none;
-} */
+prm-facet-exact .section-title:focus {
+    background-color:#ebebeb!important;
+}
+prm-facet-exact .section-title.md-button:focus:([disabled]) {
+    background-color:#ebebeb!important;
+}
+prm-facet-range .md-button.button-as-link.link-alt-color {
+    color:#0579B8;
+    text-transform:uppercase;
+    margin-left: -10px!important;
+    font-size:15px;
+    font-weight:600;
+}
+prm-facet-range .md-button.button-as-link.link-alt-color:hover:not([disable]) {
+    background-color:transparent;
+    color:#0579B8;
+}
+prm-facet-range .md-button.button-as-link.link-alt-color:hover:not([disable]) span {
+    border-bottom:3px solid rgba(5, 121, 184, 0.3);
+}
+prm-facet-range {
+    font-size:130%;
+}
+prm-facet-range md-input-container {
+    margin-right:10px;    
+}
+input[aria-label="From date"] ,input[aria-label="To date"] {
+    padding:5px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    background-color: white;
+    max-width:70px;
+}
+input[aria-label="From date"]::-webkit-inner-spin-button,input[aria-label="From date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.multiselect-submit .multiselect-submit-inner .md-button.md-primary {
+    background-color:#0579B8;
+}
+.multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover {
+    background-color:#2a5280;
+}
 /* BREADCRUMBS (ACTIVE FILTERS) */
 prm-facet prm-breadcrumbs .md-chips .md-chip {
     background-color:#f3f3f3;
@@ -605,10 +696,12 @@ prm-breadcrumbs .md-chip.facet-excluded .md-chip-content:after {
     .section-content .md-chips .md-chip .md-chip-remove-container .md-button {
       opacity: 0 !important;
     }
-    .section-content .md-chips .md-chip .md-chip-remove-container .md-button:hover {
+    .section-content .md-chips .md-chip .md-chip-remove-container .md-button:hover, 
+    .section-content .md-chips .md-chip .md-chip-remove-container .md-button:focus {
         opacity: 1 !important;
       }
-    .available-facets .section-content .md-chips .md-chip:hover {
+    .available-facets .section-content .md-chips .md-chip:hover,
+    .available-facets .section-content .md-chips .md-chip:focus {
         opacity:1;
     }
     .available-facets .section-content .md-chips .md-chip:hover .md-button {
@@ -618,37 +711,6 @@ prm-breadcrumbs .md-chip.facet-excluded .md-chip-content:after {
 /* facet counts in parens */
 .section-content .md-chips .md-chip .md-chip-content {
 	color:#6E6868;
-}
-/* date facet */
-prm-facet-range {
-    font-size:130%;
-}
-prm-facet-range md-input-container {
-    margin-right:10px;
-    
-}
-input[aria-label="From date"] ,input[aria-label="To date"] {
-    padding:5px;
-    border-radius: 3px;
-    border: 1px solid transparent;
-    border-top: none;
-    border-bottom: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
-    background-color: white;
-    max-width:70px;
-
-}
-input[aria-label="From date"]::-webkit-inner-spin-button,input[aria-label="From date"]::-webkit-outer-spin-button {
-    -webkit-appearance: none; 
-    margin: 0; 
-}
-input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date"]::-webkit-outer-spin-button {
-    -webkit-appearance: none; 
-    margin: 0; 
-}
-/* checked facet background color */
-md-checkbox.md-checked ._md-icon {
-    background-color: #44707b;
 }
 /*  ------------ */
 /* BRIEF RESULTS */
@@ -707,7 +769,7 @@ div#services-index {
         width:105px;
     }
     md-nav-bar .md-nav-item:first-of-type {
-        margin-left: 0x;
+        margin-left: 0px;
     }
     .marg-nav-item {
         margin-left: 0;
@@ -805,13 +867,6 @@ p.textsms-danger {
     background-color:#3a3a3a1a;
     color:#0579b8;
 } */
-md-checkbox.md-checked .md-container .md-icon {
-    background-color:#44707b;
-}
-div#slideTopMaxAlert .md-button.button-link:hover:not([disabled]) {
-    background-color:#44707b;;
-    color:#fff;
-}
 /* menu with footer is the menu that opens when choosing labels, footer is "add new label" */
 md-menu-content.menu-with-footer .menu-footer form div:hover {
     background-color:rgb(221, 221, 219);
@@ -1054,14 +1109,33 @@ prm-loans md-input-container:after {
 /* END of may account section */
 
 /* frbr groupid clustering */
-div > prm-search-result-frbr-line {
-    margin-top:5px;
-    margin-bottom:5px;
+prm-search-result-frbr-line {
+    margin-top:8px;
+    margin-bottom:10px;
     display:inline-block;
-    font-size:115%;
 }
-div > prm-search-result-frbr-line span {
-    color:#B56001;
+prm-search-result-frbr-line prm-icon { 
+    display:none;
+}
+button:hover {
+    border-bottom:0px;
+}
+/* need both these variations! to overwrite OTB underline */
+prm-search-result-frbr-line .md-button.arrow-link-button:hover .button-content,
+prm-search-result-frbr-line .md-button.arrow-link-button .button-content:hover {    
+    box-shadow:inset 0 0 0 #FFF;
+}
+/* instead of button the underline on the element below try putting it on the span within to avoid the underline extending beyond the length of the text */
+/* prm-search-result-frbr-line .md-button.arrow-link-button .button-content:focus {
+    border-bottom:3px solid rgba(5, 121, 184, 0.3); 
+} */
+prm-search-result-frbr-line span {
+    color:#0579B8;
+    font-size:1em;
+    font-weight:600;
+}
+prm-search-result-frbr-line span[translate='nui.frbrversion.found']:hover {
+    border-bottom:3px solid rgba(5, 121, 184, 0.3); 
 }
 /* shenanigans to prevent period from displaying */
 prm-search-result-frbr-line .button-content span.prm-notice {
@@ -1070,31 +1144,17 @@ prm-search-result-frbr-line .button-content span.prm-notice {
 prm-search-result-frbr-line .button-content span.prm-notice span[translate='nui.frbrversion.found'] {
     color:#0579B8;
     text-transform:uppercase;
-    font-size:1em;
 }
 /* hide OTB blue chevron */
 prm-search-result-frbr-line button > prm-icon > md-icon {
     display:none;
 }
-/* this line controls cluster icon in search results, note lower case versions */
-/* prm-search-result-frbr-line button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme {   
-    display:none;
- }   */
 prm-search-result-thumbnail-container img.fan-img-2[src="custom/HVD2/img/icon_versions.png"] {
     display:none;
 }
 prm-search-result-thumbnail-container img.fan-img-3[src="custom/HVD2/img/icon_versions.png"] {
     display:none;
 }
-/*  div.md-chip > div > strong[translate="facets.facet.facet_frbrgroupid"] {
-    background-color:red;
-    font-size:150%;
-    color:#026DB9;
-    margin:10px 10px;    
-}  */
-/* button[aria-label*="Return to search results"] prm-icon md-icon.md-primoExplore-theme svg {
-    display:none;    
-}  */
 /* this line has upper case -Versions-, which controls opened cluster list*/
 /* same selectors apply to search result but aria-label is proper case Versions */
 prm-breadcrumbs button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme {
@@ -1176,27 +1236,62 @@ prm-save-to-favorites-button button:focus, prm-save-to-favorites-button button:h
     border: 1px solid #1e1e1e;
     border-radius: 100px;
 }
-/* prm-alma-mashup iframe {
-    background-image: url("../img/giphy.gif");
-    background-repeat: no-repeat;
-    background-position: center;
-  } */
 /* next line is because bottom of tool-bar is too close to first result */
 prm-search-result-list .search-results-container {
     margin-top: 3.9em;
 }
-prm-search-result-list prm-search-result-tool-bar {
-      border-top:10px solid white;
+/* toolbar above search results */
+prm-search-result-tool-bar .md-toolbar-tools {
+    background-color:transparent;
 }
-prm-search-result-tool-bar .md-toolbar-tools .md-button {
+prm-search-result-tool-bar .md-toolbar-tools md-checkbox {
+    margin-right:0px;
+    margin-left:0px;
+}
+prm-search-result-tool-bar .results-title {
+    font-style:normal;
+}
+prm-search-result-tool-bar  .search-toolbar-title {
+    font-weight:bold;
+    margin-left:30px;
+    text-transform: none;
+    font-size:15px;
+    letter-spacing:0.075px;
+    line-height:20px;
+    text-size-adjust:100%;
+    font-family:"Source Sans Pro", Arial,sans-serfic;
+    top:0px;    
+}
+prm-search-result-tool-bar  .search-toolbar-title .tiny-uppercase-text {
+    text-transform: none;
+    font-size:15px;
+    font-weight:400;
+    letter-spacing:0.075px;
+    line-height:20px;
+    text-size-adjust:100%;
+    font-family:"Source Sans Pro", Arial,sans-serfic;
+    top:0px;
+    margin-right:50px;
+}
+prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-link.link-alt-color {
+    color:#0579b8;
+    font-family:"Source Sans Pro", Arial,sans-serfic;
     opacity:1;
 }
-prm-search-result-tool-bar .md-toolbar-tools {
-    /* height:55px; */
-    box-shadow:0 1px 0 0 rgba(0,0,0,.03),0 5px 5px -3px rgba(0,0,0,.07);
+prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-link.link-alt-color:hover:not([disabled]) {
+    background-color:#2a5280;
+}
+prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
+    background-color:#2a5280;
+}
+prm-search-result-tool-bar prm-personalize-results-button md-switch.tiny-switch .md-container {
+    /* background-color:#ebe9e9; */
+}
+prm-search-result-list prm-personalize-results-button .md-button {
+    top:-6px;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax {
-    color:#44707b;
+    color:#0579b8;
     font-style: normal;
     padding: 0px 10px;
     font-weight: 600;
@@ -1206,7 +1301,14 @@ prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax:hover {
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax:focus {
     color:#fff;
-    background-color:#44707b;
+    background-color:#0579b8;
+}
+prm-search-result-tool-bar #slideTopMaxAlert .md-button.button-link:hover:not([disabled]) {
+    background-color:#2a5280;
+    color:#fff;
+}
+md-checkbox.md-checked .md-container .md-icon {
+    background-color:#0579b8;
 }
 prm-search-result-tool-bar .disableActionTool, prm-search-result-tool-bar .disabledFavTool {
     color:#858585;
@@ -1217,6 +1319,7 @@ prm-search-result-tool-bar md-checkbox ._md-icon {
 prm-search-result-tool-bar .md-button.button-link {
   opacity:1;
 }
+/* end toolbar */
 prm-brief-result-container .list-item-primary-content .list-item-count {
     opacity:1;
 }
@@ -1228,7 +1331,7 @@ prm-search-result-tool-bar md-toolbar .main-checkbox {
 }
 /* resource recommender */
 prm-resource-recommender-card-content a {
-    color:#44707b;
+    color:#0579b8;
     font-weight:bold;
 }
 #resource-recommender img.shield {
