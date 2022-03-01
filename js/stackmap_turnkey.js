@@ -17,13 +17,7 @@
     css2.href = "https://www.stackmap.com/integration/harconstd/StackMap.css";
     a.appendChild(css2);
 
-    const css3 = document.createElement("link"); 
-    css3.type = "text/css";
-    css3.rel = "Stylesheet";
-    css3.href = "https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&amp;display=swap";
-    a.appendChild(css3);
-
-    const w = document.createElement("script"); 
+    var w = document.createElement("script"); 
     w.type = "text/javascript"; 
     w.async = true;
     w.src = "https://www.stackmap.com/integration/harconstd/StackMap.js";
