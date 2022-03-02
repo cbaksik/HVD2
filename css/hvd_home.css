@@ -198,6 +198,9 @@ prm-static[section="homepage"] md-card.default-card md-card-title:not(#featuredR
 .hl__fancy-link:hover .hl__fancy-link__description {
   color: #1e1e1e;
 }
+.hl__fancy-link:focus, .hl__fancy-link:hover {
+  border-bottom: none;
+}
 
 
 /* image overlay cards */
@@ -238,6 +241,7 @@ prm-static[section="homepage"] md-card.default-card md-card-title:not(#featuredR
   padding:0;
   margin:0;
   z-index:90;
+  border-bottom:none;
  }
  .hl__overlay-promo:hover:after,
  .hl__overlay-promo:focus:after {
