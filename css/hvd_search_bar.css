@@ -23,3 +23,22 @@ prm-browse-search-bar md-select ._md-select-icon {
 @media (max-width: 768px) {
     .lcs_slide_out { display: none;}
 }
+
+
+/* reorder searchbar */
+prm-search-bar .search-element-inner .search-input {
+    order: 2;
+}
+prm-search-bar .search-element-inner .search-options {
+    order: 1;
+}
+prm-search-bar .search-element-inner .search-actions {
+   order: 3;
+}
+prm-tabs-and-scopes-selector md-divider.skewed-divider:nth-child(1) {
+    display: none;
+}
+prm-tabs-and-scopes-selector md-input-container.zero-margin:nth-child(2) {
+    padding-left: 10px;
+}
+   
