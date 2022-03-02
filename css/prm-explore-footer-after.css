@@ -1,29 +1,192 @@
-prm-static[section="homepage"] {
-    min-height:900px;
+/* FOOTER */
+.hl__footer {
+  background-color: #1e1e1e;
+  padding-top: 55px;
+  padding-bottom: 30px;
+}
+.hl__footer__container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1450px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.hl__footer__logo {
+  flex-basis: 135px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  max-width: 180px;
+}
+@media (min-width: 781px) {
+  .hl__footer__logo {
+    margin: 0;
+  }
+}
+.hl__footer__logo a {
+  padding: 0;
+}
+.hl__footer__links {
+  display: flex;
+  flex: none;
+  max-width: 680px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+@media (max-width: 620px) {
+  .hl__footer__links {
+    flex-wrap: wrap;
+    margin-left: -30px;
+  }
+}
+@media (min-width: 621px) {
+  .hl__footer__links {
+    flex-basis: 580px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin-right: 30px;
+  }
+}
+.hl__footer__column {
+  flex-basis: 200px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin-left: 30px;
+  width: 50%;
+}
+.hl__footer__content {
+  flex-basis: 350px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+}
+@media (min-width: 1171px) {
+  .hl__footer__content {
+    flex-shrink: 0;
+    max-width: 370px;
+  }
+}
+@media (min-width: 621px) {
+  .hl__footer__top-links {
+    display: flex;
+  }
+}
+.hl__footer__social {
+  padding-right: 34px;
+}
+.hl__icon-list__link:last-child {
+  padding-left: 20px;
+}
+.hl__footer__social .hl__icon-list__link svg {
+  fill: #c0c0c0;
+}
+.hl__icon-list__link:hover, .hl__icon-list__link:focus {
+	opacity: 0.8;
+}
+@media (max-width: 620px) {
+  .hl__footer__quick-links {
+    margin-top: 40px;
+  }
+}
+.hl__footer__quick-links .hl__link-tag {
+  color: white;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 28px;
+  border-bottom: 3px solid transparent;
+}
+.hl__footer__quick-links .hl__link-tag:last-child {
+  margin-left: 20px;
+}
+.hl__footer__quick-links .hl__link-tag:focus,
+.hl__footer__quick-links .hl__link-tag:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+@media (min-width: 621px) {
+  .hl__footer__social + .hl__footer__quick-links {
+    padding-left: 34px;
+    position: relative;
+  }
+  .hl__footer__social + .hl__footer__quick-links::before {
+    border-left: 1px solid #414141;
+    content: "";
+    display: block;
+    height: calc(100% + 20px);
+    position: absolute;
+    left: 0;
+    top: -10px;
+  }
+}
+.hl__footer__license {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+.hl__footer__cc-icon {
+  flex: none;
+}
+.hl__footer__cc-text {
+  color: #c0c0c0;
+  flex: auto;
+  font-family: "Trueno", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 23px;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+.hl__footer__message {
+  margin-top: 15px;
+}
+.hl__footer__message .hl__rich-text p {
+  color: #c0c0c0;
+  font-family: "Trueno", sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 19px;
+}
+.hl__footer__message .hl__rich-text a:not(.hl__button):not(.hl__link-tag) {
+  border: 0;
+  color: white;
+  font-size: 11px;
+  font-weight: 400;
+  text-decoration: underline;
 }
 
-footer {
-    text-align:center;
-    background-color:#FFF;
-    padding:100px 0px 20px 0px;    
-    //position:relative; 
-    position:absolute;
-    bottom:0;   
-    width: 100%;
-    display:block;
+.hl__footer-nav {
+  background-color: #1e1e1e;
 }
-footer ul {
-    padding-inline-start: 0px;
+.hl__footer-nav__items {
+  margin: 0;
+  padding: 0;
 }
-.hl__linked-list__item:first-child:after {
-    content:" | ";
-    margin-left:5px;
-    margin-right:5px;
+.hl__footer-nav__item {
+  display: block;
+  margin-bottom: 5px;
 }
-.hl__linked-list__item {
-    display: inline-block;
+.hl__footer-nav__item a {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 27px;
+  text-transform: uppercase;
+  letter-spacing: 1.87px;
+  border-bottom: 3px solid transparent;
 }
-.hl__linked-list--no-bullets li {
-    list-style: none;
-    display:inline;
+.hl__footer-nav__item a:focus,
+.hl__footer-nav__item a:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+}
+
+/* footer adapted from libguides footer */
+/* customizations for hollis instance of footer */
+.hl__footer a {
+    font-family: "Trueno", sans-serif;
+    box-shadow: none;
 }
