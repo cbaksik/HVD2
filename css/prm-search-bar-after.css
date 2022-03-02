@@ -1,0 +1,92 @@
+/* search bar padding */
+prm-search-bar > div:first-child > div:first-child > div:first-child,
+prm-search-bar .search-switch-buttons,
+prm-search-bar .search-wrapper > div:last-child {
+  display: none !important;
+}
+prm-search-bar .layout-fill {
+  max-width: 1402px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+ prm-search-bar div.search-wrapper div.search-elements-wrapper {
+	max-width: 930px;
+}
+
+/* helper text below search bar */
+.hl__helper-text {
+    max-width: 1402px;
+    width: 100%;
+    color: white;
+    font-family: "Trueno", sans-serif;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* padding with chat widget is on screen */
+@media (min-width: 769px) {
+    prm-search-bar .layout-fill,
+    .hl__helper-text {
+        padding-right: 40px !important;
+    }
+}
+
+/* keeping padding on small screens */
+.__xs prm-search-bar {
+	padding: 1em;
+}
+
+
+/* prevent scope selector tab from taking over 40% of searchbox on smaller screens */
+.search-options.flex-sm-40.visible {
+	flex: initial;
+}
+
+
+/* fixing padding and background on small screens */
+
+
+ 
+
+
+@media (max-width: 599px) {
+  prm-search-bar .search-element-inner {
+    background: transparent;
+  }
+  prm-tabs-and-scopes-selector,
+  prm-search-bar .search-actions,
+  prm-search-bar md-autocomplete-wrap {
+    background: #fff;
+  }
+  prm-search-bar #searchBar,
+  prm-tabs-and-scopes-selector {
+      border: none;
+  }
+  prm-tabs-and-scopes-selector {
+    border-radius: 3px 3px 0 0;
+  }
+  prm-search-bar .simple-search-wrapper md-autocomplete-wrap {
+    border-radius: 0 3px 3px 3px;
+  }
+  prm-search-bar .search-element-inner {
+    border-radius: 3px;
+  }
+  prm-search-bar .simple-search-wrapper .search-actions {
+    border-radius: 0 3px 3px 0;
+  }
+  prm-search-bar .simple-search-wrapper .search-actions .md-button:last-child {
+    width: auto;
+    min-width: auto;
+    padding: 8px;
+   }
+   prm-search-bar .simple-search-wrapper .search-options::after {
+     background-color: transparent;
+   }
+   prm-search-bar .simple-search-wrapper .search-options prm-tabs-and-scopes-selector {
+     border-bottom: 1px solid #e9e9e9;
+     padding-top: 5px;
+   }
+   
+}

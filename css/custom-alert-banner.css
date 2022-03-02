@@ -1,0 +1,117 @@
+/* SITE ALERT BANNER */
+.hl__site-alert-banner {
+	font-family: "Trueno", sans-serif;
+  background-color: #f8c21c;
+  padding: 24px;
+  display: grid;
+	grid-template-columns: auto 135px;
+	margin-bottom: 10px;
+}
+.hl__site-alert-banner__container {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	max-width: 1450px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin: 0;
+}
+.hl__site-alert-banner__icon {
+	height: 21px;
+	margin-right: 15px;
+	width: 18px;
+}
+.hl__site-alert-banner__icon path {
+	fill: #1e1e1e;
+}
+.hl__site-alert-banner__label, .hl__site-alert-banner__dismiss--text {
+	color: #1e1e1e;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 2.14px;
+	line-height: 1.5em;
+	margin-right: 20px;
+	text-transform: uppercase;
+}
+.hl__site-alert-banner__message {
+	max-width: 930px;
+}
+.hl__site-alert-banner p, .hl__site-alert-banner a {
+	color: #1e1e1e !important;
+  font-size: 17px !important;
+  line-height: 1.5em !important;
+	margin-bottom: 0;
+}
+.hl__site-alert-banner p {
+	margin-right: 20px;
+	padding-bottom:0;
+}
+.hl__site-alert-banner span, .hl__site-alert-banner a {
+  font-weight: 700;
+}
+.hl__site-alert-banner a {
+	text-decoration: underline;
+	box-shadow: none;
+	border-bottom: none;
+}
+.hl__site-alert-banner__dismiss {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding-right: 20px;
+}
+.hl__site-alert-banner__dismiss--text {
+	display: inline;
+	margin-right: 10px;
+}
+.hl__site-alert-banner__dismiss--button .hl__button {
+	background-color: #f8c21c;
+	padding: 0;
+	border: none !important;
+}
+.hl__site-alert-banner__dismiss--button .hl__button__icon {
+	margin-right: 0;
+	top: 0;
+}
+.hl__site-alert-banner__dismiss--button .hl__button__icon svg {
+	height: 20px;
+	width: 20px;
+	position: relative;
+	top: 3px;
+}
+.hl__site-alert-banner__dismiss--button .hl__button:hover, .hl__site-alert-banner__dismiss--button .hl__button:focus {
+	background: #f8c21c !important;
+	color: #1e1e1e !important;
+}
+.hl__site-alert-banner__dismiss--button .hl__button:hover svg g g g g, 
+.hl__site-alert-banner__dismiss--button .hl__button:focus svg g g g g {
+	fill:#6c6c6c;
+}
+
+@media(max-width:620px){
+	.hl__site-alert-banner {
+		padding: 24px 20px;
+	}
+	.hl__site-alert-banner__container {
+		flex-wrap: wrap;
+		padding-left: 0;
+	}
+	.hl__site-alert-banner__message {
+		margin-top: 12px;
+		width: 100%;
+	}
+	.hl__site-alert-banner__dismiss {
+		padding-right: 0;
+	}
+}
+
+@media(max-width:480px){
+	.hl__site-alert-banner {
+		grid-template-columns: auto 20px;
+	}
+	.hl__site-alert-banner__dismiss--text {
+		display: none;
+	}
+}

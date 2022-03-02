@@ -16,10 +16,10 @@
     // a.appendChild(css2);
 
     var w = document.createElement("script"); 
-    w.type = "text/javascript"; w.async = true;
+    w.type = "text/javascript"; 
+    w.async = true;
     w.src = "https://www.stackmap.com/integration/harvard/StackMap.js";
-    var b = document.body;
     b.appendChild(w);
-
+    
 })();
 /* StackMap: END */
