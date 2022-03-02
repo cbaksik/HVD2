@@ -225,8 +225,6 @@ prm-user-area .user-menu-button .user-name {
 }
 prm-user-area-expandable .md-button.user-button, prm-user-area-expandable .md-button.button-with-menu-arrow {
     color:#1E1E1E;
-    text-decoration:underline; 
-    text-transform:uppercase;
 }
 prm-user-area-expandable .md-button.user-button .menu-arrow {
     color: #1e1e1e;
@@ -234,8 +232,9 @@ prm-user-area-expandable .md-button.user-button .menu-arrow {
 prm-user-area-expandable .md-button.user-button .menu-arrow:hover {
     color: #fff;
 }
-prm-topbar prm-user-area-expandable .md-button:not(.disable-hover):hover:not([disabled]):hover:not([disabled]) {
-    background-color: #44707b;
+prm-topbar prm-user-area-expandable .md-button:not(.disable-hover):hover:not([disabled]):hover:not([disabled]),
+prm-topbar prm-user-area-expandable .md-button:not(.disable-hover):focus:not([disabled]):focus:not([disabled]) {
+    background-color: #000;
     color:#fff;
 }
 .md-button.button-with-menu-arrow .menu-arrow:after {
