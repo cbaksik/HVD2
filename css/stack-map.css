@@ -1,0 +1,317 @@
+
+.SMblock-screen {
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	display: none;
+	margin: auto;
+	align-items: center;
+	padding: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	overflow-y: scroll;
+	flex-direction: column
+}
+
+.SMbutton {
+	cursor: pointer;
+}
+
+.SMButton::selection {
+	background: transparent;
+}
+
+.SMdirections {
+	color: #D50032;
+	margin: 0 3px 0 0;
+}
+
+.SMemph {
+	color: rgb(27, 79, 161);
+}
+
+.SMheader {
+	/*display:none;*/
+	/*uncomment if the library name or floor is in the map image itself*/
+	text-align: left;
+	display: flex;
+	flex: 1 1 50%;
+	align-items: center;
+}
+
+.SMheader-top {
+	font-family: "Trueno";
+	font-size: 42px;
+	font-weight:400;
+}
+
+.SMheaderbtns {
+	display: flex;
+	align-items: baseline;
+}
+
+.SMheaderbtns a {
+	line-height: 1em;
+	text-align: center;
+}
+
+.SMheaderbtns a:hover {
+	background-color: transparent;
+	box-shadow: none;
+	color: #0f3a57;
+}
+
+.SMheaderbtns a i {
+	text-align: center;
+	color: inherit;
+}
+
+.SMmap {
+	position: absolute;
+	cursor: hand;
+	cursor: grab;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+	border: 1px solid lightgray;
+	border-radius: 3px;
+	flex-shrink: 0;
+	min-width: 0;
+	max-width: none;
+	min-height: 0;
+	max-height: none;
+	top: 0px;
+	left: 0px;
+}
+
+.SMmap-container {
+	flex: 1 1 100%;
+	border-top: 1px solid rgb(34, 5, 5);
+	overflow: hidden;
+}
+
+.SMmap-window {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid lightgray;
+	width: 100% !important;
+	margin: 0 auto;
+	max-height: 60vh;
+	overflow: hidden;
+	border: 1px solid lightgray;
+	background: #ffffff;
+}
+
+.SMmap-overlay {
+	position: absolute;
+	top: 0px;
+}
+
+.SMmarker {
+	position: absolute;
+	cursor: pointer;
+}
+
+.SMmap-buttons {
+	margin: .5rem;
+	display: flex;
+	justify-content: center;
+}
+
+.SMmap-buttons a::selection,
+.SMmap-buttons i::selection,
+.SMmap-buttons span::selection {
+	background: transparent;
+}
+
+.SMmap-buttons a {
+	padding: 10px;
+	color: rgb(27, 79, 161);
+}
+
+.SMmap-buttons a:hover {
+	/* client style overwrite */
+	background: transparent;
+	box-shadow: none;
+	color: #0f3a57;
+}
+
+.SMmap-buttons li {
+	display: inline;
+}
+
+.sm-capped i,
+.sm-capped span {
+	color: grey;
+}
+
+.SMmore-info {
+	flex: 1 1 100%;
+	margin-top: 1rem;
+	text-align: left;
+}
+
+.SMmore-info ul {
+	margin: 0 1em;
+	padding: 0;
+}
+
+.SMmore-info ul li:nth-of-type(1) {
+	text-align: center;
+}
+
+.SMoutercontainer-on {
+	display: flex;
+	position: fixed;
+	z-index: 100;
+	min-width: 0;
+}
+
+.SMpin-target {
+	position: absolute;
+	cursor: pointer;
+}
+
+.SMpopup {
+	display: none;
+	position: absolute;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	flex-wrap: wrap;
+	padding: 12px;
+	top: 2rem;
+	width: calc(100vw - 26rem);
+	max-width: 800px;
+	font-family: sans-serif;
+	margin: 0 auto;
+}
+
+.SMpopup-show {
+	display: flex;
+	animation: fadeIn .25s ease-in both;
+	min-width: 0;
+}
+
+.SMpopup p {
+	margin: 5px 0;
+}
+
+.SMpopup ul {
+	list-style: none;
+	margin: 1rem;
+}
+
+.SMpopup h2 {
+	font-family: inherit;
+	margin-bottom: 8px;
+}
+
+p.SMpowered-by {
+	font-size: 0.8em;
+	flex: 1 0 100%;
+	text-align: right;
+	width: 100%;
+}
+
+.SMpowered-by-link {
+	padding: 0 0 0 calc(1em / 2);
+}
+
+.SMclose,
+.SMprinter-friendly {
+	color: rgb(27, 79, 161);
+	margin: .5em;
+}
+
+.SMrange-info {
+	position: absolute;
+	font-size: 10px;
+	width: 100px;
+	background-color: #ffffff;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid #000000;
+	padding: 2px;
+	height: 40px;
+}
+
+.SMrange-info {
+	text-align: center;
+}
+
+.SMrange-info {
+	text-align: center;
+}
+
+.SMrange-info {
+	vertical-align: middle;
+	text-align: center;
+}
+
+.SMsearchbtn {
+	/* background-color: #026DB9; */
+	background-color: transparent;
+	font-family: 'Source Sans Pro', Arial, sans-serif;
+	font-size: 15px;
+	padding: 0 0 0.1em 0;
+	color: #414141;
+	display: inline;
+	text-transform:uppercase;
+	font-weight:600;	
+	border:0px;
+	position:relative;
+}
+ .SMsearchbtn:hover, .SMsearchbtn:focus {	
+	border-bottom:3px solid rgba(43, 44, 44, 0.3)
+}
+
+.SMsearchbtn i {
+	display:none;
+}
+.SMsearchbtn-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.SMsubheader {
+	margin: 0 0 8px 0;
+	padding: 0;
+	flex: 1 0 100%;
+}
+
+
+#SMtooltip {
+	position: absolute;
+	font-size: 12px;
+	background-color: #ffffff;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid #000000;
+	padding: 2px;
+	z-index: 3001;
+	display: none;
+}
+
+
+@media (min-width: 757px) and (max-width: 1100px) {
+	.SMpopup {
+		width: calc(100vw - 13rem)
+	}
+}
+
+@media (min-width: 100px) and (max-width: 756px) {
+	.SMpopup {
+		width: calc(100vw - 1rem)
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
