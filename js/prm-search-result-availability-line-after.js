@@ -17,6 +17,7 @@ angular.module('viewCustom')
         vm.TOC = {'type':'01HVD_ALMA','isbn':[],'display':false};
         vm.itemPNX={};
         vm.hathiTrust={};
+        vm.FAlink='';
         var map;
         var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=';
         //var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=9780674055360/xml.xml&client=harvard&type=xw10';
@@ -54,6 +55,20 @@ angular.module('viewCustom')
                         .catch(function (err) {
                             console.log("Syndetics call did not work", err);
                         });
+          }
+        };
+
+        // find if pnx had EAD finding aid link
+        vm.findFindingAid=function () {
+            var ead = '';
+            var eadURN = '';
+            if (vm.itemPNX.pnx.links.linktofa) {
+                ead = vm.itemPNX.pnx.links.linktofa[0];
+                ead=ead.slice(3);
+                eadURN = ead.replace(' $$Elinktofa','');
+                console.log(eadURN);
+                vm.FAlink=eadURN;
+                // console.log(vm.FAlink);
           }
         };
 
@@ -118,6 +133,7 @@ angular.module('viewCustom')
             vm.itemPNX=vm.parentCtrl.result;
             // get table of content
             vm.findTOC();
+            vm.findFindingAid();
             if(vm.itemPNX.pnx.display.lds40 && vm.parentCtrl.isFullView) {
                 $timeout(function () {
                     vm.coordinates = cs.buildCoordinatesArray(vm.itemPNX.pnx.display.lds40[0]);
