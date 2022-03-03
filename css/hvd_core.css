@@ -21,6 +21,14 @@ a:hover, a:focus {
 .md-button.button-link {
     color:#0579B8;
 }
+.md-button.button-confirm {
+    color:#0579B8;
+    font-weight:600;
+}
+.md-button.button-confirm:hover:not([disabled]) {
+    color:#fff;
+    background-color:#0579B8;
+}
 /* this line added b/c Export to Excel action in list had blue background for hover/focus instead of otb black */
 .md-button.md-primary:focus:not([disabled]),.md-button.md-primary:hover:not([disabled]) {
     background-color:#3a3a3a;
@@ -28,8 +36,8 @@ a:hover, a:focus {
 /* START search bar area */
 
 /* magnify glass search in search box */
-svg[id^=magnifying-glass] {
-    color:#a51c30 !important;;
+prm-icon md-icon svg[id^=magnifying-glass] {
+    color:#a51c30;
 }
 prm-search-bar .search-actions .md-button.button-confirm:hover:not([disabled]) {
     color:#fff;
@@ -264,6 +272,7 @@ prm-alert-bar .bar.alert-bar {
 prm-alert-bar .bar prm-authentication .md-button {
     color: #026DB9;
     font-weight:bold;
+    padding:11px;
 }
 prm-alert-bar .bar prm-authentication .md-button:hover:not([disabled]),
 prm-alert-bar .bar prm-authentication .md-button:focus:not([disabled]) {
@@ -293,6 +302,7 @@ prm-alert-bar .dismiss-alert-button {
     font-weight:600;
     text-transform:uppercase;
     font-size:15px;
+    padding:1px;
 }
 prm-alert-bar .dismiss-alert-button.md-button.button-with-icon>prm-icon {
     display:none;
@@ -331,9 +341,13 @@ prm-search-result-availability-line .md-button.arrow-link-button .button-content
     color:#0579B8;
     font-weight:600;
 }
-/* this line is needed to prevent tiny right underline from appearing on button hover for online access*/
+/* this line is needed to prevent tiny right underline from appearing on button hover, focus for online access*/
 prm-search-result-availability-line .md-button.arrow-link-button .button-content:hover,
-prm-search-result-availability-line .md-button.arrow-link-button:hover .button-content {
+prm-search-result-availability-line .md-button.arrow-link-button .button-content:focus,
+prm-search-result-availability-line .md-button.arrow-link-button:hover .button-content,
+prm-search-result-availability-line .md-button.arrow-link-button:focus .button-content,
+prm-search-result-availability-line .fulltext_linktorsrc:hover,
+prm-search-result-availability-line .fulltext_linktorsrc:focus {
     box-shadow:inset 0 0 0 #FFF;
 }
 /* class*=no_ applies to Check Access Options, i.e. no FT or alma holdings */
@@ -380,7 +394,7 @@ prm-search-result-availability-line .md-button.neutralized-button [class*=unavai
 /* color of button and text when online, for alma content, separate lines below for content from CDI */
 prm-search-result-availability-line button.md-button.neutralized-button span[translate*="delivery.code.not_restricted"] {
     color:white;
-    padding: 3px 10px 3px 25px;
+    padding: 1px 10px 1px 25px;
     border-radius: 4px;
     font-weight: 600;
     margin-top:5px;margin-top: 10px;
@@ -395,13 +409,12 @@ prm-search-result-availability-line button.md-button.neutralized-button svg {
 }
 prm-search-result-availability-line button.md-button.neutralized-button span[translate*="delivery.code.not_restricted"]:hover {
     background-color:#2a5280;
-    padding: 3px 10px 3px 25px;
-    border-radius: 4px;
     border-bottom:0px solid transparent;
 =
 }
 /* color of button and text when online, for FT from CDI, doesn't apply to FT from alma records */
-prm-search-result-availability-line button span.button-content .fulltext{
+prm-search-result-availability-line button span.button-content .fulltext,
+prm-search-result-availability-line .fulltext_linktorsrc {
     color:white;
     background-color:#0579B8;
     padding: 3px 10px 3px 25px;
@@ -411,7 +424,8 @@ prm-search-result-availability-line button span.button-content .fulltext{
     background-repeat: no-repeat;
     background-position: bottom 4px left 6px;
 }
-prm-search-result-availability-line button span.button-content .fulltext:hover{
+prm-search-result-availability-line button span.button-content .fulltext:hover,
+prm-search-result-availability-line .fulltext_linktorsrc:hover {
     background-color:#2a5280;
     padding: 3px 10px 3px 25px;
     border-radius: 4px;
@@ -450,7 +464,7 @@ prm-search-result-availability-line-after a:hover {
 }
 .hvdHathiViewOnline:hover, .hvdHathiViewOnline:focus {
     background-color:#2a5280;
-    padding: 3px 10px 3px 25px;
+    padding: 3px 12px 3px 25px;
     border-radius: 4px;
     border-bottom:0px solid transparent;
 }
@@ -461,8 +475,9 @@ prm-search-result-availability-line-after a:hover {
 .hvd_EAD_link a {
     color:white;
     background-color:#0579B8;
-    padding: 4px 23px 4px 11px;
+    padding: 2px 22px 2px 11px;
     border-radius: 4px;
+    letter-spacing: 0.15px;
 }
 .hvd_EAD_link a:hover,
 .hvd_EAD_link a:focus {
@@ -477,7 +492,7 @@ prm-search-result-availability-line-after a:hover {
     margin-left:-4px;
     margin-right:5px;
 }
-/* map it - NEED TO CONTACT VENDOR, LOCAL CSS DOESN'T SEEM TO GET APPLIED */
+/* map it */
 prm-search-result-availability-line-after p.SMsearchbtn-container .SMsearchbtn {
     color: red!important;
     background-color:orange;
@@ -499,7 +514,7 @@ prm-search-result-availability-line a.browzine-direct-to-pdf-link {
     background-image: url('../img/browzine-pdf-download-icon.svg');
     background-repeat: no-repeat;
     background-position: bottom 5px left 6px;
-    padding:3px 30px 3px 35px;
+    padding:3px 38px 3px 38px;
 }
 prm-search-result-availability-line a.browzine-direct-to-pdf-link svg {
     color:white;
@@ -910,8 +925,9 @@ md-menu-content.menu-with-footer .menu-footer form div:hover {
     color:#0579b8;     
     outline:1px solid #0579b8;
 } */
-.result-item-actions .md-icon-button:focus:not([disabled]), .result-item-actions .md-icon-button:hover:not([disabled]){
-    border: 2px solid #44707b;
+.result-item-actions .md-icon-button:focus:not([disabled]), 
+.result-item-actions .md-icon-button:hover:not([disabled]){
+    /* border: 2px solid #44707b; */
 }
 /* from prm-permalink-after.css, from contractor work */
 .highlite {
@@ -935,9 +951,6 @@ prm-permalink div.form-focus{
 md-radio-group.layout-row md-radio-button:hover {
     border-bottom:1px solid #44707b;
 }
-/* prm-advanced-search .advanced-search-output input {
-    margin-top:-7px;
-} */
 prm-advanced-search button:focus {
     outline:1px solid #1e1e1e;
 }
@@ -979,23 +992,23 @@ prm-search-bar .advanced-search-wrapper prm-advanced-search .search-string .stri
     padding:15px;
 }
 prm-advanced-search .advanced-search-output button.button-confirm {
-    color:#a53c10;
+    color:white;
+    background-color:#0579B8;
+    padding: 3px 10px 3px 25px;
+    border-radius: 4px;
     font-weight:600;
 }
 prm-advanced-search .advanced-search-output button.button-confirm:hover:not([disabled]) {
-    background-color:#f3f3f3;
-    color:#a51c30;
-    outline-width:1px;
-    outline-color:#a51c30;
-    outline-style:solid;
-    /* outline:1px solid #a51c30; */
-    /* can't use outline here b/c there's an !important overriding it in otb code */
+    background-color:#2a5280;
 }
 prm-advanced-search .advanced-search-output button.button-confirm:focus:not([disabled]), prm-advanced-search .advanced-search-output button.button-confirm:focus {
     border:1px solid #a51c30;
     background-color:#f3f3f3;
     color:#a51c30;
     /* can't use outline here b/c there's an !important overriding it in otb code */    
+}
+prm-advanced-search svg[id^=magnifying-glass] {
+    color:#fff;
 }
 /* browse  */
 prm-browse-search-bar .md-button.button-confirm:hover:not([disabled]) {
@@ -1266,10 +1279,10 @@ prm-recomendation-item div > a:focus {
     background-color:#FEFFFE;
 }
 /* save pin */
-prm-save-to-favorites-button button:focus, prm-save-to-favorites-button button:hover {
+/* prm-save-to-favorites-button button:focus, prm-save-to-favorites-button button:hover {
     border: 1px solid #1e1e1e;
     border-radius: 100px;
-}
+} */
 /* next line is because bottom of tool-bar is too close to first result */
 prm-search-result-list .search-results-container {
     margin-top: 3.9em;
@@ -1333,6 +1346,17 @@ prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:hover:n
 }
 prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
     background-color:#2a5280;
+}
+prm-add-alert-toast md-toast .md-toast-content {
+    background-color:rgba(58,58,58,.12);
+    color:#000;
+}
+prm-add-alert-toast md-toast .md-button.settings-button {
+    color:#0579B8;
+}
+prm-add-alert-toast md-toast .md-button.settings-button:hover:note([disabled]) {
+    color:#fff;
+    background-color:#026DB9;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax {
     color:#0579b8;
