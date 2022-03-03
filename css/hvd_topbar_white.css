@@ -244,7 +244,7 @@ prm-topbar prm-user-area-expandable .md-button:not(.disable-hover):focus:not([di
 }
 prm-user-area-expandable .button-with-menu-arrow:hover .menu-arrow:hover:not([disabled]) {
     color:#fff;
-    background-color:#44707b;
+    background-color:#000;
 }
 prm-user-area-expandable .button-with-menu-arrow:hover .menu-arrow {
     color:#fff;
