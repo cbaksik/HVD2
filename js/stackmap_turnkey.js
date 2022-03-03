@@ -9,17 +9,17 @@
     css1.crossorigin = "anonymous";
     a.appendChild(css1);
 
-    // var css2 = document.createElement("link"); 
-    // css2.type = "text/css";
-    // css2.rel = "Stylesheet";
-    // css2.href = "https://www.stackmap.com/integration/harvard/StackMap.css";
-    // a.appendChild(css2);
+    /*var css2 = document.createElement("link"); 
+    css2.type = "text/css";
+    css2.rel = "Stylesheet";
+    css2.href = "https://www.stackmap.com/integration/harvard/StackMap.css";
+    a.appendChild(css2);*/
 
     var w = document.createElement("script"); 
-    w.type = "text/javascript"; 
-    w.async = true;
+    w.type = "text/javascript"; w.async = true;
     w.src = "https://www.stackmap.com/integration/harvard/StackMap.js";
+    var b = document.body;
     b.appendChild(w);
-    
+
 })();
 /* StackMap: END */
