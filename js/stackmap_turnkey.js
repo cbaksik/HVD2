@@ -2,12 +2,12 @@
 (function(){
 
     var a = document.querySelector("head");
-    // var css1 = document.createElement("link"); 
-    // css1.type = "text/css";
-    // css1.rel = "Stylesheet";
-    // css1.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
-    // css1.crossorigin = "anonymous";
-    // a.appendChild(css1);
+    var css1 = document.createElement("link"); 
+    css1.type = "text/css";
+    css1.rel = "Stylesheet";
+    css1.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+    css1.crossorigin = "anonymous";
+    a.appendChild(css1);
 
     // var css2 = document.createElement("link"); 
     // css2.type = "text/css";
