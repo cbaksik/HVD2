@@ -525,15 +525,6 @@ prm-search-result-availability-line-after a:hover {
     margin-left:-4px;
     margin-right:5px;
 }
-/* map it */
-prm-search-result-availability-line-after p.SMsearchbtn-container .SMsearchbtn {
-    color: red!important;
-    background-color:orange;
-    text-transform:uppercase;
-}
-prm-search-result-availability-line-after p.SMsearchbtn-container .SMsearchbtn i {
-    display:none;
-}
 /* contextual links, hide chapters per d2d */
 prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapters-results-line button[aria-label*="Other chapters"] {
     display:none;
