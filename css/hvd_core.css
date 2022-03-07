@@ -405,14 +405,23 @@ prm-search-result-availability-line .md-button.neutralized-button [class*=check]
 prm-search-result-availability-line .md-button.neutralized-button [class*=check]:hover {
     border-bottom:3px solid rgba(5, 121, 184, 0.3);
 }
-/* applies to Alma holdings = unavailable */
-prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable] {
+/* applies to Alma holdings = unavailable and other misc statuses that should display as black */
+prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable],
+prm-search-result-availability-line .md-button.neutralized-button [class*=does_not_exist],
+prm-search-result-availability-line .md-button.neutralized-button [class*=may],
+prm-search-result-availability-line .md-button.neutralized-button [class*=unknown] {
     color:#414141;
 }
-prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable]>span {
+prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable]>span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=does_not_exist]>span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=may]>span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=unknown]>span {
     color:#414141;
 }
-prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable]:hover {
+prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable]:hover,
+prm-search-result-availability-line .md-button.neutralized-button [class*=does_not_exist]:hover,
+prm-search-result-availability-line .md-button.neutralized-button [class*=may]:hover,
+prm-search-result-availability-line .md-button.neutralized-button [class*=unknown]:hover {
     border-bottom:3px solid rgba(43, 44, 44, 0.3);
 }
 /* color of button and text when online, for alma content, separate lines below for content from CDI */
