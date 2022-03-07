@@ -399,6 +399,9 @@ prm-search-result-availability-line span[translate*="delivery.and.other.location
     border-bottom:3px solid rgba(5, 121, 184, 0.3);
 }
 /* alma holdings without items */
+prm-search-result-availability-line .md-button.neutralized-button [class*=check] {
+    color:#0579B8;
+}
 prm-search-result-availability-line .md-button.neutralized-button [class*=check]>span {
     color:#0579B8;
 }
