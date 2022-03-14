@@ -1,4 +1,4 @@
-
+/* was hosted at stackmap; downloaded in order to customize display in search results 20220307 CB */
 .SMblock-screen {
 	top: 0;
 	width: 100%;
@@ -246,22 +246,25 @@ p.SMpowered-by {
 	vertical-align: middle;
 	text-align: center;
 }
-
+/* search result button */
 .SMsearchbtn {
 	/* background-color: #026DB9; */
 	background-color: transparent;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
 	font-size: 15px;
-	padding: 0 0 0.1em 0;
+	padding:0 0 0.2em 0;
 	color: #414141;
 	display: inline;
 	text-transform:uppercase;
 	font-weight:600;	
 	border:0px;
 	position:relative;
+	margin-left:0;
+	margin-top:0;
 }
- .SMsearchbtn:hover, .SMsearchbtn:focus {	
-	border-bottom:3px solid rgba(43, 44, 44, 0.3)
+ .SMsearchbtn:hover, 
+ .SMsearchbtn:focus {	
+	box-shadow:inset 0 -3px 0 0 rgba(43, 44, 44, 0.3);
 }
 
 .SMsearchbtn i {
