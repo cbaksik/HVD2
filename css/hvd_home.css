@@ -2,10 +2,10 @@ prm-static a {
   border-bottom: 3px solid transparent;
   color: #0579b8;
   font-family: "Trueno", sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
   font-style: normal;
-  line-height: 29px;
+  line-height: 1.73;
   text-decoration: none;
   transition: border 0.28s cubic-bezier(0.28, 1.08, 1, 0.96);
 }
@@ -14,13 +14,6 @@ prm-static a:hover, prm-static a:focus {
   border-bottom-color: rgba(5, 121, 184, 0.3);
   color: #0579b8;
   box-shadow: none;
-}
-
-@media(min-width:621px) {
-  prm-static a {
-    font-size: 19px;
-    line-height: 32px;
-  }
 }
 
 .hl__right-arrow {
@@ -48,28 +41,19 @@ prm-static a:hover, prm-static a:focus {
 	padding-right: 0;
 }
 
-md-card .hl__right-arrow {
-  margin-top: 30px;
-}
-
 /* headings and spacing */
 prm-static h2, prm-static h2.md-headline {
   font-family: "Trueno", sans-serif;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 1.3;
+  font-size: 26px;
+  line-height: 32px;
   margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 2.4px;
   color: #1e1e1e;
 }
 prm-static h2.md-headline {
-  margin-bottom: 20px;
-}
-@media(min-width:621px){
-  prm-static h2, prm-static h2.md-headline {
-    font-size: 32px;
-  }
+  margin-bottom: 0.4em;
 }
 
 prm-static h3 {
@@ -110,6 +94,7 @@ prm-static[section="homepage"] md-card.default-card {
   box-shadow: none;
   max-width: 930px;
   margin-bottom: 60px;
+  padding-bottom: 0;
 }
 prm-static[section="homepage"] md-card-title {
   padding: 30px;
@@ -122,21 +107,11 @@ prm-static[section="homepage"] md-card.default-card md-card-title:not(#featuredR
   font-family: Lora,Georgia,serif;
   padding: 0 30px 30px;
   font-size: 15px;
-  line-height: 28px;
+  line-height: 26px;
 }
 prm-static[section="homepage"] custom-alert md-card-content a {
   font-size: 15px;
-  line-height: 1.25;
-}
-prm-static[section="homepage"] md-card.default-card md-card-title:not(#featuredResultTitle) + md-card-content {
-  font-size: 17px;
-  line-height: 29px;
-}
-@media(min-width: 621px) {
-  prm-static[section="homepage"] md-card.default-card md-card-title:not(#featuredResultTitle) + md-card-content {
-    font-size: 19px;
-    line-height: 32px;
-  }
+  line-height: 26px;
 }
 
 
