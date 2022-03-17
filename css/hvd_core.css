@@ -88,7 +88,7 @@ ul.md-autocomplete-suggestions li.selected {
     }
 
 }
-prm-tabs-and-scopes-selector:hover {
+prm-tabs-and-scopes-selector md-input-container:hover {
     background-color:#F3F3F3;
 }
 md-select-menu.md-primoExplore-theme md-content md-option:not([disabled]):hover {
