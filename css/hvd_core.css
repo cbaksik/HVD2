@@ -528,8 +528,30 @@ prm-search-result-availability-line-after a:hover {
     margin-left:-4px;
     margin-right:5px;
 }
-/* contextual links, hide chapters per d2d */
-prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapters-results-line button[aria-label*="Other chapters"] {
+/* chapters within book, book reviews ... */
+prm-chapters-results-line {
+    margin-top:15px;    
+    margin-bottom:15px;    
+}
+prm-chapters-results-line prm-icon {
+    display:none;
+}
+prm-chapters-results-line .md-button.arrow-link-button .button-content {
+    color:#0579B8;
+}
+prm-chapters-results-line .md-button.neutralized-button {
+    padding-bottom:3px;
+}
+prm-chapters-results-line .md-button.arrow-link-button:focus .button-content,
+prm-chapters-results-line .md-button.arrow-link-button:hover .button-content {
+    box-shadow: inset 0 -3px 0 0 rgba(5, 121, 184, 0.3);
+}
+prm-chapters-results-line .md-button.arrow-link-button [link-arrow] md-icon {
+    display:none;
+}
+/* contextual links, hide chapters per d2d.  as of 2022/03 doesn't work due to code change, no one has mentioned it so leave it alone  */
+prm-chapters-results-line button[aria-label*="Chapters of this book"],
+ prm-chapters-results-line button[aria-label*="Other chapters"] {
     display:none;
 } 
 /* browzine */
@@ -813,11 +835,7 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
     background-color:rgba(128, 125, 125, 0.1);
 }
 prm-full-view-service-container .arrow-link [link-arrow] md-icon {
-    opacity:1;
-    min-width: 18px;
-    min-height: 18px;
-    width: 18px;
-    height: 18px;
+    display:none;
 }
 /* next line affects all section headers */
 prm-full-view-service-container prm-service-header h4[translate="nui.getit.tab1_onl_norestrict"] {
@@ -831,6 +849,14 @@ prm-full-view-service-container prm-view-online div {
 }
 prm-full-view-service-container prm-view-online div a {
     text-transform:uppercase;
+    font-weight:600;
+    padding-bottom:3px;
+}
+prm-full-view-service-container prm-view-online a prm-icon {
+    display:none;
+}
+prm-full-view-service-container prm-view-online a.arrow-link [link-arrow] {
+    display:none;
 }
 /* ava line at top */
 prm-full-view div.full-view-container prm-full-view-service-container prm-search-result-availability-line {
@@ -1370,14 +1396,54 @@ prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:hover:n
 prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
     background-color:#2a5280;
 }
-prm-add-alert-toast md-toast md-toast {
-    background-color:rgba(58,58,58,.12);
+/* bulk buttons when activated */
+prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button[disabled=disabled] {
+    color: #ccc!important;
+    cursor: not-allowed;
+    transform: none;
 }
-prm-add-alert-toast md-toast .md-toast-content {
+prm-search-result-tool-bar .md-toolbar-tools .md-button {
+    transition-duration:0ms;
+}
+prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button {
+    color:#187474;
+    transform: rotate(25deg);
+    opacity: 1;
+    transition-duration:0ms;
+}
+prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button:hover:not([disabled]){
+    color:#000;
+    background-color:transparent;
+}
+/* prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button {
+    opacity:1;
+} */
+/* prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button prm-icon md-icon {
+    transform: rotate(25deg);
+    opacity: 1;
+}
+prm-search-result-tool-bar prm-search-result-add-to-favorites-menu prm-icon md-icon.md-primoExplore-theme svg {
+    color:#187474;
+} */
+/* prm-search-result-tool-bar prm-search-result-add-to-favorites-menu button:hover prm-icon md-icon.md-primoExplore-theme svg,
+prm-search-result-tool-bar prm-search-result-add-to-favorites-menu button:focus prm-icon md-icon.md-primoExplore-theme svg {
     color:#000;
 }
+prm-search-result-add-to-favorites-menu .md-button._md-focused:not([disabled]),
+prm-search-result-add-to-favorites-menu .md-button.hovered:not([disabled]),
+prm-search-result-add-to-favorites-menu .md-button.md-focused:not([disabled]), 
+prm-search-result-add-to-favorites-menu .md-button:focus:not([disabled]),
+prm-search-result-add-to-favorites-menu .md-button:hover:not([disabled])  {
+    background-color:transparent;
+    color:#000;
+} */
+/* alert at top when you save a search */
+prm-add-alert-toast md-toast .md-toast-content {
+    color:#000;
+    background-color:#E7E7E7;
+}
 prm-add-alert-toast md-toast .md-button.settings-button {
-    color:#0579B8;
+    color:#2A5280;
 }
 prm-add-alert-toast md-toast .md-button.settings-button:hover:not([disabled]) {
     color:#fff;
@@ -1391,6 +1457,7 @@ prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax {
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax:hover {
     color:#fff;
+    background-color:#2a5280;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax:focus {
     color:#fff;
@@ -1479,18 +1546,36 @@ prm-tags-list input#own-tags-input {
 prm-tags-list input::placeholder {
     color:#333;
 }
+/* SERVICE LINKS SECTION */
+div#links prm-full-view-service-container prm-service-header div.layout-row md-divider {
+    display:none;
+}
+div.full-view-section#links {
+    margin-top:0;
+}
+div.full-view-section#links .section-head {
+    display:none;
+}
+prm-service-links a {
+    padding-bottom:3px;
+}
+prm-service-links a prm-icon {
+    display:none;
+}
+prm-service-links a.arrow-link [link-arrow] {
+    display:none;
+}
 /* digital bookplates */
 .serviceLinkBox {
     padding:0px;
     background: transparent !important;
+    margin:8px 8px 8px 5px;
 }
-
 .serviceLink {
     list-style: none;
     margin-left:-5px;
     padding-left:0px;
 }
-
 .serviceLink > li {
     display: inline-block;
     width:200px;
@@ -1498,13 +1583,11 @@ prm-tags-list input::placeholder {
     margin-left:0px;
     padding-left:0px;
 }
-
 .serviceLinkPhoto {
     /* height:155px; */
     max-height: 205px;
     max-width: 155px;
 }
-
 .serviceLinkSpace {
     margin-bottom:10px;
 }
