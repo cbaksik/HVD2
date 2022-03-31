@@ -35,16 +35,8 @@ a:hover, a:focus {
 .md-button.button-link {
     color:#0579B8;
 }
-.md-button.button-confirm {
-    color:#0579B8;
-    font-weight:600;
-    border-radius: 4px;
-}
-.md-button.md-primary {
-    color:#0579B8;
-    font-weight:600;
-    border-radius: 4px;
-}
+.md-button.button-confirm,
+.md-button.md-primary,
 .md-button.button-notice {
     color:#0579B8;
     font-weight:600;
@@ -59,6 +51,7 @@ a:hover, a:focus {
 .md-button.button-notice:focus:not([disabled]) {
     background-color:#2a5280;
 }
+
 /* this line added b/c Export to Excel action in list had blue background for hover/focus instead of otb black */
 /* .md-button.md-primary:focus:not([disabled]),.md-button.md-primary:hover:not([disabled]) {
     background-color:#3a3a3a;
@@ -69,10 +62,7 @@ a:hover, a:focus {
 prm-icon md-icon svg[id^=magnifying-glass] {
     color:#a51c30;
 }
-prm-search-bar .search-actions .md-button.button-confirm:hover:not([disabled]) {
-    color:#fff;
-    background-color:#e9e9e9;
-}
+prm-search-bar .search-actions .md-button.button-confirm:hover:not([disabled]),
 prm-search-bar .search-actions .md-button.button-confirm:focus:not([disabled]) {
     color:#fff;
     background-color:#e9e9e9;
@@ -83,9 +73,7 @@ md-autocomplete-parent-scope md-icon {
 md-autocomplete-parent-scope svg[id^=magnifying-glass] {
     color:#212121 !important;
 }
-/* li md-autocomplete-parent-scope div:hover {
-    background-color:grey;
-} */
+
 .md-autocomplete-suggestions .highlight:hover {
     color:#000;
 }
@@ -101,16 +89,18 @@ ul.md-autocomplete-suggestions li.selected {
     }
 
 }
-prm-tabs-and-scopes-selector md-input-container:hover {
-    background-color:#F3F3F3;
+prm-tabs-and-scopes-selector md-input-container:hover,
+prm-tabs-and-scopes-selector md-input-container:focus {
+    background-color: #e5e5e5;
 }
-md-select-menu.md-primoExplore-theme md-content md-option:not([disabled]):hover {
+prm-tabs-and-scopes-selector md-input-container:hover .md-text,
+prm-tabs-and-scopes-selector md-input-container:focus .md-text {
     text-decoration: underline;
-    background-color:#fff;
 }
-md-select-menu.md-primoExplore-theme md-content md-option[selected="selcted"]:hover {
-        background-color:#F3F3F3;
+md-option.md-focused {
+    text-decoration: underline;
 }
+
 /* END search bar area (there may be additional css later in file */
 /* hide the page number in the upper left corner of the result list; it duplicates page number in toolbar */
 #searchResultsContainer .md-subheader > .md-subheader-inner > .md-subheader-content > span.tiny-uppercase-text {
@@ -184,7 +174,8 @@ md-card-title-text .alumhat {
     display: inline;
     vertical-align: bottom;    
 }
-prm-back-to-search-results-button md-toolbar.md-primoExplore-theme.default-toolbar .md-toolbar-tools button.md-button:hover {
+prm-back-to-search-results-button md-toolbar.md-primoExplore-theme.default-toolbar .md-toolbar-tools button.md-button:hover,
+prm-back-to-search-results-button md-toolbar.md-primoExplore-theme.default-toolbar .md-toolbar-tools button.md-button:focus {
     color:#fff;
 }
 /* MY FAVORITES */
@@ -296,8 +287,9 @@ button.mobile-menu-button prm-icon {
 /* alert bar e.g. sign in prompt above results */
 prm-alert-bar .bar.alert-bar {
     background-color:#fff;
-    border-bottom:2px solid #EAEBEA;
-    box-shadow: inset 0 -1px 0 0 #ACADAC;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #c0c0c0;
 }
 prm-alert-bar .bar prm-authentication {
     margin-right:15px;
@@ -319,9 +311,6 @@ prm-alert-bar .bar prm-authentication .md-button:focus:not([disabled]) {
 }
 prm-alert-bar .bar.alert-bar span.bar-text {    
     padding: 7px 15px;
-}
-prm-alert-bar prm-authentication .md-button.button-with-icon>prm-icon {
-    display:none;
 }
 prm-alert-bar prm-authentication .md-button.button-with-icon>prm-icon+span {
     text-decoration:none;
@@ -348,7 +337,8 @@ prm-alert-bar .dismiss-alert-button.md-button.button-with-icon>prm-icon {
 /* SEARCH RESULTS SECTION */
 /* ************** */
 /* title hover handling */
-prm-brief-result.result-item-details h3.item-title a:hover {
+prm-brief-result.result-item-details h3.item-title a:hover,
+prm-brief-result.result-item-details h3.item-title a:focus {
     box-shadow: inset 0 -3px 0 0 rgba(173, 197, 207, 0.8); 
     border-bottom:0px;
 }
@@ -391,11 +381,10 @@ prm-search-result-availability-line .fulltext_linktorsrc:focus {
 prm-search-result-availability-line .md-button.neutralized-button [class*=no_] {
     color:#414141;
     font-weight:600;
-    padding-bottom:0.3em;
 }
-prm-search-result-availability-line .md-button.neutralized-button [class*=no_]:hover {
-    /* border-bottom:3px solid rgba(43, 44, 44, 0.3); */
-    box-shadow: inset 0 -3px 0 0 rgba(43, 44, 44, 0.3);
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=no_],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=no_] {
+    border-bottom:3px solid rgba(43, 44, 44, 0.3);
 }
 /* applies to Alma holdings = available */
 prm-search-result-availability-line .md-button.neutralized-button [class*=available] {
@@ -405,10 +394,12 @@ prm-search-result-availability-line .md-button.neutralized-button [class*=availa
 prm-search-result-availability-line .md-button.neutralized-button [class*=available]>span {
     color:#0579B8;
 }
-prm-search-result-availability-line .md-button.neutralized-button [class*=available]:hover {
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=available],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=available] {
     border-bottom:3px solid rgba(5, 121, 184, 0.3);
 }
-prm-search-result-availability-line span[translate*="delivery.and.other.locations"]:hover {
+prm-search-result-availability-line span[translate*="delivery.and.other.locations"]:hover,
+prm-search-result-availability-line span[translate*="delivery.and.other.locations"]:focus {
     border-bottom:3px solid rgba(5, 121, 184, 0.3);
 }
 /* alma holdings without items */
@@ -418,7 +409,8 @@ prm-search-result-availability-line .md-button.neutralized-button [class*=check]
 prm-search-result-availability-line .md-button.neutralized-button [class*=check]>span {
     color:#0579B8;
 }
-prm-search-result-availability-line .md-button.neutralized-button [class*=check]:hover {
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=check],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=check] {
     border-bottom:3px solid rgba(5, 121, 184, 0.3);
 }
 /* applies to Alma holdings = unavailable and other misc statuses that should display as black */
@@ -434,10 +426,14 @@ prm-search-result-availability-line .md-button.neutralized-button [class*=may]>s
 prm-search-result-availability-line .md-button.neutralized-button [class*=unknown]>span {
     color:#414141;
 }
-prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable]:hover,
-prm-search-result-availability-line .md-button.neutralized-button [class*=does_not_exist]:hover,
-prm-search-result-availability-line .md-button.neutralized-button [class*=may]:hover,
-prm-search-result-availability-line .md-button.neutralized-button [class*=unknown]:hover {
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=unavailable],
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=does_not_exist],
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=may],
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=unknown],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=unavailable],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=does_not_exist],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=may],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=unknown] {
     border-bottom:3px solid rgba(43, 44, 44, 0.3);
 }
 /* color of button and text when online, for alma content, separate lines below for content from CDI */
@@ -456,10 +452,10 @@ prm-search-result-availability-line button.md-button.neutralized-button span[tra
 prm-search-result-availability-line button.md-button.neutralized-button svg {
     color:white;
 }
-prm-search-result-availability-line button.md-button.neutralized-button span[translate*="delivery.code.not_restricted"]:hover {
+prm-search-result-availability-line button.md-button.neutralized-button:hover span[translate*="delivery.code.not_restricted"],
+prm-search-result-availability-line button.md-button.neutralized-button:focus span[translate*="delivery.code.not_restricted"] {
     background-color:#2a5280;
     border-bottom:0px solid transparent;
-=
 }
 /* color of button and text when online, for FT from CDI, doesn't apply to FT from alma records */
 prm-search-result-availability-line button span.button-content .fulltext,
@@ -474,7 +470,9 @@ prm-search-result-availability-line .fulltext_linktorsrc {
     background-position: bottom 4px left 6px;
 }
 prm-search-result-availability-line button span.button-content .fulltext:hover,
-prm-search-result-availability-line .fulltext_linktorsrc:hover {
+prm-search-result-availability-line .fulltext_linktorsrc:hover,
+prm-search-result-availability-line button span.button-content .fulltext:focus,
+prm-search-result-availability-line .fulltext_linktorsrc:focus {
     background-color:#2a5280;
     padding: 3px 10px 3px 25px;
     border-radius: 4px;
@@ -497,7 +495,8 @@ prm-search-result-availability-line-after a {
     font-weight:600;
     padding-bottom:0.2em;
 }
-prm-search-result-availability-line-after a:hover {
+prm-search-result-availability-line-after a:hover,
+prm-search-result-availability-line-after a:focus {
     box-shadow: inset 0 -3px 0 0 rgba(43, 44, 44, 0.3);
 }
 /* hathi trurst link, online */
@@ -584,7 +583,8 @@ prm-search-result-availability-line a.browzine-direct-to-pdf-link svg {
 prm-search-result-availability-line a.browzine-direct-to-pdf-link img {
     display:none;
 }
-prm-search-result-availability-line a.browzine-direct-to-pdf-link:hover {
+prm-search-result-availability-line a.browzine-direct-to-pdf-link:hover,
+prm-search-result-availability-line a.browzine-direct-to-pdf-link:focus {
     background-color: #2a5280;
     box-shadow:0 0 0 0px;
     border-bottom: 0px;
@@ -601,14 +601,16 @@ prm-page-nav-menu #resultsPerPage .counter-main a {
     color:#026DB9;
     font-weight:bold;
 }
-prm-page-nav-menu #resultsPerPage .counter-main a:hover {
+prm-page-nav-menu #resultsPerPage .counter-main a:hover,
+prm-page-nav-menu #resultsPerPage .counter-main a:focus {
     color:#FFF;
 }
 prm-page-nav-menu #resultsPerPage .counter-main .current-page {
     color:#3a3a3a;
     box-shadow:0 0 0 0px;
 }
-prm-page-nav-menu #resultsPerPage .counter-main a.current-page:hover {
+prm-page-nav-menu #resultsPerPage .counter-main a.current-page:hover,
+prm-page-nav-menu #resultsPerPage .counter-main a.current-page:focus {
     color:#3a3a3a;
     background-color:#FFF;
     box-shadow:0 0 0 0px;
@@ -619,7 +621,9 @@ prm-page-nav-menu #resultsPerPage .counter-prev a {
     font-weight:bold;
 }
 prm-page-nav-menu #resultsPerPage .counter-next a:hover,
-prm-page-nav-menu #resultsPerPage .counter-prev a:hover {
+prm-page-nav-menu #resultsPerPage .counter-prev a:hover,
+prm-page-nav-menu #resultsPerPage .counter-next a:focus,
+prm-page-nav-menu #resultsPerPage .counter-prev a:focus {
     color:#FFF;
 }
 prm-page-nav-menu #resultsPerPage div.results-per-page {
@@ -629,14 +633,16 @@ prm-page-nav-menu #resultsPerPage div.results-per-page button {
     color:#026DB9;
     font-weight:bold;
 }
-prm-page-nav-menu #resultsPerPage div.results-per-page button:hover {
+prm-page-nav-menu #resultsPerPage div.results-per-page button:hover,
+prm-page-nav-menu #resultsPerPage div.results-per-page button:focus {
     color:#FFF;
 }
 prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk {
     color:#3a3a3a;
     box-shadow:0 0 0 0px;
 }
-prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk:hover {
+prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk:hover,
+prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk:focus {
     color:#3a3a3a;
     background-color:#FFF;
     box-shadow:0 0 0 0px;
@@ -665,8 +671,8 @@ prm-snippet prm-icon.close-quote md-icon {
     transform: scale(.4) translate(0px,-10px);
     opacity: 0.7;
 }
-/*        FACETS          */
-/*        FACETS          */
+
+
 /*        FACETS          */
 /*div#facets {background-color:coral;min-height:auto;}
 prm-facet {background-color:chartreuse;}
@@ -1013,9 +1019,7 @@ prm-advanced-search button:focus {
 div.search-switch-buttons .md-button {
     background-color:rgba(58, 58, 58, 0.1);
 }
-div.search-switch-buttons .md-button:hover:not([disabled]) {
-    outline:1px solid #1e1e1e;
-}
+div.search-switch-buttons .md-button:hover:not([disabled]),
 div.search-switch-buttons .md-button:focus:not([disabled]) {
     outline:1px solid #1e1e1e;
 }
@@ -1644,6 +1648,10 @@ prm-service-links a.arrow-link [link-arrow] {
     iframe.mashup-iframe {
         margin-top:-25px;
     }
-      
 }
   
+/* remove icons for my account and sign in */
+prm-library-card-menu .md-button.button-with-icon > prm-icon,
+prm-authentication .md-button.button-with-icon > prm-icon {
+    display: none;
+}
