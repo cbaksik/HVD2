@@ -16,15 +16,7 @@
     border-bottom-color: rgba(30, 30, 30, 0.5);
 }
 
-#homePageAlert h2 {
-    line-height: 1em;
-    color: #1e1e1e;
-}
-
 .homePageAlertIcon {
     align-self: center;
-    height: 21px;
-    width: 18px;
     margin-right: 15px;
-    margin-bottom: 17px;
 }

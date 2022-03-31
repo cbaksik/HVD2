@@ -4,6 +4,9 @@ prm-search-bar .search-switch-buttons,
 prm-search-bar .search-wrapper > div:last-child {
   display: none !important;
 }
+prm-search-bar .advanced-mode + .search-switch-buttons {
+  display: block !important;
+}
 prm-search-bar .layout-fill {
   max-width: 1402px;
   margin-left: auto;
