@@ -1,0 +1,28 @@
+#browseSearchBar {
+    position: absolute;
+    top:10px;
+    width:100px;
+    display: inline-block;
+    text-align: left;
+    padding:0px;
+    margin:0px;
+}
+
+#browseSearchBar a {
+    color:#ffffff;
+    text-align: left;
+    padding:0px;
+    margin:0px;
+}
+
+#browseSearchBar a.search-switch-buttons {
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+
+#browseSearchBar a.basicSearch {
+    padding-top:5px !important;
+    padding-bottom:0px !important;
+}
