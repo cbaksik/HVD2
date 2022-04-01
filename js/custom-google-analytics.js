@@ -5,24 +5,26 @@
 
 
     // Google Analytyics code
-    const defaultCode = `window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
+    const defaultCode = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-                        gtag('config', '${trackingId_GA4}');`;
+        gtag('config', '${trackingId_GA4}');`;
 
     const defaultURL = `https://www.googletagmanager.com/gtag/js?id=${trackingId_GA4}`;
 
 
     // Google Tag Manager code
-    // const gtmHeadCode = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    //                     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    //                     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    //                     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    //                     })(window,document,'script','dataLayer','${trackingId_GTM}');`;
+    // const gtmHeadCode =
+    //     `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    //     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    //     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    //     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    //     })(window,document,'script','dataLayer','${trackingId_GTM}');`;
 
     // const gtmBodyCode = `<iframe src="https://www.googletagmanager.com/ns.html?id=${trackingId_GTM}"
-    //                     height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+    //     height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
 
 
     // Add GA4 external script tag in <head>
@@ -49,26 +51,4 @@
     addInlineScript(defaultCode);
     // addInlineScript(gtmHeadCode);
     // addInlineScript(gtmBodyCode, 'noscript', 'body');
-
-
-
-    // testing with old UA tracking ID
-    const trackingId_UA = 'UA-52592218-13';
-
-    // Google Analytyics code
-    const defaultCode_UA = `window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', '${trackingId_UA}');`;
-
-    const defaultURL_UA = `https://www.googletagmanager.com/gtag/js?id=${trackingId_UA}`;
-
-    const externalScriptTag_UA = document.createElement('script');
-    externalScriptTag_UA.async = true;
-    externalScriptTag_UA.src = defaultURL_UA;
-    document.querySelector("head").appendChild(externalScriptTag_UA);
-
-    addInlineScript(defaultCode_UA);
-
 })();

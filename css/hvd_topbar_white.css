@@ -212,6 +212,14 @@ div.search-actions > .md-button.button-confirm:hover {
 prm-search-bookmark-filter .md-button {
     background-color:#44707b;
 }
+prm-search-bookmark-filter .md-button#search-button svg {
+    /* background-color:white; */
+    color: white;
+}
+prm-search-bookmark-filter .md-button#search-button:hover svg, 
+prm-search-bookmark-filter .md-button#search-button:focus svg {
+    color: #44707b;
+}
 /* hide qr code button */
 prm-topbar prm-search-bookmark-filter button#qrCodeScanner {
     display:none;
