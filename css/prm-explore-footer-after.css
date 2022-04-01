@@ -6,6 +6,13 @@ prm-facet [sticky].is-stuck {
   background: white;
 }
 
+footer {
+  display: none;
+}
+footer.display {
+  display: block;
+}
+
 /* FOOTER */
 .hl__footer {
   background-color: #1e1e1e;

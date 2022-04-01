@@ -3,19 +3,22 @@
  * This header will use for image component page and image detail page
  */
 
- angular.module('viewCustom')
- .controller('prmExploreFooterAfterCtrl',[function () {
-		 var vm=this;
-		 vm.$onInit=function () {
+angular.module('viewCustom')
+.controller('prmExploreFooterAfterCtrl',[function () {
+		var vm=this;
+		vm.$onInit=function () {
+			setTimeout(()=>{
+				const showFooter = angular.element(document.querySelector('footer'));
+				showFooter.addClass("display");
+			}, 2000)
+		};
 
-		 };
-
- }]);
+}]);
 
 angular.module('viewCustom')
- .component('prmExploreFooterAfter',{
-		 bindings:{parentCtrl:'<'},
-		 controller: 'prmExploreFooterAfterCtrl',
-		 controllerAs:'vm',
-		 templateUrl:'/primo-explore/custom/HVD2/html/prm-explore-footer-after.html'
- });
+.component('prmExploreFooterAfter',{
+		bindings:{parentCtrl:'<'},
+		controller: 'prmExploreFooterAfterCtrl',
+		controllerAs:'vm',
+		templateUrl:'/primo-explore/custom/HVD2/html/prm-explore-footer-after.html'
+});
