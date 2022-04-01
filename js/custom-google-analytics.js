@@ -8,7 +8,7 @@
     const defaultCode = `window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
-                        
+
                         gtag('config', '${trackingId_GA4}');`;
 
     const defaultURL = `https://www.googletagmanager.com/gtag/js?id=${trackingId_GA4}`;
@@ -49,4 +49,26 @@
     addInlineScript(defaultCode);
     // addInlineScript(gtmHeadCode);
     // addInlineScript(gtmBodyCode, 'noscript', 'body');
+
+
+
+    // testing with old UA tracking ID
+    const trackingId_UA = 'UA-52592218-13';
+
+    // Google Analytyics code
+    const defaultCode_UA = `window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+
+                        gtag('config', '${trackingId_UA}');`;
+
+    const defaultURL_UA = `https://www.googletagmanager.com/gtag/js?id=${trackingId_UA}`;
+
+    const externalScriptTag_UA = document.createElement('script');
+    externalScriptTag_UA.async = true;
+    externalScriptTag_UA.src = defaultURL_UA;
+    document.querySelector("head").appendChild(externalScriptTag_UA);
+
+    addInlineScript(defaultCode_UA);
+
 })();
