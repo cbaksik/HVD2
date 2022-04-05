@@ -13,6 +13,19 @@ md-content,
 md-content.md-primoExplore-theme {
     background-color: #FFFFFF;
 }
+/* blank area below facet - how to get rid of */
+/* need this, among other things,  to get rid of double-scroll bar */
+body {
+    min-height:auto;
+    height:auto;
+}
+/* primo-explore {     background-color:pink;}*/
+md-content.md-primoExplore-theme {    
+     /* background-color:aqua; */
+     overflow:hidden;
+}
+/* prm-search{     background-color:purple;}*/
+/* end*/
 a {
     color:#0579B8;
 }
@@ -661,6 +674,15 @@ prm-snippet prm-icon.close-quote md-icon {
 
 
 /*        FACETS          */
+/*div#facets {background-color:coral;min-height:auto;}
+prm-facet {background-color:chartreuse;}
+prm-facet>div {background-color:red;} */
+/* the 2nd to last element of prm-facet is a div hard-coded with height=2092px; just above prm-facet-after */
+prm-facet .primo-scrollbar + div {
+    background-color:deeppink;
+    display:none;
+}
+prm-facet > .primo-scrollbar { position: relative !important }
 prm-facet prm-search-result-sort-by md-select {
     padding: 5px;
     border-radius: 3px;
