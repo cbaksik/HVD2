@@ -1,6 +1,6 @@
 /**
  * Created by mferrarini on 2/9/22.
- * This header will use for image component page and image detail page
+ * Standard HL footer
  */
 
 angular.module('viewCustom')
