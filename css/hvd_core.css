@@ -19,12 +19,9 @@ body {
     min-height:auto;
     height:auto;
 }
-/* primo-explore {     background-color:pink;}*/
 md-content.md-primoExplore-theme {    
-     /* background-color:aqua; */
-     overflow:hidden;
+    overflow:hidden;
 }
-/* prm-search{     background-color:purple;}*/
 /* end*/
 a {
     color:#0579B8;
@@ -52,10 +49,6 @@ a:hover, a:focus {
     background-color:#2a5280;
 }
 
-/* this line added b/c Export to Excel action in list had blue background for hover/focus instead of otb black */
-/* .md-button.md-primary:focus:not([disabled]),.md-button.md-primary:hover:not([disabled]) {
-    background-color:#3a3a3a;
-} */
 /* START search bar area */
 
 /* magnify glass search in search box */
@@ -145,9 +138,6 @@ md-card.default-card {
     padding-bottom: 10px;
 }
 /* for background of overlay menu from top nav ... */
-/*md-content.md-primoExplore-theme md-dialog.light-on-dark-dialog {
-    background-color: rgba(56,56,61,.5);
- }*/
  @media (max-width: 599px) {
     prm-main-menu[menu-type=full] .overlay-menu-item  {
         padding:0px;
@@ -248,13 +238,7 @@ prm-edit-notification-settings form {
 prm-favorites md-dialog.in-element-dialog form {
     background-color: white;
     width: 50%;
-    /* height: 50%; */
-    /* min-height: 50%; */
-    /* align-content: end; */
-    /* align-items: end; */
     margin-left: 50%;
-    /* padding-top: 2%; */
-    /* margin-top:45px; */
     border:5px solid #cccbcb;
 }
 prm-favorites md-dialog.in-element-dialog form div.md-dialog-content {
@@ -270,9 +254,6 @@ prm-favorites md-dialog.in-element-dialog span[translate='nui.favorites.removeSi
     padding:15px;
 }
 
-/* prm-favorites-tool-bar button.unpin-button::after { 
-    content: "!";
-} */
 /* END MY FAVORITES */
 /* mobile misc */
 button.mobile-menu-button prm-icon {
@@ -302,10 +283,6 @@ prm-alert-bar .bar prm-authentication .md-button {
 }
 prm-alert-bar .bar prm-authentication .md-button:hover:not([disabled]),
 prm-alert-bar .bar prm-authentication .md-button:focus:not([disabled]) {
-    /* background-color:transparent;
-    color:#0579B8;
-    border-bottom:3px solid rgba(5, 121, 184, 0.3); */
-    /* box-shadow: inset 0 -1px 0 0 #ACADAC; */
     background-color:#2a5280;
     padding: 11px;
 }
@@ -674,10 +651,6 @@ prm-snippet prm-icon.close-quote md-icon {
 
 
 /*        FACETS          */
-/*div#facets {background-color:coral;min-height:auto;}
-prm-facet {background-color:chartreuse;}
-prm-facet>div {background-color:red;} */
-/* the 2nd to last element of prm-facet is a div hard-coded with height=2092px; just above prm-facet-after */
 prm-facet .primo-scrollbar + div {
     background-color:deeppink;
     display:none;
@@ -701,7 +674,6 @@ prm-facet prm-search-result-sort-by md-select:focus {
 }
 /* date facet */
 prm-facet-exact .section-title:hover, prm-facet-range .section-title:hover {
-    /* border:1px solid #187474; */
     background-color:#ebebeb!important;
 }
 prm-facet-exact .section-title:hover span, prm-facet-range .section-title:hover span {   
@@ -727,9 +699,6 @@ prm-facet-range .md-button.button-as-link.link-alt-color:hover:not([disable]) {
     background-color:#187474;
     color:#fff;
 }
-/*  prm-facet-range .md-button.button-as-link.link-alt-color:hover:not([disable]) span {
-    border-bottom:3px solid rgba(5, 121, 184, 0.3);
-} */
 prm-facet-range {
     font-size:130%;
 }
@@ -853,10 +822,6 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(2) {
 prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
     background-color:#FFF;
 }
-/* .md-button.arrow-link-button .button-content:hover {
-    /box-shadow: inset 0 -1px 0 0 #53738c; 
-    /box-shadow:inset 0 -1px 0 0 rgba(21,58,86,.5) 
-} */
 /* full display page */
 /* during overlay of search results, left and right pane */
 .md-dialog-container.fixed-container {
@@ -894,12 +859,6 @@ prm-full-view div.full-view-container prm-full-view-service-container prm-search
 div#services-index {
     display:none;
 }
-/* action list */
-/* .result-item-actions .md-icon-button:focus:not([disabled]), 
-.result-item-actions .md-icon-button:hover:not([disabled]){
-    box-shadow:inset 0 -3px 0 0 rgba(43, 44, 44, 0.3);
-    border-radius:50%;
-} */
 @media (max-width: 599px) {
     custom-sms {
         width:105px;
@@ -954,7 +913,6 @@ button#textsms {
     line-height: 14px;
     font-weight: 600;
     letter-spacing: 0.03em;
-    /* color: rgba(58,58,58,.8); */
     border-radius: 0;
     padding-bottom: .75em;
     padding-top: .75em;
@@ -976,16 +934,10 @@ p.textsms-danger {
     color:red;
     padding-bottom:10px;
 }
-/* custom-print button.md-button.md-primary:hover:not([disabled]) {
-    background-color:#3a3a3a1a;
-    color:#0579b8;
-} */
 /* menu with footer is the menu that opens when choosing labels, footer is "add new label" */
 md-menu-content.menu-with-footer .menu-footer form div:hover {
     background-color:rgb(221, 221, 219);
     font-weight:600;
-    /* color:#fff; */
-    /* outline: 2px solid #0579b8; */
 }
 /* from prm-permalink-after.css, from contractor work */
 .highlite {
@@ -1074,11 +1026,6 @@ prm-advanced-search .md-button.md-primary:hover:not([disabled]),
 prm-advanced-search .md-button.md-primary:focus:not([disabled]) {
     background-color:#2a5280;
 }
-/* prm-advanced-search .advanced-search-output button.button-confirm:focus:not([disabled]), prm-advanced-search .advanced-search-output button.button-confirm:focus {
-    border:1px solid #a51c30;
-    background-color:#f3f3f3;
-    color:#a51c30;      
-} */
 prm-advanced-search prm-icon md-icon svg[id^=magnifying-glass] {
     color:#fff;
 }
@@ -1111,13 +1058,11 @@ prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item .md-list
     background-color:#fff;
     border-bottom:1px solid #b8babb;
     padding: 0em 0.2em;
-    /* color:#0579b8; */
 }
 prm-browse-result md-list-item .md-button {
     line-height:20px;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a {
-    /* color:#0579b8; */
     color:#44707b;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a:hover {
@@ -1130,7 +1075,6 @@ prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-butt
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a:focus {
     color:#0579b8;
     text-decoration: underline;
-    /* background-color:#f3f3f3;*/
     border-bottom:2px solid #0579b8;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items.prm-dense-list md-list-item .item-title prm-highlight > span:hover {
@@ -1195,9 +1139,6 @@ prm-account-overview md-select#loans-focus {
     margin-top: 16px;
 }
 prm-loans-overview h2 {
-/*     flex-direction:column;
-    flex-basis: 100%;
-    flex:1; */
     flex-direction:column;
 }
 prm-loans-overview button[aria-label="Renew all"] {
@@ -1207,9 +1148,6 @@ prm-loans-overview button[aria-label="Renew all"] {
 }
 prm-loans-overview span[translate="nui.loans.renewall"] {
     padding-right:10px;
-}
-prm-loans md-input-container:after {
-    /* display:none; */
 }
 /* END COVID RENEW QUESTION */
 /* END of may account section */
@@ -1232,9 +1170,6 @@ prm-search-result-frbr-line .md-button.arrow-link-button .button-content:hover {
     box-shadow:inset 0 0 0 #FFF;
 }
 /* instead of button the underline on the element below try putting it on the span within to avoid the underline extending beyond the length of the text */
-/* prm-search-result-frbr-line .md-button.arrow-link-button .button-content:focus {
-    border-bottom:3px solid rgba(5, 121, 184, 0.3); 
-} */
 prm-search-result-frbr-line span {
     color:#0579B8;
     font-size:1em;
@@ -1264,12 +1199,10 @@ prm-search-result-thumbnail-container img.fan-img-3[src="custom/HVD2/img/icon_ve
 /* this line has upper case -Versions-, which controls opened cluster list*/
 /* same selectors apply to search result but aria-label is proper case Versions */
 prm-breadcrumbs button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme {
-    /* border:solid 5px #026DB9; */
     background-color:rgb(181, 96, 1);
     padding:2px;
     width:30px;
     height:30px;
-    /* //box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2); */
     border-radius: 1.2em;
     overflow: hidden;
 } 
@@ -1277,10 +1210,6 @@ prm-breadcrumbs button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-
 prm-search-result-frbr-line button[aria-label*="online"] prm-icon md-icon.md-primoExplore-theme {
     display:none;
 }
-/* prm-search-result-frbr-line button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme svg {
-    color:rgb(181, 96, 1);
-    font-size:150%;
-}  */
 prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong[translate="facets.facet.facet_frbrgroupid"] {
     padding-left:10px;
 } 
@@ -1311,34 +1240,6 @@ div.item-details-element div[ng-show="!value.isLinkable"] {
 md-dialog.md-transition-in {
     background-color: rgba(0,0,0,.2);
 }
-/* prm-main-menu[menu-type=full] .custom-links-container .main-menu-button .transparent-card:focus {
-    border:2px solid white; 
-} */
-/* prm-main-menu[menu-type=full] .md-button:hover,
-prm-main-menu[menu-type=full] .md-button:focus {
-    border:2px solid white; 
-} */
-/* prm-main-menu[menu-type=full] prm-library-card-menu {
-    border-bottom:3px solid transparent;
-}
-prm-main-menu[menu-type=full] prm-library-card-menu span:hover,
-prm-main-menu[menu-type=full] prm-library-card-menu span:focus  {
-    color:#000;
-    border-bottom:3px solid rgb(172, 168, 168);
-}
-prm-main-menu[menu-type=full] prm-authentication span:hover,
-prm-main-menu[menu-type=full] prm-authentication span:focus {
-    color:#000;
-    border-bottom:3px solid rgb(172, 168, 168);
-} */
-/* prm-main-menu[menu-type=full] .close-button md-icon:hover,
-prm-main-menu[menu-type=full] .close-button md-icon:focus {
-    border:1px solid #000;
-    border-radius:50%;
-} */
-/* prm-main-menu[menu-type=full] .overlay-menu-item:focus {
-    border:2px solid white; 
-} */
 /* learned in Oct '21 that refworks started appearing in mobile for some reason */
 prm-main-menu .my-refworks-ctm {
     display:none;
@@ -1353,11 +1254,6 @@ prm-recomendation-item div > a:focus {
 .full-view-aside.flex-xl-20.flex-md-25.flex-lg-25.flex {
     background-color:#FEFFFE;
 }
-/* save pin */
-/* prm-save-to-favorites-button button:focus, prm-save-to-favorites-button button:hover {
-    border: 1px solid #1e1e1e;
-    border-radius: 100px;
-} */
 /* next line is because bottom of tool-bar is too close to first result */
 prm-search-result-list .search-results-container {
     margin-top: 3.9em;
@@ -1441,28 +1337,6 @@ prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-
     color:#000;
     background-color:transparent;
 }
-/* prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button {
-    opacity:1;
-} */
-/* prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button prm-icon md-icon {
-    transform: rotate(25deg);
-    opacity: 1;
-}
-prm-search-result-tool-bar prm-search-result-add-to-favorites-menu prm-icon md-icon.md-primoExplore-theme svg {
-    color:#187474;
-} */
-/* prm-search-result-tool-bar prm-search-result-add-to-favorites-menu button:hover prm-icon md-icon.md-primoExplore-theme svg,
-prm-search-result-tool-bar prm-search-result-add-to-favorites-menu button:focus prm-icon md-icon.md-primoExplore-theme svg {
-    color:#000;
-}
-prm-search-result-add-to-favorites-menu .md-button._md-focused:not([disabled]),
-prm-search-result-add-to-favorites-menu .md-button.hovered:not([disabled]),
-prm-search-result-add-to-favorites-menu .md-button.md-focused:not([disabled]), 
-prm-search-result-add-to-favorites-menu .md-button:focus:not([disabled]),
-prm-search-result-add-to-favorites-menu .md-button:hover:not([disabled])  {
-    background-color:transparent;
-    color:#000;
-} */
 /* alert at top when you save a search */
 prm-add-alert-toast md-toast .md-toast-content {
     color:#000;
@@ -1610,7 +1484,6 @@ prm-service-links a.arrow-link [link-arrow] {
     padding-left:0px;
 }
 .serviceLinkPhoto {
-    /* height:155px; */
     max-height: 205px;
     max-width: 155px;
 }
@@ -1624,9 +1497,6 @@ prm-service-links a.arrow-link [link-arrow] {
         margin:5%;    
         font-size:70%;
     }
-    /* prm-brief-result-container {
-        display:none;
-    } */
     prm-snippet {
         display:none;
     }
