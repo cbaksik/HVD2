@@ -6,10 +6,9 @@
 (function () {
 
     angular.module('viewCustom')
-    .controller('prmFullViewAfterCtrl',['prmSearchService','$timeout','customGoogleAnalytic',function (prmSearchService,$timeout, customGoogleAnalytic) {
+    .controller('prmFullViewAfterCtrl',['prmSearchService','$timeout',function (prmSearchService,$timeout) {
         var vm=this;
         var sv=prmSearchService;
-        var cga=customGoogleAnalytic;
 
         vm.hideBrowseShelf=function () {
             var hidebrowseshelfFlag=false;
@@ -60,14 +59,6 @@
                     if(vm.parentCtrl.services[i].scrollId==='getit_link2') {
                         vm.parentCtrl.services.splice(i,1);
                     }
-                }
-                
-                // set up google analytic
-                if(vm.parentCtrl.item.pnx.display) {
-                    var title=vm.parentCtrl.item.pnx.display.title[0] + ' : ' + vm.parentCtrl.item.pnx.control.recordid[0];
-                    cga.setPage('/fulldisplay', title);
-                } else {
-                    cga.setPage('/fulldisplay', 'Full display page');
                 }
             },1000);
 

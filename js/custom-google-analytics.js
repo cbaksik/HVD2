@@ -1,34 +1,58 @@
-/**
- * Created by samsan on 9/22/17.
- */
+(function () {
+    // Add external script tags
+    function addExternalScript(externalCode, scriptType='script', target='head'){
+        const externalScriptTag = document.createElement(scriptType);
+        externalScriptTag.async = true;
+        externalScriptTag.src = externalCode;
+        document.querySelector(target).appendChild(externalScriptTag);
+    }
+    
+    // Add inline script tags
+    function addInlineScript(inlineCode, scriptType='script', target='head'){
+        const inlineScriptTag = document.createElement(scriptType);
+        inlineScriptTag.type = 'text/javascript';
 
-angular.module('viewCustom')
-    .service('customGoogleAnalytic',['$timeout',function ($timeout) {
-       let svObj={};
-       // initialize google analytic
-        svObj.init=function () {
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function()
-                { (i[r].q=i[r].q||[]).push(arguments)}
-                ,i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-            ga('create', 'UA-52592218-13', 'auto','HVD2');
-            ga('send', 'pageview');
-        };
+        // Methods of adding inner text sometimes don't work across browsers.
+        try {
+            inlineScriptTag.appendChild(document.createTextNode(inlineCode));
+        } catch (e) {
+            inlineScriptTag.text = inlineCode;
+        }
 
-        // set up page
-        svObj.setPage=function (urlPath, title) {
-            $timeout(function () {
-
-                var loc=window.location.href;
-                ga('create', 'UA-52592218-13', 'auto',title);
-                ga('send',{'hitType':'pageview','page':urlPath,'title':title,location:loc});
-
-            },500);
-
-        };
-
-        return svObj;
-    }]);
+        document.querySelector(target).appendChild(inlineScriptTag);
+    }
 
 
+    // Google Analytics
+    const trackingId_GA4 = 'G-3CXC97RWEK';
+
+    const defaultCode = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '${trackingId_GA4}');`;
+
+    const defaultURL = `https://www.googletagmanager.com/gtag/js?id=${trackingId_GA4}`;
+
+    addExternalScript(defaultURL);
+    addInlineScript(defaultCode);
+
+
+
+    // Google Tag Manager
+    // const trackingId_GTM= 'GTM-1234567';
+
+    // const gtmHeadCode =
+    //     `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    //     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    //     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    //     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    //     })(window,document,'script','dataLayer','${trackingId_GTM}');`;
+
+    // const gtmBodyCode = `<iframe src="https://www.googletagmanager.com/ns.html?id=${trackingId_GTM}"
+    //     height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+
+    // addInlineScript(gtmHeadCode);
+    // addInlineScript(gtmBodyCode, 'noscript', 'body');
+})();

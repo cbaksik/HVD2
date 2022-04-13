@@ -5,11 +5,10 @@
 
 
 angular.module('viewCustom')
-    .controller('prmActionContainerAfterCtrl',['customService','prmSearchService','$window','customGoogleAnalytic','$scope',function (customService,prmSearchService,$window, customGoogleAnalytic, $scope) {
+    .controller('prmActionContainerAfterCtrl',['customService','prmSearchService','$window','$scope',function (customService,prmSearchService,$window, $scope) {
 
         var cisv=customService;
         var cs=prmSearchService;
-        var cga=customGoogleAnalytic;
         var vm=this;
         vm.restsmsUrl='';
         vm.locations=[];
@@ -153,8 +152,6 @@ angular.module('viewCustom')
                     vm.form.body=title+vm.form.body;
 
                     var sendTitle=vm.form.userName + ' : ' + vm.form.body;
-                    cga.setPage('/sendsms', sendTitle);
-
                 }
 
                 if (vm.form.mobile) {

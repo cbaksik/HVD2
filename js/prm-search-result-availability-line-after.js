@@ -4,9 +4,8 @@
 
 
 angular.module('viewCustom')
-    .controller('prmSearchResultAvailabilityLineAfterCtrl',['customMapService','$timeout','customHathiTrustService','customService','customGoogleAnalytic','$q','prmSearchService',function (customMapService,$timeout, customHathiTrustService,customService, customGoogleAnalytic, $q, prmSearchService) {
+    .controller('prmSearchResultAvailabilityLineAfterCtrl',['customMapService','$timeout','customHathiTrustService','customService','$q','prmSearchService',function (customMapService,$timeout, customHathiTrustService,customService, $q, prmSearchService) {
         var vm=this;
-        var cga=customGoogleAnalytic;
         var custService=customService;
         var cs=customMapService;
         var chts=customHathiTrustService;
@@ -196,7 +195,6 @@ angular.module('viewCustom')
                             this._map.zoomOut(e.shiftKey ? 3 : 1);
                             if(vm.itemPNX.pnx.display) {
                                 var title = 'zoom-out: ' + vm.itemPNX.pnx.display.title[0];
-                                cga.setPage('user-use-openMapStreet', title);
                             }
                         },
 
