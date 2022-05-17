@@ -1,69 +1,132 @@
-.hollisPlus {
-    display: table-cell;
-}
-
-
-.boxHollis {
-    padding-top:8px;
-    margin-left:64px;
-    white-space: nowrap;
+/* hl logo header container */
+.hl__header__container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-shadow: 0 5px 5px rgba(30,30,30,0.1);
+    height: 53px;
+    display: flex;
 }
 @media only screen and (max-width: 1280px) {
-    .boxHollis {
-        margin-left:10px;
+    .hl__header__container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+.hl__header__logo {
+    height: 54px;
+    width: 73px;
+    margin-bottom: -12px;
+    align-self: flex-end;
+}
+.hl__header__logo a:hover,
+.hl__header__logo a:focus {
+    box-shadow: none;
+}
+.hl__image {
+    height: auto;
+    max-width: 100%;
+}
+
+
+/* navbar */
+prm-topbar > div.top-nav-bar > * {
+	align-self: center;
+}
+div.top-nav-bar.layout-row > prm-main-menu.flex-50, prm-user-area-expandable {
+    height: 47px;
+}
+
+/* hollis logo topbar */
+#hollisLogoTopbar {
+    margin-left: 40px;
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 1280px) {
+    #hollisLogoTopbar {
+        margin-left:20px;
     }
 }
 
-#hlLogoHeader {
-    cursor: pointer;
-    display: block;
+#hollisLogoTopbar a {
+    font-family: "Trueno", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 42px;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    color: #1e1e1e;
 }
 
-#hlLogoHeader:hover {
-   text-decoration: none;
-   background: transparent;
+#hollisLogoTopbar a:hover,
+#hollisLogoTopbar a:focus {
+    box-shadow: inset 0 -3px 0 0 rgba(30, 30, 30, 0.5);
 }
 
-@media only screen and (max-width: 1450px) {
-    #hlLogoHeader {
-        display: none;
-    }
+/* menu items */
+prm-topbar > div.top-nav-bar > div {
+	display: none;
+}
+div.top-nav-bar.layout-row > prm-main-menu.flex-50 {
+    max-width: 100%;
 }
 
-.objectTag {
-    cursor: pointer;
-    pointer-events: none;
-    z-index: -1;
-    max-height:100%;
-    width:110px;
-    height: 75px;
-    margin-top:10px;
+/* 'show more' modal window */
+prm-main-menu[menu-type=full] .md-button {
+    font-weight: 600;
+}
+md-content.overlay-menu-content {
+    background: white;
+}
+/* top buttons */
+.light-on-dark-dialog prm-main-menu[menu-type="full"] .md-button {
+    color: #1e1e1e;
+}
+prm-main-menu[menu-type="full"] md-divider {
+    color: #C0C0C0;
+}
+/* links */
+prm-main-menu[menu-type="full"] .custom-links-container .main-menu-button .transparent-card {
+    padding: 0;
+    margin: 15px;
+    border: none !important;
+}
+prm-main-menu[menu-type="full"] .md-button .md-headline {
+    color: #0579B8;
+    border-bottom: 3px solid transparent;
+    transition: border 0.28s cubic-bezier(0.28, 1.08, 1, 0.96);
+}
+prm-main-menu[menu-type="full"] .md-button:hover .md-headline,
+prm-main-menu[menu-type="full"] .md-button:focus .md-headline {
+    color: #0579B8 !important;
+    border-bottom-color: rgba(5, 121, 184, 0.3);
 }
 
 
-/*
-.hollisPlus prm-logo .logo-image, prm-logo img {
-    max-height: 100%;
-    height: 75px;
-    width: 110px;
-    margin-top: 10px;
-}
-*/
+/* Maura hasn't touched most of the stuff below here...should go back and clean it all up and reorganize though */
+
 
 prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark {
     color:#000;
     padding-right: 25px;
     padding-left: 25px;
 }
-prm-main-menu[menu-type=menu] div#mainMenu div a:hover, prm-main-menu[menu-type=menu] div#mainMenu div a:focus {
+prm-main-menu[menu-type=menu] div#mainMenu div a:hover, 
+prm-main-menu[menu-type=menu] div#mainMenu div a:focus {
     background-color: #E5E5E5;
     color:#000;
+    text-decoration: underline;
 }
 prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark:focus {
     text-decoration:underline; 
 }
+
+
 /* more menu options button */
-prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:hover, prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:focus {
+prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:hover, 
+prm-main-menu[menu-type=menu] .top-nav-bar-links button#more-links-button:focus {
     background-color: #E5E5E5;
     color:#000;
 }
@@ -80,15 +143,6 @@ prm-main-menu .buttons-group .md-button:first-child {
 .buttons-group .md-button:first-child {
     box-shadow:none;
 }
-/* .betaIcon {
-    display: table-cell;
-}
-
-.betaIcon > img {
-    width:33px;
-    height:auto;
-    padding-bottom:10px;
-} */
 
 .topMenu {
     background:#ffffff;
@@ -96,33 +150,17 @@ prm-main-menu .buttons-group .md-button:first-child {
     height:50px;
 }
 
-.hollisLogo {
-    margin-bottom:-5px;
-}
-
-
 prm-topbar {
-    height: 68px;
-    background-color:#000000;
+    height: inherit;
 }
 
 prm-topbar > div.top-nav-bar {
     background-color:#ffffff;
+    padding: 10px 0 20px;
+    margin-top: 10px;
 }
 .prm-topbar .md-button .md-button.button-over-dark {
     color:#000;
-}
-
-#hollisLogoTopbar {
-    display: table-cell;
-    vertical-align: top;
-    padding-left: 10px;
-}
-
-#hollisLogoTopbar a {
-    color:#000;
-    font-family:"Trueno";
-    font-size:42px;
 }
 
 .customTopMenu {
@@ -174,6 +212,14 @@ div.search-actions > .md-button.button-confirm:hover {
 prm-search-bookmark-filter .md-button {
     background-color:#44707b;
 }
+prm-search-bookmark-filter .md-button#search-button svg {
+    /* background-color:white; */
+    color: white;
+}
+prm-search-bookmark-filter .md-button#search-button:hover svg, 
+prm-search-bookmark-filter .md-button#search-button:focus svg {
+    color: #44707b;
+}
 /* hide qr code button */
 prm-topbar prm-search-bookmark-filter button#qrCodeScanner {
     display:none;
@@ -186,8 +232,6 @@ prm-user-area .user-menu-button .user-name {
 }
 prm-user-area-expandable .md-button.user-button, prm-user-area-expandable .md-button.button-with-menu-arrow {
     color:#1E1E1E;
-    text-decoration:underline; 
-    text-transform:uppercase;
 }
 prm-user-area-expandable .md-button.user-button .menu-arrow {
     color: #1e1e1e;
@@ -195,8 +239,9 @@ prm-user-area-expandable .md-button.user-button .menu-arrow {
 prm-user-area-expandable .md-button.user-button .menu-arrow:hover {
     color: #fff;
 }
-prm-topbar prm-user-area-expandable .md-button:not(.disable-hover):hover:not([disabled]):hover:not([disabled]) {
-    background-color: #44707b;
+prm-topbar prm-user-area-expandable .md-button:not(.disable-hover):hover:not([disabled]):hover:not([disabled]),
+prm-topbar prm-user-area-expandable .md-button:not(.disable-hover):focus:not([disabled]):focus:not([disabled]) {
+    background-color: #000;
     color:#fff;
 }
 .md-button.button-with-menu-arrow .menu-arrow:after {
@@ -206,7 +251,7 @@ prm-topbar prm-user-area-expandable .md-button:not(.disable-hover):hover:not([di
 }
 prm-user-area-expandable .button-with-menu-arrow:hover .menu-arrow:hover:not([disabled]) {
     color:#fff;
-    background-color:#44707b;
+    background-color:#000;
 }
 prm-user-area-expandable .button-with-menu-arrow:hover .menu-arrow {
     color:#fff;
@@ -224,17 +269,3 @@ prm-user-area-expandable .md-button {
     font-size: 1em;
     border-left: white solid 1px;
 } 
-
-
-/* bar that takes over when you click sign in (might not be relevant after Aug '18 release */
-/* prm-user-area md-fab-toolbar.md-is-open md-fab-trigger .md-fab-toolbar-background, prm-user-area md-fab-toolbar.md-is-open md-fab-trigger ._md-fab-toolbar-background {
-    background-color:#fff !important;
-}
-prm-user-area .md-fab-action-item {
-    background-color:#0579b8;
-}
-prm-user-area md-fab-toolbar .md-fab-action-item .md-button,  prm-user-area md-fab-toolbar .md-fab-action-item md-input-container, prm-user-area md-fab-toolbar .md-fab-action-item md-input-container md-select {
-    
-    font-weight:600;
-} */
-/* bar that takes over when you click sign in */

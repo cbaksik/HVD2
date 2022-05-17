@@ -23,3 +23,35 @@ prm-browse-search-bar md-select ._md-select-icon {
 @media (max-width: 768px) {
     .lcs_slide_out { display: none;}
 }
+
+/* give search dropdown hover/focus the same treatmeant as nav links */
+md-input-container md-select .md-select-value {
+    padding: 2px;
+}
+prm-search-bar .simple-search-wrapper .search-options prm-tabs-and-scopes-selector.is-displayed md-input-container.md-input-focused {
+    background: #e5e5e5;
+}
+prm-search-bar .simple-search-wrapper .search-options prm-tabs-and-scopes-selector.is-displayed md-input-container.md-input-focused .md-text {
+    text-decoration: underline;
+}
+md-input-container:after {
+    height: 0;
+}
+
+/* reorder searchbar */
+prm-search-bar .search-element-inner .search-input {
+    order: 2;
+}
+prm-search-bar .search-element-inner .search-options {
+    order: 1;
+}
+prm-search-bar .search-element-inner .search-actions {
+   order: 3;
+}
+prm-tabs-and-scopes-selector md-divider.skewed-divider:nth-child(1) {
+    display: none;
+}
+prm-tabs-and-scopes-selector md-input-container.zero-margin:nth-child(2) {
+    padding-left: 10px;
+}
+   

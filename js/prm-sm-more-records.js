@@ -1,4 +1,4 @@
-angular.module('viewCustom').controller('prmSmMoreRecords', ['$timeout', 'customService', 'customGoogleAnalytic', '$q', 'prmSearchService', function ($timeout, customService, customGoogleAnalytic, $q, prmSearchService) {
+angular.module('viewCustom').controller('prmSmMoreRecords', ['$timeout', 'customService', '$q', 'prmSearchService', function ($timeout, customService, $q, prmSearchService) {
     /**
      * A starting point for clients to be able to affect and use additional records
      * in the brief record display.

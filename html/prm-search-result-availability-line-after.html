@@ -6,25 +6,18 @@ https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/ra
 <!-- end browzine code from vendor --> 
 
 <div ng-if="vm.hathiTrustItem.orig" class="hvdHathiViewOnline_div">
-    <prm-icon availability-type icon-type="svg" svg-icon-set="primo-ui" icon-definition="link"></prm-icon>
     <a ng-if="vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvdHathiViewOnline">
-        <span>ONLINE ACCESS at HathiTrust</span>
+        <span>Online Access</span>
     </a>
     <a ng-if="!vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank">        
         <span ng-if="!vm.hathiTrustItem.fullview">Limited search in HathiTrust</span>  
     </a>
-    <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>
-    <!-- <prm-icon link-arrow icon-type="svg" svg-icon-set="primo-ui" icon-definition="chevron-right"></prm-icon> -->
 </div>
 
 <div ng-if="vm.TOC.display" class="hvd_TOC_link">
-    <!-- <md-icon  icon-type="svg" md-svg-src="/primo-explore/custom/HVD2/img/ic_list_black_24px.svg"></md-icon> -->
-    <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="chapters"></prm-icon>
     <a href="https://secure.syndetics.com/index.aspx?isbn={{vm.TOC.isbn}}/TOC.HTML&client=harvard&type=rn12" target="_blank">
         <span>Table of Contents</span>        
     </a>
-    <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>
-    <!-- <prm-icon link-arrow icon-type="svg" svg-icon-set="primo-ui" icon-definition="chevron-right"></prm-icon> -->
 </div>
 
 
@@ -39,3 +32,10 @@ https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/ra
 <!-- end browzine code from vendor , per https://github.com/ayBayClay/HVD2--> 
 <prm-sm-more-records parent-ctrl="vm.parentCtrl"></prm-sm-more-records> 
 
+
+<div ng-if="vm.FAlink" class="hvd_EAD_link">
+    <a href="{{vm.FAlink}}">
+        <img src="/primo-explore/custom/HVD2/img/folder_open_white_24dp.svg" aria-label="Finding Aid"></img>
+        <span>Finding Aid</span>        
+    </a>
+</div>
