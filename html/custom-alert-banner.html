@@ -1,0 +1,36 @@
+<div id="hl__site-alert-banner" class="hl__site-alert-banner" 
+	ng-if="vm.alertBannerMsg.status=='on'">
+	<div class="hl__site-alert-banner__container">
+		<div class="hl__site-alert-banner__icon">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="21" viewBox="0 0 18 21"><g><g transform="translate(-37 47)"><path id="qy38a" d="M52.88-32.18V-38a6.87 6.87 0 0 0-5.29-6.69v-.72a1.59 1.59 0 1 0-3.18 0v.72A6.87 6.87 0 0 0 39.12-38v5.82L37-30.06V-29h18v-1.06l-2.12-2.12zM44-28a2 2 0 1 0 4 0h-4z"></path></g></g></svg>
+		</div>
+		<div class="hl__site-alert-banner__label">{{vm.alertBannerMsg.title}}:</div>
+		<div class="hl__site-alert-banner__message">
+			<p>{{vm.alertBannerMsg.description}}
+        <a ng-if="vm.alertBannerMsg.link" href="{{vm.alertBannerMsg.link}}" target="_blank" title="Click here for more information">{{vm.alertBannerMsg.linkText}}</a>
+      </p>
+		</div>
+	</div>
+	<div class="hl__site-alert-banner__dismiss">  
+    <div class="hl__site-alert-banner__dismiss--button">
+      <button type="button" class="hl__button hl__button--small" aria-label="dismiss alert" ng-click="dismissAlert()">
+        <div class="hl__site-alert-banner__dismiss--text">Dismiss</div>
+        <span class="hl__button__icon">
+					<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				        <g transform="translate(-239.000000, -476.000000)">
+				            <g transform="translate(145.000000, 187.000000)">
+				                <g transform="translate(30.000000, 237.000000)" fill="#1E1E1E">
+				                    <g transform="translate(71.939340, 60.060660) rotate(-315.000000) translate(-71.939340, -60.060660) translate(63.939340, 51.560660)">
+				                        <path d="M8,0.414213562 C3.584,0.414213562 -1.42108547e-13,3.99821356 -1.42108547e-13,8.41421356 C-1.42108547e-13,12.8302136 3.584,16.4142136 8,16.4142136 C12.416,16.4142136 16,12.8302136 16,8.41421356 C16,3.99821356 12.416,0.414213562 8,0.414213562 L8,0.414213562 Z M12,9.21421356 L8.8,9.21421356 L8.8,12.4142136 L7.2,12.4142136 L7.2,9.21421356 L4,9.21421356 L4,7.61421356 L7.2,7.61421356 L7.2,4.41421356 L8.8,4.41421356 L8.8,7.61421356 L12,7.61421356 L12,9.21421356 L12,9.21421356 Z"></path>
+				                    </g>
+				                </g>
+				            </g>
+				        </g>
+				    </g>
+					</svg>
+				</span>
+      </button>
+    </div>
+  </div>
+</div>

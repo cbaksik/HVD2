@@ -1,8 +1,22 @@
 #homePageAlert {
-    background: rgb(255, 0, 0); background: rgba(165,28,48,0.2);
-    color:#282828;
+    background: #fef5d8;
+    color:#1e1e1e;
+}
+
+#homePageAlert md-card-title-text {
+    flex-direction: row;
 }
 
 #homePageAlert a {
-    color: #750000;
+    color: #1e1e1e;
+}
+
+#homePageAlert a:hover,
+#homePageAlert a:focus {
+    border-bottom-color: rgba(30, 30, 30, 0.5);
+}
+
+.homePageAlertIcon {
+    align-self: center;
+    margin-right: 15px;
 }
