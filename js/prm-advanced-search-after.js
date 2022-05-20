@@ -29,7 +29,7 @@ angular.module('viewCustom')
 
         vm.$onInit=()=>{
             setTimeout(()=>{
-                let el=$element[0].parentNode.childNodes[0].children[0].children[0].children[0];
+                let el=$element[0].parentNode.childNodes[0].children[0].children[1].children[0];
                 let checkbox=document.createElement('custom-radio');
                 checkbox.setAttribute('parent-ctrl','vm.parentCtrl');
                 el.appendChild(checkbox);
@@ -44,7 +44,7 @@ angular.module('viewCustom')
             let el=$element[0].parentNode.childNodes[0].children[0].children[1];
             if(el) {
                 if(vm.form.flag && vm.parentCtrl.selectedSearchTab=='') {
-                    el.style.display='none';
+                    //el.style.display='none';
                 } else {
                     el.style.display='inline-flex';
                     vm.form.flag=false;
@@ -54,7 +54,7 @@ angular.module('viewCustom')
 
     }]);
 
-angular.module('viewCustom')
+/* angular.module('viewCustom')
     .config(function ($stateProvider) {
         $stateProvider
             .state('exploreMain.barcode', {
@@ -73,4 +73,4 @@ angular.module('viewCustom')
         controller: 'prmAdvancedSearchAfterCtrl',
         controllerAs:'vm',
         templateUrl:'/primo-explore/custom/HVD2/html/prm-advanced-search-after.html'
-    });
+    }); */
