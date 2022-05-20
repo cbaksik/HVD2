@@ -69,7 +69,9 @@
 #printView md-toolbar {
     display: none;
 }
-
+#printView prm-explore-footer {
+    display:none;
+}
 
 @media only print {
     body {
