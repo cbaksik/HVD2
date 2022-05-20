@@ -955,6 +955,20 @@ prm-permalink div.form-focus{
         display:none;
     }
 }
+prm-advanced-search .collapsed-area .collapsed-button {
+    text-transform: uppercase;
+    color:#0579B8;
+    border-radius:4px;
+}
+prm-advanced-search .collapsed-area .collapsed-button.md-button:focus:not([disabled]), prm-advanced-search .collapsed-area .collapsed-button.md-button:hover:not([disabled])
+{
+    background-color:#2a5280;
+    color:#FFF;
+}
+prm-advanced-search .collapsed-area .collapsed-button.md-button:hover:not([disabled]) prm-icon,
+prm-advanced-search .collapsed-area .collapsed-button.md-button:focus:not([disabled]) prm-icon {
+    color:#FFF;
+}
 md-radio-group.layout-row md-radio-button {
     border-bottom:1px solid transparent;
 }
@@ -1514,6 +1528,9 @@ prm-service-links a.arrow-link [link-arrow] {
     }
     iframe.mashup-iframe {
         margin-top:-25px;
+    }
+    prm-explore-footer {
+        display:none;
     }
 }
   
