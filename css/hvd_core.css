@@ -26,8 +26,12 @@ a {
 a:hover, a:focus {
     box-shadow: inset 0 -3px 0 0 rgba(5, 121, 184, 0.3);
 }
+.md-button {
+    border-radius:4px;
+}
 .md-button.button-link {
     color:#0579B8;
+    border-radius: 4px;
 }
 .md-button.button-confirm,
 .md-button.md-primary,
@@ -167,7 +171,9 @@ prm-back-to-search-results-button md-toolbar.md-primoExplore-theme.default-toolb
 }
 /* MY FAVORITES */
 /* my favorites global action icons disabled */
-
+prm-search-bookmark-filter .md-button {
+    color:#187474;
+}
 prm-search-bookmark-filter svg[id^=magnifying-glass]:hover {
     color:#000!important;
 }
@@ -219,6 +225,15 @@ prm-favorites-record-labels .md-button {
 }
 prm-favorites-record-labels .media-labels.md-chips .label-item.md-chip {
     font-size: 15px;
+}
+prm-favorites-labels .md-chips .md-chip:not(.chip-toggled-on) .md-chip-content:hover:not([disabled]),
+prm-favorites-labels .md-chips .md-chip.toggleable-chip:not(.chip-toggled-on) .md-chip-content:hover:not([disabled]),
+prm-favorites-labels .md-chips .md-chip:not(.chip-toggled-on) .md-chip-content:focus:not([disabled]),
+prm-favorites-labels .md-chips .md-chip.toggleable-chip:not(.chip-toggled-on) .md-chip-content:focus:not([disabled]),
+.md-chips .md-chip.toggleable-chip .md-chip-content:hover:not([disabled]),
+.md-chips .md-chip.toggleable-chip .md-chip-content:focus:not([disabled]) {
+    background-color:#000;
+    border-radius:4px;
 }
 
 prm-favorites-edit-labels-menu .labels-menu-button.md-button.button-with-icon {
@@ -648,8 +663,55 @@ prm-snippet prm-icon.close-quote md-icon {
 
 
 /*        FACETS          */
-prm-facet .primo-scrollbar + div {
-    background-color:deeppink;
+/* full-text switch */
+prm-facet .switch-results .md-button md-switch {
+    /* background-color:orange; */
+}
+prm-facet .switch-results .md-button md-switch.md-checked .md-bar {
+    background-color:transparent;
+    color:green;
+}
+prm-facet .switch-results .md-button.active.button-as-link {
+    /* color:pink; */
+}
+md-switch.tiny-switch ._md-thumb-container, md-switch.tiny-switch .md-thumb-container {
+    /* border:1px solid #1e1e1e; */
+}
+prm-facet .switch-results .md-button md-switch.md-checked .md-thumb {
+    color:#3a3a3a;
+    background-color:transparent;
+    border: 1px solid #1e1e1e;
+    border-radius: 1px;
+    padding: 9px;
+    top:-3px;
+    margin-left: -11px;
+}
+prm-facet .switch-results .md-button md-switch.md-checked .md-thumb:before {
+    content:"✓";
+    font-size: 24px;
+    font-weight: bold;
+    top: -5px;
+    left: 3px;
+}
+/* prm-facet .switch-results .md-button md-switch.md-checked .md-thumb:after {
+    content:"❑";
+    font-size: 20px;
+    font-weight: bold;
+    top: -6px;  
+} */
+prm-facet .switch-results .md-button md-switch.md-checked .md-label {
+    color:#3a3a3a;
+    font-weight:600;
+    font-size:14.25px;
+    font-family:"Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-radius:4px;
+    padding-right:8px;
+}
+prm-facet .switch-results .md-button.button-as-link.active:hover:not([disabled]),
+prm-facet .switch-results .md-button.button-as-link.active:focus:not([disabled]) {
+    background-color:#1e1e1e;
+}
+prm-facet .primo-scrollbar + div {    
     display:none;
 }
 prm-facet > .primo-scrollbar { position: relative !important }
@@ -905,12 +967,15 @@ span[translate="nui.aria.fulldisplay.closeButton.short"] {
     margin: 10px;
     display: block;
 }
+prm-action-list>md-nav-bar .md-nav-item .md-button {
+    border-radius:4px;
+}
 button#textsms {
     font-size: 10px;
     line-height: 14px;
     font-weight: 600;
     letter-spacing: 0.03em;
-    border-radius: 0;
+    /* border-radius: 0; */
     padding-bottom: .75em;
     padding-top: .75em;
     margin: 0;
@@ -981,10 +1046,6 @@ prm-advanced-search button:focus {
 }
 div.search-switch-buttons .md-button {
     background-color:rgba(58, 58, 58, 0.1);
-}
-div.search-switch-buttons .md-button:hover:not([disabled]),
-div.search-switch-buttons .md-button:focus:not([disabled]) {
-    outline:1px solid #1e1e1e;
 }
 prm-advanced-search legend {
     transform:scale(1.0);
@@ -1307,11 +1368,10 @@ prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-l
     font-family:"Source Sans Pro", Arial,sans-serfic;
     opacity:1;
 }
-prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-link.link-alt-color:hover:not([disabled]) {
-    background-color:#2a5280;
-}
+prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-link.link-alt-color:hover:not([disabled]),
 prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
     background-color:#2a5280;
+    border-radius: 4px;
 }
 prm-search-result-list prm-personalize-results-button .md-button {
     top:-6px;
@@ -1323,11 +1383,10 @@ prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color {
     color:#0579b8;
     opacity:1;
 }
-prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:hover:not([disabled]) {
-    background-color:#2a5280;
-}
+prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:hover:not([disabled]),
 prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
     background-color:#2a5280;
+    border-radius: 4px;
 }
 /* bulk buttons when activated */
 prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button[disabled=disabled] {
@@ -1365,6 +1424,7 @@ prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax {
     font-style: normal;
     padding: 0px 10px;
     font-weight: 600;
+    border-radius: 4px;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax:hover {
     color:#fff;
@@ -1401,8 +1461,22 @@ prm-search-result-tool-bar md-toolbar .main-checkbox {
     margin-left: 7px;
 }
 /* resource recommender */
+md-dialog.prm-resource-recommendations-fullview.md-transition-in {
+    background-color:#fff;
+}
+.prm-recommendations-fullview .resource-item {
+    margin-bottom:30px;
+}
+prm-resource-recommender .md-button.button-as-link.link-alt-color {
+    color:#0579B8;
+}
+prm-resource-recommender .md-button.button-as-link.link-alt-color:hover:not([disabled]),
+prm-resource-recommender .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
+    background-color:#2A5280;
+    border-radius: 4px;
+}
 prm-resource-recommender-card-content a {
-    color:#0579b8;
+    color:#0579B8;
     font-weight:bold;
 }
 #resource-recommender img.shield {
