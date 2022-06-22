@@ -54,7 +54,7 @@ angular.module('viewCustom')
 
     }]);
 
-/* angular.module('viewCustom')
+angular.module('viewCustom')
     .config(function ($stateProvider) {
         $stateProvider
             .state('exploreMain.barcode', {
@@ -73,4 +73,4 @@ angular.module('viewCustom')
         controller: 'prmAdvancedSearchAfterCtrl',
         controllerAs:'vm',
         templateUrl:'/primo-explore/custom/HVD2/html/prm-advanced-search-after.html'
-    }); */
+    });
