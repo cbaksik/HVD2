@@ -74,10 +74,11 @@
         vm.getData=function () {
             var url=vm.parentCtrl.searchService.cheetah.restBaseURLs.pnxBaseURL+'/'+vm.context+'/'+vm.docid;
             var params={'vid':'','lang':'','search_scope':'','adaptor':''};
-            params.vid=vm.params.vid;
-            params.lang=vm.params.lang;
-            params.search_scope=vm.params.search_scope;
-            params.adaptor=vm.params.adaptor;
+            // CB 20220720 commented out next 4 lines causing ang1.8 error; appear to be unneeded
+            // params.vid=vm.params.vid;
+            // params.lang=vm.params.lang;
+            // params.search_scope=vm.params.search_scope;
+            // params.adaptor=vm.params.adaptor;
             sv.getAjax(url,params,'get')
                 .then(function (result) {
                     vm.item=result.data;
