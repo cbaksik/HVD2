@@ -13,6 +13,7 @@
         vm.hideBrowseShelf=function () {
             var hidebrowseshelfFlag=false;
             var item=vm.parentCtrl.item;
+            //console.log(item.pnx.control);
             if(item.pnx.control) {
                 var sourceid=item.pnx.control.sourceid;
                 // find if item is HVD_VIA

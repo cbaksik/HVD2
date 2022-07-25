@@ -1,7 +1,7 @@
 /**
  * Created by samsan on 5/17/17.
- * This component is to insert images into online section and book covers.
- * If pnx.display.lds41 exist, it will display book covers. Then hide image view.
+ * This component is to insert images into online section and Scanned Key Content.
+ * If pnx.display.lds41 exist, it will display scanned key content. 
  */
 
 (function () {
