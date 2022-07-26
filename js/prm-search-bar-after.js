@@ -6,9 +6,8 @@
  angular.module('viewCustom')
  .controller('prmSearchBarAfterCtrl',[function () {
 		 var vm=this;
-		 vm.parentCtrl.showTabsAndScopes = true;
 		 vm.$onInit=function () {
-
+			vm.parentCtrl.showTabsAndScopes = true;
 		 };
 
  }]);

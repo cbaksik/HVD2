@@ -42,10 +42,11 @@
           }
           restUrl = restUrl + '/' + vm.context + '/' + vm.docid;
           var params={'vid':'HVD2','lang':'en_US','search_scope':'default_scope','adaptor':'Local Search Engine'}
-          params.vid=vm.params.vid;
-          params.lang=vm.params.lang;
-          params.search_scope=vm.params.search_scope;
-          params.adaptor=vm.params.adaptor;
+          // CB 20220720 commented out next 4 lines causing ang1.8 error; appear to be unneeded
+        //   params.vid=vm.params.vid;
+        //   params.lang=vm.params.lang;
+        //   params.search_scope=vm.params.search_scope;
+        //   params.adaptor=vm.params.adaptor;
           sv.getAjax(restUrl,params,'get')
               .then(function (result) {
                   vm.items=result.data;

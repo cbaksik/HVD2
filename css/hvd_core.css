@@ -492,18 +492,20 @@ prm-search-result-availability-line-after a:focus {
 .hvdHathiViewOnline {
     color:white;
     background-color:#0579B8;
-    padding: 3px 10px 3px 25px;
+    padding: 3px 10px 2px 25px;
     border-radius: 4px;
     font-weight:600;
     background-image: url('../img/link-icon.svg');
     background-repeat: no-repeat;
     background-position: bottom 4px left 6px;
+    box-shadow:inset 0 0 0 0 #000;
 }
 .hvdHathiViewOnline:hover, .hvdHathiViewOnline:focus {
     background-color:#2a5280;
-    padding: 3px 12px 3px 25px;
-    border-radius: 4px;
+    /* padding: 3px 12px 3px 25px;
+    border-radius: 4px; */
     border-bottom:0px solid transparent;
+    box-shadow:inset 0 0 0 0 #000;
 }
 /* finding aid link */
 .hvd_EAD_link {
@@ -1526,6 +1528,17 @@ div.parentImageLinkWrapper {
 }
 .hvdImgComponentViewMD {
     width:90%;
+}
+/* didn't finish css for below button, class not applied yet in prm-view-online-after.html */
+.hvdImgGroupAllMetadata {
+    color:#fff;
+    background-color:#0579B8;
+    font-weight:600px;
+    border-radius:4px;
+}
+.hvdImgGroupAllMetadata:hover,
+.hvdImgGroupAllMetadata:focus {
+    background-color:#2a5280;
 }
 /* copied from prm-location-after.css; i think this was part of local stack map that contractor looked at  */
 .placeIcon {

@@ -3,9 +3,11 @@
  * If image has height that is greater than 150 px, then it will resize it. Otherwise, it just display what it is.
  */
 
-angular.module('viewCustom')
+(function () {
+
+    angular.module('viewCustom')
     .component('multipleThumbnail', {
-        templateUrl:'/primo-explore/custom/HVD2/html/multipleThumbnail.html',
+        templateUrl:'/primo-explore/custom/HVD_IMAGES/html/multipleThumbnail.html',
         bindings: {
             itemdata:'<',
             searchdata: '<'
@@ -15,12 +17,12 @@ angular.module('viewCustom')
             var vm=this;
             var sv=prmSearchService;
             vm.localScope={'imgclass':'','hideLockIcon':false,'hideTooltip':false};
-            vm.imageUrl='/primo-explore/custom/HVD2/img/icon_image.png';
+            vm.imageUrl='/primo-explore/custom/HVD_IMAGES/img/icon_image.png';
             vm.src='';
             vm.imageTitle='';
             vm.restricted=false;
             vm.imageFlag=false;
-            //console.log("mutipleThumbnail.js");
+
 
             // check if image is not empty and it has width and height and greater than 150, then add css class
             vm.$onChanges=function () {
@@ -31,6 +33,9 @@ angular.module('viewCustom')
                     if(vm.itemdata.image.length===1) {
                         vm.src=vm.itemdata.image[0].thumbnail[0]._attr.href._value + '?width=150&height=150';
                         vm.restricted=vm.itemdata.image[0]._attr.restrictedImage._value;
+                        if (vm.itemdata.hvd_title[0].textElement[0]._text) {
+                            vm.imageTitle=vm.itemdata.hvd_title[0].textElement[0]._text
+                        }
                         if(vm.itemdata.image[0].caption) {
                             vm.imageTitle = vm.itemdata.image[0].caption[0]._text;
                         } else if(vm.itemdata.title) {
@@ -49,7 +54,7 @@ angular.module('viewCustom')
                         // use default image if it is a broken link image
                         var pattern = /^(onLoad\?)/; // the broken image start with onLoad
                         if(pattern.test(vm.src)) {
-                            img.src='/primo-explore/custom/HVD2/img/icon_image.png';
+                            img.src='/primo-explore/custom/HVD_IMAGES/img/icon_image.png';
                         }
                         img.onload = vm.callback;
                         if(img.clientWidth > 50) {
@@ -82,3 +87,4 @@ angular.module('viewCustom')
 
         }]
     });
+})();
