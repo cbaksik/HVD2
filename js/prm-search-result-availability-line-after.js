@@ -14,11 +14,13 @@ angular.module('viewCustom')
         vm.api = custService.getApi();
         // display of table of content
         vm.TOC = {'type':'01HVD_ALMA','isbn':[],'display':false};
+        vm.OpenLib = {'type':'01HVD_ALMA','isbn':[],'display':false};
         vm.itemPNX={};
         vm.hathiTrust={};
         vm.FAlink='';
         var map;
         var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=';
+        var openLibUrl = 'https://openlibrary.org/api/books?bibkeys=ISBN:';
         //var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=9780674055360/xml.xml&client=harvard&type=xw10';
         // for testing : var tocUrlBad = 'https://secure.syndetics.com/index.aspx?isbn=2939848394/xml.xml&client=harvard&type=xw10';
 
@@ -39,7 +41,7 @@ angular.module('viewCustom')
                             //'Access-Control-Allow-Origin': '*/*' ,     
                             //'Access-Control-Request-Headers': '*/*'
                           }
-                      })
+                    })
                         .then(function (response) {
                             //console.log(response);
                             //console.log(response.headers); 
@@ -57,6 +59,36 @@ angular.module('viewCustom')
           }
         };
 
+        // see if book is in open library
+        vm.findOpenLib=function () {
+            if (vm.itemPNX.pnx.control.sourceid[0] === vm.TOC.type && vm.itemPNX.pnx.addata.isbn) {
+                var param={'isbn':'','hasData':false};
+                param.isbn = vm.itemPNX.pnx.addata.isbn[0];
+                    fetch(openLibUrl+param.isbn+'&format=json&jscmd=viewapi', {                        
+                        method: 'GET',
+                        headers: {
+                            'Accept': '*/*'
+                          }
+                    })
+                        .then(function (response) { 
+                            return response.json();
+                        })
+                        .then(function (data) { 
+                            var objKey = (Object.keys(data)); 
+                            var objKeyValue = objKey[0]; 
+                            var openLibPreview = data[objKeyValue].preview;                                              
+                            if (openLibPreview === 'borrow') {         
+                                vm.OpenLib.display = true;
+                                vm.OpenLib.infoURL = data[objKeyValue].info_url;
+                                vm.OpenLib.previewURL = data[objKeyValue].preview_url;   
+                            } 
+                        })
+                        .catch(function (err) {
+                            console.log("Open Library call did  not work", err);
+                        });
+          }
+        };
+
         // find if pnx had EAD finding aid link
         vm.findFindingAid=function () {
             var ead = '';
@@ -65,9 +97,7 @@ angular.module('viewCustom')
                 ead = vm.itemPNX.pnx.links.linktofa[0];
                 ead=ead.slice(3);
                 eadURN = ead.replace(' $$Elinktofa','');
-                console.log(eadURN);
                 vm.FAlink=eadURN;
-                // console.log(vm.FAlink);
           }
         };
 
@@ -112,6 +142,7 @@ angular.module('viewCustom')
 
         };
 
+        // hathitrust, this is also used for openlibrary since it needs same identifiers, isbn and oclcid
         vm.getHathiTrustData=function () {
             chts.doGet(vm.hathiTrust.isbn, vm.hathiTrust.oclcid)
                 .then(function (data) {
@@ -124,7 +155,7 @@ angular.module('viewCustom')
                     }
                 );
         };
-       
+
 
         vm.$onInit=function() {
             // get rest endpoint url from config.html where it preload prm-tobar-after.js
@@ -132,6 +163,7 @@ angular.module('viewCustom')
             vm.itemPNX=vm.parentCtrl.result;
             // get table of content
             vm.findTOC();
+            vm.findOpenLib();
             vm.findFindingAid();
             if(vm.itemPNX.pnx.display.lds40 && vm.parentCtrl.isFullView) {
                 $timeout(function () {

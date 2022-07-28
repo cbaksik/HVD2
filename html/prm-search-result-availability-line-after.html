@@ -20,7 +20,11 @@ https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/ra
     </a>
 </div>
 
-
+<div ng-if="vm.OpenLib.display" class="hvd_TOC_link">
+    <a href="{{vm.OpenLib.infoURL}}" target="_blank">
+        <span>1-hour loan in Open Library</span>        
+    </a>
+</div>
 
 <div ng-if="vm.parentCtrl.isFullView && vm.itemPNX.pnx.display.lds40">
     <div class="bold-text">Geographic coverage</div>
