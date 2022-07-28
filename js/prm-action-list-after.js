@@ -40,25 +40,31 @@ angular.module('viewCustom')
                         printEl.appendChild(printTag);
                         $compile(printEl.children[1])($scope);
                     }
-                    // add check hathi link
-/*                     console.log("prmActionListAfter");
-                    let prmActionList = document.getElementsByTagName('prm-action-list')[0];
-                    let ul = prmActionList.getElementsByTagName('ul')[0];
-                    let li = ul.querySelector('#scrollActionList');
-                    var checkHathiLink = 'https://catalog.hathitrust.org/Search/Home?lookfor=' + vm.parentCtrl.item.pnx.addata.btitle + '%26urlappend=%3Bsignon=swle:https://fed.huit.harvard.edu/idp/shibboleth';
-                    console.log("test hathi link " + checkHathiLink);
-                    var citationEl = document.getElementById('Citation');
-                    if (citationEl) {
-                        var checkHathiTag = document.createElement('custom-hathiActionLink');
-                        
-                        checkHathiTag.setAttribute('parent-ctrl', 'vm.parentCtrl.item');
-                        citationEl.appendChild(checkHathiTag);
-                        li.insertBefore(checkHathiTag, li.childNodes[0]);
-                        $compile(citationEl.children[1])($scope);
-                    } */
 
+                    // report a problem 
+                    if (vm.parentCtrl) {               
+                        //console.log("*************************** report a problem function")     
+                        let reportProbExist = document.getElementById('reportProb');
+                        // if reportProb doesn't exist, insert it.
+                        if (!reportProbExist) {
+                            //console.log(document.getElementsByTagName('prm-action-list')[0]);
+                            let prmActionList = document.getElementsByTagName('prm-action-list')[0];
+                            let ul = prmActionList.getElementsByTagName('ul')[0];
+                            let li = ul.querySelector('#scrollActionList');
+                            if (li) {
+                                let reportProbTag = document.createElement('custom-report-problem-action');
+                                reportProbTag.setAttribute('parent-ctrl', 'vm.parentCtrl');
+                                li.insertBefore(reportProbTag, li.childNodes[0]);
+                                $compile(li.children[0])($scope);
+                            }
+                        }
+                        // 
+                         /* customize url for your libanswers url, primo url, and primo VID */
+                        //var url = "http://nrs.harvard.edu/urn-3:HUL.ois:hollis-v2-feedback&resource=" + vm.prmActionCtrl.item.pnx.display.title[0] + " (https://hollis.harvard.edu/primo-explore/fulldisplay?" + encodeURIComponent("docid=" + vm.prmActionCtrl.item.pnx.control.recordid + "&context=L&vid=HVD2&search_scope=default_scope&tab=default_tab&lang=en_US") + ")";
+                  
 
-                // }, 2000);
+                    }
+
                 }, 0);  // changing this to zero per basecamp discussion with Lynn and Jim from ExL  
             }
         };

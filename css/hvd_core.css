@@ -1011,6 +1011,10 @@ button#textsms {
     padding-top: .75em;
     margin: 0;
     white-space: normal;
+    color:rgba(58,58,58,.8);
+}
+button#textsms:hover,button#textsms:focus {
+    color:#fff;
 }
 md-card#textsms {
     background-color:#f8f8f8;

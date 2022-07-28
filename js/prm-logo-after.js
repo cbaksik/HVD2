@@ -6,7 +6,7 @@
 angular.module('viewCustom')
     .controller('prmLogoAfterCtrl',[function () {
         var vm=this;
-        var brokenLink = '';        
+        var brokenLink = [];        
         var currentURL = '';
         //var pageTitle = '';
         vm.$onInit=function () {
