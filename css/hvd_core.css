@@ -1001,7 +1001,10 @@ span[translate="nui.aria.fulldisplay.closeButton.short"] {
 prm-action-list>md-nav-bar .md-nav-item .md-button {
     border-radius:4px;
 }
-button#textsms {
+/* prm-action-list>md-nav-bar .md-nav-item .md-button prm-icon {
+    min-width:100px;
+} */
+button#textsms, button#reportProb {
     font-size: 10px;
     line-height: 14px;
     font-weight: 600;
@@ -1011,6 +1014,12 @@ button#textsms {
     padding-top: .75em;
     margin: 0;
     white-space: normal;
+    color:rgba(58,58,58,.8);
+    width: 105px;
+}
+button#textsms:hover,button#textsms:focus,
+button#reportProb:hover,button#reportProb:focus {
+    color:#fff;
 }
 md-card#textsms {
     background-color:#f8f8f8;
@@ -1026,6 +1035,9 @@ md-card#textsms md-list#smsLocation {
 p.textsms-danger {
     color:red;
     padding-bottom:10px;
+}
+button#PrintButtonFullView, button#PrintButton {
+    margin-left:10px;
 }
 /* menu with footer is the menu that opens when choosing labels, footer is "add new label" */
 md-menu-content.menu-with-footer .menu-footer form div:hover {
