@@ -8,14 +8,15 @@ angular.module('viewCustom')
     .controller('prmActionListAfterCtrl',['$element','$compile','$scope','$timeout','customService',function ($element,$compile,$scope,$timeout, customService) {
         var vm=this;
         var cisv=customService;
-        var url='https://harvard-lts.libanswers.com/form?queue_id=6180&';
-        var currentURL = "https://hollis.harvard.edu/permalink/f/1mdq5o5/";        
+        var url='https://harvard-lts.libanswers.com/form?queue_id=5895&';
+        var currentURL = "https://hollis.harvard.edu/primo-explore/fulldisplay?docid="; 
+        var currentURLtail = "&vid=HVD2&search_scope=default_scope&tab=default_tab&lang=en_US";    
         vm.$onInit=function () {
 
 
                     // report a problem
                     
-                    console.log(vm.parentCtrl);
+                    // console.log(vm.parentCtrl);
                     // console.log('******************************** prm-action-list-after.js');
                     // console.log(vm.parentCtrl.actionLabelNamesMap);
                     // console.log(Object.keys(vm.parentCtrl.actionLabelNamesMap).length);
@@ -31,9 +32,20 @@ angular.module('viewCustom')
                         vm.parentCtrl.actionListService.actionsToDisplay.push("report_a_problem");
                         vm.parentCtrl.actionListService.actionsToIndex["report_a_problem"] = 9;
                       } 
-                      var nativePerma = vm.parentCtrl.item.pnx.control.recordid;
-                      url+='referrer='+currentURL+nativePerma;                       
-                      console.log(url);
+                      
+                      var primoContext = '&context=' + vm.parentCtrl.item.context[0];
+                      if (vm.parentCtrl.item.context[0] === 'P') {
+                        primoContext = '&context=PC';
+                      }
+                      //console.log(primoContext);
+
+                      var nativePerma = vm.parentCtrl.item.pnx.control.recordid[0];    
+                      //console.log(nativePerma);
+                      if (nativePerma.includes("dedup")) {                        
+                        nativePerma = vm.parentCtrl.item.pnx.control.sourceid[0].substring(16);
+                      }                      
+                      //console.log(currentURL+nativePerma+currentURLtail+primoContext);
+                      url+='referrer='+currentURL+nativePerma+currentURLtail+primoContext;  
                       if (vm.parentCtrl.actionListService.onToggle) {
                         vm.parentCtrl.actionListService.onToggle["report_a_problem"] = function () {
                           window.open(url, '_blank');
