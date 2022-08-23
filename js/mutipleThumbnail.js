@@ -33,7 +33,7 @@
                     if(vm.itemdata.image.length===1) {
                         vm.src=vm.itemdata.image[0].thumbnail[0]._attr.href._value + '?width=150&height=150';
                         vm.restricted=vm.itemdata.image[0]._attr.restrictedImage._value;
-                        if (vm.itemdata.hvd_title[0].textElement[0]._text) {
+                        if ((vm.itemdata.hvd_title !== undefined) && (vm.itemdata.hvd_title instanceof Array) && (vm.itemdata.hvd_title.length > 0) && (vm.itemdata.hvd_title[0].textElement !== undefined) && (vm.itemdata.hvd_title[0].textElement instanceof Array) && (vm.itemdata.hvd_title[0].textElement.length > 0) && (vm.itemdata.hvd_title[0].textElement[0]._text)) {
                             vm.imageTitle=vm.itemdata.hvd_title[0].textElement[0]._text
                         }
                         if(vm.itemdata.image[0].caption) {
