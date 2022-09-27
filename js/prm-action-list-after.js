@@ -33,19 +33,19 @@ angular.module('viewCustom')
                         vm.parentCtrl.actionListService.actionsToIndex["report_a_problem"] = 9;
                       } 
                       
-                      var primoContext = '&context=' + vm.parentCtrl.item.context[0];
-                      if (vm.parentCtrl.item.context[0] === 'P') {
-                        primoContext = '&context=PC';
-                      }
-                      //console.log(primoContext);
-
-                      var nativePerma = vm.parentCtrl.item.pnx.control.recordid[0];    
-                      //console.log(nativePerma);
-                      if (nativePerma.includes("dedup")) {                        
-                        nativePerma = vm.parentCtrl.item.pnx.control.sourceid[0].substring(16);
-                      }                      
-                      //console.log(currentURL+nativePerma+currentURLtail+primoContext);
-                      url+='referrer='+currentURL+nativePerma+currentURLtail+primoContext;  
+                      console.log(window.location.href);
+                      // start to construct user's present url
+                      // var primoContext = '&context=' + vm.parentCtrl.item.context[0];
+                      // if (vm.parentCtrl.item.context[0] === 'P') {
+                      //   primoContext = '&context=PC';
+                      // }
+                      // var nativePerma = vm.parentCtrl.item.pnx.control.recordid[0];    
+                      // if (nativePerma.includes("dedup")) {                        
+                      //   nativePerma = vm.parentCtrl.item.pnx.control.sourceid[0].substring(16);
+                      // }                      
+                      // url+='referrer='+currentURL+nativePerma+currentURLtail+primoContext;  
+                      // finish construct user's present url
+                      url+='referrer='+window.location.href;
                       if (vm.parentCtrl.actionListService.onToggle) {
                         vm.parentCtrl.actionListService.onToggle["report_a_problem"] = function () {
                           window.open(url, '_blank');
@@ -56,19 +56,6 @@ angular.module('viewCustom')
                           window.open(url, '_blank');
                         };
                       }
-                      // let bullhorn = document.getElementById('report_a_problemButton');
-                      // let position = 'beforeend';
-                      // bullhorn.insertAdjacentHTML(position, '<img src="/primo-explore/custom/HVD2/img/ic_bullhorn_24px.svg"></img>')
-                      // let rptButton = document.getElementById('report_a_problemButton');
-                      // var bullhorn = document.createElement("img");
-                      // bullhorn.setAttribute('src','/primo-explore/custom/HVD2/img/ic_bullhorn_24px.svg');
-                      // console.log(rptButton);
-                      // console.log(bullhorn);
-                      // let rptImg = document.querySelectorAll("md-icon[md-svg-icon^='action:ic_bullhorn_24px']");
-                      // console.log(rptImg);
-                      // document.querySelectorAll("md-icon[md-svg-icon^='action:ic_bullhorn_24px']").insertAdjacentHTML('afterbegin', '<span>test</span>');
-                      
-        
         
                     // end report a problem                
 

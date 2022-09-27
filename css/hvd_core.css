@@ -428,7 +428,7 @@ prm-search-result-availability-line .md-button.neutralized-button:focus [class*=
 /* color of button and text when online, for alma content, separate lines below for content from CDI */
 prm-search-result-availability-line button.md-button.neutralized-button span[translate*="delivery.code.not_restricted"] {
     color:white;
-    padding: 1px 10px 1px 25px;
+    padding: 3px 10px 2px 25px;
     border-radius: 4px;
     font-weight: 600;
     margin-top:5px;margin-top: 10px;
@@ -665,15 +665,15 @@ prm-snippet prm-icon.close-quote md-icon {
 
 
 /*        FACETS          */
-/* BEGIN FULL TEXT SWITCH */
-prm-facet .switch-results .md-button {
+/* BEGIN FULL TEXT SWITCH (toggle for search inside fulltext CDI) */
+prm-facet .switch-results {
     transition:none;
 }
-prm-facet .switch-results .md-button md-switch .md-bar,
-prm-facet .switch-results .md-button md-switch.md-checked .md-bar {
+prm-facet .switch-results md-switch .md-bar,
+prm-facet .switch-results md-switch.md-checked .md-bar {
     background-color:transparent;
 }
-prm-facet .switch-results .md-button md-switch.md-checked .md-thumb {
+prm-facet .switch-results md-switch.md-checked .md-thumb {
     color:#fff;
     background-color:#848484;
     border: 1px solid #848484;
@@ -682,7 +682,7 @@ prm-facet .switch-results .md-button md-switch.md-checked .md-thumb {
     top:-3px;
     margin-left: -11px;
 }
-prm-facet .switch-results .md-button md-switch .md-thumb {
+prm-facet .switch-results md-switch .md-thumb {
     color:#fff;
     background-color:#FFF;
     border: 1px solid #848484;
@@ -691,33 +691,32 @@ prm-facet .switch-results .md-button md-switch .md-thumb {
     top:-3px;
     margin-left: 1px;
 }
-prm-facet .switch-results .md-button:hover md-switch .md-bar,
-prm-facet .switch-results .md-button:focus md-switch .md-bar,
-prm-facet .switch-results .md-button:hover md-switch.md-checked .md-bar,
-prm-facet .switch-results .md-button:focus md-switch.md-checked .md-bar {
+prm-facet .switch-results md-switch:hover .md-bar,
+prm-facet .switch-results md-switch:focus .md-bar,
+prm-facet .switch-results md-switch:hover.md-checked .md-bar,
+prm-facet .switch-results md-switch:focus.md-checked .md-bar {
     color:#000!important;
     opacity:0;
 }
-prm-facet .switch-results .md-button:hover md-switch.md-checked .md-thumb,
-prm-facet .switch-results .md-button:focus md-switch.md-checked .md-thumb {
-    /* color:#000!important; */
+prm-facet .switch-results md-switch:hover.md-checked .md-thumb,
+prm-facet .switch-results md-switch:focus.md-checked .md-thumb {
     color:#848484!important; 
 }
 
-prm-facet .switch-results .md-button md-switch .md-thumb:before {
+prm-facet .switch-results md-switch .md-thumb:before {
     content:"X";
     font-size: 19px;
     font-weight: bold;
     top: -3px;
-    left: 0px;
+    left: 3px;
     transition:none;
 }
-prm-facet .switch-results .md-button md-switch.md-checked .md-thumb:before {
+prm-facet .switch-results md-switch.md-checked .md-thumb:before {
     content:"✓";
     font-size: 19px;
     font-weight: bold;
     top: -3px;
-    left: 0px;
+    left: 3px;
     transition:none;
 }
 md-switch:not(.md-dragging) .md-bar, 
@@ -725,8 +724,8 @@ md-switch:not(.md-dragging) .md-thumb,
 md-switch:not(.md-dragging) .md-thumb-container {
     transition:none;
 }
-prm-facet .switch-results .md-button md-switch .md-label,
-prm-facet .switch-results .md-button md-switch.md-checked .md-label {
+prm-facet .switch-results md-switch .md-label,
+prm-facet .switch-results md-switch.md-checked .md-label {
     color:#3a3a3a;
     font-weight:600;
     font-size:14.25px;
@@ -734,14 +733,23 @@ prm-facet .switch-results .md-button md-switch.md-checked .md-label {
     border-radius:4px;
     padding-right:8px;
 }
-prm-facet .switch-results .md-button:hover md-switch .md-label {
+prm-facet .switch-results md-switch:hover .md-label,
+prm-facet .switch-results md-switch:focus .md-label {
     color: #FFF;
 }
-prm-facet .switch-results .md-button.button-as-link.active:hover:not([disabled]),
-prm-facet .switch-results .md-button.button-as-link.active:focus:not([disabled]) {
+prm-facet .switch-results md-switch:hover,
+prm-facet .switch-results md-switch:focus,
+prm-facet .switch-results md-switch:hover.active,
+prm-facet .switch-results md-switch:focus.active {
     background-color:#1e1e1e;
-}
-/* END FULL TEXT SWITCH */
+    border-radius:4px;
+} 
+prm-facet .switch-results md-switch.active:hover:not([disabled]),
+prm-facet .switch-results md-switch.active:focus:not([disabled]) {
+    background-color:#1e1e1e;
+} 
+/* END FULL TEXT SWITCH  */
+
 prm-facet .primo-scrollbar + div {    
     display:none;
 }
