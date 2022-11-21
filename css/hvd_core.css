@@ -1152,6 +1152,10 @@ prm-advanced-search .md-button.md-primary:focus:not([disabled]) {
 prm-advanced-search prm-icon md-icon svg[id^=magnifying-glass] {
     color:#fff;
 }
+prm-advanced-search-after .barcode {
+    margin: 15px 0px;
+    padding: 15px 15px;
+}
 /* browse  */
 prm-browse-search-bar .md-button.button-confirm:hover:not([disabled]) {
     color:#fff;
