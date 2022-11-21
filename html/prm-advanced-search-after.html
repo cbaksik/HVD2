@@ -1,12 +1,11 @@
 <md-card  class="barcode" ng-if="vm.form.flag">
-    <div layout="row">
+    <div layout="row" class="advanced-search-output">
         <md-input-container md-no-float class="underlined-input bold-text md-primoExplore-theme md-block md-input-has-placeholder" flex="50">
             <input placeholder="Enter barcode" maxlength="100" aria-label="Search by barcode" tabindex="0" ng-model="vm.form.barcode" (keypress)="vm.keypressSearch($event)"/>
         </md-input-container>
-        <md-button tabindex="0" class="md-block" (click)="vm.searchByBarcode()">
-            <prm-icon icon-type="svg" svg-icon-set="primo-ui" icon-definition="magnifying-glass" (click)="vm.searchByBarcode()"></prm-icon>
+        <button tabindex="0" class="button-confirm button-large button-with-icon md-button md-primoExplore-theme md-ink-ripple" (click)="vm.searchByBarcode()">
             <span>Search by barcode</span>
-        </md-button>
+        </button>
     </div>
     <div class="error" ng-if="vm.form.error">{{vm.form.error}}</div>
 </md-card>
