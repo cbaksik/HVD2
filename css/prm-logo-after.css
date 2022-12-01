@@ -2,9 +2,9 @@ prm-search-bar > div:first-child > div:first-child > div:first-child {
     display: block;
 }
 
-prm-skip-to {
+/* prm-skip-to {
     display: none;
-}
+} */
 
 div.product-logo {
     display: none;
