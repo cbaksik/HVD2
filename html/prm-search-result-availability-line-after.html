@@ -1,8 +1,7 @@
 <!-- start browzine code from vendor
-https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/raw/a2aabd93c172f22f99ae06185178384cdc6b3186/prm-search-result-availability-line-after.html
+see custom-browzine.js for controller details
 --> 
 <browzine parent-ctrl="vm.parentCtrl"></browzine>
-
 <!-- end browzine code from vendor --> 
 
 <div ng-if="vm.hathiTrustItem.orig" class="hvdHathiViewOnline_div">
@@ -21,9 +20,6 @@ https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/ra
 </div>
 
 <div ng-if="vm.OpenLib.display" class="hvd_TOC_link">
-    <!-- <a href="{{vm.OpenLib.infoURL}}" target="_blank">
-        <span>1-hour digital loan in Open Library</span>        
-    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
     <a href="{{vm.OpenLib.previewURL}}" target="_blank">
         <span>READ ONLINE (1 HOUR LOAN)</span>        
     </a>
@@ -34,10 +30,8 @@ https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/ra
     <div id="hglMap12" class="customMap"></div>
 </div>
 
-<prm-open-journal-in-full parent-ctrl="vm.parentCtrl"></prm-open-journal-in-full>
-
-<!-- end browzine code from vendor , per https://github.com/ayBayClay/HVD2--> 
-<prm-sm-more-records parent-ctrl="vm.parentCtrl"></prm-sm-more-records> 
+<!-- this line is for stack  map / map it:  -->
+<!-- <prm-sm-more-records parent-ctrl="vm.parentCtrl"></prm-sm-more-records>  -->
 
 
 <div ng-if="vm.FAlink" class="hvd_EAD_link">
