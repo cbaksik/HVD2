@@ -14,7 +14,7 @@ angular.module('viewCustom')
         vm.api = custService.getApi();
         // display of table of content
         vm.TOC = {'type':'01HVD_ALMA','isbn':[],'display':false};
-        vm.OpenLib = {'type':'01HVD_ALMA','isbn':[],'display':false};
+        vm.OpenLib = {'rtype':'book','isbn':[],'display':false};
         vm.itemPNX={};
         vm.hathiTrust={};
         vm.FAlink='';
@@ -60,8 +60,8 @@ angular.module('viewCustom')
         };
 
         // see if book is in open library
-        vm.findOpenLib=function () {
-            if (vm.itemPNX.pnx.control.sourceid[0] === vm.TOC.type && vm.itemPNX.pnx.addata.isbn) {
+        vm.findOpenLib=function () {            
+            if (vm.itemPNX.pnx.display.type[0] === vm.OpenLib.rtype && vm.itemPNX.pnx.addata.isbn) {
                 var param={'isbn':'','hasData':false};
                 param.isbn = vm.itemPNX.pnx.addata.isbn[0];
                     fetch(openLibUrl+param.isbn+'&format=json&jscmd=viewapi', {                        
@@ -70,14 +70,14 @@ angular.module('viewCustom')
                             'Accept': '*/*'
                           }
                     })
-                        .then(function (response) { 
+                        .then(function (response) {  
                             return response.json();
                         })
                         .then(function (data) { 
                             var objKey = (Object.keys(data)); 
                             var objKeyValue = objKey[0]; 
                             var openLibPreview = data[objKeyValue].preview;                                              
-                            if (openLibPreview === 'borrow') {         
+                            if (openLibPreview === 'borrow') {
                                 vm.OpenLib.display = true;
                                 vm.OpenLib.infoURL = data[objKeyValue].info_url;
                                 vm.OpenLib.previewURL = data[objKeyValue].preview_url;   
