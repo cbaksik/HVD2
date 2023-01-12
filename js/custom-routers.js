@@ -7,26 +7,7 @@
 
     angular.module('viewCustom')
     .config(function ($stateProvider) {
-        $stateProvider
-            .state('exploreMain.almaMapIt', {
-                    url: '/almaMapIt',
-                    views:{
-                        '': {
-                            template: `<custom-library-map loc="$ctrl"></custom-library-map>`
-                        }
-                    }
-                }
-
-            )
-            .state('exploreMain.aeon', {
-                url: '/aeon/:mmsid',
-                    views:{
-                    '': {
-                        template: `<custom-aeon parent-ctrl="$ctrl"></custom-aeon>`
-                        }
-                    }
-                }
-            )
+        $stateProvider            
             .state('exploreMain.viewallcomponentdata', {
                     url: '/viewallcomponentmetadata/:context/:docid',
                     views:{
