@@ -50,14 +50,17 @@ function isBrowzineLoaded() {
       window.browzine.script.src = "https://s3.amazonaws.com/browzine-adapters/primo/browzine-primo-adapter.js";
       window.document.head.appendChild(window.browzine.script);
     }
-  
-    (function poll() {
-      if (isBrowzineLoaded() && window.browzine.primo) {
-        window.browzine.primo.searchResult($scope);
-      } else {
-        requestAnimationFrame(poll);
-      }
-    })();
+    
+    this.$onInit=function () {
+                (function poll() {
+                  if (isBrowzineLoaded() && window.browzine.primo) {
+                    window.browzine.primo.searchResult($scope);
+                  } else {
+                    requestAnimationFrame(poll);
+                  }
+                })();
+    };
+
   });
   
   angular.module('viewCustom')
