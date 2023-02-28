@@ -42,6 +42,13 @@ function isBrowzineLoaded() {
         articleRetractionWatchText: "Retracted Article",   
         
         printRecordsIntegrationEnabled: true,
+
+        articlePDFDownloadViaUnpaywallEnabled: true,
+        articlePDFDownloadViaUnpaywallText: "Download PDF (via Unpaywall)",
+
+        articleAcceptedManuscriptPDFViaUnpaywallEnabled: true,
+        articleAcceptedManuscriptPDFViaUnpaywallText: "Download PDF (Accepted Manuscript via Unpaywall)",
+
       };
   
       window.browzine.script = document.createElement("script");
