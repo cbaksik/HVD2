@@ -1,5 +1,7 @@
 /* body font-family tweak b/c Firefox not rendering diacritics properly with OTB Google Font Source Sans Pro -- CB 20180807, eg Urdu title 990093740090203941 */
-/* this is the "teal" #187474 */
+/* */
+/* new standard blue #0579b8; on hover #2a5280 */
+/* the teal #187474 */
 body {
     font-family:Source Sans Pro,Arial,sans-serif;
    }
@@ -11,7 +13,7 @@ prm-brief-result-container .list-item-primary-content,
 .full-view-inner-container,
 md-content,
 md-content.md-primoExplore-theme {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 /* blank area below facet - how to get rid of */
 /* need this, among other things,  to get rid of double-scroll bar */
@@ -21,7 +23,7 @@ body {
 }
 /* end*/
 a {
-    color:#0579B8;
+    color:#0579b8;
 }
 a:hover, a:focus {
     box-shadow: inset 0 -3px 0 0 rgba(5, 121, 184, 0.3);
@@ -30,13 +32,13 @@ a:hover, a:focus {
     border-radius:4px;
 }
 .md-button.button-link {
-    color:#0579B8;
+    color:#0579b8;
     border-radius: 4px;
 }
 .md-button.button-confirm,
 .md-button.md-primary,
 .md-button.button-notice {
-    color:#0579B8;
+    color:#0579b8;
     font-weight:600;
     border-radius: 4px;
 }
@@ -101,7 +103,7 @@ md-option.md-focused {
     display:none;
 }
 prm-brief-result-container .list-item-primary-content:before {
-    background-color: #F3F3F3;
+    background-color: #f3f3f3;
 }
 md-backdrop.md-opaque {
     background: rgba(56,56,61);
@@ -185,7 +187,7 @@ prm-favorites md-tab-item.md-tab:hover {
 prm-favorites md-select {
     padding: 5px;
     border-bottom: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #fff, 0 1px 0 #fff;
     background-color: white;
 }
 prm-favorites md-checkbox .md-container:hover {
@@ -218,7 +220,7 @@ prm-favorites-tool-bar md-toolbar.md-primoExplore-theme.default-toolbar .md-butt
 }
 prm-favorites-record-labels .md-button {
     font-size: 15px;
-    color:#6E6868;
+    color:#6e6868;
     opacity:1;
     border:1px solid #acabab;
     border-radius:30px;
@@ -265,6 +267,136 @@ prm-favorites md-dialog.in-element-dialog span[translate='nui.favorites.removeSi
     background-color:white;
     padding:15px;
 }
+prm-favorites prm-search-result-list .search-within .search-within-input {
+    border-color:#d5d5d5;
+    border-width:1px;
+    border-style:solid;
+    margin-right:40px;
+    padding:20px;
+    text-transform:uppercase;
+    font-size: 14px;
+    font-weight:500;
+    opacity:.7;
+    border-radius:4px;
+} 
+prm-favorites prm-search-result-list .search-within input {
+    background-image: url('../img/mag-glass.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 6px right 4px;
+    background-size:25px; 
+}
+/* some selectors appear again later; this css necessary to hide mag glass when input is active in any way */
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused input,
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused,
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused .md-input,
+prm-search-result-list .search-within md-input-container.md-input-has-value input {
+    background-image:none;
+}
+prm-favorites prm-search-result-list .search-within md-input-container input {
+    min-width:280px;
+    transition:none;
+}
+prm-favorites prm-search-result-list .search-within md-input-container .md-input {
+    border-width: 1px 1px 1px 1px;
+}
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused input {
+    font-size:14px;
+}
+ /* this stake takes effect when cursor is in box */
+ prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused {
+    font-size:14px;
+ }
+/* this state takes effect when cursor is in box */
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused .md-input {
+    font-size:14px;
+    border-width:1px;
+    border-color:grey;
+    border-style:solid;
+    transition:none;
+}
+prm-favorites prm-search-result-list .search-within .search-button {
+    border-width:1px;
+    border-color:grey;
+    border-style:solid;    
+    opacity:1;
+    height:43px;
+    margin-top: 1px;
+    /* display:inline-block; */
+}
+/* this state takes effect when cursor is in box */
+prm-favorites prm-search-result-list .search-within .search-button.is-shifted {
+    min-width:88px;
+    max-width:140px;
+    opacity:1;
+    transition:none;
+    /* margin:10px; */
+    display:inline-block;
+}
+prm-favorites prm-search-result-list .search-within .search-button.is-shifted .search-button-text {
+    opacity:1;
+}
+/* this is the X to erase the text if it exists in input box */
+/* 20230227 hiding because it doesn't work  */
+prm-favorites prm-search-result-list .search-within .clear-button { 
+    right: 5px;
+    top: 2px;
+    display:none;
+}
+prm-favorites prm-search-result-list .search-within .search-button.md-button[disabled=disabled] {
+    color:grey!important;
+}
+prm-favorites prm-search-result-list .search-within .filter-chip {
+    border: 1px solid #acabab;
+    font-weight: 600;
+    letter-spacing: .03em;
+ }
+/* */
+/* prm-favorites prm-search-result-list .search-within .search-button.md-button[disabled=disabled],
+prm-favorites prm-search-result-list .search-within .search-button.is-shifted.md-button[disabled=disabled],
+prm-favorites prm-search-result-list .search-within .search-button.md-button:disabled,
+prm-favorites prm-search-result-list .search-within .search-button.is-shifted:disabled {
+    color:red!important;
+    background-color:aqua!important;
+    background:blue!important;
+    display:inline-block!important;
+    border-width:1px!important;
+    border-style:solid!important;
+    border-color:purple!important;
+    cursor:pointer;
+    min-width:100px!important;
+    min-height:50px!important;
+    position:relative;
+    visibility:visible;
+    box-sizing:border-box;
+} */
+/* prm-favorites prm-search-result-list .search-within .search-button.md-button:disabled {
+    color:pink!important;
+    background-color:yellow!important;
+    background:green!important;
+    display:inline-block!important;
+    border-width:1px!important;
+    border-style:solid!important;
+    border-color:olive!important;
+    cursor:pointer;
+    min-width:100px!important;
+    min-height:50px!important;
+    position:relative;
+    visibility:visible;
+    box-sizing:border-box;    
+    box-shadow: inset 0 0 2px rgb(114, 114, 112);
+    padding:5px 30px 5px 8px;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:initial;
+    background-image: url('../img/pencil.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 4px right 4px;
+    background-size:25px;
+} */
+/* prm-favorites prm-search-result-list .search-within .search-button.md-button:disabled:after, 
+prm-favorites prm-search-result-list .search-within .search-button.md-button:after {
+    content:"TEST";
+} */
 
 /* END MY FAVORITES */
 /* mobile misc */
@@ -288,7 +420,7 @@ prm-alert-bar .bar prm-authentication {
     margin-right:15px;
 }
 prm-alert-bar .bar prm-authentication .md-button {
-    color: #026DB9;
+    color: #026db9;
     font-weight:bold;
     padding:11px;
     border-radius:4px;
@@ -332,7 +464,7 @@ prm-brief-result.result-item-details h3.item-title a:focus {
     border-bottom:0px;
 }
 prm-search-result-list div.result-item-primary-content:focus {
-    border:2px solid #C0C0C0;
+    border:2px solid #c0c0c0;
 }
 /* hide yellow underline of text that matches search string */
 prm-brief-result-container mark {
@@ -354,7 +486,7 @@ prm-search-result-availability-line prm-icon {
     display:none;
 }
 prm-search-result-availability-line .md-button.arrow-link-button .button-content {
-    color:#0579B8;
+    color:#0579b8;
     font-weight:600;
 }
 /* this line is needed to prevent tiny right underline from appearing on button hover, focus for online access*/
@@ -364,7 +496,7 @@ prm-search-result-availability-line .md-button.arrow-link-button:hover .button-c
 prm-search-result-availability-line .md-button.arrow-link-button:focus .button-content,
 prm-search-result-availability-line .fulltext_linktorsrc:hover,
 prm-search-result-availability-line .fulltext_linktorsrc:focus {
-    box-shadow:inset 0 0 0 #FFF;
+    box-shadow:inset 0 0 0 #fff;
 }
 /* class*=no_ applies to Check Access Options, i.e. no FT or alma holdings */
 prm-search-result-availability-line .md-button.neutralized-button [class*=no_] {
@@ -377,11 +509,11 @@ prm-search-result-availability-line .md-button.neutralized-button:focus [class*=
 }
 /* applies to Alma holdings = available */
 prm-search-result-availability-line .md-button.neutralized-button [class*=available] {
-    color:#0579B8;
+    color:#0579b8;
     font-weight:600;
 }
 prm-search-result-availability-line .md-button.neutralized-button [class*=available]>span {
-    color:#0579B8;
+    color:#0579b8;
 }
 prm-search-result-availability-line .md-button.neutralized-button:hover [class*=available],
 prm-search-result-availability-line .md-button.neutralized-button:focus [class*=available] {
@@ -393,10 +525,10 @@ prm-search-result-availability-line span[translate*="delivery.and.other.location
 }
 /* alma holdings without items */
 prm-search-result-availability-line .md-button.neutralized-button [class*=check] {
-    color:#0579B8;
+    color:#0579b8;
 }
 prm-search-result-availability-line .md-button.neutralized-button [class*=check]>span {
-    color:#0579B8;
+    color:#0579b8;
 }
 prm-search-result-availability-line .md-button.neutralized-button:hover [class*=check],
 prm-search-result-availability-line .md-button.neutralized-button:focus [class*=check] {
@@ -433,7 +565,7 @@ prm-search-result-availability-line button.md-button.neutralized-button span[tra
     font-weight: 600;
     margin-top:5px;margin-top: 10px;
     display: inline-block;
-    background-color:#0579B8;
+    background-color:#0579b8;
     background-image: url('../img/link-icon.svg');
     background-repeat: no-repeat;
     background-position: bottom 4px left 6px;
@@ -450,7 +582,7 @@ prm-search-result-availability-line button.md-button.neutralized-button:focus sp
 prm-search-result-availability-line button span.button-content .fulltext,
 prm-search-result-availability-line .fulltext_linktorsrc {
     color:white;
-    background-color:#0579B8;
+    background-color:#0579b8;
     padding: 3px 10px 3px 25px;
     border-radius: 4px;
     font-weight:600;
@@ -491,7 +623,7 @@ prm-search-result-availability-line-after a:focus {
 /* hathi trurst link, online */
 .hvdHathiViewOnline {
     color:white;
-    background-color:#0579B8;
+    background-color:#0579b8;
     padding: 3px 10px 2px 25px;
     border-radius: 4px;
     font-weight:600;
@@ -513,7 +645,7 @@ prm-search-result-availability-line-after a:focus {
 }
 .hvd_EAD_link a {
     color:white;
-    background-color:#0579B8;
+    background-color:#0579b8;
     padding: 2px 22px 2px 11px;
     border-radius: 4px;
     letter-spacing: 0.15px;
@@ -522,7 +654,7 @@ prm-search-result-availability-line-after a:focus {
 .hvd_EAD_link a:focus {
     background-color:#2a5280;
     border-bottom:0px; 
-    box-shadow:inset 0 0 0 #FFF;
+    box-shadow:inset 0 0 0 #fff;
 }
 .hvd_EAD_link img {
     min-height:20px;
@@ -540,7 +672,7 @@ prm-chapters-results-line prm-icon {
     display:none;
 }
 prm-chapters-results-line .md-button.arrow-link-button .button-content {
-    color:#0579B8;
+    color:#0579b8;
 }
 prm-chapters-results-line .md-button.neutralized-button {
     padding-bottom:3px;
@@ -560,7 +692,7 @@ prm-chapters-results-line button[aria-label*="Chapters of this book"],
 /* browzine */
 prm-search-result-availability-line a.browzine-direct-to-pdf-link {
     color:white;
-    background-color: #0579B8;
+    background-color: #0579b8;
     border-radius: 4px;
     font-weight: 600;
     background-image: url('../img/browzine-pdf-download-icon.svg');
@@ -589,12 +721,12 @@ prm-search-result-availability-line a.browzine-web-link md-icon {
 /* END browzine */
 /* page navigation search results, new pagination may 2021 */
 prm-page-nav-menu #resultsPerPage .counter-main a {
-    color:#026DB9;
+    color:#026db9;
     font-weight:bold;
 }
 prm-page-nav-menu #resultsPerPage .counter-main a:hover,
 prm-page-nav-menu #resultsPerPage .counter-main a:focus {
-    color:#FFF;
+    color:#fff;
 }
 prm-page-nav-menu #resultsPerPage .counter-main .current-page {
     color:#3a3a3a;
@@ -603,30 +735,30 @@ prm-page-nav-menu #resultsPerPage .counter-main .current-page {
 prm-page-nav-menu #resultsPerPage .counter-main a.current-page:hover,
 prm-page-nav-menu #resultsPerPage .counter-main a.current-page:focus {
     color:#3a3a3a;
-    background-color:#FFF;
+    background-color:#fff;
     box-shadow:0 0 0 0px;
 }
 prm-page-nav-menu #resultsPerPage .counter-next a,
 prm-page-nav-menu #resultsPerPage .counter-prev a {
-    color:#026DB9;
+    color:#026db9;
     font-weight:bold;
 }
 prm-page-nav-menu #resultsPerPage .counter-next a:hover,
 prm-page-nav-menu #resultsPerPage .counter-prev a:hover,
 prm-page-nav-menu #resultsPerPage .counter-next a:focus,
 prm-page-nav-menu #resultsPerPage .counter-prev a:focus {
-    color:#FFF;
+    color:#fff;
 }
 prm-page-nav-menu #resultsPerPage div.results-per-page {
     margin-top:10px;
 }
 prm-page-nav-menu #resultsPerPage div.results-per-page button {
-    color:#026DB9;
+    color:#026db9;
     font-weight:bold;
 }
 prm-page-nav-menu #resultsPerPage div.results-per-page button:hover,
 prm-page-nav-menu #resultsPerPage div.results-per-page button:focus {
-    color:#FFF;
+    color:#fff;
 }
 prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk {
     color:#3a3a3a;
@@ -635,17 +767,17 @@ prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk {
 prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk:hover,
 prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk:focus {
     color:#3a3a3a;
-    background-color:#FFF;
+    background-color:#fff;
     box-shadow:0 0 0 0px;
 }
 prm-page-nav-menu #resultsPerPage .counter-main a:focus,
 prm-page-nav-menu #resultsPerPage .counter-next a:focus,
 prm-page-nav-menu #resultsPerPage div.results-per-page button:focus {
-    color:#FFF;
+    color:#fff;
 }
 prm-page-nav-menu a:focus,
 prm-page-nav-menu button:focus {
-    color:#FFF;
+    color:#fff;
 }
 /* snippet quotation mark */
 prm-snippet {
@@ -684,7 +816,7 @@ prm-facet .switch-results md-switch.md-checked .md-thumb {
 }
 prm-facet .switch-results md-switch .md-thumb {
     color:#fff;
-    background-color:#FFF;
+    background-color:#fff;
     border: 1px solid #848484;
     border-radius: 4px;
     padding: 9px;
@@ -735,7 +867,7 @@ prm-facet .switch-results md-switch.md-checked .md-label {
 }
 prm-facet .switch-results md-switch:hover .md-label,
 prm-facet .switch-results md-switch:focus .md-label {
-    color: #FFF;
+    color: #fff;
 }
 prm-facet .switch-results md-switch:hover,
 prm-facet .switch-results md-switch:focus,
@@ -760,7 +892,7 @@ prm-facet prm-search-result-sort-by md-select {
     border: 1px solid transparent;
     border-top: none;
     border-bottom: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #fff, 0 1px 0 #fff;
     background-color: white;
 }
 prm-facet md-input-container:after {
@@ -809,7 +941,7 @@ input[aria-label="From date"] ,input[aria-label="To date"] {
     border: 1px solid transparent;
     border-top: none;
     border-bottom: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #fff, 0 1px 0 #fff;
     background-color: white;
     max-width:70px;
 }
@@ -822,7 +954,7 @@ input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date
     margin: 0; 
 }
 .multiselect-submit .multiselect-submit-inner .md-button.md-primary {
-    background-color:#187474;;
+    background-color:#187474;
 }
 .multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover,
 .multiselect-submit .multiselect-submit-inner .md-button.md-primary:focus {
@@ -873,11 +1005,11 @@ prm-search-result-sort-by {
     margin-bottom:5px;
 }
 prm-breadcrumbs .md-chip.facet-excluded {
-    color:#C93621;
+    color:#c93621;
 }
 /* our height of 68px for top-bar makes some of contact: after lines disappear; so making those 0 wide and using proper strikethrough instead */
 prm-breadcrumbs .md-chip.facet-excluded {
-    color:#C93621;
+    color:#c93621;
     text-decoration-line: line-through;
     text-decoration-style:solid;
     text-decoration-color: #524241;
@@ -904,21 +1036,21 @@ prm-breadcrumbs .md-chip.facet-excluded .md-chip-content:after {
  }
 /* facet counts in parens */
 .section-content .md-chips .md-chip .md-chip-content {
-	color:#6E6868;
+	color:#6e6868;
 }
 /*  ------------ */
 /* BRIEF RESULTS */
 /*  ------------ */
 prm-search-result-thumbnail-container .fan-img:first-of-type {
-    background-color:#FFF;
+    background-color:#fff;
     transform: translate3d(-12px,12px,0) scale3d(.8,.8,1);
 }
 prm-search-result-thumbnail-container .fan-img:nth-of-type(2) {
-    background-color:#FFF;
+    background-color:#fff;
     transform: translate3d(-2px,6px,0) scale3d(.8,.8,1);
 }
 prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
-    background-color:#FFF;
+    background-color:#fff;
 }
 /* full display page */
 /* during overlay of search results, left and right pane */
@@ -1054,7 +1186,7 @@ md-menu-content.menu-with-footer .menu-footer form div:hover {
 }
 /* from prm-permalink-after.css, from contractor work */
 .highlite {
-    background: #FFFCC4;
+    background: #fffCC4;
 }
 prm-permalink div.form-focus{
     text-align:center;
@@ -1071,19 +1203,36 @@ prm-permalink div.form-focus{
         display:none;
     }
 }
-prm-advanced-search .collapsed-area .collapsed-button {
-    text-transform: uppercase;
-    color:#0579B8;
-    border-radius:4px;
+prm-advanced-search md-tabs.md-dynamic-height md-tabs-content-wrapper {
+    min-width:100%;
 }
-prm-advanced-search .collapsed-area .collapsed-button.md-button:focus:not([disabled]), prm-advanced-search .collapsed-area .collapsed-button.md-button:hover:not([disabled])
+prm-advanced-search md-tabs md-tabs-wrapper md-tabs-canvas md-pagination-wrapper md-tab-item.md-active:not([disabled]) {
+    color:#000;
+}
+prm-advanced-search md-ink-bar {
+    display:none;
+}
+prm-advanced-search md-pagination-wrapper {
+    background-color:#f3f3f3;
+}
+prm-advanced-search .collapsed-button {
+    text-transform: uppercase;
+    background-color:#0579b8;
+    color:#fff;
+    border-radius:4px;
+    left:150px;
+    right:auto;
+    margin-top:-2px;
+    margin-left:5px;
+}
+prm-advanced-search .collapsed-button.md-button:focus:not([disabled]), prm-advanced-search .collapsed-button.md-button:hover:not([disabled])
 {
     background-color:#2a5280;
-    color:#FFF;
+    color:#fff;
 }
-prm-advanced-search .collapsed-area .collapsed-button.md-button:hover:not([disabled]) prm-icon,
-prm-advanced-search .collapsed-area .collapsed-button.md-button:focus:not([disabled]) prm-icon {
-    color:#FFF;
+prm-advanced-search .collapsed-button.md-button:hover:not([disabled]) prm-icon,
+prm-advanced-search .collapsed-button.md-button:focus:not([disabled]) prm-icon {
+    color:#fff;
 }
 md-radio-group.layout-row md-radio-button {
     border-bottom:1px solid transparent;
@@ -1091,6 +1240,9 @@ md-radio-group.layout-row md-radio-button {
 md-radio-group.layout-row md-radio-button:hover,
 md-radio-group.layout-row md-radio-button:focus {
     border-bottom:1px solid #44707b;
+}
+prm-advanced-search md-tabs.md-dynamic-height md-tab-content.md-active {
+    width:100%;
 }
 prm-advanced-search button:focus {
     outline:1px solid #1e1e1e;
@@ -1107,6 +1259,9 @@ prm-advanced-search md-select:hover, prm-advanced-search md-select:focus {
 prm-advanced-search md-input-container:after {
     height: 0px;
 }
+prm-advanced-search .complex-rows {
+    border-bottom:none;
+}
 prm-advanced-search .search-string input {
     border: 1px solid #6f6e6e;
     padding:5px;
@@ -1119,7 +1274,7 @@ prm-advanced-search md-input-container.string-field md-select:focus {
 }
 prm-advanced-search .search-string md-select span {
     text-decoration:underline;
-    color:#026DB9;
+    color:#026db9;
 }
 prm-search-bar .advanced-search-wrapper prm-advanced-search .search-string .string-field.bold-text input {
     background-color:white;
@@ -1136,7 +1291,7 @@ prm-search-bar .advanced-search-wrapper prm-advanced-search .search-string .stri
 }
 prm-advanced-search .advanced-search-output button.button-confirm {
     color:white;
-    background-color:#0579B8;
+    background-color:#0579b8;
     padding: 3px 10px 3px 25px;
     border-radius: 4px;
     font-weight:600;
@@ -1156,7 +1311,10 @@ prm-advanced-search-after .barcode {
     margin: 15px 0px;
     padding: 15px 15px;
 }
-/* browse  */
+/* BROWSE  */
+prm-browse-search md-list.has-list-nav {
+    margin-bottom:200px;
+}
 prm-browse-search-bar .md-button.button-confirm:hover:not([disabled]) {
     color:#fff;
     background-color:#e9e9e9;
@@ -1204,9 +1362,31 @@ prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-butt
     text-decoration: underline;
     border-bottom:2px solid #0579b8;
 }
+
+prm-browse-search prm-page-nav-menu #speedDialWidget,
+.__gt-md prm-page-nav-menu #speedDialWidget,
+.__gt-sm prm-page-nav-menu #speedDialWidget,
+.__gt-xs prm-page-nav-menu #speedDialWidget {
+   left:inherit;
+   right:1.5em;
+   direction:rtl;
+   bottom:1.5em;
+}
 prm-browse-search md-list.prm-list.prm-linkable-list-items.prm-dense-list md-list-item .item-title prm-highlight > span:hover {
     color:#0579b8;
 }
+prm-browse-search  prm-page-nav-menu #speedDialWidget .page-nav-inner:after {
+    background-color:#187474;
+}
+prm-browse-search prm-page-nav-menu #speedDialWidget .md-button.md-fab {
+    background-color:#187474;
+    color:#fff;
+}
+prm-browse-search prm-page-nav-menu #speedDialWidget .md-button.md-fab:focus, 
+prm-browse-search prm-page-nav-menu #speedDialWidget .md-button.md-fab:hover {
+    background-color:#000;
+}
+/* END BROWSE */
 /* my account */
 prm-account-overview md-input-container md-select {
     padding:5px;
@@ -1214,7 +1394,7 @@ prm-account-overview md-input-container md-select {
     border: 1px solid transparent;
     border-top: none;
     border-bottom: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #fff, 0 1px 0 #fff;
 }
 /* my personal details after login, hide checkboxes since we don't allow changes */
 prm-personal-info md-card#personalDetails md-checkbox {
@@ -1225,13 +1405,13 @@ md-list-item .md-list-item-with-checkbox .item-index {
     opacity:1;
 }
 prm-loans p[style="color: tomato;"] {
-    color:#EB001B!important;
+    color:#eb001b!important;
 }
 prm-loans p.normal-text prm-icon {
     margin-right:5px;
 }
 .prm-warn {
-    color:#EB001B;
+    color:#eb001b;
 }
 prm-account-overview md-tabs-canvas prm-icon {
     padding-left:5px;
@@ -1294,11 +1474,11 @@ button:hover {
 /* need both these variations! to overwrite OTB underline */
 prm-search-result-frbr-line .md-button.arrow-link-button:hover .button-content,
 prm-search-result-frbr-line .md-button.arrow-link-button .button-content:hover {    
-    box-shadow:inset 0 0 0 #FFF;
+    box-shadow:inset 0 0 0 #fff;
 }
 /* instead of button the underline on the element below try putting it on the span within to avoid the underline extending beyond the length of the text */
 prm-search-result-frbr-line span {
-    color:#0579B8;
+    color:#0579b8;
     font-size:1em;
     font-weight:600;
 }
@@ -1310,7 +1490,7 @@ prm-search-result-frbr-line .button-content span.prm-notice {
     color:white;
 }
 prm-search-result-frbr-line .button-content span.prm-notice span[translate='nui.frbrversion.found'] {
-    color:#0579B8;
+    color:#0579b8;
     text-transform:uppercase;
 }
 /* hide OTB blue chevron */
@@ -1375,11 +1555,11 @@ prm-main-menu .my-refworks-ctm {
 
 /* bx */
 prm-recomendation-item div > a:focus {
-    border:2px solid #C0C0C0;
+    border:2px solid #c0c0c0;
 }
 /* next line added b/c Feb release changed background of bx section to be unreadable */
 .full-view-aside.flex-xl-20.flex-md-25.flex-lg-25.flex {
-    background-color:#FEFFFE;
+    background-color:#fefffe;
 }
 /* next line is because bottom of tool-bar is too close to first result */
 prm-search-result-list .search-results-container {
@@ -1468,11 +1648,11 @@ prm-add-alert-toast md-toast .md-toast-content {
     background-color:#E7E7E7;
 }
 prm-add-alert-toast md-toast .md-button.settings-button {
-    color:#2A5280;
+    color:#2a5280;
 }
 prm-add-alert-toast md-toast .md-button.settings-button:hover:not([disabled]) {
     color:#fff;
-    background-color:#026DB9;
+    background-color:#026db9;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax {
     color:#0579b8;
@@ -1523,15 +1703,15 @@ md-dialog.prm-resource-recommendations-fullview.md-transition-in {
     margin-bottom:30px;
 }
 prm-resource-recommender .md-button.button-as-link.link-alt-color {
-    color:#0579B8;
+    color:#0579b8;
 }
 prm-resource-recommender .md-button.button-as-link.link-alt-color:hover:not([disabled]),
 prm-resource-recommender .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
-    background-color:#2A5280;
+    background-color:#2a5280;
     border-radius: 4px;
 }
 prm-resource-recommender-card-content a {
-    color:#0579B8;
+    color:#0579b8;
     font-weight:bold;
 }
 #resource-recommender img.shield {
@@ -1556,7 +1736,7 @@ div.parentImageLinkWrapper {
 /* didn't finish css for below button, class not applied yet in prm-view-online-after.html */
 .hvdImgGroupAllMetadata {
     color:#fff;
-    background-color:#0579B8;
+    background-color:#0579b8;
     font-weight:600px;
     border-radius:4px;
 }
