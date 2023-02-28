@@ -27,9 +27,12 @@ angular.module('viewCustom')
             }
         };
 
+        /* append checkbox so that it is last child div above md-radio-group; this can change position in new releases */
         vm.$onInit=()=>{
             setTimeout(()=>{
-                let el=$element[0].parentNode.childNodes[0].children[0].children[1].children[0];
+                // let el=$element[0].parentNode.childNodes[0].children[0].children[1].children[0];
+                let el=$element[0].parentNode.childNodes[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].children[0];
+                console.log($element[0].parentNode.childNodes[0].children[0].children[1].children[0].children[0].children[0].children[0].children[0].children[0]);
                 let checkbox=document.createElement('custom-radio');
                 checkbox.setAttribute('parent-ctrl','vm.parentCtrl');
                 el.appendChild(checkbox);
