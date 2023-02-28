@@ -33,7 +33,7 @@ angular.module('viewCustom')
                         vm.parentCtrl.actionListService.actionsToIndex["report_a_problem"] = 9;
                       } 
                       
-                      console.log(window.location.href);
+                      //console.log(window.location.href);
                       // start to construct user's present url
                       // var primoContext = '&context=' + vm.parentCtrl.item.context[0];
                       // if (vm.parentCtrl.item.context[0] === 'P') {
