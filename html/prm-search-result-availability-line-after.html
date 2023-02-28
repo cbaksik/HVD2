@@ -1,20 +1,20 @@
 <div ng-if="vm.hathiTrustItem.orig" class="hvdHathiViewOnline_div">
-    <a ng-if="vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvdHathiViewOnline">
+    <a ng-if="vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvdHathiViewOnline hvd_hathi_ft_stats">
         <span>Online Access</span>
     </a>
-    <a ng-if="!vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank">        
+    <a ng-if="!vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvd_hathi_lim_stats">        
         <span ng-if="!vm.hathiTrustItem.fullview">Limited search in HathiTrust</span>  
     </a>
 </div>
 
 <div ng-if="vm.TOC.display" class="hvd_TOC_link">
-    <a href="https://secure.syndetics.com/index.aspx?isbn={{vm.TOC.isbn}}/TOC.HTML&client=harvard&type=rn12" target="_blank">
+    <a href="https://secure.syndetics.com/index.aspx?isbn={{vm.TOC.isbn}}/TOC.HTML&client=harvard&type=rn12" target="_blank" class="hvd_TOC_stats">
         <span>Table of Contents</span>        
     </a>
 </div>
 
-<div ng-if="vm.OpenLib.display" class="hvd_TOC_link">
-    <a href="{{vm.OpenLib.previewURL}}" target="_blank">
+<div ng-if="vm.OpenLib.display" class="hvd_OL_link">
+    <a href="{{vm.OpenLib.previewURL}}" target="_blank" class="hvd_OL_stats">
         <span>READ ONLINE (1 HOUR LOAN)</span>        
     </a>
 </div>
@@ -29,7 +29,7 @@
 
 
 <div ng-if="vm.FAlink" class="hvd_EAD_link">
-    <a href="{{vm.FAlink}}">
+    <a href="{{vm.FAlink}}" class="hvd_EAD_stats">
         <img src="/primo-explore/custom/HVD2/img/folder_open_white_24dp.svg" aria-label="Finding Aid"></img>
         <span>Finding Aid</span>        
     </a>
