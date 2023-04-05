@@ -547,6 +547,13 @@ prm-search-result-availability-line .md-button.neutralized-button [class*=may]>s
 prm-search-result-availability-line .md-button.neutralized-button [class*=unknown]>span {
     color:#414141;
 }
+/* for "and other locations" when it appears as 2nd sibling after unavailable AVA */
+prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable] ~ span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=does_not_exist] ~ span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=may] ~ span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=unknown] ~ span {
+    color:#414141;
+}
 prm-search-result-availability-line .md-button.neutralized-button:hover [class*=unavailable],
 prm-search-result-availability-line .md-button.neutralized-button:hover [class*=does_not_exist],
 prm-search-result-availability-line .md-button.neutralized-button:hover [class*=may],

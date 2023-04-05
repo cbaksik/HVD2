@@ -101,7 +101,7 @@ angular.module('viewCustom')
           }
         };
 
-        //This function is used to center and zoom the map based on WKT POINT(x y)
+        //GIS data: This function is used to center and zoom the map based on WKT POINT(x y)
         vm.mapWKTPoint=function(map, wkt, popupText) {
             if (popupText === "") {
                 popupText = "<b>Center of data set coverage area.</b>";
@@ -117,7 +117,7 @@ angular.module('viewCustom')
             map.panTo(new L.LatLng(x, y));
         };
 
-        //This function is used to center and zoom the map based on WKT BBOX(x1 y1, x2 y2)
+        //GIS data: This function is used to center and zoom the map based on WKT BBOX(x1 y1, x2 y2)
         vm.mapWKTBbox=function(map, wkt, popupText) {
             if (popupText === "") {
                 popupText = "<b>Extent of data set.</b>";
@@ -170,6 +170,7 @@ angular.module('viewCustom')
                     vm.coordinates = cs.buildCoordinatesArray(vm.itemPNX.pnx.display.lds40[0]);
                     vm.centerLongitude = (vm.coordinates[0] + vm.coordinates[1]) / 2;
                     vm.centerLatitude = (vm.coordinates[2] + vm.coordinates[3]) / 2;
+                    console.log(vm.coordinates);
 
                     var zoom=3;
                     map=L.map('hglMap12',{center:[vm.centerLatitude, vm.centerLongitude],
