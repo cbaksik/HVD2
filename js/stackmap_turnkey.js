@@ -1,7 +1,7 @@
 /* StackMap: Start */
 (function(){
 
-    console.log("stackmap");
+    //console.log("stackmap");
     
     var a = document.querySelector("head");
     var css1 = document.createElement("link"); 

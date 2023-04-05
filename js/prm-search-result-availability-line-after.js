@@ -178,8 +178,8 @@ angular.module('viewCustom')
 
 
                     // create the tile layer with correct attribution
-                    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-                    var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+                    var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+                    var osmAttrib='Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors';
                     var osm = new L.TileLayer(osmUrl, {minZoom: zoom, maxZoom: 40, attribution: osmAttrib});
 
                     map.setView([vm.centerLatitude, vm.centerLongitude],zoom);

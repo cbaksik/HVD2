@@ -15,14 +15,14 @@
                 // create script tag link leafletJS.com to use openstreetmap.org
                 var bodyTag=document.getElementsByTagName('body')[0];
                 var scriptTag=document.createElement('script');
-                scriptTag.setAttribute('src','https://unpkg.com/leaflet@1.2.0/dist/leaflet.js');
-                scriptTag.setAttribute('integrity','sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==');
+                scriptTag.setAttribute('src','https://unpkg.com/leaflet@1.9.3/dist/leaflet.js');
+                scriptTag.setAttribute('integrity','sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=');
                 scriptTag.setAttribute('crossorigin','');
                 bodyTag.append(scriptTag);
                 // create link tag
                 var linkTag=document.createElement('link');
-                linkTag.setAttribute('href','https://unpkg.com/leaflet@1.2.0/dist/leaflet.css');
-                linkTag.setAttribute('integrity','sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==');
+                linkTag.setAttribute('href','https://unpkg.com/leaflet@1.9.3/dist/leaflet.css');
+                linkTag.setAttribute('integrity','sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=');
                 linkTag.setAttribute('crossorigin','');
                 linkTag.setAttribute('rel','stylesheet');
                 bodyTag.append(linkTag);
