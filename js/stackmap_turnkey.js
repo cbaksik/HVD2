@@ -19,7 +19,7 @@
 
     var w = document.createElement("script"); 
     w.type = "text/javascript"; w.async = true;
-    w.src = "https://www.stackmap.com/integration/harvard/StackMap.js";
+    w.src = "https://www.stackmap.com/integration/harvard/StackMap.js?v=20230404";
     //w.src = "https://cdn.jsdelivr.net/gh/cbaksik/Alma/localStackMap.js";
     var b = document.body;
     b.appendChild(w);
