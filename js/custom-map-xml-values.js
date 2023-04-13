@@ -246,6 +246,7 @@ angular.module('viewCustom')
                         text = serviceObj.getRelatedInformation(values);
                         break;
                     case 'creator':
+                    case 'hvd_creator':
                     case 'hvd_associatedName':
                     case 'associatedName':
                         text = serviceObj.getAssociatedName(values);
