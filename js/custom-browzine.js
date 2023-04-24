@@ -43,12 +43,18 @@ function isBrowzineLoaded() {
         
         printRecordsIntegrationEnabled: true,
 
+        unpaywallEmailAddressKey: "cbaksik+unpaywall@g.harvard.edu",
+
         articlePDFDownloadViaUnpaywallEnabled: true,
-        articlePDFDownloadViaUnpaywallText: "Download PDF (via Unpaywall)",
+        articlePDFDownloadViaUnpaywallText: "VIEW PDF",
 
         articleAcceptedManuscriptPDFViaUnpaywallEnabled: true,
-        articleAcceptedManuscriptPDFViaUnpaywallText: "Download PDF (Accepted Manuscript via Unpaywall)",
+        articleAcceptedManuscriptPDFViaUnpaywallText: "VIEW PDF",
 
+        showFormatChoice: true,
+        showLinkResolverLink: true,
+      
+        enableLinkOptimizer: true,
       };
   
       window.browzine.script = document.createElement("script");
