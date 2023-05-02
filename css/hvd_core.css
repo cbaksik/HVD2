@@ -634,16 +634,40 @@ prm-quick-link {
 prm-quick-link prm-icon {
     display:none;
 }
+prm-quick-link .quick-links-icons {
+    display:none;
+}
 prm-brief-result-container prm-quick-link a {    
     background-color: #0579b8;
     border-radius: 4px;
     background-image: url('../img/browzine-pdf-download-icon.svg');
     background-repeat: no-repeat;
     background-position: bottom 5px left 6px;
-    padding:3px 34px 3px 37px;
+    padding: 3px 15px 3px 25px;
+    box-shadow: none;
+    height:26px;
+}
+prm-brief-result-container prm-quick-link a:hover,
+prm-brief-result-container prm-quick-link a:focus {
+    background-color:#2a5280;
+    box-shadow: none;
+    padding: 3px 15px 3px 25px;
+}
+prm-brief-result-container prm-quick-link .arrow-link:hover [link-arrow],
+prm-brief-result-container prm-quick-link .arrow-link:focus [link-arrow] {
+    display:none;
 }
 prm-brief-result-container prm-quick-link a span {
     color:white;
+    text-transform: uppercase;
+}
+/* this one is for the full display page */
+prm-full-view prm-quick-link a .quick-link-type {
+    color:#0579b8;
+    font-weight: 400;
+}
+prm-full-view prm-quick-link span[translate="fulldisplay.unpaywall.noLinks"] {
+    display:none;
 }
 /* hathi trurst link, online */
 .hvdHathiViewOnline {

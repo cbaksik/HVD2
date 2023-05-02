@@ -2,6 +2,7 @@
  * from browzine
  * https://gist.githubusercontent.com/tiandavis/26078a3a56fbfa55590e10e020845ea4/raw/1eeafc1053438397944af35d33bb2da0a3ed8090/custom-browzine-component.js
  * */
+
 function isBrowzineLoaded() {
     var validation = false;
     var scripts = document.head.querySelectorAll("script");
@@ -39,17 +40,17 @@ function isBrowzineLoaded() {
         articleLinkText: "Read Article",
 
         articleRetractionWatchEnabled: true,
-        articleRetractionWatchText: "Retracted Article",   
+        articleRetractionWatchText: "RETRACTED ARTICLE",   
         
         printRecordsIntegrationEnabled: true,
 
         unpaywallEmailAddressKey: "cbaksik+unpaywall@g.harvard.edu",
 
         articlePDFDownloadViaUnpaywallEnabled: true,
-        articlePDFDownloadViaUnpaywallText: "VIEW PDF",
+        articlePDFDownloadViaUnpaywallText: "VIEW PDF (OA)",
 
         articleAcceptedManuscriptPDFViaUnpaywallEnabled: true,
-        articleAcceptedManuscriptPDFViaUnpaywallText: "VIEW PDF",
+        articleAcceptedManuscriptPDFViaUnpaywallText: "VIEW PREPRINT",
 
         showFormatChoice: true,
         showLinkResolverLink: true,
