@@ -1,6 +1,10 @@
 <div ng-if="vm.hathiTrustItem.orig" class="hvdHathiViewOnline_div">
-    <a ng-if="vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvdHathiViewOnline hvd_hathi_ft_stats">
+    <a ng-if="vm.hathiTrustItem.fullview && !vm.isSerial" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvdHathiViewOnline hvd_hathi_ft_stats">
         <span>Online Access</span>
+    </a>
+    <!-- since serials may be only partially digitzed, don't display Online Access even if some volumes are online; instead display Limited search -->
+    <a ng-if="vm.hathiTrustItem.fullview && vm.isSerial" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvd_hathi_lim_stats">
+        <span>Limited search in HathiTrust</span>
     </a>
     <a ng-if="!vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvd_hathi_lim_stats">        
         <span ng-if="!vm.hathiTrustItem.fullview">Limited search in HathiTrust</span>  

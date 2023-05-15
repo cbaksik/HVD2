@@ -18,6 +18,7 @@ angular.module('viewCustom')
         vm.itemPNX={};
         vm.hathiTrust={};
         vm.FAlink='';
+        vm.isSerial='';
         var map;
         var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=';
         var openLibUrl = 'https://openlibrary.org/api/books?bibkeys=ISBN:';
@@ -165,6 +166,12 @@ angular.module('viewCustom')
             vm.findTOC();
             vm.findOpenLib();
             vm.findFindingAid();
+            if(vm.itemPNX.pnx.display.type[0] == 'journal') {
+                vm.isSerial=true;
+            } else {
+                vm.isSerial=false;
+            }
+            console.log(vm.isSerial);
             if(vm.itemPNX.pnx.display.lds40 && vm.parentCtrl.isFullView) {
                 $timeout(function () {
                     vm.coordinates = cs.buildCoordinatesArray(vm.itemPNX.pnx.display.lds40[0]);
