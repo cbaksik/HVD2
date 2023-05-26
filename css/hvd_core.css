@@ -1615,11 +1615,14 @@ prm-main-menu .my-refworks-ctm {
 /* end */
 
 /* bx */
+prm-recomendations {
+    background-color: #fefffe;
+}
 prm-recomendation-item div > a:focus {
     border:2px solid #c0c0c0;
 }
-/* next line added b/c Feb release changed background of bx section to be unreadable */
-.full-view-aside.flex-xl-20.flex-md-25.flex-lg-25.flex {
+/* next line needed to have background color for bx so it's visible */
+.full-view-aside {
     background-color:#fefffe;
 }
 /* next line is because bottom of tool-bar is too close to first result */
