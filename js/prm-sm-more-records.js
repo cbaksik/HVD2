@@ -1,4 +1,4 @@
-angular.module('viewCustom').controller('prmSmMoreRecords', ['$timeout', 'customService', '$q', 'prmSearchService', function ($timeout, customService, $q, prmSearchService) {
+angular.module('viewCustom').controller('prmSmMoreRecords', ['$timeout', 'customService', 'customGoogleAnalytic', '$q', 'prmSearchService', function ($timeout, customService, customGoogleAnalytic, $q, prmSearchService) {
     /** IMPORTANT */
     /** this file was written for us by Stack Map in 2019 to support two important customizations */
     /** 1. if there are multiple participating libraries, show map it link for both (e.g. 990112632530203941/catalog  has law and wid */
