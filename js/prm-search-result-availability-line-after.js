@@ -66,7 +66,7 @@ angular.module('viewCustom')
                 var param={'isbn':'','hasData':false};
                 param.isbn = vm.itemPNX.pnx.addata.isbn[0];
                 var ourTitle = vm.itemPNX.pnx.addata.btitle[0].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/\s/g,"").toLowerCase().substring(0,10);
-                console.log('ours: '+ourTitle);
+                //console.log('ours: '+ourTitle);
                     //fetch(openLibUrl+param.isbn+'&format=json&jscmd=viewapi', {                        
                 // trying jscmd = details to get title in addition to borrow status so i can perform remedial check that it's the same title before presenting link; sometimes the isbn request returns the wrong book b/c openLib is also searching 020$z
                     fetch(openLibUrl+param.isbn+'&format=json&jscmd=details', {                        
@@ -83,7 +83,7 @@ angular.module('viewCustom')
                             var objKeyValue = objKey[0]; 
                             var openLibPreview = data[objKeyValue].preview;                                              
                             var openLibTitle = data[objKeyValue].details.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/\s/g,"").toLowerCase().substring(0,10); 
-                            console.log('openlib: '+openLibTitle);                                             
+                            //console.log('openlib: '+openLibTitle);                                             
                             if (openLibPreview === 'borrow' && openLibTitle === ourTitle) {
                                 vm.OpenLib.display = true;
                                 vm.OpenLib.infoURL = data[objKeyValue].info_url;
@@ -91,7 +91,7 @@ angular.module('viewCustom')
                             } 
                         })
                         .catch(function (err) {
-                            console.log("Open Library call did  not work", err);
+                            //console.log("Open Library call did  not work", err);
                         });
           }
         };
@@ -177,13 +177,13 @@ angular.module('viewCustom')
             } else {
                 vm.isSerial=false;
             }
-            console.log(vm.isSerial);
+            //console.log(vm.isSerial);
             if(vm.itemPNX.pnx.display.lds40 && vm.parentCtrl.isFullView) {
                 $timeout(function () {
                     vm.coordinates = cs.buildCoordinatesArray(vm.itemPNX.pnx.display.lds40[0]);
                     vm.centerLongitude = (vm.coordinates[0] + vm.coordinates[1]) / 2;
                     vm.centerLatitude = (vm.coordinates[2] + vm.coordinates[3]) / 2;
-                    console.log(vm.coordinates);
+                    //console.log(vm.coordinates);
 
                     var zoom=3;
                     map=L.map('hglMap12',{center:[vm.centerLatitude, vm.centerLongitude],

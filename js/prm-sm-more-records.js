@@ -1,4 +1,4 @@
-angular.module('viewCustom').controller('prmSmMoreRecords', ['$timeout', 'customService', 'customGoogleAnalytic', '$q', 'prmSearchService', function ($timeout, customService, customGoogleAnalytic, $q, prmSearchService) {
+angular.module('viewCustom').controller('prmSmMoreRecords', ['$timeout', 'customService', '$q', 'prmSearchService', function ($timeout, customService, $q, prmSearchService) {
     /** IMPORTANT */
     /** this file was written for us by Stack Map in 2019 to support two important customizations */
     /** 1. if there are multiple participating libraries, show map it link for both (e.g. 990112632530203941/catalog  has law and wid */
@@ -64,41 +64,43 @@ angular.module('viewCustom').controller('prmSmMoreRecords', ['$timeout', 'custom
          statusCodes: [],
          _availableCodes: ['available', 'available_at_institution'],
      };
-         
-     vm.delivery = this.parentCtrl.result.delivery;
-     if (vm.delivery.holding.length > 0) {
-         vm.sm_holdings = vm.delivery.holding.map(function (entry, i) {
-             entry.toTranslate = entry.libraryCode;
-             entry.subLocation = entry.subLocation;
-             entry.callNumber = entry.callNumber;
-             entry.availabilityStatus = entry.availabilityStatus;
-             entry.availability = vm.parentCtrl.getPlaceHolders(entry);
-             entry.availabilityDisplay = function () {
-                 // could not find hook to get display text, so this tries to leverage
-                 // the built in translate directive that gets some of the display text but not all
-                 return 'delivery.code.' + entry.availabilityStatus;
-             };
-             return entry;
-         })
-         .filter(function (entry, i) {
-             if (options.omitFirstResult && i === 0) {
-                 return false;
-             }
-             if (options.availableOnly && vm.whitelist._availableCodes.length > 0 && entry.availabilityStatus) {
-                 if (!vm.whitelist._availableCodes.includes(entry.availabilityStatus)) return false;
-             }
-             if (vm.whitelist.libraryCodes.length > 0 && entry.libraryCode) {
-                 if (!vm.whitelist.libraryCodes.includes(entry.libraryCode)) return false;
-             }
-             if (vm.whitelist.subLocations.length > 0 && entry.subLocation) {
-                 if (!vm.whitelist.subLocations.includes(entry.subLocation)) return false;
-             }
-             if (vm.whitelist.statusCodes.length > 0 && entry.availabilityStatus) {
-                 if (!vm.whitelist.statusCodes.includes(entry.availabilityStatus)) return false;
-             }
-             return true;
-         });
-     }
+
+    this.$onInit=function () { 
+        vm.delivery = this.parentCtrl.result.delivery;
+        if (vm.delivery.holding.length > 0) {
+            vm.sm_holdings = vm.delivery.holding.map(function (entry, i) {
+                entry.toTranslate = entry.libraryCode;
+                entry.subLocation = entry.subLocation;
+                entry.callNumber = entry.callNumber;
+                entry.availabilityStatus = entry.availabilityStatus;
+                entry.availability = vm.parentCtrl.getPlaceHolders(entry);
+                entry.availabilityDisplay = function () {
+                    // could not find hook to get display text, so this tries to leverage
+                    // the built in translate directive that gets some of the display text but not all
+                    return 'delivery.code.' + entry.availabilityStatus;
+                };
+                return entry;
+            })
+            .filter(function (entry, i) {
+                if (options.omitFirstResult && i === 0) {
+                    return false;
+                }
+                if (options.availableOnly && vm.whitelist._availableCodes.length > 0 && entry.availabilityStatus) {
+                    if (!vm.whitelist._availableCodes.includes(entry.availabilityStatus)) return false;
+                }
+                if (vm.whitelist.libraryCodes.length > 0 && entry.libraryCode) {
+                    if (!vm.whitelist.libraryCodes.includes(entry.libraryCode)) return false;
+                }
+                if (vm.whitelist.subLocations.length > 0 && entry.subLocation) {
+                    if (!vm.whitelist.subLocations.includes(entry.subLocation)) return false;
+                }
+                if (vm.whitelist.statusCodes.length > 0 && entry.availabilityStatus) {
+                    if (!vm.whitelist.statusCodes.includes(entry.availabilityStatus)) return false;
+                }
+                return true;
+            });
+        }
+    };
  
      vm.onCustomLinkClick = function (availability) {
          // your link click code goes here.

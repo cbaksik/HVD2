@@ -274,6 +274,9 @@ p.SMpowered-by {
 	display: flex;
 	flex-wrap: wrap;
 }
+.SMsearchbtn-container button {
+	margin-right:50px;
+}
 
 .SMsubheader {
 	margin: 0 0 8px 0;
