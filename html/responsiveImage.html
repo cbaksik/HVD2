@@ -4,7 +4,7 @@
     <img ng-if="vm.src" ng-src="{{vm.src}}" class="md-card-image {{vm.localScope.imgClass}}" alt="{{vm.imgtitle}}" aria-label="{{vm.imgtitle}}" title="{{vm.imgtitle}}"/>
     <div class="nophoto" ng-if="!vm.src" aria-label="{{vm.imgtitle}}"  title="{{vm.imgtitle}}">Image not digitized</div>
     <div class="lockIcon" tabindex="-1" ng-if="vm.localScope.hideLockIcon">
-        <img src="custom/HVD2/img/icon_lock25.png" alt="Lock" aria-label="Restricted image"/>
+        <img src="custom/HVD2/img/icon_lock25.png" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/>
     </div>
     </a>
     <span ng-if="vm.localScope.loading"><img class="md-avatar" src="custom/HVD2/img/ajax-loader.gif"/></span>
