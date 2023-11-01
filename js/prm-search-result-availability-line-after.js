@@ -33,7 +33,7 @@ angular.module('viewCustom')
                 //console.log("test for toc");
                 param.isbn = vm.itemPNX.pnx.addata.isbn[0];
                  /* fetch chained response to get data (first response is not actual data yet) */
-                    fetch(tocUrl+param.isbn+'/xml.xml&client=harvard&type=xw10', {                        
+                    fetch(tocUrl+param.isbn+'/toc.xml&client=harvard&type=xw10', {                        
                         method: 'GET',
                         headers: {
                             'Accept': '*/*'
@@ -48,8 +48,8 @@ angular.module('viewCustom')
                             //console.log(response.headers); 
                             return response.text();
                         })
-                        .then(function (data) {                                                      
-                            if (data.substr(0,5) == '<?xml') {                                
+                        .then(function (data) {  
+                            if (data.substr(0,7) == '<USMARC') {                                
                                 vm.TOC.display = true;
                                 vm.TOC.isbn = param.isbn;
                             }
