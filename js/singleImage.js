@@ -24,7 +24,10 @@ angular.module('viewCustom')
             vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
             vm.isLoggedIn=sv.getLogInID();
             vm.clientIp=sv.getClientIp();
-            //console.log("singleImage.js");
+            vm.iframeHtml='iframe will go here!';
+            vm.urn = '';
+            console.log("singleImage.js");
+            console.log(vm.iframeHtml);
 
             // check if image is not empty and it has width and height and greater than 150, then add css class
             vm.$onChanges=function () {
@@ -38,9 +41,21 @@ angular.module('viewCustom')
                     //console.log('Restrict image: A user is not login or client IP address is not in  the list');
                 }
                 
-                vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
+                vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false, 'iframeHtml':''};
                 if(vm.src && vm.showImage) {
-                    const url = sv.getHttps(vm.src) + '?buttons=Y';
+                    vm.items={};
+                    vm.urn = vm.src.split('/').pop();
+                    const restUrl = 'https://localhost:23018/api/nrs'
+                    var params={'urn':vm.urn,'prod':1}
+                    sv.getAjax(restUrl,params,'get')
+                    .then(function (result) {
+                        vm.items=result.data;
+                        vm.iframeHtml = vm.items.html;
+                        console.log('iframeHtml: '+vm.iframeHtml);
+                    },function (err) {
+                        console.log(err);
+                    });
+                    const url = sv.getHttps(vm.src) + '?buttons=y';
                     vm.imageUrl = $sce.trustAsResourceUrl(url);
                 }
                 vm.localScope.loading=false;
