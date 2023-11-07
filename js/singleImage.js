@@ -45,13 +45,24 @@ angular.module('viewCustom')
                 if(vm.src && vm.showImage) {
                     vm.items={};
                     vm.urn = vm.src.split('/').pop();
-                    const restUrl = 'https://localhost:23018/api/nrs'
+                    const restUrl = 'https://embed.lib.harvard.edu/api/nrs'
                     var params={'urn':vm.urn,'prod':1}
                     sv.getAjax(restUrl,params,'get')
                     .then(function (result) {
                         vm.items=result.data;
                         vm.iframeHtml = vm.items.html;
-                        console.log('iframeHtml: '+vm.iframeHtml);
+                        const doc = new DOMParser().parseFromString(vm.iframeHtml, 'text/html');
+                        const element = doc.body.children[0];
+                        vm.iframeAttributes = {};
+                        for (var i = 0; i < element.attributes.length; i++) {
+                            var attrib = element.attributes[i];
+                            if (attrib.name == 'src') {
+                                vm.iframeAttributes[attrib.name] = $sce.trustAsResourceUrl(attrib.value);
+                            }
+                            else {
+                                vm.iframeAttributes[attrib.name] = attrib.value;  
+                            }
+                        }                 
                     },function (err) {
                         console.log(err);
                     });

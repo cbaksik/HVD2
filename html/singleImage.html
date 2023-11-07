@@ -10,13 +10,7 @@
         <img height="150px" width="150px" ng-show="vm.showImage" src="https://nrs.harvard.edu/urn-3:RAD.SCHL:398065?height=150&width=150"/>
     </div> -->
 
-    <!-- <iframe id="iframe" ng-show="vm.showImage" src="{{vm.imageUrl}}" class="iframeClass" allowfullscreen="true"></iframe> //-->
-    <!-- <iframe id="iframe" ng-show="vm.showImage" src="https://viewer.lib.harvard.edu/viewer/?manifestId=https%3A%2F%2Fiiif.lib.harvard.edu%2Fmanifests%2Fids%3A10274481&canvasId=https%3A%2F%2Fiiif.lib.harvard.edu%2Fmanifests%2Fids%3A10274481%2Fcanvas%2Fcanvas-10274481.json" class="iframeClass" allowfullscreen="true"></iframe> -->
-
-    <pre ng-repeat="(key, val) in this">{{key}} = {{val|json}}</pre>
-    YO2!
-    {{vm.iframeHtml}}
-
+    <iframe name="{{vm.iframeAttributes.name}}" src="{{vm.iframeAttributes.src}}" height="{{vm.iframeAttributes.height}}" width="{{vm.iframeAttributes.width}}" title="{{vm.iframeAttributes.title}}" frameborder="{{vm.iframeAttributes.frameborder}}" marginwidth="{{vm.iframeAttributes.marginwidth}}" marginheight="{{vm.iframeAttributes.marginheight}}" scrolling="{{vm.iframeAttributes.scrolling}}" allowfullscreen="{{vm.iframeAttributes.allowfullscreen}}"></iframe>
 
 <!--     <div ng-if="!vm.src">
         <div id="imgNotDig" class="nophoto" aria-label="{{vm.imgtitle}}" title="{{vm.imgtitle}}">Image not digitized</div>
