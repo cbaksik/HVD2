@@ -1,4 +1,4 @@
-.iframeClass {
+prm-full-view-service-container prm-view-online single-image div {
     //width:700px;
     //height:650px;
     width:100%;
@@ -17,7 +17,7 @@ span.hvdSingleImgRestrictedNote {
     padding-left:10px;
 }
 @media only print {
-    .iframeClass {
+    prm-full-view-service-container prm-view-online single-image div {
         width:600px;
         height:500px;
         margin:0px;
