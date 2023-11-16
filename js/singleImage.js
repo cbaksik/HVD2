@@ -24,7 +24,6 @@ angular.module('viewCustom')
             vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
             vm.isLoggedIn=sv.getLogInID();
             vm.clientIp=sv.getClientIp();
-            vm.urn = '';
             console.log("singleImage.js");
 
             // check if image is not empty and it has width and height and greater than 150, then add css class
