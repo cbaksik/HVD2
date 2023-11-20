@@ -1016,6 +1016,7 @@ input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date
 }
 .multiselect-submit .multiselect-submit-inner .md-button.md-primary {
     background-color:#187474;
+    color:white;
 }
 .multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover,
 .multiselect-submit .multiselect-submit-inner .md-button.md-primary:focus {
