@@ -1,4 +1,4 @@
-.iframeClass {
+single-image #iframe {
     //width:700px;
     //height:650px;
     width:100%;
@@ -17,7 +17,7 @@ span.hvdSingleImgRestrictedNote {
     padding-left:10px;
 }
 @media only print {
-    .iframeClass {
+    single-image #iframe {
         width:600px;
         height:500px;
         margin:0px;
