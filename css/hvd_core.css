@@ -580,7 +580,7 @@ prm-search-result-availability-line-after a:hover,
 prm-search-result-availability-line-after a:focus {
     box-shadow: inset 0 -3px 0 0 rgba(43, 44, 44, 0.3);
 }
-/* cdi quicklinks */
+/* BEGIN cdi quicklinks */
 prm-quick-link {
     font-weight: 600;
 }
@@ -622,7 +622,12 @@ prm-full-view prm-quick-link a .quick-link-type {
 prm-full-view prm-quick-link span[translate="fulldisplay.unpaywall.noLinks"] {
     display:none;
 }
-/* endcdi quicklinks */
+/* normally LibKey hides the Get PDF and Read online that quicklinks adds on top of the Online Access link. For cases where LibKey does not supply anything, we want to hide these ourselves because they are redundant to the Online access link. This code will hide only Get PDF and Read online; it will leave the Unpaywall links */
+prm-brief-result-container prm-quick-link a:has(span[translate="fulldisplay.PDF"]),
+prm-brief-result-container prm-quick-link a:has(span[translate="fulldisplay.HTML"]) {
+    display:none;
+}
+/* END cdi quicklinks */
 /* cdi document attributes - hide badge when "regular" aka review, preprint, not retracted etc */
 prm-brief-result-container div.regular-cdi-attributes-mark {
     display:none;
@@ -771,6 +776,10 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
     background-color:#fff;
 }
 /* end browzine */
+/* hide map it link if book is on loan  */
+prm-brief-result-container div.result-item-text:has(prm-search-result-availability-line button:first-of-type > span > span[class*="unavailable"]) p.SMsearchbtn-container {
+    display:none;
+}
 /* end BRIEF RECORD */
 /*  ------------ */
 /* page navigation search results, new pagination may 2021 */
