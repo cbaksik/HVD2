@@ -1,5 +1,8 @@
 prm-collection-gallery-header .collection-header-inner {
     background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
+    background-repeat: no-repeat; /
+    /* background-size: cover; */
+    /* background-position: 50%; */
 }
 prm-collection-discovery h1 {
     font-family: "Trueno", sans-serif;
@@ -49,6 +52,11 @@ prm-collection-search md-toolbar.default-toolbar,
 prm-collection-search md-toolbar.md-primoExplore-theme.default-toolbar {
     background-color:#f3f3f3; 
 }
+/* hide search toolbar if page has subsets */
+prm-collection-gallery:has(prm-gallery-collections-list div.is-gallery-view) prm-collection-search md-toolbar.default-toolbar,
+prm-collection-gallery:has(prm-gallery-collections-list div.is-gallery-view) prm-collection-search md-toolbar.md-primoExplore-theme.default-toolbar {
+    display:none;
+}
 /* hide "didn't find what you're looking for? search all collections"  because that takes you to lobby which we don't want people to find */
 prm-collection-gallery div.collection-discovery-expand-search {
     display:none;
@@ -56,6 +64,13 @@ prm-collection-gallery div.collection-discovery-expand-search {
 prm-collection-gallery-header .collection-header-inner.has-transparent-topbar {
     margin-top:0px;
     padding-top:0px;
+    /* background-size:contain;
+    background-repeat:no-repeat;
+    background-position:80%; */
+}
+prm-collection-gallery-header .collection-header-inner.has-backdrop-image:before {
+    background-image: linear-gradient(-45deg, #0579b8 0%, #2a5280 100%);
+    opacity:1;
 }
 prm-collection-gallery-header .collection-info {
     max-width:900px;
@@ -82,58 +97,26 @@ prm-collection-navigation-breadcrumbs-item .md-button.button-as-link.link-alt-co
 prm-gallery-collection .collection-folder .collection-overlay {
     color:#0579b8;
 }
-prm-collection-discovery prm-search-result-thumbnail-container img {
-    width:auto;
-    max-width: 200px;
+prm-collection-discovery prm-gallery-collection .collection-folder .collection-images div {
+    background-position-y:25%;
 }
-/* use this line to not display any images on coll lobby */
-/* prm-collection-discovery prm-collection-gallery prm-gallery-collections-list prm-gallery-collection a .collection-images {
-    display:none;
-} */
 /* this one just shows first thumbnail and drops others */
-/* need to hide staff set home button from coll page */
-prm-collection-discovery prm-collection-gallery prm-gallery-collections-list prm-gallery-collection a .collection-images div:not(:first-child){
+prm-collection-discovery prm-gallery-collection .collection-folder .collection-images div:not(:first-child) {
     display:none;
-} 
-/* use the code below to cast shadow on gallery images, or hide them with an opaque color */
-/* prm-collection-discovery prm-collection-gallery prm-gallery-collections-list prm-gallery-collection a .collection-images:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #333;
-    opacity: .55;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-} */
-
-/* this is the OTB code that casts a shadow over the gallery header of each coll, making it transparent so it doesn't do that */
-prm-collection-gallery-header .collection-header-inner.has-backdrop-image:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: transparent;
-    opacity: .55;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
 }
 prm-collection-gallery-header prm-save-to-favorites-button {
     display:none;
 }
-/* prm-gallery-collection .collection-folder .item-title {
-    font-family: "Trueno", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: 32px;
-    margin-bottom: 0.4em;
-    position: relative;
-    text-transform: none;
-    color:white;
-} */
+prm-collection-discovery prm-search-result-thumbnail-container {
+    min-height:140px;
+}
+prm-collection-discovery prm-search-result-thumbnail-container img {
+    width:auto;
+    max-width: 200px;
+}
+prm-collection-discovery .is-grid-view prm-gallery-item .collection-element prm-search-result-thumbnail-container img { 
+    min-height:140px;
+}
 /* ------------------------------- */
 /* BEGIN SECTION FOR COLL PATH ON FULL VIEW PAGE */
 prm-full-view prm-service-details prm-record-collection-paths span.bold-text {
