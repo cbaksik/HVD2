@@ -11,6 +11,8 @@
         let vm=this;
         let cisv=customImagesService;
         vm.itemList=[];
+        vm.almaDaux='';
+        vm.almaDaux2='';
         vm.recordLinks=[]; // keep track the original vm.parentCtrl.recordLinks
         vm.getData=()=> {
             // make a copy to avoid data binding
@@ -39,8 +41,19 @@
             }
             //console.log(vm.showHathiLink );
             vm.searchHathiLink = searchHathiBase + author + '&type%5B%5D=author&bool%5B%5D=AND&lookfor%5B%5D='  + title + '&type%5B%5D=title&bool[]=AND&lookfor[]=' + year + '&type[]=year&bool[]=AND&yop=after' + searchHathiLinkAppend;  
-            /* END hathi section */                  
-            // get items that have digital bookplates
+            /* END hathi section */   
+
+            /* TESTING ALMA-D AUX IMAGE DISPLAY */
+            if (vm.parentCtrl.item.pnx.search.lsr01[0] == '990007664060203941') {
+                vm.almaDaux = '990007664060203941';
+                //console.log("dress for success");
+            }
+            if (vm.parentCtrl.item.pnx.search.lsr01[0] == '990140136830203941') {
+                vm.almaDaux2 = '990140136830203941';
+            }
+
+
+            // DIGITAL BOOKPLATES
             vm.itemList=cisv.extractImageUrl(vm.parentCtrl.item, vm.recordLinks);
             // delay data from parentCtrl
             $timeout(()=> {
