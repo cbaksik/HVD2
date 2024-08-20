@@ -1656,33 +1656,46 @@ prm-search-result-list prm-personalize-results-button .md-button md-switch {
     height:25px;
 }
 prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color {
-    color:#0579b8;
+    color:#187474;
     opacity:1;
 }
 prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:hover:not([disabled]),
 prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
-    background-color:#2a5280;
+    background-color:#187474;
     border-radius: 4px;
 }
 /* bulk buttons when activated */
-prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button[disabled=disabled] {
+prm-search-result-tool-bar .md-toolbar-tools .md-button[disabled=disabled] {
     color: #ccc!important;
     cursor: not-allowed;
     transform: none;
+    border:none;
 }
 prm-search-result-tool-bar .md-toolbar-tools .md-button {
     transition-duration:0ms;
 }
-prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button {
+prm-search-result-tool-bar .animate-enter-leave-scale-bounce {
+    margin-right:3px;
+}
+prm-search-result-tool-bar .toolbar-item button.md-icon-button {
+    border:1px solid #187474;
     color:#187474;
-    transform: rotate(25deg);
+    border-radius:4px;
+}
+prm-search-result-tool-bar .toolbar-item button.md-icon-button:hover {
+    color:#fff;
+    background-color:#187474;
+}
+prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button {
+    transform: rotate(0deg);
     opacity: 1;
     transition-duration:0ms;
 }
-prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button:hover:not([disabled]){
+/* prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button:hover:not([disabled]){
     color:#000;
     background-color:transparent;
-}
+} */
+
 /* alert at top when you save a search */
 prm-add-alert-toast md-toast .md-toast-content {
     color:#000;
@@ -1696,26 +1709,43 @@ prm-add-alert-toast md-toast .md-button.settings-button:hover:not([disabled]) {
     background-color:#026db9;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax {
-    color:#0579b8;
+    color:#187474;
     font-style: normal;
     padding: 0px 10px;
     font-weight: 600;
     border-radius: 4px;
+    border:1px solid #187474;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax:hover {
     color:#fff;
-    background-color:#2a5280;
+    background-color:#187474;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax:focus {
     color:#fff;
-    background-color:#0579b8;
+    background-color:#187474;
 }
 prm-search-result-tool-bar #slideTopMaxAlert .md-button.button-link:hover:not([disabled]) {
-    background-color:#2a5280;
+    background-color:#187474;
     color:#fff;
 }
+prm-search-result-tool-bar #slideTopMaxAlert button#exportAllResultsBtn {
+    color:#187474;
+    font-style: normal;
+    padding: 0px 10px;
+    font-weight: 600;
+    border-radius: 4px;
+    border:1px solid #187474;
+}
+prm-search-result-tool-bar #slideTopMaxAlert button#exportAllResultsBtn:hover {
+    color:#fff;
+    background-color:#187474;
+}
+prm-search-result-tool-bar #slideTopMaxAlert button#exportAllResultsBtn:focus {
+    color:#fff;
+    background-color:#187474;
+}
 md-checkbox.md-checked .md-container .md-icon {
-    background-color:#0579b8;
+    background-color:#187474;
 }
 prm-search-result-tool-bar .disableActionTool, prm-search-result-tool-bar .disabledFavTool {
     color:#858585;
