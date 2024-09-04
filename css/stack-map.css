@@ -37,7 +37,8 @@
 .SMclose,
 .SMprinter-friendly {
     color: #1b4fa1;
-    text-decoration: none
+    text-decoration: none;
+    margin: .5em
 }
 
 .SMclose.no-fa,
@@ -103,15 +104,16 @@
     align-items: center
 }
 
+.SMheaderbtns,
+.SMmap-buttons button {
+    display: flex;
+    align-items: baseline
+}
+
 .SMheader-top {
     font-family: Trueno;
     font-size: 42px;
     font-weight: 400
-}
-
-.SMheaderbtns {
-    display: flex;
-    align-items: baseline
 }
 
 .SMheaderbtns button {
@@ -199,8 +201,6 @@
 }
 
 .SMmap-buttons button {
-    display: flex;
-    align-items: baseline;
     padding: 10px;
     border-radius: 3px;
     color: #1b4fa1;
@@ -232,7 +232,10 @@
 }
 
 .SMmap-container {
-    min-width: 67%
+    min-width: 67%;
+    flex: 1 1 100%;
+    border-top: 1px solid #220505;
+    overflow: hidden
 }
 
 .SMmap-overlay {
@@ -249,13 +252,8 @@
     min-height: 400px
 }
 
-.SMmarker,
-.SMpin-target,
-.SMpopup {
-    position: absolute
-}
-
 .SMmarker {
+    position: absolute;
     cursor: pointer
 }
 
@@ -277,6 +275,7 @@
 }
 
 .SMpin-target {
+    position: absolute;
     cursor: pointer
 }
 
@@ -286,6 +285,7 @@
 
 .SMpopup {
     display: none;
+    position: absolute;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
@@ -296,13 +296,6 @@
     max-width: 1000px;
     font-family: sans-serif;
     margin: 0 auto
-}
-
-#SMtooltip,
-.SMrange-info {
-    position: absolute;
-    border-radius: 3px;
-    padding: 2px
 }
 
 .SMpopup:focus {
@@ -330,9 +323,10 @@
 }
 
 .SMpowered-by {
-    font-size: 12px;
-    margin: 0 1em 1em;
-    text-align: right
+    font-size: .8em;
+    flex: 1 0 100%;
+    text-align: right;
+    width: 100%
 }
 
 .SMpowered-by a {
@@ -345,11 +339,14 @@
 }
 
 .SMrange-info {
+    position: absolute;
     font-size: 10px;
     width: 200px;
     background-color: #fff;
+    border-radius: 3px;
     -moz-border-radius: 3px;
     border: 1px solid #000;
+    padding: 2px;
     height: 40px;
     vertical-align: middle;
     text-align: center
@@ -385,6 +382,7 @@
 .SMsearchbtn-container button {
     margin-right:50px;
 }
+
 .searchIcon.no-fa {
     height: 14px;
     width: 14px
@@ -415,11 +413,20 @@
     margin-bottom: 10px
 }
 
+.SMsubheader {
+    margin: 0 0 8px;
+    padding: 0;
+    flex: 1 0 100%
+}
+
 #SMtooltip {
+    position: absolute;
     font-size: 12px;
     background-color: #fff;
+    border-radius: 3px;
     -moz-border-radius: 3px;
     border: 1px solid #000;
+    padding: 2px;
     z-index: 3001;
     display: none
 }
