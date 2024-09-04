@@ -1088,13 +1088,37 @@ prm-breadcrumbs .md-chip.facet-excluded .md-chip-content:after {
 	color:#6e6868;
 }
 /*  ------------ */
-/* FULL DISPLAY PAGE */
+/* FULL DISPLAY PAGE detail view */
 /*  ------------ */
 /* full display page */
 /* during overlay of search results, left and right pane */
 .md-dialog-container.fixed-container {
     background-color:rgba(128, 125, 125, 0.1);
 }
+/* override OTB css that makes 20% width empty vertical bar at the right of the detail page between 1280 and 1919 viewports, reduce to 10%, helps with wider Browse Shelf, item table,  etc.   ; reduce left bar as well*/
+/* @media (min-width:1280px) and (max-width:1919px) {
+    prm-full-view-page .flex-lg-20, 
+    prm-full-view-page .layout-row>.flex-lg-20 {
+        max-width: 15%;
+        }
+}
+@media (min-width:1280px) and (max-width:1919px) {
+    prm-full-view-page .flex-lg-10, 
+    prm-full-view-page .layout-row>.flex-lg-10 {
+        max-width: 5%;
+        }
+}
+@media (max-width:1279px) {
+    prm-full-view .full-view-section {
+        padding-right:0em;
+    }
+}
+.__gt-xs .full-view-section-content {
+    padding-left:0em;
+}
+prm-full-view .full-view-section .__gt-xs .full-view-section-content {
+    padding-left:0em;
+} */
 prm-full-view-service-container .arrow-link [link-arrow] md-icon {
     display:none;
 }
@@ -1229,6 +1253,7 @@ md-menu-content.menu-with-footer .menu-footer form div:hover {
 prm-permalink div.form-focus{
     text-align:center;
 }
+/* end full display page, detail view    */
 /* --------------------    */
 /*    ADVANCED SEARCH      */
 /* --------------------    */
