@@ -63,23 +63,22 @@ angular.module('viewCustom')
             if(!vm.parentCtrl.displaymode) {
                 $timeout(function () {
                     // if holding location is existed, then insert sms text call icon
-                    if (vm.parentCtrl.item.delivery) {                 
-                        if(vm.parentCtrl.item.delivery.holding.length > 0) {
-                            let textsmsExist = document.getElementById('textsms');
-                            // if textsms doesn't exist, insert it.
-                            if (!textsmsExist) {
-                                let prmActionList = document.getElementsByTagName('prm-action-list')[0];
-                                let ul = prmActionList.getElementsByTagName('ul')[0];
-                                let li = ul.querySelector('#scrollActionList');
-                                if (li) {
-                                    let smsTag = document.createElement('custom-sms');
-                                    smsTag.setAttribute('parent-ctrl', 'vm.parentCtrl');
-                                    li.insertBefore(smsTag, li.childNodes[0]);
-                                    $compile(li.children[0])($scope);
-                                }
-                            }
-                        }
-                    }
+                    // if (vm.parentCtrl.item.delivery) {                 
+                    //     if(vm.parentCtrl.item.delivery.holding.length > 0) {
+                    //         let textsmsExist = document.getElementById('textsms');
+                    //         if (!textsmsExist) {
+                    //             let prmActionList = document.getElementsByTagName('prm-action-list')[0];
+                    //             let ul = prmActionList.getElementsByTagName('ul')[0];
+                    //             let li = ul.querySelector('#scrollActionList');
+                    //             if (li) {
+                    //                 let smsTag = document.createElement('custom-sms');
+                    //                 smsTag.setAttribute('parent-ctrl', 'vm.parentCtrl');
+                    //                 li.insertBefore(smsTag, li.childNodes[0]);
+                    //                 $compile(li.children[0])($scope);
+                    //             }
+                    //         }
+                    //     }
+                    // }
                     // if print icon exist, then add custom-print tag
                     var printEl = document.getElementById('Print');
                     if (printEl) {
