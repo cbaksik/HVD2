@@ -58,6 +58,18 @@ prm-collection-search md-toolbar.default-toolbar,
 prm-collection-search md-toolbar.md-primoExplore-theme.default-toolbar {
     background-color:#f3f3f3; 
 }
+prm-collection-search .search-within md-input-container input,
+prm-collection-search .search-within md-input-container.md-input-focused input, prm-collection-search .search-within md-input-container.md-input-has-value input {
+    font-size:15px;
+    min-width:280px;
+}
+prm-collection-search .search-within .search-button {
+    min-width: 88px;
+    max-width: 140px;
+}
+prm-collection-search .search-within .search-button.is-shifted {
+    margin-right:30px;
+}
 /* hide search toolbar if page has subsets */
 /* prm-collection-gallery:has(prm-gallery-collections-list div.is-gallery-view) prm-collection-search md-toolbar.default-toolbar,
 prm-collection-gallery:has(prm-gallery-collections-list div.is-gallery-view) prm-collection-search md-toolbar.md-primoExplore-theme.default-toolbar {
@@ -82,13 +94,21 @@ prm-gallery-collection:has(a[href*="812657355870003941"]){
 prm-collection-gallery-header .collection-header-inner.has-transparent-topbar {
     margin-top:0px;
     padding-top:0px;
-    /* background-size:contain;
+    /* next 3 lines would be used if we were going to show thumbnail in background */
+    /* background-size:contain; */
+    background-size:cover;
     background-repeat:no-repeat;
-    background-position:80%; */
+    background-position-y:25%;
+    background-position-x:100%;
 }
-prm-collection-gallery-header .collection-header-inner.has-backdrop-image:before {
+/* this is to create a blue fade background for all sets */
+/* prm-collection-gallery-header .collection-header-inner.has-backdrop-image:before {
     background-image: linear-gradient(-45deg, #0579b8 0%, #2a5280 100%);
     opacity:1;
+} */
+ /* this uses image as background with opacity high enough that it passess AAA accessibility if background is at least a light yellow/ivory-ish color; pure white background would need 0.82 opacity */
+prm-collection-gallery-header .collection-header-inner.has-backdrop-image:before {
+    opacity:0.77;
 }
 prm-collection-gallery-header .collection-info {
     max-width:900px;
