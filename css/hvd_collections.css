@@ -165,9 +165,15 @@ prm-gallery-items-list .md-button.button-confirm {
 prm-full-view prm-service-details prm-record-collection-paths:has(a[href*="812657355870003941"]){
     display:none;
 }
+prm-full-view prm-service-details prm-record-collection-paths {
+    margin-bottom: 25px;
+}
 prm-full-view prm-service-details prm-record-collection-paths span.bold-text {
     display:block;
     padding-top:13px;
+}
+prm-full-view prm-service-details prm-collection-navigation-breadcrumbs:not(:first-child)>div {
+    margin-top:-15px;
 }
 prm-full-view prm-service-details prm-collection-navigation-breadcrumbs-item .md-button.button-as-link.link-alt-color{
     color: #0579b8;
