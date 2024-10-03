@@ -35,25 +35,20 @@
     </li>
 </ul>
 
-<!-- Alma-D auxilliary image testing; first one is dress for success-->
+<!-- Alma-D auxilliary images -->
 
 <div class="hvd-embed-uv" ng-if="vm.almaDaux">
-   
-    <h4 class="section-title md-title light-text" >Sample Content</h4>
-    <md-divider flex="" class="md-primoExplore-theme flex"></md-divider>
-
-
+    <div>
+        <div layout="row" class="layout-row" style="margin-bottom:5px;">
+            <h4 class="section-title md-title light-text" >Sample Content</h4>
+            <!-- <md-divider flex="" class="md-primoExplore-theme flex"></md-divider> -->
+        </div>
+    </div>
     <div ng-if="vm.almaDaux">
         <iframe
-            src="https://hvd.alma.exlibrisgroup.com/view/UniversalViewer/01HVD_INST/122657353980003941#?iiifVersion=3&updateStatistics=false&embedded=true&c=0&m=0&s=0&cv=0&config=&locales=en-GB:English (GB),cy-GB:Cymraeg,fr-FR:Français (FR),pl-PL:Polski,sv-SE:Svenska,xx-XX:English (GB) (xx-XX)&xywh=-727,-268,4673,5340&r=0&"
-            sidebarOpen=" true" allowfullscreen fullscreenEnabled="true" frameborder="0"></iframe>
+            ng-src="{{vm.almaDauxEmbed}}"
+            sidebarOpen=" true" allowfullscreen fullscreenEnabled="true" frameborder="0">
+        </iframe>
     </div>
-    <div ng-if="vm.almaDaux2">
-        
-        <iframe
-            src="https://hvd.alma.exlibrisgroup.com/view/UniversalViewer/01HVD_INST/122654584640003941#?iiifVersion=3&updateStatistics=false&embedded=true&c=0&m=0&s=0&cv=0&config=&locales=en-GB:English (GB),cy-GB:Cymraeg,fr-FR:Français (FR),pl-PL:Polski,sv-SE:Svenska,xx-XX:English (GB) (xx-XX)&xywh=-727,-268,4673,5340&r=0"
-            width="1000" height="700" allowfullscreen frameborder="0"></iframe>
-    </div>
-
 </div>
-<!-- end Alma-D auxilliary image testing -->
+<!-- end Alma-D auxilliary images  -->

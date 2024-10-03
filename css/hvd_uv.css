@@ -1,20 +1,68 @@
 .hvd-embed-uv {
-    width:100%;
+    /* margin-left:0em; */
     height:100%;
     min-width:800px;
-    /* min-height:700px; */
-    /* overflow:scroll; */
+    overflow:visible;
 }
 .full-view-section .hvd-embed-uv .section-title {
     margin-top:40px;
 }
 
 .hvd-embed-uv iframe {
-    /* min-width:810px; */
     width:100%;
     height:100%;
-    /* min-width:610px; */
     min-width:800px;
-    min-height:500px;
-    /* overflow:visible; */
+    min-height:600px;
 }
+/* override OTB css that makes 20% width empty vertical bar at the right of the detail page between 1280 and 1919 viewports, reduce to 10%, helps with wider Browse Shelf, item table,  etc.   ; reduce left bar as well*/
+@media (min-width:600px) and (max-width:799px){
+    prm-full-view .full-view-section .hvd-embed-uv {
+        margin-left:-10.4em;
+    }
+    prm-full-view .full-view-section .hvd-embed-uv iframe {
+        width:100%;
+    }
+}
+@media (min-width:800px) and (max-width:1050px) {
+    prm-full-view .full-view-section .hvd-embed-uv {
+        margin-left: -10.4em;
+    }
+}
+@media (min-width:1051px) and (max-width:1279px) {
+    prm-full-view .full-view-section .hvd-embed-uv {
+        margin-left: 0.5em;
+    }
+}
+@media (min-width:1280px) and (max-width:1350px) {
+    prm-full-view .full-view-section .hvd-embed-uv {
+        margin-left: -4em;
+    }
+}
+@media (min-width:1350px) and (max-width:1380px) {
+    prm-full-view .full-view-section .hvd-embed-uv {
+        margin-left: -4.5em;
+    }
+}
+@media (min-width:1381px) and (max-width:9999px) {
+    prm-full-view .full-view-section .hvd-embed-uv {
+        margin-left: 0em;
+    }
+}
+/* @media (min-width:1280px) and (max-width:1919px) {
+    prm-full-view-page .flex-lg-20 .hvd-embed-uv, 
+    prm-full-view-page .layout-row>.flex-lg-20 .hvd-embed-uv {
+        max-width: 15%;
+        }
+} */
+/* @media (min-width:1280px) and (max-width:1919px) {
+    prm-full-view-page .flex-lg-10, 
+    prm-full-view-page .layout-row>.flex-lg-10 {
+        max-width: 5%;
+        }
+}*/
+/* .__gt-xs .full-view-section-content .hvd-embed-uv {
+    margin-left: -7.5em;
+} */
+/* prm-full-view .full-view-section .__gt-xs .full-view-section-content {
+    padding-left:0em;
+} */
