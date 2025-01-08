@@ -44,18 +44,17 @@
 
             /* ALMA-D AUX IMAGE DISPLAY */
 
+            if (vm.parentCtrl.item.pnx.links.thumbnail){
+                if (vm.parentCtrl.item.pnx.links.thumbnail[0].includes('hvd.alma.exlibrisgroup.com/view/delivery/thumbnail/01HVD_INST/12')) {
+                    vm.almaDaux = vm.parentCtrl.item.pnx.links.thumbnail[0].substring(73);
+                    vm.almaDauxEmbed = 'https://hvd.alma.exlibrisgroup.com/view/UniversalViewer/01HVD_INST/' + vm.almaDaux + '#?iiifVersion=3&updateStatistics=false&embedded=true&c=0&m=0&s=0&cv=0&config=&locales=en-GB:English (GB),cy-GB:Cymraeg,fr-FR:Français (FR),pl-PL:Polski,sv-SE:Svenska,xx-XX:English (GB) (xx-XX)&r=0';
+                    //console.log(vm.almaDaux);
+                    //console.log(vm.almaDauxEmbed);
+                    
+                    vm.almaDauxEmbed = $sce.trustAsResourceUrl(vm.almaDauxEmbed);
 
-
-            if (vm.parentCtrl.item.pnx.links.thumbnail[0].includes('hvd.alma.exlibrisgroup.com/view/delivery/thumbnail/01HVD_INST/12')) {
-                vm.almaDaux = vm.parentCtrl.item.pnx.links.thumbnail[0].substring(73);
-                vm.almaDauxEmbed = 'https://hvd.alma.exlibrisgroup.com/view/UniversalViewer/01HVD_INST/' + vm.almaDaux + '#?iiifVersion=3&updateStatistics=false&embedded=true&c=0&m=0&s=0&cv=0&config=&locales=en-GB:English (GB),cy-GB:Cymraeg,fr-FR:Français (FR),pl-PL:Polski,sv-SE:Svenska,xx-XX:English (GB) (xx-XX)&r=0';
-                //console.log(vm.almaDaux);
-                //console.log(vm.almaDauxEmbed);
-                
-                vm.almaDauxEmbed = $sce.trustAsResourceUrl(vm.almaDauxEmbed);
-
+                }
             }
-
 
             // DIGITAL BOOKPLATES
             vm.itemList=cisv.extractImageUrl(vm.parentCtrl.item, vm.recordLinks);
