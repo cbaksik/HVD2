@@ -1,6 +1,7 @@
 /**
  * Created by samsan on 10/13/17.
  */
+
 angular.module('viewCustom')
     .service('customMapXmlValues',[function () {
         var serviceObj = {};
@@ -56,6 +57,62 @@ angular.module('viewCustom')
             return result;
         };
         
+        // get hvd_SubjectName
+        serviceObj.getHvdSubjectName = function (nodeValue) {
+            var result = '';
+            console.log("getHvdSubjectName");
+        
+            function processNodeValues(values) {
+                var name = Array.isArray(values.nameElement) ? values.nameElement[0]._text : values.nameElement;
+                var dates = Array.isArray(values.dates) ? ', ' + values.dates[0]._text : values.dates;
+                var place = Array.isArray(values.place) ? ' [' + values.place[0]._text + ']' : values.place;
+        
+                return name + (dates || '') + (place || '') + '<br/>';
+            }
+        
+            if (nodeValue && typeof nodeValue === 'object') {
+                if (Array.isArray(nodeValue)) {
+                    for (var i = 0; i < nodeValue.length; i++) {
+                        result += processNodeValues(nodeValue[i]);
+                    }
+                } else {
+                    result += processNodeValues(nodeValue);
+                }
+            }
+        
+            if (result) {
+                result = result.replace(/<br\/>$/, '');
+            }
+        
+            return result;
+        };
+
+        // get hvd_SubjectPlace
+        serviceObj.getHvdSubjectPlace = function (nodeValue) {
+            var result = '';
+        
+            function processNodeValues(values) {
+                var place = Array.isArray(values.place) ? values.place[0]._text : values.place;
+        
+                return place + '<br/>';
+            }
+        
+            if (nodeValue && typeof nodeValue === 'object') {
+                if (Array.isArray(nodeValue)) {
+                    for (var i = 0; i < nodeValue.length; i++) {
+                        result += processNodeValues(nodeValue[i]);
+                    }
+                } else {
+                    result += processNodeValues(nodeValue);
+                }
+            }
+        
+            if (result) {
+                result = result.replace(/<br\/>$/, '');
+            }
+        
+            return result;
+        };
 
         // get image ID
         serviceObj.getAttr=function (nodeValue) {
@@ -229,6 +286,12 @@ angular.module('viewCustom')
                     case 'associatedName':
                         text = serviceObj.getAssociatedName(values);
                         break;
+                    case 'hvd_subjectName':
+                        text = serviceObj.getHvdSubjectName(values);
+                        break;                       
+                    case 'hvd_subjectPlace': 
+                        text = serviceObj.getHvdSubjectPlace(values);
+                        break;   
                     case '_attr':
                         text = serviceObj.getAttr(values);
                         break;
@@ -241,7 +304,7 @@ angular.module('viewCustom')
                         text = serviceObj.getTopic(values);
                         break;
                     case 'notes':
-                    case 'workType':    
+                    case 'workType':       
                     case 'description':    
                         text = serviceObj.getNotesEtc(values);
                         break;
@@ -394,9 +457,8 @@ angular.module('viewCustom')
             } else {
                 text=obj;
             }
-
             return text;
-        };
 
+        };
         return serviceObj;
     }]);

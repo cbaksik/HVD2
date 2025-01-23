@@ -1,8 +1,15 @@
 /**
  * Created by samsan on 9/28/17.
+ * This service find out the xml key, sort them, display them in order
+ * 
+ * ********************* IMPORTANT *************************
+ * 
+ * in addition to adding new variables to keys list, you must also add them to the sort order for components (omit the hvd_)
  */
 
-angular.module('viewCustom')
+(function () {
+
+    angular.module('viewCustom')
     .service('customMapXmlKeys',[function () {
         var serviceObj={};
 
@@ -22,6 +29,8 @@ angular.module('viewCustom')
             {'lds30':'Form / Genre'},
             {'lds31':'Place'},
             {'lds44':'Associated Name'},
+            {'lds36':'Is part of'},
+            {'lds37':'Contains'},
             {'associatedName':'Associated Name'},
             {'creationdate':'Creation Date'},
             {'creator':'Author / Creator'},
@@ -58,6 +67,8 @@ angular.module('viewCustom')
             {'hvd_style':'Image Style'},
             {'hvd_title':'Image Title'},
             {'hvd_topic':'Image Subject'},
+            {'hvd_subjectName':'Image Subject Name'},
+            {'hvd_subjectPlace':'Image Subject Place'},
             {'hvd_useRestrictions':'Image Use Restrictions'},
             {'hvd_workType':'Image Type'},
             {'_attr':'Image ID'},
@@ -104,7 +115,7 @@ angular.module('viewCustom')
         // re-arrange sorting component order
         serviceObj.orderList=['title','creator','freeDate','state','production','description','physicalDescription','materials','dimensions',
         'notes','note','topic','placeName','location','culture','style','workType','classification','itemIdentifier',
-            'associatedName','relatedWork','relatedInformation','useRestrictions','copyright','repository'];
+            'associatedName','relatedWork','relatedInformation','useRestrictions','copyright','repository','subjectName','subjectPlace'];
         serviceObj.getOrderList=function (listKey) {
             var keys=[];
             var hvdKeys=[];
@@ -148,3 +159,5 @@ angular.module('viewCustom')
 
         return serviceObj;
     }]);
+
+})();
