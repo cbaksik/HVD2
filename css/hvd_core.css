@@ -777,9 +777,10 @@ prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
 }
 /* end browzine */
 /* hide map it link if book is on loan  */
-prm-brief-result-container div.result-item-text:has(prm-search-result-availability-line button:first-of-type > span > span[class*="unavailable"]) p.SMsearchbtn-container {
+/* turned off - march 12 2025 on prod starting hiding all map it even tho it worked right on qa */
+/* prm-brief-result-container div.result-item-text:has(prm-search-result-availability-line button:first-of-type > span > span[class*="unavailable"]) p.SMsearchbtn-container {
     display:none;
-}
+} */
 /* end BRIEF RECORD */
 /*  ------------ */
 /* page navigation search results, new pagination may 2021 */
