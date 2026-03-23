@@ -166,6 +166,7 @@ angular.module('viewCustom')
 
         vm.$onInit=function() {
             // get rest endpoint url from config.html where it preload prm-tobar-after.js
+		  console.log(vm);
             vm.api=custService.getApi();
             vm.itemPNX=vm.parentCtrl.result;
             // get table of content
